@@ -1,0 +1,40 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="ktlms-portal:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/ktlms_portal_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="ktlms-portal" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:6.1.15" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:6.1.15" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:6.1.15" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:6.1.15" />
+          <element id="library" level="project" name="Maven: io.micrometer:micrometer-observation:1.12.12" />
+          <element id="library" level="project" name="Maven: io.micrometer:micrometer-commons:1.12.12" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:6.1.15" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jcl:6.1.15" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:6.1.15" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:6.1.15" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:6.1.15" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:6.1.15" />
+          <element id="library" level="project" name="Maven: jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.0" />
+          <element id="library" level="project" name="Maven: jakarta.el:jakarta.el-api:5.0.0" />
+          <element id="library" level="project" name="Maven: org.glassfish.web:jakarta.servlet.jsp.jstl:3.0.1" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.18.2" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.18.2" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.18.2" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.5.19" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:3.0.4" />
+          <element id="library" level="project" name="Maven: org.postgresql:postgresql:42.7.5" />
+          <element id="library" level="project" name="Maven: org.checkerframework:checker-qual:3.48.3" />
+          <element id="library" level="project" name="Maven: io.jsonwebtoken:jjwt-api:0.12.6" />
+          <element id="library" level="project" name="Maven: io.jsonwebtoken:jjwt-impl:0.12.6" />
+          <element id="library" level="project" name="Maven: io.jsonwebtoken:jjwt-jackson:0.12.6" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="ktlms-portal/web/Web" />
+    </root>
+  </artifact>
+</component>
