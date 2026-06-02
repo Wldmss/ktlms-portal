@@ -4,6 +4,7 @@
 
 ## 설치 파일
 1. jboss wildFly 27.0.1
+   https://github.com/wildfly/wildfly/releases/download/27.0.1.Final/wildfly-27.0.1.Final.zip
 2. jdk 21
 3. intellij
 
