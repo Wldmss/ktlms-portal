@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="ktlms-portal:war">
-    <output-path>$PROJECT_DIR$/out/artifacts/ktlms_portal_war</output-path>
-    <root id="archive" name="ktlms-portal_war.war">
-      <element id="artifact" artifact-name="ktlms-portal:war exploded" />
-    </root>
-  </artifact>
-</component>

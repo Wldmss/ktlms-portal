@@ -24,30 +24,53 @@
 
 ## css, js minify 자동 설정
 
-1. Settings > Plugins > File Watchers 설치 (IDE 재시작)
-2. Settings > Tools > File Watchers 이동 후 하단의 + 버튼을 누르고 <custom>을 선택합니다.
-3. 상세 설정 입력: CSS, JS 각각 생성
-   - Name: CSS Minifier | JS Minifier
-   - type: Cascading style sheet | JavaScript
-   - Scope: 우측 ... 클릭 -> + 클릭
-   - Name: Only Original CSS | Only Original JS
-   - Pattern:
+1. terser, cleancss 설치 (node가 있어야 함)
+```
+# JS 압축기 설치
+npm install -g terser
+
+# CSS 압축기 설치
+npm install -g clean-css-cli
+
+```
+
+2. terser, cleancss 위치 확인
+```
+(Window)
+
+
+(macOS)
+sqi@SQIuiMacBookAir ~ % which terser
+/opt/homebrew/bin/terser
+
+sqi@SQIuiMacBookAir ~ % which cleancss
+/opt/homebrew/bin/cleancss
+```
+
+3. Settings > Plugins > File Watchers 설치 (IDE 재시작)
+4. Settings > Tools > File Watchers 이동 후 하단의 + 버튼을 누르고 <custom>을 선택합니다.
+5. 상세 설정 입력: CSS, JS 각각 생성
+
+    - Name: CSS Minifier | JS Minifier
+    - type: Cascading style sheet | JavaScript
+    - Scope: 우측 ... 클릭 -> + 클릭
+    - Name: Only Original CSS | Only Original JS
+    - Pattern:
     ```
      - css : file:src/main/webapp/resources/css/_.css&&!file:src/main/webapp/resources/css/_.min.css
      - js : file:src/main/webapp/resources/js/_.js&&!file:src/main/webapp/resources/js/_.min.js
     ```
-   - Program: 메이븐 실행 파일 경로 지정
-     (mac) /Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/bin/mvn
-     - Windows: mvn.cmd (또는 프로젝트 루트의 mvnw.cmd)
-       ```
-       where /R "C:\Program Files\JetBrains" mvn.cmd
-       ```
-     - macOS/Linux: mvn (또는 프로젝트 루트의 mvnw)
-       ```
-       find /Applications/IntelliJ\ IDEA*.app -name "mvn" -type f 2>/dev/null
-       ```
-   - Arguments: ```compile```
-   - Working directory: `````$ProjectFileDir$`````
-   - 고급 설정: 하단의 Advanced Options에서 Auto-save edited files to trigger the watcher를 체크하면, 키보드를 입력하는 도중에도 실시간으로 반영됩니다.
-
----
+    
+    - css
+      - Program: cleancss (또는 cleancss 설치 경로)
+      - Arguments: -o $FileNameWithoutExtension$.min.css $FileName$
+      - Output paths to refresh: $FileNameWithoutExtension$.min.css
+      - Working directory: $FileDir$
+   
+    - js
+      - Program: terser (또는 terser 설치 경로)
+      - Arguments: $FileName$ -o $FileNameWithoutExtension$.min.js --mangle --compress 
+      - Output paths to refresh: $FileNameWithoutExtension$.min.js
+      - Working directory: $FileDir$
+      
+     - 고급 설정: 하단의 Advanced Options에서 Auto-save edited files to trigger the watcher를 체크하 해제
