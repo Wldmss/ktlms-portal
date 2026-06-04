@@ -110,10 +110,89 @@ cellStyle.setBorderBottom(org.apache.poi.ss.usermodel.BorderStyle.THIN);
 
 ```
 
+## 5. joda time 변경
 
+기존 레거시 코드의 `joda-time`을 자바 8부터 내장된 표준 `java.time` (JSR-310)으로 바꾸기로 결심하셨군요! 아주 훌륭한 결정입니다.
+
+자바 21 + 스프링 6 환경으로 이관하는 지금이 이 무거운 구형 유틸리티를 완전히 걷어낼 최적의 타이밍입니다. `java.time`은 자바 표준이라 별도의 라이브러리 로딩이 필요 없고, 자바 21의 가상 스레드
+환경에서 완벽한 멀티스레드 안전성(Immutable)을 보장합니다.
+
+가장 많이 쓰이는 핵심 문법 매핑 테이블과 실무 리팩토링 단계를 명쾌하게 정리해 드릴게요.
 
 ---
 
-## 🎯 결론 및 행동 요약
+## 📅 1. Joda-Time ➡️ Java.Time 1:1 매핑 가이드
 
-JSP, Java 파일을 완전히 이사시키고 나면 가장 먼저 **1번(`javax` ➡️ `jakarta` 치환)** 작업과 **2번(JSP JSTL 주소 갱신)** 작업을 진행해 주세요. 대다수의 컴파일 에러가 이 두 군데서 발생하므로, 인텔리제이 전체 치환 기능을 활용해 싹 잡아놓고 시작하면 마이그레이션 속도가 훨씬 빨라질 것입니다!
+두 라이브러리는 클래스 이름이 거의 비슷하지만, 핵심 몇 가지가 이름이 바뀌었습니다. `import` 구문을 바꾸실 때 아래 매핑을 참고하시면 눈 감고도 바꿀 수 있습니다.
+
+| 기능              | Joda-Time (구형 ❌)                      | Java.Time (신형 ⭕)                         | 비고                 |
+|-----------------|---------------------------------------|------------------------------------------|--------------------|
+| **날짜+시간**       | `org.joda.time.DateTime`              | **`java.time.ZonedDateTime`**            | 타임존이 포함된 날짜/시간 데이터 |
+| **로컬 날짜+시간**    | `org.joda.time.LocalDateTime`         | **`java.time.LocalDateTime`**            | 타임존이 없는 날짜/시간 데이터  |
+| **날짜만**         | `org.joda.time.LocalDate`             | **`java.time.LocalDate`**                | 년-월-일 데이터          |
+| **시간만**         | `org.joda.time.LocalTime`             | **`java.time.LocalTime`**                | 시:분:초 데이터          |
+| **절대 시간 (초)**   | `org.joda.time.Instant`               | **`java.time.Instant`**                  | 타임스탬프 처리용          |
+| **시간차 (밀리초)**   | `org.joda.time.Duration`              | **`java.time.Duration`**                 | 시/분/초 단위의 간격 측정    |
+| **날짜차 (년/월/일)** | `org.joda.time.Period`                | **`java.time.Period`**                   | 일/월/년 단위의 간격 측정    |
+| **포맷 변환기**      | `org.joda.time.format.DateTimeFormat` | **`java.time.format.DateTimeFormatter`** | 문자열 ↔ 날짜 변환기       |
+
+---
+
+## 🛠️ 2. 가장 자주 쓰는 실무 코드 변환 예시
+
+실제 자바 코드에서 자주 쓰이는 문법들이 어떻게 바뀌는지 비교해 보세요.
+
+### ① 현재 시간 구하기 및 특정 날짜 지정
+
+```java
+// Joda-Time
+DateTime now = DateTime.now();
+DateTime specific = new DateTime(2026, 6, 4, 12, 0, 0);
+
+// Java.Time
+ZonedDateTime now = ZonedDateTime.now(); // 타임존 포함
+LocalDateTime localNow = LocalDateTime.now(); // 일반적인 로컬 시간
+LocalDateTime specific = LocalDateTime.of(2026, 6, 4, 12, 0, 0);
+
+```
+
+### ② 날짜 연산 (더하기 / 빼기)
+
+```java
+// Joda-Time
+DateTime tomorrow = now.plusDays(1);
+DateTime lastMonth = now.minusMonths(1);
+
+// Java.Time (메서드명이 완벽히 똑같아서 import만 바꾸면 거의 그대로 돌아갑니다!)
+ZonedDateTime tomorrow = now.plusDays(1);
+LocalDateTime lastMonth = localNow.minusMonths(1);
+
+```
+
+### ③ 문자열 포맷팅 및 파싱 (String ↔ Date)
+
+> **🚨 주의:** Java.Time의 `DateTimeFormatter`는 문법이 아주 미세하게 다릅니다.
+
+```java
+// Joda-Time
+String text = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss").print(now);
+DateTime dt = DateTimeFormat.forPattern("yyyy-MM-dd").parseDateTime("2026-06-04");
+
+// Java.Time
+String text = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+LocalDate ld = LocalDate.parse("2026-06-04", DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
+```
+
+### ④ 데이터베이스 / 마이바티스(MyBatis) 연동 시 변환
+
+과거에는 `java.util.Date`나 `java.sql.Timestamp`로 억지 변환해서 DB에 넣었지만, 이제는 그럴 필요가 없습니다. 우리가 맞춰놓은 **MyBatis 3.5.19
+버전은 `java.time`을 완벽하게 네이티브로 인식**합니다.
+
+```java
+// MyBatis 매퍼(XML)나 DTO에서 그냥 자바 표준 타입을 그대로 쓰시면 됩니다.
+private LocalDateTime regDate;
+
+```
+
+---
