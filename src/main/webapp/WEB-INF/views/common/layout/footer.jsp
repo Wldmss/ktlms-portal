@@ -59,4 +59,3 @@
 
     </div>
 </footer>
-</body><%--body end--%>

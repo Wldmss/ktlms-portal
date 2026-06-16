@@ -289,20 +289,20 @@
             <version>3.7.1</version>
         </dependency>
 
+        <!-- bootstrap -->
+        <!-- Source: https://mvnrepository.com/artifact/org.webjars/bootstrap -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>5.3.6</version>
+        </dependency>
+
         <!-- 이하 front 라이브러리 nexus 업로드 필요 TODO - 안된다면 js, css 다운로드해서 넣기 -->
         <!-- summernote -->
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>summernote</artifactId>
             <version>0.8.10</version>
-        </dependency>
-
-        <!-- bootstrap -->
-        <!-- Source: https://mvnrepository.com/artifact/org.webjars/bootstrap -->
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>bootstrap</artifactId>
-            <version>5.3.8</version>
         </dependency>
 
         <!--video.js-->
