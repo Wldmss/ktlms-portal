@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+    <!--기존 KT-application.xml-->
+
+    <!-- 환경변수 application 설정 -->
+    <context:property-placeholder/>
+
+    <util:properties id="config"
+                     location="${jboss.config.common.path:classpath:/conf/env/application.properties},
+                     ${jboss.config.profile.path:classpath:/conf/env/application-${spring.profiles.active:local}.properties}"
+                     ignore-resource-not-found="true">
+        <prop key="naverMapKey">YOUR_NAVER_MAP_KEY_HERE</prop>
+    </util:properties>
+
+    <util:properties id="appConfig"
+                     location="${jboss.config.common.path:classpath:/conf/env/application.properties},
+                     ${jboss.config.profile.path:classpath:/conf/env/application-${spring.profiles.active:local}.properties}"
+                     ignore-resource-not-found="true"/>
+
+    <!-- 기존 KT-properties.xml 값 application.properties 로 이전 - systemProperties 는 application 사용, paging 도 application 로 변경한다면 삭제 TODO-->
+    <bean id="pagingProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="locations">
+            <list>
+                <value>classpath:conf/env/application.properties</value>
+            </list>
+        </property>
+        <property name="fileEncoding" value="UTF-8"/>
+    </bean>
+</beans>

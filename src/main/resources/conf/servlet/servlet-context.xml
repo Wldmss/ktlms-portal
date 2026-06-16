@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:context="http://www.springframework.org/schema/context"
+             xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <annotation-driven />
+
+    <beans:bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <beans:property name="messageConverters">
+            <beans:list>
+                <beans:bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                    <beans:property name="supportedMediaTypes">
+                        <beans:list>
+                            <beans:value>text/html;charset=UTF-8</beans:value>
+                        </beans:list>
+                    </beans:property>
+                </beans:bean>
+
+                <beans:bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                    <beans:property name="objectMapper">
+                        <beans:bean class="com.fasterxml.jackson.databind.ObjectMapper">
+                            <beans:constructor-arg>
+                                <beans:bean class="com.fasterxml.jackson.core.JsonFactory">
+                                    <beans:property name="characterEscapes">
+                                        <beans:bean class="com.kt.ktedu.common.security.HtmlCharacterEscapes"/>
+                                    </beans:property>
+                                </beans:bean>
+                            </beans:constructor-arg>
+                        </beans:bean>
+                    </beans:property>
+                </beans:bean>
+            </beans:list>
+        </beans:property>
+    </beans:bean>
+
+    <context:component-scan base-package="com.kt.ktedu"/>
+
+    <!-- resource mapping -->
+    <resources mapping="/resources/**" location="/resources/">
+        <resource-chain resource-cache="true">
+            <resolvers>
+                <version-resolver>
+                    <content-version-strategy patterns="/**" />
+                </version-resolver>
+            </resolvers>
+        </resource-chain>
+    </resources>
+
+    <!-- front library - webjars mapping -->
+    <resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>
+
+    <!-- device interceptor - check mobile -->
+    <!-- CustomLiteDeviceResolver 부분 추가 TODO -->
+
+    <beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+        <beans:property name="order" value="1"/>
+    </beans:bean>
+
+    <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <beans:property name="prefix" value="/WEB-INF/views/"/>
+        <beans:property name="suffix" value=".jsp"/>
+        <beans:property name="order" value="2"/>
+    </beans:bean>
+
+    <beans:bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+        <!--나중에 프로젝트 이전 완료 후 application/json 로 변경 후 ajax 문제가 없다면 변경 TODO-->
+        <!--<beans:property name="contentType" value="application/json;charset=UTF-8"/>-->
+        <beans:property name="contentType" value="text/html;charset=UTF-8"/>
+    </beans:bean>
+
+    <beans:bean id="multipartResolver"
+                class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
+    </beans:bean>
+</beans:beans>

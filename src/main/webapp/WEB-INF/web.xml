@@ -6,16 +6,52 @@
 
     <display-name>KTLMS Portal</display-name>
 
-    <!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
+    <!-- root-context.xml 설정 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/spring/root-context.xml</param-value>
+        <param-value>classpath:/conf/spring/root-context.xml</param-value>
     </context-param>
+
+    <!-- JSON-B 말고 Jackson 사용 - jboss -->
+    <context-param>
+        <param-name>resteasy.preferJacksonOverJsonB</param-name>
+        <param-value>true</param-value>
+    </context-param>
+
+    <!-- header.jsp 필수 적용 -->
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>/WEB-INF/views/login/*</url-pattern>
+            <page-encoding>UTF-8</page-encoding>
+
+            <include-prelude>/WEB-INF/views/common/layout/header.jsp</include-prelude>
+        </jsp-property-group>
+
+        <!-- gnb, footer 자동 적용 -->
+        <jsp-property-group>
+            <url-pattern>/WEB-INF/views/pages/*</url-pattern>
+            <page-encoding>UTF-8</page-encoding>
+
+            <include-prelude>/WEB-INF/views/common/layout/header.jsp</include-prelude>
+            <include-prelude>/WEB-INF/views/common/layout/gnb.jsp</include-prelude>
+            <include-coda>/WEB-INF/views/common/layout/footer.jsp</include-coda>
+        </jsp-property-group>
+    </jsp-config>
 
     <!-- Creates the Spring Container shared by all Servlets and Filters -->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+
+    <!-- .do redirect filter -->
+    <filter>
+        <filter-name>urlSuffixRedirectFilter</filter-name>
+        <filter-class>com.kt.ktedu.common.filter.UrlSuffixRedirectFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>urlSuffixRedirectFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
     <!-- Processes application requests -->
     <servlet>
@@ -23,15 +59,32 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
+            <param-value>classpath:conf/servlet/servlet-context.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
+
+        <!-- 파일 사이즈 제한 -->
+        <multipart-config>
+            <max-file-size>52428800</max-file-size>
+            <max-request-size>52428800</max-request-size>
+            <file-size-threshold>1048576</file-size-threshold>
+        </multipart-config>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>appServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+    <!-- form xss filter -->
+    <filter>
+        <filter-name>formXssFilter</filter-name>
+        <filter-class>com.kt.ktedu.common.security.FormXssFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>formXssFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
     <!-- url encoding filter -->
     <filter>
@@ -61,4 +114,42 @@
         <filter-name>encodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+    <!-- error page -->
+    <error-page>
+        <error-code>400</error-code>
+        <location>/WEB-INF/views/common/pages/error.jsp</location>
+    </error-page>
+
+    <error-page>
+        <error-code>403</error-code>
+        <location>/WEB-INF/views/common/pages/error.jsp</location>
+    </error-page>
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/views/common/pages/error.jsp</location>
+    </error-page>
+
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/views/common/pages/error.jsp</location>
+    </error-page>
+
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/WEB-INF/views/common/pages/error.jsp</location>
+    </error-page>
+
+    <!-- http method setting -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Restricted HTTP Methods</web-resource-name>
+            <url-pattern>/*</url-pattern>
+            <http-method-omission>GET</http-method-omission>
+            <http-method-omission>POST</http-method-omission>
+        </web-resource-collection>
+
+        <auth-constraint/>
+    </security-constraint>
 </web-app>

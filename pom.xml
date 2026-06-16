@@ -266,12 +266,77 @@
             <version>4.3.2</version>
         </dependency>
 
+        <!-- mobile -->
+        <dependency>
+            <groupId>org.springframework.mobile</groupId>
+            <artifactId>spring-mobile-device</artifactId>
+            <version>1.1.5.RELEASE</version>
+        </dependency>
+
         <!--삭제 예정-->
         <!--<dependency>
             <groupId>com.servlets</groupId>
             <artifactId>cos</artifactId>
             <version>05Nov2002</version>
         </dependency>-->
+
+        <!-- front library -->
+        <!-- org.webjars group 만 다운로드 가능, nexus 에 존재하는지 확인 필요-->
+        <!-- jquery -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>3.7.1</version>
+        </dependency>
+
+        <!-- 이하 front 라이브러리 nexus 업로드 필요 TODO - 안된다면 js, css 다운로드해서 넣기 -->
+        <!-- summernote -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>summernote</artifactId>
+            <version>0.8.10</version>
+        </dependency>
+
+        <!-- bootstrap -->
+        <!-- Source: https://mvnrepository.com/artifact/org.webjars/bootstrap -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>5.3.8</version>
+        </dependency>
+
+        <!--video.js-->
+        <!-- Source: https://mvnrepository.com/artifact/org.webjars.npm/video.js -->
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>video.js</artifactId>
+            <version>8.23.8</version>
+        </dependency>
+
+        <!-- swiper -->
+        <!-- Source: https://mvnrepository.com/artifact/org.webjars.npm/swiper -->
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>swiper</artifactId>
+            <version>12.1.2</version>
+        </dependency>
+
+        <!-- chart.js -->
+        <!-- Source: https://mvnrepository.com/artifact/org.webjars.npm/chart.js -->
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>chart.js</artifactId>
+            <version>4.5.1</version>
+        </dependency>
+
+        <!-- fullcalendar -->
+        <!-- Source: https://mvnrepository.com/artifact/org.webjars.npm/fullcalendar -->
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>fullcalendar</artifactId>
+            <version>6.1.20</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -303,6 +368,26 @@
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
+            </plugin>
+
+            <!-- jdk to 21 -->
+            <plugin>
+                <groupId>org.openrewrite.maven</groupId>
+                <artifactId>rewrite-maven-plugin</artifactId>
+                <version>6.39.0</version>
+                <configuration>
+                    <activeRecipes>
+                        <recipe>org.openrewrite.java.migrate.UpgradeToJava21</recipe>
+                    </activeRecipes>
+                </configuration>
+
+                <dependencies>
+                    <dependency>
+                        <groupId>org.openrewrite.recipe</groupId>
+                        <artifactId>rewrite-migrate-java</artifactId>
+                        <version>3.36.0</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>

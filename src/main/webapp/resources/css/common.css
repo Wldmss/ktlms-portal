@@ -1,3 +1,74 @@
-.main {
-    background: #0b0f19;
+/*=======================
+    global css
+ =======================*/
+
+/* 글자가 넘치면 자동으로 ... 처리*/
+.text-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: break-all;
+}
+
+/* 두 줄 이상 넘치면 ... 처리*/
+.text-ellipsis-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* 보여줄 줄 수 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 스크린 리더(접근성)는 읽되 눈에는 안 보이게 숨김 */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/*--- flexbox 모음집 ---*/
+
+/* 가로 배치 + 세로 가운데 정렬 */
+.flex-align-center {
+    display: flex;
+    align-items: center;
+}
+
+/* 정중앙 */
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 양쪽 정렬 */
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 세로 */
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 가로 */
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+/* 남은 여백 꽉 채우기 */
+.flex-1 {
+    flex: 1 !important;
+}
+
+.gap5 {
+    gap: 5px;
 }

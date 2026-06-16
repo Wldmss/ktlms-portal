@@ -1,0 +1,124 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link rel="stylesheet" href="<c:url value='/resources/css/login.min.css' />">
+    <script src="<c:url value='/resources/js/login/login.min.js' />" defer></script>
+</head>
+<body>
+
+<div class="login-container">
+    <div class="login-header">
+        <h2>KT LMS Portal</h2>
+        <p>서비스 이용을 위해 사번과 비밀번호를 입력해주세요.</p>
+    </div>
+
+    <form id="loginForm" onsubmit="return false;">
+        <div class="input-group">
+            <label for="userId">사번 (ID)</label>
+            <input type="text" id="userId" placeholder="사번을 입력하세요" required>
+        </div>
+        <div class="input-group">
+            <label for="userPw">비밀번호</label>
+            <input type="password" id="userPw" placeholder="비밀번호를 입력하세요" required>
+        </div>
+
+        <div id="secondAuthArea">
+            <div class="input-group" style="margin-bottom: 0;">
+                <label for="authCode" style="color: #0056b3;">🔑 인증번호 입력</label>
+                <input type="text" id="authCode" placeholder="인증번호 6자리를 입력하세요">
+            </div>
+        </div>
+
+        <button type="button" class="btn-submit" id="btnAction" onclick="handleLoginStep1()">인증 요청</button>
+    </form>
+
+    <div class="system-msg" id="msgBox"></div>
+</div>
+
+<script>
+    const contextPath = "${pageContext.request.contextPath}";
+    let isSecondStep = false; // 현재 2차 인증 단계인지 여부 플래그
+
+    // 💡 [Step 1]: ID, PW 유효성 검사 및 우회 판단 요청
+    function handleLoginStep1() {
+        if (isSecondStep) {
+            handleLoginStep2(); // 만약 이미 2차인증 창이 열려있다면 2단계로 토스
+            return;
+        }
+
+        const id = $("#userId").val();
+        const pw = $("#userPw").val();
+
+        if (!id || !pw) {
+            $("#msgBox").text("사번과 비밀번호를 모두 입력해주세요.");
+            return;
+        }
+
+        // 백엔드 컨트롤러(/auth/login/step1)로 데이터 전송
+        $.ajax({
+            // url: contextPath + "/auth/login/step1",
+            url: contextPath + "/doLogin",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify({id: id, pw: pw}),
+            success: function (res) {
+                console.log(res)
+                if (res.status === "BYPASS") {
+                    // 🎉 우회 조건 충족 대상자: 2차 인증 생략하고 즉시 토큰 발급 및 메인 이동
+                    $("#msgBox").css("color", "#28a745").text("우회 인증 대상자입니다. 로그인 완료 중...");
+                    // 우회 대상자는 내부적으로 최종 로그인을 바로 처리하도록 유도하거나
+                    // 즉시 메인(또는 토큰발급 프로세스)으로 리디렉션 처리합니다.
+                    location.href = contextPath + "/sample";
+                } else if (res.status === "NEED_2FA") {
+                    // 🔒 일반 대상자: 2차 인증 구역을 활성화하고 버튼 텍스트 변경
+                    $("#msgBox").css("color", "#0056b3").text(res.message);
+                    $("#secondAuthArea").slideDown();
+                    $("#btnAction").text("인증 및 로그인 완료");
+
+                    // 사번/비밀번호 창은 수정 못하게 잠금
+                    $("#userId").attr("readonly", true);
+                    $("#userPw").attr("readonly", true);
+                    isSecondStep = true;
+                }
+            },
+            error: function (err) {
+                console.log(err)
+                $("#msgBox").css("color", "#dc3545").text(err.responseJSON?.message || "로그인 정보가 올바르지 않습니다.");
+            }
+        });
+    }
+
+    // 💡 [Step 2]: 번호 입력 후 최종 로그인 및 JWT 발급 요청
+    function handleLoginStep2() {
+        const id = $("#userId").val();
+        const code = $("#authCode").val();
+
+        if (!code) {
+            $("#msgBox").css("color", "#dc3545").text("인증번호를 입력해주세요.");
+            return;
+        }
+
+        $.ajax({
+            url: contextPath + "/auth/login/step2",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify({id: id, code: code}),
+            success: function (res) {
+                if (res.status === "SUCCESS") {
+                    // 🔑 발급된 JWT 토큰을 브라우저 로컬스토리지나 세션스토리지에 저장합니다.
+                    localStorage.setItem("accessToken", res.token);
+
+                    // 🚀 메인 페이지로 대이동
+                    location.href = contextPath + res.redirectUrl;
+                }
+            },
+            error: function (err) {
+                $("#msgBox").css("color", "#dc3545").text(err.responseJSON?.message || "인증번호가 틀렸습니다.");
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
