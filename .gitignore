@@ -18,7 +18,7 @@ Thumbs.db
 *.ear
 
 # 환경 변수 파일
-src/main/resources/conf/env/application-*.properties
+/src/main/resources/conf/env/application-*.properties
 
 # firebase 설정 파일
 /src/main/resources/firebase/ktgenius-firebase-adminsdk.json
