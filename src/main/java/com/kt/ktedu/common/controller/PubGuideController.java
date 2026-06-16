@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
 @Controller
 public class PubGuideController {
 
-    @GetMapping("/common/pub-guide")
+    @GetMapping("/pub-guide")
     public String getPublishList(HttpServletRequest request, Model model) {
         String rootPath = request.getServletContext().getRealPath("/resources/pub");
 

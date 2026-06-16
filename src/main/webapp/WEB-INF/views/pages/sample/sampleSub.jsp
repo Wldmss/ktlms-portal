@@ -79,9 +79,8 @@
     <div class="d-flex justify-content-between align-items-center border-bottom pb-4 mb-4">
         <div>
             <h1 class="h4 mb-1 text-dark fw-bold" style="letter-spacing: -0.5px;">
-                KT 지니어스 퍼블리싱 가이드 & 페이지 맵
+                KT 지니어스 페이지 맵
             </h1>
-            <p class="text-muted small mb-0">화면별 URL 링크를 클릭하여 퍼블리싱 및 개발 검수를 진행하세요.</p>
         </div>
     </div>
 
@@ -101,10 +100,24 @@
             <tbody>
             <%-- 가이드 메인 --%>
             <tr>
-                <td><span class="badge-menu">공통2</span></td>
+                <td><span class="badge-menu">공통</span></td>
                 <td class="fw-bold text-dark">퍼블리싱 가이드</td>
                 <td>
-                    <a href="${_contextPath}/common/pub-guide" class="link-url">${_contextPath}/common/pub-guide</a>
+                    <a href="${_contextPath}/pub-guide" class="link-url">${_contextPath}/pub-guide</a>
+                </td>
+            </tr>
+            <tr>
+                <td><span class="badge-menu">공통</span></td>
+                <td class="fw-bold text-dark">include 예시</td>
+                <td>
+                    <a href="${_contextPath}/sample" class="link-url">${_contextPath}/sample</a>
+                </td>
+            </tr>
+            <tr>
+                <td><span class="badge-menu">공통</span></td>
+                <td class="fw-bold text-dark">tiles 예시</td>
+                <td>
+                    <a href="${_contextPath}/sampleTiles" class="link-url">${_contextPath}/sampleTiles</a>
                 </td>
             </tr>
             </tbody>

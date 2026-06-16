@@ -1,30 +1,29 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<%@ include file="/WEB-INF/views/common/layout/common-top.jsp" %>
 <style>
-        .test-btn-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 20px 0;
-            padding: 15px;
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-        }
+    .test-btn-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 20px 0;
+        padding: 15px;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+    }
 
-        .btn-test {
-            padding: 10px 16px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            color: white;
-        }
+    .btn-test {
+        padding: 10px 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        color: white;
+    }
 </style>
 
 <div>
-    <div><h3>버튼 모음집</h3></div>
+    <div><h3>버튼 모음집 - tiles 형식</h3></div>
 
     <div class="test-btn-group">
         <button class="btn-test" style="background-color: #007bff;" onclick="openAlert('알림창입니다.');">🚨 openAlert (확인전용)
@@ -80,5 +79,3 @@
         });
     }
 </script>
-
-<%@ include file="/WEB-INF/views/common/layout/common-bottom.jsp" %>

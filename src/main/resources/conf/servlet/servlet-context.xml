@@ -41,10 +41,10 @@
 
     <!-- resource mapping -->
     <resources mapping="/resources/**" location="/resources/">
-        <resource-chain resource-cache="true">
+        <resource-chain resource-cache="false">
             <resolvers>
                 <version-resolver>
-                    <content-version-strategy patterns="/**" />
+                    <content-version-strategy patterns="/**"/>
                 </version-resolver>
             </resolvers>
         </resource-chain>
@@ -53,16 +53,19 @@
     <!-- front library - webjars mapping -->
     <resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>
 
+    <!--    <default-servlet-handler/>-->
+
     <!-- device interceptor - check mobile -->
     <!-- CustomLiteDeviceResolver 부분 추가 TODO -->
 
-    <beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+    <!--<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+    <beans:bean class="com.kt.ktedu.common.view.CustomViewResolver">
+        <beans:property name="prefix" value="/WEB-INF/views/"/>
+        <beans:property name="suffix" value=".jsp"/>
         <beans:property name="order" value="1"/>
     </beans:bean>
 
-    <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <beans:property name="prefix" value="/WEB-INF/views/"/>
-        <beans:property name="suffix" value=".jsp"/>
+    <beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
         <beans:property name="order" value="2"/>
     </beans:bean>
 

@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    <%@ include file="/WEB-INF/views/common/layout/header.jsp" %>
     <link rel="stylesheet" href="<c:url value='/resources/css/login.min.css' />">
     <script src="<c:url value='/resources/js/login/login.min.js' />" defer></script>
 </head>

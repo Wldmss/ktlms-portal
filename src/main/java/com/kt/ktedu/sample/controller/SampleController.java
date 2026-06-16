@@ -12,16 +12,23 @@ import java.util.Map;
 @Controller
 public class SampleController {
 
-    @RequestMapping(value = "/popup/sampleDetail", method = RequestMethod.POST)
-    public String getSamplePopup() {
-        return "popup/sample/sample-popup";
-    }
-
-    @GetMapping("/sample")
+    @GetMapping(value = {"/sample", "/mobile/m/sample"})
     public String mainComp(ModelAndView model) {
         model.addObject("test", System.getProperty("java.version"));
 
         return "pages/sample/sample";
+    }
+
+    @GetMapping(value = {"/sampleTiles", "/mobile/m/sampleTiles"})
+    public String sampleTiles(ModelAndView model) {
+        model.addObject("test", System.getProperty("java.version"));
+
+        return "pages/sample/tiles/sampleTiles";
+    }
+
+    @RequestMapping(value = "/popup/sampleDetail", method = RequestMethod.POST)
+    public String getSamplePopup() {
+        return "popup/sample/sample-popup";
     }
 
     @PostMapping(value = "/ajaxTest", produces = "application/json; charset=UTF-8")

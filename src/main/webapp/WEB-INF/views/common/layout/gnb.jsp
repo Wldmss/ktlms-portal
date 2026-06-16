@@ -3,7 +3,6 @@
 <style>
     .gnb-header {
         width: 100%;
-        /*height: 70px;*/
         background-color: #ffffff;
         border-bottom: 1px solid #e9ecef;
         padding: 0 40px;
@@ -12,11 +11,19 @@
         z-index: 9999;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         box-sizing: border-box;
+        min-width: 440px;
+    }
+
+    .gnb-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-top: 10px;
     }
 
     .gnb-logo {
         font-size: 22px;
-        font-weight: 700; /* 전역 두께 시스템 활용 */
+        font-weight: 700;
         color: var(--primary-color, #ff6b71); /* 지정된 브랜드 메인컬러, 없으면 핑크레드 */
         cursor: pointer;
     }
@@ -56,67 +63,70 @@
     }
 
     .gnb-user-info {
+        display: flex;
         font-size: 14px;
         color: #666666;
         gap: 15px;
     }
 
+    .gnb-user-info span {
+        margin: auto;
+    }
+
     .gnb-logout-btn {
-        background-color: #f1f3f5;
-        border: none;
         padding: 6px 12px;
         border-radius: 4px;
         font-size: 13px;
-        color: #495057;
+        color: #000000;
         cursor: pointer;
         transition: background-color 0.2s;
+        border: 1px solid #e9ecef;
     }
 
     .gnb-logout-btn:hover {
-        background-color: #e9ecef;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 </style>
 
-<body class="font-normal"><%--body 시작--%>
-<div class="main-wrapper"><%--content 시작--%>
-    <header class="gnb-header d-flex jc-between ai-center">
+<header class="gnb-header d-flex ai-center" style="justify-content: space-between;">
 
+    <div class="gnb-top">
         <div class="gnb-logo" onclick="location.href=window._contextPath + '/sample'">
             KT LMS <span class="font-light" style="color:#999; font-size:14px; margin-left:4px;">Edu Portal</span>
         </div>
 
-        <nav>
-            <ul class="gnb-menu-list">
-                <li class="gnb-menu-item font-normal" onclick="showSnackbar('나의 강의실로 이동합니다.')">나의 강의실</li>
-                <li class="gnb-menu-item font-normal" onclick="showSnackbar('과정 신청 페이지로 이동합니다.')">과정신청</li>
-                <li class="gnb-menu-item font-normal" onclick="showSnackbar('학습지원센터로 이동합니다.')">학습지원센터</li>
-                <li class="gnb-menu-item font-normal" onclick="showSnackbar('시험 메인 화면으로 이동합니다.')">시험평가</li>
-            </ul>
-        </nav>
-
-        <div class="gnb-user-info d-flex ai-center">
+        <div class="gnb-user-info d-flex ai-center" style="gap: 15px;">
             <span class="font-medium"><strong style="color:#111;">홍길동</strong> 과장님</span>
-            <button type="button" class="gnb-logout-btn font-normal" onclick="handleGnbLogout()">로그아웃</button>
+            <button type="button" class="gnb-logout-btn font-bold" onclick="handleGnbLogout()">로그아웃</button>
         </div>
+    </div>
+    <nav>
+        <ul class="gnb-menu-list">
+            <li class="gnb-menu-item font-normal" onclick="showSnackbar('나의 강의실로 이동합니다.')">나의 강의실</li>
+            <li class="gnb-menu-item font-normal" onclick="showSnackbar('과정 신청 페이지로 이동합니다.')">과정신청</li>
+            <li class="gnb-menu-item font-normal" onclick="showSnackbar('학습지원센터로 이동합니다.')">학습지원센터</li>
+            <li class="gnb-menu-item font-normal" onclick="showSnackbar('시험 메인 화면으로 이동합니다.')">시험평가</li>
+        </ul>
+    </nav>
+</header>
 
-    </header>
-
-    <script type="text/javascript">
-        function handleGnbLogout() {
-            // 우리가 커스텀해 둔 전역 openAlert(메시지, isConfirm) 기믹 작동!
-            if (typeof openAlert === 'function') {
-                openConfirm("정말로 로그아웃 하시겠습니까?").then(function (isConfirm) {
-                    if (isConfirm) {
-                        showSnackbar("🔒 안전하게 로그아웃 중입니다...");
-                        setTimeout(function () {
-                            location.href = window._contextPath + "/logout";
-                        }, 1200);
-                    }
-                });
-            } else {
-                if (confirm("정말로 로그아웃 하시겠습니까?")) {
-                    location.href = window._contextPath + "/logout";
+<script type="text/javascript">
+    function handleGnbLogout() {
+        // 커스텀 전역 openAlert(메시지, isConfirm) 기믹 작동!
+        if (typeof openConfirm === 'function') {
+            openConfirm("정말로 로그아웃 하시겠습니까?").then(function (isConfirm) {
+                if (isConfirm) {
+                    showSnackbar("🔒 안전하게 로그아웃 중입니다...");
+                    setTimeout(function () {
+                        location.href = window._contextPath + "/logout";
+                    }, 1200);
                 }
+            });
+        } else {
+            if (confirm("정말로 로그아웃 하시겠습니까?")) {
+                location.href = window._contextPath + "/logout";
             }
         }
-    </script>
+    }
+</script>

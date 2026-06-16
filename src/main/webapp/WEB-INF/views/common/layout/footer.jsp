@@ -41,7 +41,6 @@
     }
 </style>
 
-</div><%--content end--%>
 <footer class="footer-wrapper">
     <div class="footer-inner">
 

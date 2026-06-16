@@ -168,13 +168,13 @@ img {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--primary-color);
+    background: #c1c1c1;
 }
 
 .main-wrapper {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
     box-sizing: border-box;
     background-color: #f8f9fa; /* 전역 본문 배경색 */
 }
