@@ -26,7 +26,7 @@
                             <beans:constructor-arg>
                                 <beans:bean class="com.fasterxml.jackson.core.JsonFactory">
                                     <beans:property name="characterEscapes">
-                                        <beans:bean class="com.kt.ktedu.common.security.HtmlCharacterEscapes"/>
+                                        <beans:bean class="com.kt.ktedu.core.security.HtmlCharacterEscapes"/>
                                     </beans:property>
                                 </beans:bean>
                             </beans:constructor-arg>
@@ -59,7 +59,7 @@
     <!-- CustomLiteDeviceResolver 부분 추가 TODO -->
 
     <!--<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
-    <beans:bean class="com.kt.ktedu.common.view.CustomViewResolver">
+    <beans:bean class="com.kt.ktedu.core.view.CustomViewResolver">
         <beans:property name="prefix" value="/WEB-INF/views/"/>
         <beans:property name="suffix" value=".jsp"/>
         <beans:property name="order" value="1"/>

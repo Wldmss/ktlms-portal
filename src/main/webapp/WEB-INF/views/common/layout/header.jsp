@@ -16,8 +16,8 @@
 <link rel="icon" href="${pageContext.request.contextPath}/resources/icons/favicon.ico" type="image/x-icon">
 
 <%-- 공통 css --%>
-<link rel="stylesheet" href="<c:url value='/resources/css/common.min.css' />">
-<link rel="stylesheet" href="<c:url value='/resources/css/header.min.css' />">
+<link rel="stylesheet" href="<c:url value='/resources/css/common/common.min.css' />">
+<link rel="stylesheet" href="<c:url value='/resources/css/common/header.min.css' />">
 
 <%-- 공통 라이브러리 --%>
 <script src="${_webjars}/jquery/3.7.1/jquery.min.js"></script>

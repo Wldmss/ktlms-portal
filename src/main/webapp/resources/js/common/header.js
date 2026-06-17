@@ -75,7 +75,7 @@ function checkIsMobile() {
             $(document).ajaxError(function (event, xhr, options, exc) {
                 if (xhr.status === 401) {
                     alert("로그인 유효시간이 만료되었습니다.\n안전한 이용을 위해 로그인 페이지로 이동합니다.");
-                    window.location.href = window._contextPath + "/";
+                    window.location.href = window._contextPath + "/logout";
                 }
             });
         });

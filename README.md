@@ -101,3 +101,10 @@ sqi@SQIuiMacBookAir ~ % which cleancss
 (windows) settings/make-sample.bat
 (mac) sh settings/make-sample.sh
 ```
+
+---
+
+# gitignore 파일 리스트
+
+- src/main/resources/firebase/ktgenius-firebase-adminsdk.json
+- src/main/resources/saml/*.crt

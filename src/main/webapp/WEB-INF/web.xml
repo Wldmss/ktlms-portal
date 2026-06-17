@@ -46,7 +46,7 @@
     <!-- .do redirect filter -->
     <filter>
         <filter-name>urlSuffixRedirectFilter</filter-name>
-        <filter-class>com.kt.ktedu.common.filter.UrlSuffixRedirectFilter</filter-class>
+        <filter-class>com.kt.ktedu.core.filter.UrlSuffixRedirectFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>urlSuffixRedirectFilter</filter-name>
@@ -56,7 +56,7 @@
     <!-- form xss filter -->
     <filter>
         <filter-name>formXssFilter</filter-name>
-        <filter-class>com.kt.ktedu.common.security.FormXssFilter</filter-class>
+        <filter-class>com.kt.ktedu.core.security.FormXssFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>formXssFilter</filter-name>
@@ -90,37 +90,6 @@
         <filter-name>encodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
-    <!-- jsp live reload -->
-    <!--<servlet>
-        <servlet-name>jsp</servlet-name>
-        <servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>
-
-        <init-param>
-            <param-name>development</param-name>
-            <param-value>true</param-value>
-        </init-param>
-        <init-param>
-            <param-name>checkInterval</param-name>
-            <param-value>1</param-value>
-        </init-param>
-        <init-param>
-            <param-name>modificationTestInterval</param-name>
-            <param-value>1</param-value>
-        </init-param>
-        <init-param>
-            <param-name>recompileOnFail</param-name>
-            <param-value>true</param-value>
-        </init-param>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>jsp</servlet-name>
-        <url-pattern>*.jsp</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>jsp</servlet-name>
-        <url-pattern>*.jspx</url-pattern>
-    </servlet-mapping>-->
 
     <!-- Processes application requests -->
     <servlet>

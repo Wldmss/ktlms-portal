@@ -16,19 +16,19 @@ public class SampleController {
     public String mainComp(ModelAndView model) {
         model.addObject("test", System.getProperty("java.version"));
 
-        return "pages/sample/sample";
+        return "sample/sample";
     }
 
     @GetMapping(value = {"/sampleTiles", "/mobile/m/sampleTiles"})
     public String sampleTiles(ModelAndView model) {
         model.addObject("test", System.getProperty("java.version"));
 
-        return "pages/sample/tiles/sampleTiles";
+        return "sample/tiles/sampleTiles";
     }
 
     @RequestMapping(value = "/popup/sampleDetail", method = RequestMethod.POST)
     public String getSamplePopup() {
-        return "popup/sample/sample-popup";
+        return "sample/popup/sample-popup";
     }
 
     @PostMapping(value = "/ajaxTest", produces = "application/json; charset=UTF-8")
