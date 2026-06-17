@@ -26,7 +26,7 @@ public class CustomViewResolver extends InternalResourceViewResolver {
         }
 
         // tiles 적용 sample
-        else if (viewName.startsWith("pages/sample/tiles")) {
+        else if (viewName.startsWith("sample/tiles")) {
             view.addStaticAttribute("bodyPage", "/WEB-INF/views/" + viewName + ".jsp");
             view.setUrl("/WEB-INF/views/common/tiles/GNBLayout.jsp");
         }

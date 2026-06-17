@@ -25,3 +25,4 @@ Thumbs.db
 
 # saml crt
 /src/main/resources/saml/*.crt
+/src/main/resources/saml/*.key

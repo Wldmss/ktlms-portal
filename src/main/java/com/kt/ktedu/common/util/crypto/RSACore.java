@@ -7,7 +7,6 @@ import java.util.Base64;
 public class RSACore {
     private static final String ALGORITHM = "RSA";
 
-    // 💡 최초 1회 혹은 주기적으로 KeyPair를 생성할 때 쓰는 메서드 (2048비트 권장)
     public KeyPair generateKeyPair() throws NoSuchAlgorithmException {
         KeyPairGenerator keyPairGen = KeyPairGenerator.getInstance(ALGORITHM);
         keyPairGen.initialize(2048);

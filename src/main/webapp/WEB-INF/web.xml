@@ -18,26 +18,6 @@
         <param-value>true</param-value>
     </context-param>
 
-    <!-- header.jsp 필수 적용 -->
-    <!--<jsp-config>
-        <jsp-property-group>
-            <url-pattern>/WEB-INF/views/login/*</url-pattern>
-            <page-encoding>UTF-8</page-encoding>
-
-            <include-prelude>/WEB-INF/views/common/layout/header.jsp</include-prelude>
-        </jsp-property-group>
-
-        &lt;!&ndash; gnb, footer 자동 적용 &ndash;&gt;
-        <jsp-property-group>
-            <url-pattern>/WEB-INF/views/pages/*</url-pattern>
-            <page-encoding>UTF-8</page-encoding>
-
-            <include-prelude>/WEB-INF/views/common/layout/header.jsp</include-prelude>
-            <include-prelude>/WEB-INF/views/common/layout/gnb.jsp</include-prelude>
-            <include-coda>/WEB-INF/views/common/layout/footer.jsp</include-coda>
-        </jsp-property-group>
-    </jsp-config>-->
-
     <!-- Creates the Spring Container shared by all Servlets and Filters -->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

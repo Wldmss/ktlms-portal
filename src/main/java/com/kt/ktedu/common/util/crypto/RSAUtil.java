@@ -6,7 +6,6 @@ import java.security.PublicKey;
 public class RSAUtil {
     private static final RSACore core = new RSACore();
 
-    // 서버 메모리에 상주할 키 쌍 (실무에서는 키를 DB나 파일 시스템에 보관하는 것을 권장)
     private static final KeyPair keyPair;
 
     static {

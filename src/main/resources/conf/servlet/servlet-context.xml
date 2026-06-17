@@ -53,10 +53,8 @@
     <!-- front library - webjars mapping -->
     <resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>
 
-    <!--    <default-servlet-handler/>-->
-
     <!-- device interceptor - check mobile -->
-    <!-- CustomLiteDeviceResolver 부분 추가 TODO -->
+    <!-- CustomLiteDeviceResolver 부분 추가 TODO - 안넣고 jwt 로 처리 -->
 
     <!--<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
     <beans:bean class="com.kt.ktedu.core.view.CustomViewResolver">
@@ -71,8 +69,8 @@
 
     <beans:bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
         <!--나중에 프로젝트 이전 완료 후 application/json 로 변경 후 ajax 문제가 없다면 변경 TODO-->
-        <!--<beans:property name="contentType" value="application/json;charset=UTF-8"/>-->
-        <beans:property name="contentType" value="text/html;charset=UTF-8"/>
+        <beans:property name="contentType" value="application/json;charset=UTF-8"/>
+        <!--<beans:property name="contentType" value="text/html;charset=UTF-8"/>-->
     </beans:bean>
 
     <beans:bean id="multipartResolver"
