@@ -5,6 +5,10 @@
             <module name="org.slf4j"/>
             <module name="org.slf4j.impl"/>
             <module name="org.apache.commons.logging"/>
+
+            <module name="org.hibernate.validator"/>
+            <module name="javax.validation.api"/>
+            <module name="jakarta.validation.api"/>
         </exclusions>
     </deployment>
 </jboss-deployment-structure>
