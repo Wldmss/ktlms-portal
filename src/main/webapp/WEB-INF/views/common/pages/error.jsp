@@ -1,28 +1,41 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page isErrorPage="true" %>
 <%
+    Object customCode = request.getAttribute("errorCode");
+    Object customMsg = request.getAttribute("errorMessage");
+
     // 서블릿 컨테이너가 찔러준 에러 코드 숫자 추출
     Integer statusCode = (Integer) request.getAttribute("jakarta.servlet.error.status_code");
-    if (statusCode == null) {
-        statusCode = 500; // 기본값 방어 코드
+    if (customCode != null) {
+        statusCode = Integer.parseInt(customCode.toString());
+    } else if (statusCode == null) {
+        statusCode = 500; // 최종 방어 기본값
     }
 
     String errorTitle = "알 수 없는 오류가 발생했습니다.";
     String errorMsg = "시스템 관리자에게 문의해 주세요.";
 
-    // 자바 컨트롤러 역할을 JSP 스크립틀릿이 대신 동적으로 수행합니다.
-    if (statusCode == 400) {
-        errorTitle = "잘못된 요청입니다. (400)";
-        errorMsg = "요청 파라미터나 형식이 올바르지 않습니다.<br>입력값을 확인해 주세요.";
-    } else if (statusCode == 403) {
-        errorTitle = "접근 권한이 없습니다. (403)";
-        errorMsg = "이 페이지를 열어볼 수 있는 권한이 없습니다.<br>로그인 상태나 계정 등급을 확인해 주세요.";
-    } else if (statusCode == 404) {
-        errorTitle = "페이지를 찾을 수 없습니다. (404)";
-        errorMsg = "방문하시려는 주소가 잘못 입력되었거나,<br>페이지가 삭제되어 더 이상 존재하지 않습니다.";
-    } else if (statusCode == 500) {
-        errorTitle = "서버 내부 오류가 발생했습니다. (500)";
-        errorMsg = "서버가 요청을 처리하는 과정에서 문제가 생겼습니다.<br>잠시 후 다시 시도해 주세요.";
+    if (customMsg != null) {
+        errorTitle = "오류가 발생했습니다. (" + statusCode + ")";
+        errorMsg = customMsg.toString();
+    } else {
+        // 기존 동적 분기 로직 (이하 동일)
+        if (statusCode == 400) {
+            errorTitle = "잘못된 요청입니다. (400)";
+            errorMsg = "요청 파라미터나 형식이 올바르지 않습니다.<br>입력값을 확인해 주세요.";
+        } else if (statusCode == 403) {
+            errorTitle = "접근 권한이 없습니다. (403)";
+            errorMsg = "이 페이지를 열어볼 수 있는 권한이 없습니다.<br>로그인 상태나 계정 등급을 확인해 주세요.";
+        } else if (statusCode == 404) {
+            errorTitle = "페이지를 찾을 수 없습니다. (404)";
+            errorMsg = "방문하시려는 주소가 잘못 입력되었거나,<br>페이지가 삭제되어 더 이상 존재하지 않습니다.";
+        } else if (statusCode == 405) { // 🎯 405 분기도 하나 추가해두면 기막힙니다!
+            errorTitle = "허용되지 않은 접근 방식입니다. (405)";
+            errorMsg = "요청 형식이 올바르지 않거나 허용되지 않은 HTTP 메서드입니다.";
+        } else if (statusCode == 500) {
+            errorTitle = "서버 내부 오류가 발생했습니다. (500)";
+            errorMsg = "서버가 요청을 처리하는 과정에서 문제가 생겼습니다.<br>잠시 후 다시 시도해 주세요.";
+        }
     }
 %>
 <!DOCTYPE html>

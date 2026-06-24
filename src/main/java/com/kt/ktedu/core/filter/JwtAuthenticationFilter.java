@@ -2,7 +2,7 @@ package com.kt.ktedu.core.filter;
 
 import com.kt.ktedu.auth.jwt.JwtDTO;
 import com.kt.ktedu.auth.jwt.JwtProvider;
-import com.kt.ktedu.auth.security.CustomUserDetails;
+import com.kt.ktedu.auth.login.service.CustomUserDetails;
 import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

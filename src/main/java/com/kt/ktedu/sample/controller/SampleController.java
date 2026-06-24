@@ -26,7 +26,7 @@ public class SampleController {
         return "sample/tiles/sampleTiles";
     }
 
-    @RequestMapping(value = "/popup/sampleDetail", method = RequestMethod.POST)
+    @PostMapping(value = "/popup/sampleDetail")
     public String getSamplePopup() {
         return "sample/popup/sample-popup";
     }

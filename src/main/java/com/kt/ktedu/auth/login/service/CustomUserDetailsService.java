@@ -1,4 +1,4 @@
-package com.kt.ktedu.auth.security;
+package com.kt.ktedu.auth.login.service;
 
 import com.kt.ktedu.auth.jwt.JwtDTO;
 import org.springframework.security.core.userdetails.UserDetails;
