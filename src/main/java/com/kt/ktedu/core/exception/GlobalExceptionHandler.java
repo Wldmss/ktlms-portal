@@ -19,7 +19,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(org.springframework.security.access.AccessDeniedException.class)
     public ModelAndView handle403(Exception e, HttpServletRequest request) {
-        log.warn("🔒 [403] 권한 없는 사용자의 접근 시도 | URL: {}", request.getRequestURI());
+        log.warn("[403] 권한 없는 사용자의 접근 시도 | URL: {}", request.getRequestURI());
         return createErrorModelAndView("403", "이 페이지를 열어볼 수 있는 권한이 없습니다.");
     }
 
@@ -29,7 +29,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(org.springframework.web.servlet.NoHandlerFoundException.class)
     public ModelAndView handle404(Exception e, HttpServletRequest request) {
-        log.warn("🔍 [404] 존재하지 않는 주소 요청 | URL: {}", request.getRequestURI());
+        log.warn("[404] 존재하지 않는 주소 요청 | URL: {}", request.getRequestURI());
         return createErrorModelAndView("404", "방문하시려는 주소가 잘못 입력되었거나 삭제된 페이지입니다.");
     }
 
@@ -38,7 +38,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     public ModelAndView handle405(HttpRequestMethodNotSupportedException e, HttpServletRequest request) {
-        log.warn("🚨 [405] 잘못된 메서드 접근 | URL: {} | 메시지: {}", request.getRequestURI(), e.getMessage());
+        log.warn("[405] 잘못된 메서드 접근 | URL: {} | 메시지: {}", request.getRequestURI(), e.getMessage());
         return createErrorModelAndView("405", "잘못된 접근 방식입니다.");
     }
 
@@ -47,7 +47,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler({IllegalArgumentException.class, IllegalStateException.class})
     public ModelAndView handle400(Exception e, HttpServletRequest request) {
-        log.error("⚠️ [400] 잘못된 요청 인자 입력 | URL: {}", request.getRequestURI(), e);
+        log.error("[400] 잘못된 요청 인자 입력 | URL: {}", request.getRequestURI(), e);
         return createErrorModelAndView("400", "요청 값이 올바르지 않습니다. 입력 데이터를 확인해 주세요.");
     }
 
@@ -57,7 +57,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ModelAndView handleAllException(Exception e, HttpServletRequest request) {
         // 백엔드 콘솔 및 파일 로그에 에러 원인을 상세히 기록 (유지보수의 핵심 기둥)
-        log.error("❌ [500] 서버 내부 심각한 시스템 장애 발생 | URL: {}", request.getRequestURI(), e);
+        log.error("[500] 서버 내부 심각한 시스템 장애 발생 | URL: {}", request.getRequestURI(), e);
 
         return createErrorModelAndView("500", "시스템에 일시적인 오류가 발생했습니다. 관리자에게 문의하세요.");
     }
