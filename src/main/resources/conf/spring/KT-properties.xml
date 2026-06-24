@@ -12,8 +12,7 @@
         <property name="config" ref="environmentVariablesConfiguration"/>
     </bean>
 
-
-    <bean class="org.jasypt.spring31.properties.EncryptablePropertyPlaceholderConfigurer">
+    <bean class="org.jasypt.spring4.properties.EncryptablePropertySourcesPlaceholderConfigurer">
         <constructor-arg ref="configurationEncryptor"/>
         <property name="ignoreResourceNotFound" value="true"/>
         <property name="locations">
@@ -26,8 +25,7 @@
         </property>
     </bean>
 
-
-    <bean id="config" class="org.jasypt.spring31.xml.encryption.EncryptablePropertiesFactoryBean">
+    <bean id="config" class="org.jasypt.spring4.xml.encryption.EncryptablePropertiesFactoryBean">
         <property name="encryptor" ref="configurationEncryptor"/>
         <property name="ignoreResourceNotFound" value="true"/>
         <property name="locations">
@@ -45,8 +43,7 @@
         </property>
     </bean>
 
-
-    <bean id="appConfig" class="org.jasypt.spring31.xml.encryption.EncryptablePropertiesFactoryBean">
+    <bean id="appConfig" class="org.jasypt.spring4.xml.encryption.EncryptablePropertiesFactoryBean">
         <property name="encryptor" ref="configurationEncryptor"/>
         <property name="ignoreResourceNotFound" value="true"/>
         <property name="locations">
@@ -59,8 +56,7 @@
         </property>
     </bean>
 
-
-    <bean id="pagingProperties" class="org.jasypt.spring31.xml.encryption.EncryptablePropertiesFactoryBean">
+    <bean id="pagingProperties" class="org.jasypt.spring4.xml.encryption.EncryptablePropertiesFactoryBean">
         <property name="encryptor" ref="configurationEncryptor"/>
         <property name="fileEncoding" value="UTF-8"/>
         <property name="locations">
