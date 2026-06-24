@@ -35,6 +35,12 @@
 </div>
 
 <script>
+    // 미인증 접근으로 온 경우 alert
+    const _redirectUrl = new URLSearchParams(location.search).get('redirect');
+    if (_redirectUrl) {
+        alert('로그인이 필요합니다.');
+    }
+
     const contextPath = "${pageContext.request.contextPath}";
     let isSecondStep = false; // 현재 2차 인증 단계인지 여부 플래그
 
@@ -68,11 +74,11 @@
                     return;
                 }
 
-                if (res.result === "BYPASS") {
-                    // 관리자 등 2차 인증 우회 대상: 바로 메인으로
-                    $("#msgBox").css("color", "#28a745").text("로그인 성공! 이동 중...");
-                    location.href = contextPath + "/sample";
-
+                // BYPASS / SUCCESS 시 redirect URL 로 이동
+                if (res.result === 'BYPASS' || res.result === 'SUCCESS') {
+                    location.href = _redirectUrl
+                        ? decodeURIComponent(_redirectUrl)
+                        : contextPath + '/sample';
                 } else if (res.result === "NEED_2FA") {
                     // 일반 사용자: 2차 인증 입력창 활성화
                     $("#msgBox").css("color", "#0056b3").text(res.message);
@@ -81,10 +87,6 @@
                     $("#userId").attr("readonly", true);
                     $("#userPw").attr("readonly", true);
                     isSecondStep = true;
-
-                } else if (res.result === "SUCCESS") {
-                    // step2 완료 후 최종 성공 (현재 미사용, step2 구현 시 활용)
-                    location.href = contextPath + "/sample";
                 }
             },
             error: function (err) {

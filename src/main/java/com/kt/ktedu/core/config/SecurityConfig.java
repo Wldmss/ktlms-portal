@@ -17,6 +17,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import java.nio.charset.StandardCharsets;
+
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
@@ -63,7 +65,12 @@ public class SecurityConfig {
                                 response.setContentType("application/json;charset=UTF-8");
                                 response.getWriter().write("{\"result\":\"UNAUTHORIZED\",\"message\":\"로그인이 필요합니다.\"}");
                             } else {
-                                response.sendRedirect(request.getContextPath() + "/");
+                                // 원래 요청 URL 을 redirect 파라미터로 저장
+                                String redirectUrl = request.getRequestURI();
+                                String query = request.getQueryString();
+                                if (query != null) redirectUrl += "?" + query;
+                                response.sendRedirect(request.getContextPath() + "/?redirect="
+                                        + java.net.URLEncoder.encode(redirectUrl, StandardCharsets.UTF_8));
                             }
                         })
                         .accessDeniedHandler((request, response, e) -> {
