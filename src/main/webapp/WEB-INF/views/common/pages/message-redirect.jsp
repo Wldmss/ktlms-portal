@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <jsp:include page="/WEB-INF/views/common/layout/header.jsp"/>
+    <jsp:include page="/WEB-INF/views/common/core/resources.jsp"/>
 </head>
 <body>
 <%-- alert & redirect --%>

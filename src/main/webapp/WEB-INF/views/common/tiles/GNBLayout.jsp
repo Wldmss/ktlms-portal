@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <%@ include file="/WEB-INF/views/common/layout/header.jsp" %>
+    <%@ include file="/WEB-INF/views/common/core/resources.jsp" %>
 </head>
 
 <body class="font-normal"><%--body 시작--%>

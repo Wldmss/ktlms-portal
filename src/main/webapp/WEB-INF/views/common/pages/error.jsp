@@ -41,8 +41,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title><%= errorTitle %> - KT LMS</title>
+    <%@ include file="/WEB-INF/views/common/core/meta.jsp" %>
     <style>
         body {
             text-align: center;
