@@ -17,11 +17,6 @@
 <link rel="stylesheet" href="<c:url value='/resources/css/common/common-ui.min.css' />">
 <link rel="stylesheet" href="<c:url value='/resources/css/common/common.min.css' />">
 <link rel="stylesheet" href="<c:url value='/resources/css/common/header.min.css' />">
-<%--
-<link rel="stylesheet" href="<c:url value='/resources/css/common/components/button.min.css' />">
-<link rel="stylesheet" href="<c:url value='/resources/css/common/components/datepicker.min.css' />">
-<link rel="stylesheet" href="<c:url value='/resources/css/common/components/form-control.min.css' />">
-<link rel="stylesheet" href="<c:url value='/resources/css/common/components/input.min.css' />">--%>
 
 <%-- flatpickr--%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/vendor/flatpickr/4.6.13/flatpickr.min.css">
