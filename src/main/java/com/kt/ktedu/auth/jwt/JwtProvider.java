@@ -5,17 +5,18 @@ import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
-import jakarta.servlet.ServletException;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.Date;
 
 @Component
@@ -23,136 +24,228 @@ public class JwtProvider {
 
     private static final Logger log = LoggerFactory.getLogger(JwtProvider.class);
 
-    // ⚠️ 실무 보안 필수: 최소 32바이트 이상의 비밀키 문자열
-    private final String SECRET_STRING = "KT_LMS_PORTAL_PROJECT_JWT_SECRET_KEY_2026_06_04";
-    private final SecretKey secretKey = Keys.hmacShaKeyFor(SECRET_STRING.getBytes(StandardCharsets.UTF_8));
+    // ⚠️ 실무 보안 필수: application.properties 로 외부화 필요 (최소 32바이트 이상)
+    private static final String ACCESS_SECRET_STRING = "KT_LMS_PORTAL_ACCESS_TOKEN_SECRET_KEY_2026";
+    private static final String REFRESH_SECRET_STRING = "KT_LMS_PORTAL_REFRESH_TOKEN_SECRET_KEY_2026_LONG";
 
-    private final long EXPIRATION_TIME = 1000L * 60 * 60 * 2; // 2시간 유효
+    private final SecretKey accessSecretKey = Keys.hmacShaKeyFor(ACCESS_SECRET_STRING.getBytes(StandardCharsets.UTF_8));
+    private final SecretKey refreshSecretKey = Keys.hmacShaKeyFor(REFRESH_SECRET_STRING.getBytes(StandardCharsets.UTF_8));
 
-    // 토큰 굽기 (생성)
-    public String createToken(JwtDTO jwtDTO) {
+    // Access Token: 3시간
+    public static final long ACCESS_EXPIRATION_MS = 1000L * 60 * 60 * 1;
+    // Refresh Token: 7일
+    public static final long REFRESH_EXPIRATION_MS = 1000L * 60 * 60 * 24 * 7;
+
+    public static final String ACCESS_COOKIE_NAME = "access_token";
+    public static final String REFRESH_COOKIE_NAME = "refresh_token";
+
+    @Autowired
+    private Environment environment;
+
+    /**
+     * local 프로파일이면 false, 그 외(dev/prod)는 true
+     */
+    private boolean isCookieSecure() {
+        return !Arrays.asList(environment.getActiveProfiles()).contains("local");
+    }
+
+    // =========================================================
+    // Access Token
+    // =========================================================
+
+    /**
+     * Access Token 생성
+     */
+    public String createAccessToken(JwtDTO jwtDTO) {
         Date now = new Date();
-
-        Date expiryDate = new Date(now.getTime() + EXPIRATION_TIME);
-
         return Jwts.builder()
                 .subject(jwtDTO.getUserId())
                 .claim("userId", jwtDTO.getUserId())
                 .claim("userNm", jwtDTO.getUserNm())
+                .claim("orgCd", jwtDTO.getOrgCd())
+                .claim("comp", jwtDTO.getComp())
                 .claim("role", jwtDTO.getRole())
+                .claim("type", "access")
                 .issuedAt(now)
-                .expiration(expiryDate)
-                .signWith(secretKey, Jwts.SIG.HS256)
+                .expiration(new Date(now.getTime() + ACCESS_EXPIRATION_MS))
+                .signWith(accessSecretKey, Jwts.SIG.HS256)
                 .compact();
     }
 
-    // 토큰 쪼개기 (Claims 해독)
-    public Claims parseClaims(String token) {
-        try {
-            return Jwts.parser()
-                    .verifyWith(secretKey)
-                    .build()
-                    .parseSignedClaims(token)
-                    .getPayload();
-        } catch (ExpiredJwtException e) {
-            log.warn("만료된 JWT 토큰입니다.");
-            throw e;
-        } catch (JwtException | IllegalArgumentException e) {
-            log.error("유효하지 않은 JWT 토큰입니다.", e);
-            throw e;
-        }
+    /**
+     * Access Token Claims 파싱
+     */
+    public Claims parseAccessToken(String token) {
+        return Jwts.parser()
+                .verifyWith(accessSecretKey)
+                .build()
+                .parseSignedClaims(token)
+                .getPayload();
     }
 
-    // 토큰 안에서 바로 DTO 객체로 유저 정보 복원하기
-    public JwtDTO getUserInfoFromToken(String token) {
-        Claims claims = parseClaims(token);
-        return JwtDTO.builder()
-                .userId(claims.getSubject())
-                .userNm(claims.get("userNm", String.class))
-                .role(claims.get("role", String.class))
-                .build();
-    }
-
-    // 토큰 만료 여부 단순 확인
-    public boolean validateToken(String token) {
+    /**
+     * Access Token 유효성 검증
+     */
+    public boolean validateAccessToken(String token) {
         try {
-            parseClaims(token);
+            parseAccessToken(token);
             return true;
-        } catch (Exception e) {
+        } catch (ExpiredJwtException e) {
+            log.warn("만료된 Access Token");
+            throw e; // 만료는 caller 에서 처리 (refresh 로직 분기용)
+        } catch (JwtException | IllegalArgumentException e) {
+            log.error("유효하지 않은 Access Token: {}", e.getMessage());
             return false;
         }
     }
 
-    // 토큰 만료 alert
-    public void alertExpiredToken(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        request.setAttribute("serverMessage", "로그인 세션이 만료되었습니다.\\n다시 로그인해 주세요.");
-        request.setAttribute("serverTargetUrl", "/");
+    // =========================================================
+    // Refresh Token
+    // =========================================================
 
-        request.getRequestDispatcher("/WEB-INF/common/message-redirect.jsp").forward(request, response);
+    /**
+     * Refresh Token 생성
+     */
+    public String createRefreshToken(String userId) {
+        Date now = new Date();
+        return Jwts.builder()
+                .subject(userId)
+                .claim("type", "refresh")
+                .issuedAt(now)
+                .expiration(new Date(now.getTime() + REFRESH_EXPIRATION_MS))
+                .signWith(refreshSecretKey, Jwts.SIG.HS256)
+                .compact();
     }
 
     /**
-     * 토큰 발급 및 쿠키 적재 일괄 처리
-     *
-     * @param userId   사번 또는 ID
-     * @param response HTTP 응답 객체 (쿠키를 심기 위함)
-     * @return 생성된 Access Token 문자열 (필요시 컨트롤러에서 로그나 후처리에 쓰도록 리턴)
+     * Refresh Token Claims 파싱
      */
-    public String issueTokenAndSetCookie(String userId, HttpServletResponse response) {
-        String accessToken = createToken(new JwtDTO(userId, "김지은", "1001", "1001", "ROLE_USER"));
-        Cookie jwtCookie = new Cookie("Authorization", "Bearer_" + accessToken);
-
-        jwtCookie.setHttpOnly(true);   // 🛡️ 자바스크립트 변수 탈취(XSS) 방지
-        jwtCookie.setSecure(false);    // 개발(local/http)은 false, 운영(https)은 true로 튜닝
-        jwtCookie.setPath("/");        // 프로젝트 전역 경로에서 접근 허용
-        jwtCookie.setMaxAge((int) (EXPIRATION_TIME / 1000)); // 쿠키 수명 = 토큰 수명 동기화
-
-        response.addCookie(jwtCookie);
-        return accessToken;
+    public Claims parseRefreshToken(String token) {
+        return Jwts.parser()
+                .verifyWith(refreshSecretKey)
+                .build()
+                .parseSignedClaims(token)
+                .getPayload();
     }
 
     /**
-     * 토큰 자동 추출 (Header 우선 -> 없으면 Cookie 검색)
-     *
-     * @param request HTTP 요청 객체
-     * @return 순수 JWT 토큰 문자열 (없으면 null)
+     * Refresh Token 유효성 검증 (만료 포함)
      */
-    public String resolveToken(HttpServletRequest request) {
-        // HTTP 헤더에서 "Authorization" 확인 (Ajax 통신)
+    public boolean validateRefreshToken(String token) {
+        try {
+            Claims claims = parseRefreshToken(token);
+            return "refresh".equals(claims.get("type", String.class));
+        } catch (Exception e) {
+            log.warn("유효하지 않은 Refresh Token: {}", e.getMessage());
+            return false;
+        }
+    }
+
+    /**
+     * Refresh Token 에서 userId 추출
+     */
+    public String getUserIdFromRefreshToken(String token) {
+        return parseRefreshToken(token).getSubject();
+    }
+
+    // =========================================================
+    // 공통 유틸
+    // =========================================================
+
+    /**
+     * Access Token → JwtDTO 변환
+     */
+    public JwtDTO getUserInfoFromAccessToken(String token) {
+        Claims claims = parseAccessToken(token);
+        return JwtDTO.builder()
+                .userId(claims.getSubject())
+                .userNm(claims.get("userNm", String.class))
+                .orgCd(claims.get("orgCd", String.class))
+                .comp(claims.get("comp", String.class))
+                .role(claims.get("role", String.class))
+                .build();
+    }
+
+    /**
+     * 요청에서 Access Token 추출 (Header 우선 → Cookie 순)
+     * Header: Authorization: Bearer {token}
+     * Cookie: access_token={token}
+     */
+    public String resolveAccessToken(HttpServletRequest request) {
         String authHeader = request.getHeader("Authorization");
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
-            return authHeader.substring(7); // "Bearer " 제거 후 리턴
+            return authHeader.substring(7);
         }
-
-        // 헤더에 없다면 브라우저 쿠키(Cookie) 저장소 확인(페이지 이동 대비)
-        jakarta.servlet.http.Cookie[] cookies = request.getCookies();
-        if (cookies != null) {
-            for (jakarta.servlet.http.Cookie cookie : cookies) {
-                if ("Authorization".equals(cookie.getName())) {
-                    String cookieValue = cookie.getValue();
-                    if (cookieValue != null && cookieValue.startsWith("Bearer_")) {
-                        return cookieValue.substring(7);
-                    }
-                }
-            }
-        }
-
-        return null;
+        return getCookieValue(request, ACCESS_COOKIE_NAME);
     }
 
     /**
-     * 로그아웃 처리 및 JWT 쿠키 제거
-     *
-     * @param response HTTP 응답 객체 (쿠키를 지우기 위함)
+     * 요청에서 Refresh Token 추출 (Cookie)
      */
-    public void deleteTokenCookie(HttpServletResponse response) {
-        Cookie jwtCookie = new Cookie("Authorization", null);
+    public String resolveRefreshToken(HttpServletRequest request) {
+        return getCookieValue(request, REFRESH_COOKIE_NAME);
+    }
 
-        jwtCookie.setHttpOnly(true);   // 발급할 때와 동일하게 쉴드 유지
-        jwtCookie.setSecure(false);    // 발급할 때와 동일하게 설정 (local=false / 실운영=true)
-        jwtCookie.setPath("/");        // 발급할 때와 동일한 경로 지정 필수
-        jwtCookie.setMaxAge(0);
+    // =========================================================
+    // 쿠키 관리
+    // =========================================================
 
-        response.addCookie(jwtCookie);
+    /**
+     * Access Token 쿠키 세팅
+     */
+    public void setAccessTokenCookie(HttpServletResponse response, String token) {
+        Cookie cookie = new Cookie(ACCESS_COOKIE_NAME, token);
+        cookie.setHttpOnly(true);
+        cookie.setSecure(isCookieSecure());
+        cookie.setPath("/");
+        cookie.setMaxAge((int) (ACCESS_EXPIRATION_MS / 1000));
+        response.addCookie(cookie);
+    }
+
+    /**
+     * Refresh Token 쿠키 세팅
+     */
+    public void setRefreshTokenCookie(HttpServletResponse response, String token) {
+        Cookie cookie = new Cookie(REFRESH_COOKIE_NAME, token);
+        cookie.setHttpOnly(true);
+        cookie.setSecure(isCookieSecure());
+        cookie.setPath("/auth/refresh");
+        cookie.setMaxAge((int) (REFRESH_EXPIRATION_MS / 1000));
+        response.addCookie(cookie);
+    }
+
+    /**
+     * Access + Refresh 쿠키 모두 삭제 (로그아웃)
+     */
+    public void clearAuthCookies(HttpServletResponse response) {
+        Cookie accessCookie = new Cookie(ACCESS_COOKIE_NAME, null);
+        accessCookie.setHttpOnly(true);
+        accessCookie.setSecure(isCookieSecure());
+        accessCookie.setPath("/");
+        accessCookie.setMaxAge(0);
+
+        Cookie refreshCookie = new Cookie(REFRESH_COOKIE_NAME, null);
+        refreshCookie.setHttpOnly(true);
+        refreshCookie.setSecure(isCookieSecure());
+        refreshCookie.setPath("/auth/refresh");
+        refreshCookie.setMaxAge(0);
+
+        response.addCookie(accessCookie);
+        response.addCookie(refreshCookie);
+    }
+
+    // =========================================================
+    // private
+    // =========================================================
+
+    private String getCookieValue(HttpServletRequest request, String name) {
+        Cookie[] cookies = request.getCookies();
+        if (cookies == null) return null;
+        for (Cookie cookie : cookies) {
+            if (name.equals(cookie.getName())) {
+                return cookie.getValue();
+            }
+        }
+        return null;
     }
 }

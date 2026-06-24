@@ -16,6 +16,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     border-top: 5px solid var(--primary-color);
+    margin: auto;
 }
 
 .login-header h2 {

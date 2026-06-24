@@ -1,6 +1,4 @@
-/*=======================
-    global color : 전역 색상
- =======================*/
+/* ─── global color : 전역 색상 ─── */
 :root {
     --primary-color: #FF5259; /* 메인 브랜드 컬러 (핑크 레드) */
     --primary-light: #FF6B71; /* 하이라이트 컬러 (밝은 톤) */
@@ -9,11 +7,15 @@
     --bg-overlay: rgba(0, 0, 0, 0.4); /* 전역 로딩바 암막 투명도 */
 
     --input-border: #222222; /* input border 라인 컬러 */
+
+    /* 컴포넌트용 확장 변수 */
+    --border-color: #e0e0e0;
+    --border-hover: #b5b5b5;
+    --text-main: #333333;
+    --bg-gray: #f8f9fa;
 }
 
-/*=======================
-    global font : 전역 폰트
- =======================*/
+/* ─── global font : 전역 폰트 ─── */
 /* 얇게 (Light) - 300 */
 @font-face {
     font-family: 'NotoSansKR';
@@ -70,9 +72,7 @@
     font-weight: 700 !important;
 }
 
-/*=======================
-    global tag
- =======================*/
+/* ─── global tag ─── */
 /* 모든 태그의 안쪽/바깥쪽 여백을 초기화하고, 박스 크기 계산 방식을 통일합니다. */
 *, *::before, *::after {
     margin: 0;
@@ -120,26 +120,6 @@ a {
     cursor: pointer;
 }
 
-/* 버튼 기본 스타일 리셋 */
-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font: inherit;
-}
-
-/* 인풋 박스 전역 포커스 설정 */
-input:focus, textarea:focus, select:focus {
-    outline: none;
-    border-color: var(--primary-color) !important; /* 포커스 시 우리 로고 색상으로 빛나게 */
-    box-shadow: 0 0 0 3px rgba(255, 82, 89, 0.15);
-}
-
-/* 텍스트 에어리어 유저가 마음대로 크기 조절해서 레이아웃 깨뜨리는 것 방지 */
-textarea {
-    resize: vertical; /* 위아래로만 조절 가능 */
-}
-
 /* 이미지 태그 하단에 알 수 없는 미세한 빈 공간 생기는 버그 방지 */
 img {
     max-width: 100%;
@@ -147,9 +127,7 @@ img {
     display: block;
 }
 
-/*=======================
-    global scrollbar : 스크롤바
- =======================*/
+/* ─── global scrollbar : 스크롤바 ─── */
 /* 모든 스크롤바 영역 스타일링 */
 ::-webkit-scrollbar {
     width: 8px; /* 세로 스크롤바 두께 */
@@ -171,6 +149,7 @@ img {
     background: #c1c1c1;
 }
 
+/* ─── 레이아웃 ─── */
 .main-wrapper {
     display: flex;
     flex-direction: column;
@@ -188,4 +167,28 @@ img {
     padding: 40px 20px; /* 본문 상하좌우 여백 공통 제공 */
     box-sizing: border-box;
     background-color: #f8f9fa; /* 차분한 연그레이 배경색 일괄 적용 */
+}
+
+/* 쇼케이스 전체 감싸는 콘테이너 */
+.ui-container {
+    padding: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* 각 컴포넌트 세션 간 격리 여백 */
+.ui-section {
+    margin-bottom: 35px;
+    width: 100%;
+}
+
+/* 타이틀 왼쪽 브랜드 컬러 포인트 바 연출 */
+.ui-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--primary-color); /* #FF5259 브랜드 핑크레드 매핑 */
+    padding-left: 10px;
+    line-height: 1.2;
 }

@@ -16,6 +16,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <spring.version>6.1.15</spring.version>
+        <spring.security.version>6.1.6</spring.security.version>
         <jjwt.version>0.12.6</jjwt.version>
         <lombok.version>1.18.36</lombok.version>
     </properties>
@@ -42,6 +43,18 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+
+        <!-- spring security -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring.security.version}</version>
         </dependency>
 
         <!-- jakarta -->
@@ -77,6 +90,11 @@
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>2.18.6</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jdk8</artifactId>
             <version>2.18.6</version>
         </dependency>
         <dependency>
@@ -284,53 +302,11 @@
         </dependency>
 
         <!-- bootstrap -->
-        <!-- Source: https://mvnrepository.com/artifact/org.webjars/bootstrap -->
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>bootstrap</artifactId>
             <version>5.3.6</version>
         </dependency>
-
-        <!-- 이하 front 라이브러리 nexus 업로드 필요 TODO - 안된다면 js, css 다운로드해서 넣기 -->
-        <!-- summernote -->
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>summernote</artifactId>
-            <version>0.8.10</version>
-        </dependency>
-
-        <!--video.js-->
-        <!-- Source: https://mvnrepository.com/artifact/org.webjars.npm/video.js -->
-        <dependency>
-            <groupId>org.webjars.npm</groupId>
-            <artifactId>video.js</artifactId>
-            <version>8.23.8</version>
-        </dependency>
-
-        <!-- swiper -->
-        <!-- Source: https://mvnrepository.com/artifact/org.webjars.npm/swiper -->
-        <dependency>
-            <groupId>org.webjars.npm</groupId>
-            <artifactId>swiper</artifactId>
-            <version>12.1.2</version>
-        </dependency>
-
-        <!-- chart.js -->
-        <!-- Source: https://mvnrepository.com/artifact/org.webjars.npm/chart.js -->
-        <dependency>
-            <groupId>org.webjars.npm</groupId>
-            <artifactId>chart.js</artifactId>
-            <version>4.5.1</version>
-        </dependency>
-
-        <!-- fullcalendar -->
-        <!-- Source: https://mvnrepository.com/artifact/org.webjars.npm/fullcalendar -->
-        <dependency>
-            <groupId>org.webjars.npm</groupId>
-            <artifactId>fullcalendar</artifactId>
-            <version>6.1.20</version>
-        </dependency>
-
     </dependencies>
 
     <build>

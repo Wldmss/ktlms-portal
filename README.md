@@ -55,12 +55,12 @@ sqi@SQIuiMacBookAir ~ % which cleancss
     - Name: CSS Minifier | JS Minifier
     - type: Cascading style sheet | JavaScript
     - Scope: 우측 ... 클릭 -> + 클릭
-    - Name: Only Original CSS | Only Original JS
-    - Pattern:
-    ```
-     - css : file:src/main/webapp/resources/css/_.css&&!file:src/main/webapp/resources/css/_.min.css
-     - js : file:src/main/webapp/resources/js/_.js&&!file:src/main/webapp/resources/js/_.min.js
-    ```
+       - Name: Only Original CSS | Only Original JS
+       - Pattern:
+         ```
+         - css : file:src/main/webapp/resources/css/_.css&&!file:src/main/webapp/resources/css/_.min.css
+         - js : file:src/main/webapp/resources/js/_.js&&!file:src/main/webapp/resources/js/_.min.js
+         ```
     
     - css
       - Program: cleancss (또는 cleancss 설치 경로)
@@ -73,8 +73,22 @@ sqi@SQIuiMacBookAir ~ % which cleancss
       - Arguments: $FileName$ -o $FileNameWithoutExtension$.min.js --mangle --compress 
       - Output paths to refresh: $FileNameWithoutExtension$.min.js
       - Working directory: $FileDir$
-      
-     - 고급 설정: 하단의 Advanced Options에서 Auto-save edited files to trigger the watcher를 체크하 해제
+
+   - 고급 설정: 하단의 Advanced Options에서 Auto-save edited files to trigger the watcher를 체크 해제
+
+6. common-ui.css 용 file watcher 추가
+   - Name: Common UI Minifier
+   - type: Cascading style sheet
+   - Scope: 우측 ... 클릭 -> + 클릭
+      - Name: Common UI
+     ```text
+     file[ktlms-portal]:src/main/webapp/resources/css/common/components/*.css&&!file[ktlms-portal]:src/main/webapp/resources/css/common/components/*.min.css
+     file:src/main/webapp/resources/css/common/common-ui.css
+     ```
+   - Program: cleancss (또는 cleancss 설치 경로)
+   - Arguments: -o $FileDir$/../common-ui.min.css $FileDir$/../common-ui.css
+   - Output paths to refresh: $FileDir$/../common-ui.min.css
+   - Working directory: $FileDir$
 
 ---
 
@@ -108,3 +122,22 @@ sqi@SQIuiMacBookAir ~ % which cleancss
 
 - src/main/resources/firebase/ktgenius-firebase-adminsdk.json
 - src/main/resources/saml/*.crt
+
+---
+
+# standalone.xml 변경
+
+/settings/standalone.xml 내용으로 jboss폴더/standalone/configuration/standalone.xml 변경
+
+- 아래 내용 추가 해야 jsp 저장 후 새로고침 시 적용됨
+
+```xml
+
+<servlet-container name="default">
+   <jsp-config development="true"
+               check-interval="1"
+               modification-test-interval="1"
+               recompile-on-fail="true"/>
+   <websockets/>
+</servlet-container>
+```

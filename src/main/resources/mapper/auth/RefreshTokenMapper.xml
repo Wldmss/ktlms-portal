@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kt.ktedu.auth.jwt.RefreshTokenMapper">
+
+    <resultMap id="refreshTokenResultMap" type="com.kt.ktedu.auth.jwt.RefreshTokenDTO">
+        <id     property="userId"    column="user_id"/>
+        <result property="token"     column="token"/>
+        <result property="expiresAt" column="expires_at"/>
+        <result property="createdAt" column="created_at"/>
+    </resultMap>
+
+    <!-- Refresh Token 저장 (UPSERT) -->
+    <insert id="upsert" parameterType="com.kt.ktedu.auth.jwt.RefreshTokenDTO">
+        INSERT INTO tb_refresh_token (user_id, token, expires_at, created_at)
+        VALUES (#{userId}, #{token}, #{expiresAt}, NOW())
+        ON CONFLICT (user_id)
+        DO UPDATE SET
+            token      = EXCLUDED.token,
+            expires_at = EXCLUDED.expires_at,
+            created_at = NOW()
+    </insert>
+
+    <!-- userId 로 조회 -->
+    <select id="findByUserId" resultMap="refreshTokenResultMap">
+        SELECT user_id, token, expires_at, created_at
+        FROM tb_refresh_token
+        WHERE user_id = #{userId}
+    </select>
+
+    <!-- token 값으로 조회 -->
+    <select id="findByToken" resultMap="refreshTokenResultMap">
+        SELECT user_id, token, expires_at, created_at
+        FROM tb_refresh_token
+        WHERE token = #{token}
+    </select>
+
+    <!-- userId 로 삭제 -->
+    <delete id="deleteByUserId">
+        DELETE FROM tb_refresh_token
+        WHERE user_id = #{userId}
+    </delete>
+
+    <!-- 만료된 토큰 일괄 삭제 -->
+    <delete id="deleteExpired">
+        DELETE FROM tb_refresh_token
+        WHERE expires_at &lt; NOW()
+    </delete>
+
+</mapper>

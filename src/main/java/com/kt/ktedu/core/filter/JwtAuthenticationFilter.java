@@ -1,0 +1,77 @@
+package com.kt.ktedu.core.filter;
+
+import com.kt.ktedu.auth.jwt.JwtDTO;
+import com.kt.ktedu.auth.jwt.JwtProvider;
+import com.kt.ktedu.auth.security.CustomUserDetails;
+import io.jsonwebtoken.ExpiredJwtException;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
+import org.springframework.stereotype.Component;
+import org.springframework.web.filter.OncePerRequestFilter;
+
+import java.io.IOException;
+
+/**
+ * 매 요청마다 Access Token 을 검증하고 SecurityContext 에 인증 정보를 세팅하는 필터
+ * Spring Security 필터 체인에서 UsernamePasswordAuthenticationFilter 이전에 실행
+ */
+@Slf4j
+@Component
+@RequiredArgsConstructor
+public class JwtAuthenticationFilter extends OncePerRequestFilter {
+
+    private final JwtProvider jwtProvider;
+
+    @Override
+    protected void doFilterInternal(HttpServletRequest request,
+                                    HttpServletResponse response,
+                                    FilterChain filterChain) throws ServletException, IOException {
+
+        String token = jwtProvider.resolveAccessToken(request);
+
+        if (token != null) {
+            try {
+                // Access Token 검증 후 SecurityContext 세팅
+                jwtProvider.validateAccessToken(token); // 만료 시 ExpiredJwtException throw
+                JwtDTO jwtDTO = jwtProvider.getUserInfoFromAccessToken(token);
+
+                CustomUserDetails userDetails = new CustomUserDetails(jwtDTO, null);
+                UsernamePasswordAuthenticationToken authentication =
+                        new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+                authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+
+                SecurityContextHolder.getContext().setAuthentication(authentication);
+
+            } catch (ExpiredJwtException e) {
+                // Access Token 만료 → 401 반환 (클라이언트가 Refresh 요청 처리)
+                log.warn("Access Token 만료 - URI: {}", request.getRequestURI());
+                SecurityContextHolder.clearContext();
+
+                boolean isAjax = "XMLHttpRequest".equals(request.getHeader("X-Requested-With"));
+                if (isAjax) {
+                    response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                    response.setContentType("application/json;charset=UTF-8");
+                    response.getWriter().write("{\"result\":\"TOKEN_EXPIRED\",\"message\":\"Access Token이 만료되었습니다.\"}");
+                } else {
+                    response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                    response.setContentType("application/json;charset=UTF-8");
+                    response.getWriter().write("{\"result\":\"TOKEN_EXPIRED\",\"message\":\"Access Token이 만료되었습니다.\"}");
+                }
+                return;
+
+            } catch (Exception e) {
+                log.error("JWT 처리 중 오류: {}", e.getMessage());
+                SecurityContextHolder.clearContext();
+            }
+        }
+
+        filterChain.doFilter(request, response);
+    }
+}

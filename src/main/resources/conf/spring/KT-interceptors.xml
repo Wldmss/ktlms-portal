@@ -5,20 +5,9 @@
              xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
                            http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <interceptors>
-        <!-- session check - jwt -->
-        <interceptor>
-            <mapping path="/**"/>
-            <exclude-mapping path="/"/>
-            <exclude-mapping path="/login"/>
-            <exclude-mapping path="/logout"/>
-            <exclude-mapping path="/auth/**"/>
-
-            <exclude-mapping path="/resources/**"/>
-            <exclude-mapping path="/webjars/**"/>
-
-            <beans:bean class="com.kt.ktedu.core.interceptor.JwtInterceptor"/>
-        </interceptor>
-    </interceptors>
+    <!--<interceptors>
+        &lt;!&ndash; JWT 인증은 Spring Security Filter Chain 에서 처리 (JwtAuthenticationFilter) &ndash;&gt;
+        &lt;!&ndash; 인증 이후 공통 처리가 필요한 interceptor 는 여기에 추가 &ndash;&gt;
+    </interceptors>-->
 
 </beans:beans>

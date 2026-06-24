@@ -109,24 +109,31 @@
             <li class="gnb-menu-item font-normal" onclick="showSnackbar('시험 메인 화면으로 이동합니다.')">시험평가</li>
         </ul>
     </nav>
+
+    <button type="button" class="float-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="위로 가기">
+        △
+    </button>
 </header>
 
 <script type="text/javascript">
     function handleGnbLogout() {
-        // 커스텀 전역 openAlert(메시지, isConfirm) 기믹 작동!
         if (typeof openConfirm === 'function') {
-            openConfirm("정말로 로그아웃 하시겠습니까?").then(function (isConfirm) {
+            openConfirm("로그아웃 하시겠습니까?").then(function (isConfirm) {
                 if (isConfirm) {
                     showSnackbar("🔒 안전하게 로그아웃 중입니다...");
-                    setTimeout(function () {
-                        location.href = window._contextPath + "/logout";
-                    }, 1200);
+                    setTimeout(doLogout, 1200);
                 }
             });
         } else {
-            if (confirm("정말로 로그아웃 하시겠습니까?")) {
-                location.href = window._contextPath + "/logout";
+            if (confirm("로그아웃 하시겠습니까?")) {
+                doLogout();
             }
         }
+    }
+
+    function doLogout() {
+        postAjax("/auth/logout").then(res => {
+            location.href = window._contextPath + "/";
+        });
     }
 </script>

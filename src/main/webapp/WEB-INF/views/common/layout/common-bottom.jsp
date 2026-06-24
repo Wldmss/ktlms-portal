@@ -3,5 +3,6 @@
 </div><%--content end--%>
 </main>
 <%@ include file="/WEB-INF/views/common/layout/footer.jsp" %>
+<%@ include file="/WEB-INF/views/common/layout/script.jsp" %>
 </body>
 </html>

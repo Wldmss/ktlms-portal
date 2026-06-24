@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--
+        root-context : @Controller 제외한 모든 Bean 스캔
+        (@Service, @Repository, @Component, @Configuration)
+        servlet-context 는 @Controller 만 스캔 → 중복 Bean 등록 방지
+    -->
+    <context:annotation-config/>
+    <context:component-scan base-package="com.kt.ktedu">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
 
     <!--KT-*.xml 순서 중요-->
     <import resource="classpath:conf/spring/KT-properties.xml"/>    <!--환경변수-->

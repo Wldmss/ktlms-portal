@@ -1,12 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <%@ include file="/WEB-INF/views/common/layout/header.jsp" %>
-    <link rel="stylesheet" href="<c:url value='/resources/css/login/login.min.css' />">
-    <script src="<c:url value='/resources/js/login/login.min.js' />" defer></script>
-</head>
-<body>
+
+<%@ include file="/WEB-INF/views/common/layout/default-top.jsp" %>
+
+<link rel="stylesheet" href="<c:url value='/resources/css/login/login.min.css' />">
+<script src="<c:url value='/resources/js/login/login.min.js' />" defer></script>
 
 <div class="login-container">
     <div class="login-header">
@@ -59,32 +56,39 @@
         // 백엔드 컨트롤러(/auth/login/step1)로 데이터 전송
         $.ajax({
             // url: contextPath + "/auth/login/step1",
-            url: contextPath + "/doLogin",
+            url: contextPath + "/auth/login",
             type: "POST",
             contentType: "application/json",
-            data: JSON.stringify({id: id, pw: pw}),
+            data: JSON.stringify({userId: id, password: pw}),
             success: function (res) {
-                console.log(res)
-                if (res.status === "BYPASS") {
-                    // 🎉 우회 조건 충족 대상자: 2차 인증 생략하고 즉시 토큰 발급 및 메인 이동
-                    $("#msgBox").css("color", "#28a745").text("우회 인증 대상자입니다. 로그인 완료 중...");
-                    // 우회 대상자는 내부적으로 최종 로그인을 바로 처리하도록 유도하거나
-                    // 즉시 메인(또는 토큰발급 프로세스)으로 리디렉션 처리합니다.
+                console.log(res);
+                console.log(res.success)
+                if (!res.success && res.result !== "NEED_2FA") {
+                    $("#msgBox").css("color", "#dc3545").text(res.message || "로그인에 실패했습니다.");
+                    return;
+                }
+
+                if (res.result === "BYPASS") {
+                    // 관리자 등 2차 인증 우회 대상: 바로 메인으로
+                    $("#msgBox").css("color", "#28a745").text("로그인 성공! 이동 중...");
                     location.href = contextPath + "/sample";
-                } else if (res.status === "NEED_2FA") {
-                    // 🔒 일반 대상자: 2차 인증 구역을 활성화하고 버튼 텍스트 변경
+
+                } else if (res.result === "NEED_2FA") {
+                    // 일반 사용자: 2차 인증 입력창 활성화
                     $("#msgBox").css("color", "#0056b3").text(res.message);
                     $("#secondAuthArea").slideDown();
                     $("#btnAction").text("인증 및 로그인 완료");
-
-                    // 사번/비밀번호 창은 수정 못하게 잠금
                     $("#userId").attr("readonly", true);
                     $("#userPw").attr("readonly", true);
                     isSecondStep = true;
+
+                } else if (res.result === "SUCCESS") {
+                    // step2 완료 후 최종 성공 (현재 미사용, step2 구현 시 활용)
+                    location.href = contextPath + "/sample";
                 }
             },
             error: function (err) {
-                console.log(err)
+                console.log(err);
                 $("#msgBox").css("color", "#dc3545").text(err.responseJSON?.message || "로그인 정보가 올바르지 않습니다.");
             }
         });
@@ -121,5 +125,4 @@
     }
 </script>
 
-</body>
-</html>
+<%@ include file="/WEB-INF/views/common/layout/default-bottom.jsp" %>

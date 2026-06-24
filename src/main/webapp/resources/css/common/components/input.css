@@ -1,0 +1,56 @@
+/* ───  Input Text Box ─── */
+.input-text {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 14px;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    background-color: #fff;
+}
+
+.input-text:hover {
+    border-color: var(--border-hover);
+}
+
+.input-text:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(255, 82, 89, 0.12);
+}
+
+.input-text:disabled {
+    background-color: var(--bg-gray);
+    color: #999;
+    cursor: not-allowed;
+    border-color: var(--border-color) !important;
+    box-shadow: none !important;
+}
+
+/* ─── Textarea ─── */
+textarea {
+    resize: vertical; /* 위아래로만 조절 가능 */
+}
+
+.textarea {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 14px;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    outline: none;
+    min-height: 100px;
+    transition: all 0.2s ease-in-out;
+    background-color: #fff;
+}
+
+.textarea:hover {
+    border-color: var(--border-hover);
+}
+
+.textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(255, 82, 89, 0.12);
+}
