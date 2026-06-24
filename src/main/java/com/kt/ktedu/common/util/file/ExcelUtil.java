@@ -20,74 +20,106 @@ public class ExcelUtil {
     }
 
     /**
-     * 데이터 리스트를 받아 대용량 엑셀 파일로 클라이언트에게 즉시 다운로드
-     * (SXSSFWorkbook 적용으로 수십만 건 데이터도 서버 메모리 방어선 작동)
+     * Map 리스트 데이터 -> 엑셀 다운로드
+     * @param headerMap  엑셀에 그릴 Key와 한글 헤더 매핑 데이터 (반드시 순서가 보장되는 LinkedHashMap 권장)
+     * 예: { "userId" : "사용자 ID", "userNm" : "회원명" }
+     * @param dataList   DB에서 뽑아온 List<Map<String, Object>> 결과물
      */
-    public static <T> void downloadExcel(HttpServletResponse response, List<T> dataList, Class<T> clazz, String fileName) throws IOException {
+    public static void downloadExcelMap(HttpServletResponse response, Map<String, String> headerMap, List<Map<String, Object>> dataList, String fileName) throws IOException {
+        if (headerMap == null || headerMap.isEmpty()) throw new IllegalArgumentException("엑셀 헤더 설정이 비어있습니다.");
         if (dataList == null) dataList = new ArrayList<>();
 
-        // 1. 리플렉션을 이용해 @ExcelColumn 설정이 된 필드들을 순서대로 추출
-        List<Field> excelFields = Arrays.stream(clazz.getDeclaredFields())
-                .filter(field -> field.isAnnotationPresent(ExcelColumn.class))
-                .sorted(Comparator.comparingInt(field -> field.getAnnotation(ExcelColumn.class).order()))
-                .toList();
+        List<String> bodyKeys = new ArrayList<>(headerMap.keySet());    // 데이터 매핑용 Key 리스트 (eg. userId)
+        List<String> headerNames = new ArrayList<>(headerMap.values()); // 엑셀 타이틀 표출용 명칭 (eg. 사용자 ID)
 
-        // 2. 대용량용 SXSSF 워크북 생성 (메모리에 100줄만 들고 있고 나머지는 디스크 임시파일 처리)
         try (SXSSFWorkbook workbook = new SXSSFWorkbook(100)) {
             SXSSFSheet sheet = workbook.createSheet("Data List");
-            sheet.trackAllColumnsForAutoSizing(); // 자크 자동 조절 활성화
+            sheet.trackAllColumnsForAutoSizing();
 
-            // 헤더 스타일 정의 (연한 회색 배경, 굵은 글씨, 테두리선)
             CellStyle headerStyle = createHeaderStyle(workbook);
-            // 본문 스타일 정의 (테두리선, 좌측 정렬)
             CellStyle bodyStyle = createBodyStyle(workbook);
 
-            // 3. 타이틀 헤더 로우 생성
+            // 1. 헤더 타이틀 로우 생성
             Row headerRow = sheet.createRow(0);
-            for (int i = 0; i < excelFields.size(); i++) {
+            for (int i = 0; i < headerNames.size(); i++) {
                 Cell cell = headerRow.createCell(i);
-                ExcelColumn anno = excelFields.get(i).getAnnotation(ExcelColumn.class);
-                cell.setCellValue(anno.headerName());
+                cell.setCellValue(headerNames.get(i));
                 cell.setCellStyle(headerStyle);
             }
 
-            // 4. 데이터 로우 채우기
+            // 2. 데이터 본문 채우기
             int rowIdx = 1;
-            for (T data : dataList) {
+            for (Map<String, Object> data : dataList) {
                 Row bodyRow = sheet.createRow(rowIdx++);
-                for (int i = 0; i < excelFields.size(); i++) {
+                for (int i = 0; i < bodyKeys.size(); i++) {
                     Cell cell = bodyRow.createCell(i);
                     cell.setCellStyle(bodyStyle);
 
-                    Field field = excelFields.get(i);
-                    field.setAccessible(true);
-                    try {
-                        Object value = field.get(data);
-                        if (value != null) {
-                            if (value instanceof Number) {
-                                cell.setCellValue(((Number) value).doubleValue());
-                            } else {
-                                cell.setCellValue(value.toString());
-                            }
-                        }
-                    } catch (IllegalAccessException e) {
-                        cell.setCellValue("");
-                    }
+                    Object value = data.get(bodyKeys.get(i));
+                    setCellValueByType(cell, value);
                 }
             }
 
             // 열 너비 자동 조절
-            for (int i = 0; i < excelFields.size(); i++) {
+            for (int i = 0; i < headerNames.size(); i++) {
                 sheet.autoSizeColumn(i);
             }
 
-            // 5. 브라우저 응답 헤더 세팅 및 다운로드 스트림 출력
-            String encodedFileName = URLEncoder.encode(fileName, StandardCharsets.UTF_8).replaceAll("\\+", "%20");
-            response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-            response.setHeader("Content-Disposition", "attachment; filename=\"" + encodedFileName + ".xlsx\"");
+            // 3. 응답 스트림 출력
+            flushExcelResponse(response, workbook, fileName);
+        }
+    }
 
-            workbook.write(response.getOutputStream());
-            response.getOutputStream().flush();
+    /**
+     * DTO 리스트 데이터 -> 엑셀 다운로드
+     *
+     * @param headerMap 매핑할 DTO 필드명과 엑셀 표출 헤더명 (LinkedHashMap)
+     *                  예: { "studentId" : "학생일련번호", "email" : "이메일주소" }
+     */
+    public static <T> void downloadExcelDto(HttpServletResponse response, Map<String, String> headerMap, List<T> dataList, Class<T> clazz, String fileName) throws IOException {
+        if (headerMap == null || headerMap.isEmpty()) throw new IllegalArgumentException("엑셀 헤더 설정이 비어있습니다.");
+        if (dataList == null) dataList = new ArrayList<>();
+
+        List<String> bodyFields = new ArrayList<>(headerMap.keySet());
+        List<String> headerNames = new ArrayList<>(headerMap.values());
+
+        try (SXSSFWorkbook workbook = new SXSSFWorkbook(100)) {
+            SXSSFSheet sheet = workbook.createSheet("Data List");
+            sheet.trackAllColumnsForAutoSizing();
+
+            CellStyle headerStyle = createHeaderStyle(workbook);
+            CellStyle bodyStyle = createBodyStyle(workbook);
+
+            Row headerRow = sheet.createRow(0);
+            for (int i = 0; i < headerNames.size(); i++) {
+                Cell cell = headerRow.createCell(i);
+                cell.setCellValue(headerNames.get(i));
+                cell.setCellStyle(headerStyle);
+            }
+
+            int rowIdx = 1;
+            for (T data : dataList) {
+                Row bodyRow = sheet.createRow(rowIdx++);
+                for (int i = 0; i < bodyFields.size(); i++) {
+                    Cell cell = bodyRow.createCell(i);
+                    cell.setCellStyle(bodyStyle);
+
+                    try {
+                        Field field = clazz.getDeclaredField(bodyFields.get(i));
+                        field.setAccessible(true);
+                        Object value = field.get(data);
+                        setCellValueByType(cell, value);
+                    } catch (NoSuchFieldException | IllegalAccessException e) {
+                        cell.setCellValue(""); // 없는 필드를 주입하려 했을 때 방어
+                    }
+                }
+            }
+
+            for (int i = 0; i < headerNames.size(); i++) {
+                sheet.autoSizeColumn(i);
+            }
+
+            flushExcelResponse(response, workbook, fileName);
         }
     }
 
@@ -98,11 +130,10 @@ public class ExcelUtil {
         List<Map<String, String>> excelData = new ArrayList<>();
 
         try (Workbook workbook = new XSSFWorkbook(inputStream)) {
-            Sheet sheet = workbook.getSheetAt(0); // 첫 번째 시트 고정
+            Sheet sheet = workbook.getSheetAt(0);
             int rowCount = sheet.getPhysicalNumberOfRows();
-            if (rowCount <= 1) return excelData; // 헤더 빼고 데이터가 없으면 즉시 반환
+            if (rowCount <= 1) return excelData;
 
-            // 1. 첫 번째 줄(헤더) 읽어서 Key 값 매핑 정의
             Row headerRow = sheet.getRow(0);
             int cellCount = headerRow.getLastCellNum();
             List<String> headers = new ArrayList<>();
@@ -110,7 +141,6 @@ public class ExcelUtil {
                 headers.add(getCellValueAsString(headerRow.getCell(i)).trim());
             }
 
-            // 2. 두 번째 줄부터 데이터 셀 추출해서 Map에 담기
             for (int r = 1; r < rowCount; r++) {
                 Row row = sheet.getRow(r);
                 if (row == null) continue;
@@ -126,7 +156,6 @@ public class ExcelUtil {
                     rowMap.put(headerName, cellValue);
                 }
 
-                // 빈 줄이 아니라면 리스트에 적재
                 if (hasData) {
                     excelData.add(rowMap);
                 }
@@ -135,12 +164,37 @@ public class ExcelUtil {
         return excelData;
     }
 
-    /* ── 내부 스타일 지원 헬퍼 메서드 ── */
+    /* ── 공통 컴포넌트 ── */
+
+    private static void setCellValueByType(Cell cell, Object value) {
+        if (value == null) {
+            cell.setCellValue("");
+            return;
+        }
+        if (value instanceof Number) {
+            cell.setCellValue(((Number) value).doubleValue());
+        } else if (value instanceof Boolean) {
+            cell.setCellValue((Boolean) value);
+        } else {
+            cell.setCellValue(value.toString());
+        }
+    }
+
+    private static void flushExcelResponse(HttpServletResponse response, SXSSFWorkbook workbook, String fileName) throws IOException {
+        String encodedFileName = URLEncoder.encode(fileName, StandardCharsets.UTF_8).replaceAll("\\+", "%20");
+        response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+        response.setHeader("Content-Disposition", "attachment; filename=\"" + encodedFileName + ".xlsx\"");
+
+        workbook.write(response.getOutputStream());
+        response.getOutputStream().flush();
+    }
+
     private static CellStyle createHeaderStyle(Workbook wb) {
         CellStyle style = wb.createCellStyle();
         style.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
         style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
         style.setAlignment(HorizontalAlignment.CENTER);
+        style.setVerticalAlignment(VerticalAlignment.CENTER);
         style.setBorderBottom(BorderStyle.THIN);
         style.setBorderTop(BorderStyle.THIN);
         style.setBorderLeft(BorderStyle.THIN);
@@ -159,6 +213,7 @@ public class ExcelUtil {
         style.setBorderLeft(BorderStyle.THIN);
         style.setBorderRight(BorderStyle.THIN);
         style.setAlignment(HorizontalAlignment.LEFT);
+        style.setVerticalAlignment(VerticalAlignment.CENTER);
         return style;
     }
 
@@ -168,10 +223,9 @@ public class ExcelUtil {
             case STRING:
                 return cell.getStringCellValue();
             case NUMERIC:
-                if (DateUtil.isCellDateFormatted(cell)) {
+                if (org.apache.poi.ss.usermodel.DateUtil.isCellDateFormatted(cell)) {
                     return cell.getDateCellValue().toString();
                 }
-                // 소수점 절삭 처리 필요 시 보정 가능 (기본 문자열 처리)
                 double numericValue = cell.getNumericCellValue();
                 if (numericValue == (long) numericValue) {
                     return String.valueOf((long) numericValue);

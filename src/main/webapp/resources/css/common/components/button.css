@@ -75,10 +75,7 @@ button {
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    /*background-color: var(--primary-color);
-    color: #fff;*/
     border: none;
-    /*box-shadow: 0 4px 16px rgba(255, 82, 89, 0.3);*/
     box-shadow: 0 4px 16px #c3c3c3;
     display: flex;
     align-items: center;
@@ -90,6 +87,4 @@ button {
 
 .float-btn:hover {
     transform: translateY(-4px);
-    background-color: var(--primary-dark);
-    box-shadow: 0 6px 20px rgba(255, 82, 89, 0.4);
 }
