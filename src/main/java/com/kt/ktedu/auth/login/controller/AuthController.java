@@ -1,12 +1,11 @@
 package com.kt.ktedu.auth.login.controller;
 
-import com.kt.ktedu.auth.jwt.JwtDTO;
+import com.kt.ktedu.auth.jwt.dto.JwtDTO;
 import com.kt.ktedu.auth.jwt.JwtProvider;
-import com.kt.ktedu.auth.jwt.RefreshTokenDTO;
+import com.kt.ktedu.auth.jwt.dto.RefreshTokenDTO;
 import com.kt.ktedu.auth.jwt.RefreshTokenMapper;
 import com.kt.ktedu.auth.ldap.dto.LdapResultDTO;
 import com.kt.ktedu.auth.login.dto.LoginRequestDTO;
-import com.kt.ktedu.auth.login.service.CustomUserDetails;
 import com.kt.ktedu.common.dto.ResponseDTO;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

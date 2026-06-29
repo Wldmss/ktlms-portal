@@ -1,5 +1,6 @@
 package com.kt.ktedu.auth.jwt;
 
+import com.kt.ktedu.auth.jwt.dto.JwtDTO;
 import com.kt.ktedu.auth.login.service.CustomUserDetails;
 import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.FilterChain;

@@ -1,5 +1,6 @@
 package com.kt.ktedu.auth.jwt;
 
+import com.kt.ktedu.auth.jwt.dto.RefreshTokenDTO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

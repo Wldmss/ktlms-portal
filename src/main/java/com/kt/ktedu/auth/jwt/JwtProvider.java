@@ -1,6 +1,6 @@
 package com.kt.ktedu.auth.jwt;
 
-import com.kt.ktedu.auth.ldap.dto.LoginDTO;
+import com.kt.ktedu.auth.jwt.dto.JwtDTO;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.JwtException;

@@ -1,4 +1,4 @@
-package com.kt.ktedu.auth.jwt;
+package com.kt.ktedu.auth.jwt.dto;
 
 import lombok.*;
 

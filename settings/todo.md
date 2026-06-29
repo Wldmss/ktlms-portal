@@ -1,3 +1,5 @@
+## env 설정 정리
+
 ## 라이브러리 정리
 
 - portal, admin build.xml
@@ -18,15 +20,13 @@
 
 - 가이드 문서 작성
 
+## 공통 util 정리
+
 ---
 여기까지 portal, admin 통일
 ---
 
 ## 미사용 파일(jsp, js, java, xml, css ..) 정리
-
-## properties 정리
-
-- 미사용 properties drop
 
 ## tiles 설정
 
@@ -39,6 +39,11 @@
 - encoding (-> 일괄처리)
 - 코드 전체 (외주)
 - 가이드 작성
+
+## properties 정리
+
+- 미사용 properties drop
+- 기본적인 property 만 넣어두고, 페이지 하나씩 옮기면서 필요하면 추가
 
 ## 라이브러리 변경에 따른 코드 수정 (외주)
 

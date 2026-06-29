@@ -1,6 +1,6 @@
 package com.kt.ktedu.auth.login.service;
 
-import com.kt.ktedu.auth.jwt.JwtDTO;
+import com.kt.ktedu.auth.jwt.dto.JwtDTO;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

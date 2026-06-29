@@ -7,7 +7,7 @@ import java.time.temporal.ChronoUnit;
 
 public class DateUtil {
 
-    // 가장 표준으로 쓰는 날짜 포맷 사전 정의 (Thread-Safe)
+    // 표준 날짜 포맷
     private static final DateTimeFormatter YMD_DASH = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private static final DateTimeFormatter YMDHMS_DASH = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     private static final DateTimeFormatter YMD_PURE = DateTimeFormatter.ofPattern("yyyyMMdd");

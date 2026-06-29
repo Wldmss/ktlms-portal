@@ -1,6 +1,6 @@
 package com.kt.ktedu.auth.login.service;
 
-import com.kt.ktedu.auth.jwt.JwtDTO;
+import com.kt.ktedu.auth.jwt.dto.JwtDTO;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
