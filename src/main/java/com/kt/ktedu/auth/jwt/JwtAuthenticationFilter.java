@@ -1,7 +1,5 @@
-package com.kt.ktedu.core.filter;
+package com.kt.ktedu.auth.jwt;
 
-import com.kt.ktedu.auth.jwt.JwtDTO;
-import com.kt.ktedu.auth.jwt.JwtProvider;
 import com.kt.ktedu.auth.login.service.CustomUserDetails;
 import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.FilterChain;
@@ -30,9 +28,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final JwtProvider jwtProvider;
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request,
-                                    HttpServletResponse response,
-                                    FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
         String token = jwtProvider.resolveAccessToken(request);
 

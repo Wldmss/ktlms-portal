@@ -1,6 +1,6 @@
 package com.kt.ktedu.common.util.crypto;
 
-public class AESUtil {
+public class AES256Util {
     private static final AES256Core core = new AES256Core();
 
     // 💡 KT 프로젝트 공통 고정키 예시 (실무선 properties에서 땡겨오는 것을 추천)

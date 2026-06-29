@@ -1,5 +1,6 @@
 package com.kt.ktedu.auth.jwt;
 
+import com.kt.ktedu.auth.ldap.dto.LoginDTO;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.JwtException;
@@ -11,6 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
@@ -23,6 +25,9 @@ import java.util.Date;
 public class JwtProvider {
 
     private static final Logger log = LoggerFactory.getLogger(JwtProvider.class);
+
+    @Value("${jwt.secret-key}")
+    private String secretKey;
 
     // ⚠️ 실무 보안 필수: application.properties 로 외부화 필요 (최소 32바이트 이상)
     private static final String ACCESS_SECRET_STRING = "KT_LMS_PORTAL_ACCESS_TOKEN_SECRET_KEY_2026";
@@ -47,6 +52,12 @@ public class JwtProvider {
      */
     private boolean isCookieSecure() {
         return !Arrays.asList(environment.getActiveProfiles()).contains("local");
+    }
+
+    // create login token TODO issueToken 처리
+    public String loginToken(HttpServletResponse response, JwtDTO jwtDTO) {
+        String token = this.createAccessToken(jwtDTO);
+        return token;
     }
 
     // =========================================================

@@ -9,7 +9,7 @@
 
 ## exception 설정
 
-- 대량평가, 기존 excption 처리 공통화
+- 대량평가, 기존 exception 처리 공통화
 - 이에 따른 코드 수정 가이드 작성
 
 ## filter, interceptor 설정

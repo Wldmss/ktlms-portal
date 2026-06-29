@@ -4,6 +4,7 @@ import com.kt.ktedu.auth.jwt.JwtDTO;
 import com.kt.ktedu.auth.jwt.JwtProvider;
 import com.kt.ktedu.auth.jwt.RefreshTokenDTO;
 import com.kt.ktedu.auth.jwt.RefreshTokenMapper;
+import com.kt.ktedu.auth.ldap.dto.LdapResultDTO;
 import com.kt.ktedu.auth.login.dto.LoginRequestDTO;
 import com.kt.ktedu.auth.login.service.CustomUserDetails;
 import com.kt.ktedu.common.dto.ResponseDTO;
@@ -55,8 +56,21 @@ public class AuthController {
             );
             log.info("인증 성공 - userId: {}", request.getUserId());
 
-            CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
-            JwtDTO jwtDTO = userDetails.getJwtDTO();
+//            CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
+            LdapResultDTO ldapResultDTO = (LdapResultDTO) authentication.getPrincipal();
+
+            if (!ldapResultDTO.getIsAuth()) {
+                log.warn("로그인 실패 - 잘못된 자격증명: {}", request.getUserId());
+                return ResponseEntity.status(401).body(ResponseDTO.fail("아이디 또는 패스워드가 올바르지 않습니다."));
+            }
+
+            JwtDTO jwtDTO = JwtDTO.builder()
+                    .userId(request.getUserId())
+                    .userNm("테스트유저")
+                    .orgCd("1001")
+                    .comp("KT")
+                    .role("ROLE_ADMIN")
+                    .build();
             log.info("UserDetails 로드 완료 - role: {}", jwtDTO.getRole());
 
             Map<String, Object> data = new HashMap<>();

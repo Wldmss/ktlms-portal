@@ -1,31 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="environmentVariablesConfiguration" class="org.jasypt.encryption.pbe.config.EnvironmentStringPBEConfig">
-        <property name="algorithm" value="PBEWithMD5AndDES"/>
-        <property name="passwordSysPropertyName" value="JASYPT_KEY"/>
-    </bean>
-
-    <bean id="configurationEncryptor" class="org.jasypt.encryption.pbe.StandardPBEStringEncryptor">
-        <property name="config" ref="environmentVariablesConfiguration"/>
-    </bean>
-
-    <bean class="org.jasypt.spring4.properties.EncryptablePropertySourcesPlaceholderConfigurer">
-        <constructor-arg ref="configurationEncryptor"/>
-        <property name="ignoreResourceNotFound" value="true"/>
+    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
         <property name="locations">
             <list>
-                <value>${jboss.config.common.path:classpath:/conf/env/application.properties}</value>
-                <value>
-                    ${jboss.config.profile.path:classpath:/conf/env/application-${spring.profiles.active:local}.properties}
-                </value>
+                <value>classpath:conf/env/application.properties</value>
             </list>
         </property>
     </bean>
 
-    <bean id="config" class="org.jasypt.spring4.xml.encryption.EncryptablePropertiesFactoryBean">
+    <!-- config, appConfig, pagingProperties 기존 설정 -> application.properties 로 이관 -->
+    <!--<bean id="config" class="org.jasypt.spring4.xml.encryption.EncryptablePropertiesFactoryBean">
         <property name="encryptor" ref="configurationEncryptor"/>
         <property name="ignoreResourceNotFound" value="true"/>
         <property name="locations">
@@ -41,9 +29,9 @@
                 <prop key="naverMapKey">YOUR_NAVER_MAP_KEY_HERE</prop>
             </props>
         </property>
-    </bean>
+    </bean>-->
 
-    <bean id="appConfig" class="org.jasypt.spring4.xml.encryption.EncryptablePropertiesFactoryBean">
+    <!--<bean id="appConfig" class="org.jasypt.spring4.xml.encryption.EncryptablePropertiesFactoryBean">
         <property name="encryptor" ref="configurationEncryptor"/>
         <property name="ignoreResourceNotFound" value="true"/>
         <property name="locations">
@@ -54,9 +42,9 @@
                 </value>
             </list>
         </property>
-    </bean>
+    </bean>-->
 
-    <bean id="pagingProperties" class="org.jasypt.spring4.xml.encryption.EncryptablePropertiesFactoryBean">
+    <!--<bean id="pagingProperties" class="org.jasypt.spring4.xml.encryption.EncryptablePropertiesFactoryBean">
         <property name="encryptor" ref="configurationEncryptor"/>
         <property name="fileEncoding" value="UTF-8"/>
         <property name="locations">
@@ -64,6 +52,6 @@
                 <value>classpath:conf/env/application.properties</value>
             </list>
         </property>
-    </bean>
+    </bean>-->
 
 </beans>

@@ -94,27 +94,13 @@ sqi@SQIuiMacBookAir ~ % which cleancss
 
 # 환경 변수 설정
 
+1. /env 하위에 전달 받은 local.env 파일 넣기
+2. Settings > Plugins > EnvFile install
+3. Jboss Edit Configurations > Env File > Enable EnvFile > + local.env, common.env 추가
+
 ### /resources/conf/env/application.properties
 
-- 공통 환경 변수
-- 개발/운영 배포 시 key vault 에 업로드 필요
-- 암호화, API 등의 키값 외 git에 올려도 되는(유출되어도 상관 없는) 공통 변수
-
-### /resources/conf/env/application-*.properties
-
-- local, dev, prod profile 별 다른 환경 변수
-- 개발/운영 배포 시 key vault 에 업로드 필요
-- .gitignore
-- 암호화, API 키 값 등 git에 올리면 안되는(유출되면 안되는) 변수
-
-## application-*.properties 를 로컬에서 변경 후
-
-- setting/make-sample.bat 실행 -> *.sample 생성됨 -> 이 파일을 git 에 올리고 application 내용은 메일로 공유
-
-```
-(windows) settings/make-sample.bat
-(mac) sh settings/make-sample.sh
-```
+*.env 파일들은 git 에 절대 업로드하지 말 것.
 
 ---
 
@@ -141,3 +127,9 @@ sqi@SQIuiMacBookAir ~ % which cleancss
    <websockets/>
 </servlet-container>
 ```
+
+---
+
+# formatter 설정
+
+Settings > Tools > Actions on Save > Reformat Code 체크 (.properties는 제외)
