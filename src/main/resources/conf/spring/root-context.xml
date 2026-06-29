@@ -15,9 +15,17 @@
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
+    <!-- properties 설정 -->
+    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:conf/env/application.properties</value>
+            </list>
+        </property>
+    </bean>
+
     <!--KT-*.xml 순서 중요-->
-    <import resource="classpath:conf/spring/KT-properties.xml"/>    <!--환경변수-->
+    <!--<import resource="classpath:conf/spring/KT-properties.xml"/>    &lt;!&ndash;환경변수&ndash;&gt;-->
     <import resource="classpath:conf/spring/KT-mybatis.xml"/>       <!--DB Mybatis 설정-->
     <import resource="classpath:conf/spring/KT-interceptors.xml"/>  <!--interceptor 설정-->
-
 </beans>
