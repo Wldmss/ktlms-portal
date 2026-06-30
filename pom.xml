@@ -32,6 +32,29 @@
         </repository>
     </repositories>
 
+    <!-- KT nexus repository -->
+    <!--<repositories>
+        <repository>
+            <id>nexus-public</id>
+            <url>https://repository.azdevops.kt.co.kr/repository/maven-public/</url>
+        </repository>
+        <repository>
+            <id>nexus-hosted</id>
+            <url>https://repository.azdevops.kt.co.kr/repository/ag011001-lms-hosted-maven2/</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>nexus-hosted</id>
+            <url>https://repository.azdevops.kt.co.kr/repository/ag011001-lms-hosted-maven2/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>nexus-public</id>
+            <url>https://repository.azdevops.kt.co.kr/repository/maven-public/</url>
+        </pluginRepository>
+    </pluginRepositories>-->
+
     <dependencies>
         <!--*
         * ▫️기본 라이브러리
