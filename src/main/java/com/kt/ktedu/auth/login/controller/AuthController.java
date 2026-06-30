@@ -6,7 +6,7 @@ import com.kt.ktedu.auth.jwt.dto.RefreshTokenDTO;
 import com.kt.ktedu.auth.jwt.RefreshTokenMapper;
 import com.kt.ktedu.auth.ldap.dto.LdapResultDTO;
 import com.kt.ktedu.auth.login.dto.LoginRequestDTO;
-import com.kt.ktedu.common.dto.ResponseDTO;
+import com.kt.ktedu.common.common.dto.ResponseDTO;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;

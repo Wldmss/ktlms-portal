@@ -1,4 +1,4 @@
-package com.kt.ktedu.common.util.file;
+package com.kt.ktedu.common.file.dto;
 
 import lombok.Builder;
 import lombok.Getter;

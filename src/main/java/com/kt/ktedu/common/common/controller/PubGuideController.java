@@ -1,4 +1,4 @@
-package com.kt.ktedu.common.controller;
+package com.kt.ktedu.common.common.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;

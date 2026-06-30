@@ -9,34 +9,6 @@
 
     <annotation-driven />
 
-    <beans:bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
-        <beans:property name="messageConverters">
-            <beans:list>
-                <beans:bean class="org.springframework.http.converter.StringHttpMessageConverter">
-                    <beans:property name="supportedMediaTypes">
-                        <beans:list>
-                            <beans:value>text/html;charset=UTF-8</beans:value>
-                        </beans:list>
-                    </beans:property>
-                </beans:bean>
-
-                <beans:bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-                    <beans:property name="objectMapper">
-                        <beans:bean class="com.fasterxml.jackson.databind.ObjectMapper">
-                            <beans:constructor-arg>
-                                <beans:bean class="com.fasterxml.jackson.core.JsonFactory">
-                                    <beans:property name="characterEscapes">
-                                        <beans:bean class="com.kt.ktedu.core.security.HtmlCharacterEscapes"/>
-                                    </beans:property>
-                                </beans:bean>
-                            </beans:constructor-arg>
-                        </beans:bean>
-                    </beans:property>
-                </beans:bean>
-            </beans:list>
-        </beans:property>
-    </beans:bean>
-
     <!--
         servlet-context : @Controller 만 스캔
         나머지 (@Service, @Repository, @Component, @Configuration) 는 root-context 에서 로드
@@ -59,22 +31,14 @@
     <!-- front library - webjars mapping -->
     <resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>
 
-    <beans:bean class="com.kt.ktedu.core.view.CustomViewResolver">
+    <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <beans:property name="prefix" value="/WEB-INF/views/"/>
         <beans:property name="suffix" value=".jsp"/>
         <beans:property name="order" value="1"/>
     </beans:bean>
 
-    <beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
-        <beans:property name="order" value="2"/>
-    </beans:bean>
-
-    <beans:bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
-        <beans:property name="contentType" value="application/json;charset=UTF-8"/>
-    </beans:bean>
-
+    <!-- multipart -->
     <beans:bean id="multipartResolver"
                 class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
     </beans:bean>
-
 </beans:beans>

@@ -1,4 +1,4 @@
-package com.kt.ktedu.common.dto;
+package com.kt.ktedu.common.common.dto;
 
 import lombok.*;
 
@@ -23,6 +23,14 @@ public class ResponseDTO {
     private ResultType result;
     private String message;
     private Object data;
+
+    public static ResponseDTO success(String message) {
+        return ResponseDTO.builder()
+                .success(true)
+                .result(ResultType.SUCCESS)
+                .message(message)
+                .build();
+    }
 
     public static ResponseDTO success(String message, Object data) {
         return ResponseDTO.builder()

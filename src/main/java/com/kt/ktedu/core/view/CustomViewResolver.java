@@ -6,10 +6,20 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 /**
  * tiles 삭제로 인한 임시 처리 TODO tiles-define.xml 내용을 여기에 구현하거나 tiles 미적용 시켜야 함
  */
+@Deprecated
 public class CustomViewResolver extends InternalResourceViewResolver {
 
     @Override
     protected AbstractUrlBasedView buildView(String viewName) throws Exception {
+
+        // REST API 차단
+        if (viewName.startsWith("redirect:")
+                || viewName.startsWith("forward:")
+                || viewName.startsWith("api/")
+                || viewName.contains(".")) {
+            return super.buildView(viewName);
+        }
+
         AbstractUrlBasedView view = super.buildView(viewName);
 
         // 기존 tiles.xml의 support/*/* 패턴을 자바로 자동화

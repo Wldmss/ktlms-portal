@@ -5,7 +5,7 @@ import com.kt.ktedu.auth.ldap.dto.LdapDTO;
 import com.kt.ktedu.auth.ldap.dto.LdapResponseDTO;
 import com.kt.ktedu.auth.ldap.dto.LdapResultDTO;
 import com.kt.ktedu.auth.ldap.dto.LoginDTO;
-import com.kt.ktedu.common.util.crypto.AES256Util;
+import com.kt.ktedu.common.crypto.util.AES256Util;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -175,16 +175,14 @@ public class LdapService {
         return result;
     }
 
-    // ldap AES256 암호화 TODO
+    // ldap AES256 암호화
     public String ldapEncrypt(String value) throws Exception {
-        return AES256Util.encrypt(value);
-//        return AES256Util.encrypt(ldapDTO.getAesKey(), value);
+        return AES256Util.encryptLdap(ldapDTO.getAesKey(), value);
     }
 
-    // ldap AES256 복호화 TODO
+    // ldap AES256 복호화
     public String ldapDecrypt(String value) throws Exception {
-        return value != null ? AES256Util.decrypt(value) : null;
-//        return value != null ? AES256Util.decrypt(ldapDTO.getAesKey(), value) : null;
+        return value != null ? AES256Util.decryptLdap(ldapDTO.getAesKey(), value) : null;
     }
 
     // 오류 메시지 추출

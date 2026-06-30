@@ -1,5 +1,6 @@
-package com.kt.ktedu.common.util.file;
+package com.kt.ktedu.common.file.util;
 
+import com.kt.ktedu.common.file.dto.FileDTO;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kt.ktedu.common.crypto.mapper.RsaKeyMapper">
+
+    <resultMap id="rsaKeyResultMap" type="com.kt.ktedu.common.crypto.dto.RsaKeyDTO">
+        <id     property="keySeq"    column="key_seq"/>
+        <result property="publicKey"  column="public_key"/>
+        <result property="privateKey" column="private_key"/>
+    </resultMap>
+
+    <!-- RSA 키 쌍 일괄 저장 -->
+    <insert id="insertList" parameterType="java.util.List">
+        INSERT INTO tb_rsa_key (public_key, private_key)
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            (#{item.publicKey}, #{item.privateKey})
+        </foreach>
+    </insert>
+
+    <!-- keySeq 로 단건 조회 -->
+    <select id="findByKeySeq" resultMap="rsaKeyResultMap">
+        SELECT key_seq, public_key, private_key
+        FROM tb_rsa_key
+        WHERE key_seq = #{keySeq}
+    </select>
+
+    <!-- 저장된 키 총 개수 -->
+    <select id="countAll" resultType="long">
+        SELECT COUNT(*) FROM tb_rsa_key
+    </select>
+
+</mapper>

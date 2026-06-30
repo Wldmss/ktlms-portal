@@ -1,6 +1,6 @@
 package com.kt.ktedu.sample.controller;
 
-import com.kt.ktedu.common.dto.ResponseDTO;
+import com.kt.ktedu.common.common.dto.ResponseDTO;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
