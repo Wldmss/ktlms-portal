@@ -4,6 +4,8 @@ import com.kt.ktedu.common.crypto.dto.RsaKeyDTO;
 import com.kt.ktedu.common.crypto.mapper.RsaKeyMapper;
 import com.kt.ktedu.common.crypto.util.GCMUtil;
 import com.kt.ktedu.common.crypto.util.RSAUtil;
+import com.kt.ktedu.core.exception.ApiException;
+import com.kt.ktedu.core.exception.ErrorMessage;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -90,7 +92,7 @@ public class RsaKeyService {
 
         RsaKeyDTO rsaKey = rsaKeyMapper.findByKeySeq(keySeq);
         if (rsaKey == null) {
-            throw new IllegalArgumentException("존재하지 않는 키입니다. keySeq=" + keySeq);
+            throw new ApiException("존재하지 않는 키입니다. keySeq=" + keySeq, ErrorMessage.NOT_FOUND);
         }
 
         return GCMUtil.encryptHex(secretKey, rsaKey.getPublicKey());
@@ -102,7 +104,7 @@ public class RsaKeyService {
 
         MinuteResult result = isWithinOneMinute(timeStampSeq);
         if (!result.isInTime()) {
-            throw new IllegalStateException("유효하지 않은 접근입니다. (시간 초과)");
+            throw new ApiException("유효하지 않은 접근입니다. (시간 초과)", ErrorMessage.UNAUTHORIZED);
         }
 
         RsaKeyDTO rsaKey = rsaKeyMapper.findByKeySeq(Integer.parseInt(result.getValue()));
@@ -117,14 +119,14 @@ public class RsaKeyService {
     public String getDecryptValue(String encryptedKeySeq, String encryptedValue) throws Exception {
         PrivateKey privateKey = getPrivateKey(encryptedKeySeq);
         if (privateKey == null) {
-            throw new IllegalStateException("개인키를 찾을 수 없습니다.");
+            throw new ApiException("개인키를 찾을 수 없습니다.", ErrorMessage.NOT_FOUND);
         }
 
         String decryptedValue = RSAUtil.decrypt(encryptedValue, privateKey);
 
         MinuteResult result = isWithinOneMinute(decryptedValue);
         if (!result.isInTime()) {
-            throw new IllegalStateException("유효하지 않은 접근입니다. (시간 초과)");
+            throw new ApiException("유효하지 않은 접근입니다. (시간 초과)", ErrorMessage.UNAUTHORIZED);
         }
 
         return result.getValue();

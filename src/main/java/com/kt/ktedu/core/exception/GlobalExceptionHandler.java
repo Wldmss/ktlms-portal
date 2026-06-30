@@ -1,11 +1,15 @@
 package com.kt.ktedu.core.exception;
 
+import com.kt.ktedu.common.common.dto.ResponseDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataAccessException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -15,6 +19,17 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 public class GlobalExceptionHandler {
 
     private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
+
+    /**
+     * [API 공통 예외] @RestController 에서 ApiException 을 던지면 여기서 ResponseDTO 로 응답
+     * 페이지 컨트롤러(@Controller)의 ModelAndView 핸들러들과는 별개로 동작
+     */
+    @ExceptionHandler(com.kt.ktedu.core.exception.ApiException.class)
+    @ResponseBody
+    public ResponseEntity<ResponseDTO> handleApiException(com.kt.ktedu.core.exception.ApiException e, HttpServletRequest request) {
+        log.warn("[API] 비즈니스 예외 발생 | URL: {} | message: {}", request.getRequestURI(), e.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ResponseDTO.fail(e.getMessage()));
+    }
 
     /**
      * [403 권한 에러] 스프링 시큐리티나 인터셉터에서 권한 거부 시 작동
