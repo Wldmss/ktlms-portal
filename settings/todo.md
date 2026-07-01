@@ -1,20 +1,29 @@
 ## env 설정 정리 (완)
 
+- appilcation.properties 하나로 작업
+- /env/{profile}.env 파일을 로드해서 작업
+
 ## 라이브러리 정리 (완-개발하면서 추가)
 
 - portal, admin build.xml
 - 대부분 라이브러리 완료
 
-## conf xml 필요한 내용 추가
-
+## conf xml 필요한 내용 추가 (완)
 - 꼭 필요한게 아니라면 삭제
+- servlet-context.xml ,root-context.xml 두개만 사용
+- pagingProperties, systemProperties, appConfig, naverMapKey 등은 application.properties 로 이동
+- interceptor > spring security @PreAuthorize 방식으로 변경
 
-## exception 설정
+## exception 설정 (완)
 
 - 대량평가, 기존 exception 처리 공통화
 - 이에 따른 코드 수정 가이드 작성
 
 ## filter, interceptor 설정
+
+- filter 전체 삭제 - spring security 로 처리
+- interceptor -> @PreAuthorize 로 변경
+    - 가이드 정리
 
 ## tiles 삭제 가이드
 
@@ -24,7 +33,11 @@
 
 ## 공통 util 정리
 
+## interceptor -> @PreAuthorize 로 변경
+
 ## properties 필수적인거만 설정하기
+
+- 유니코드 삭제
 
 ---
 여기까지 portal, admin 통일
