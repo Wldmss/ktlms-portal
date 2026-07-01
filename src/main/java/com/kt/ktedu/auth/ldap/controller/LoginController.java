@@ -18,8 +18,7 @@ public class LoginController {
     private final JwtProvider jwtProvider;
 
     /**
-     * 로그인 페이지 (GET /)
-     * 이미 유효한 Access Token 이 있으면 메인으로 리다이렉트
+     * 로그인 페이지
      */
     @GetMapping("/")
     public String loginPage(HttpServletRequest request) {

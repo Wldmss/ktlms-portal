@@ -29,7 +29,7 @@
         } else if (statusCode == 404) {
             errorTitle = "페이지를 찾을 수 없습니다. (404)";
             errorMsg = "방문하시려는 주소가 잘못 입력되었거나,<br>페이지가 삭제되어 더 이상 존재하지 않습니다.";
-        } else if (statusCode == 405) { // 🎯 405 분기도 하나 추가해두면 기막힙니다!
+        } else if (statusCode == 405) {
             errorTitle = "허용되지 않은 접근 방식입니다. (405)";
             errorMsg = "요청 형식이 올바르지 않거나 허용되지 않은 HTTP 메서드입니다.";
         } else if (statusCode == 500) {

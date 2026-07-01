@@ -59,9 +59,7 @@
             return;
         }
 
-        // 백엔드 컨트롤러(/auth/login/step1)로 데이터 전송
         $.ajax({
-            // url: contextPath + "/auth/login/step1",
             url: contextPath + "/auth/login",
             type: "POST",
             contentType: "application/json",
