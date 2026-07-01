@@ -48,7 +48,7 @@ public class SecurityConfig {
 
                 // URL 권한 설정
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/robots.txt", "/sitemap.xml").permitAll()
+                        .requestMatchers("/robots.txt").permitAll()
                         // 인증 불필요
                         .requestMatchers(
                                 "/",
