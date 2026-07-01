@@ -2,12 +2,27 @@
  * 공통 ajax 유틸
  */
 
-/* Bearer token 적용 */
+function getCookie(name) {
+    const value = document.cookie
+        .split("; ")
+        .find(row => row.startsWith(name + "="));
+
+    return value ? decodeURIComponent(value.split("=")[1]) : null;
+}
+
+/* Bearer token + CSRF 적용 */
 $.ajaxSetup({
-    beforeSend: function (xhr) {
+    beforeSend: function (xhr, settings) {
         const token = window._accessToken;
         if (token) {
             xhr.setRequestHeader("Authorization", "Bearer " + token);
+        }
+
+        const method = (settings.type || settings.method || "GET").toUpperCase();
+        const csrfToken = getCookie("XSRF-TOKEN");
+
+        if (csrfToken && !["GET", "HEAD", "OPTIONS", "TRACE"].includes(method)) {
+            xhr.setRequestHeader("X-XSRF-TOKEN", csrfToken);
         }
     }
 });

@@ -14,12 +14,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
+import org.springframework.http.ResponseCookie;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HexFormat;
 
 @Component
 public class JwtProvider {
@@ -97,16 +100,19 @@ public class JwtProvider {
     /**
      * Access Token 유효성 검증
      */
-    public boolean validateAccessToken(String token) {
+    public void validateAccessToken(String token) {
         try {
-            parseAccessToken(token);
-            return true;
+            Claims claims = parseAccessToken(token);
+
+            if (!"access".equals(claims.get("type", String.class))) {
+                throw new JwtException("Access Token type mismatch");
+            }
         } catch (ExpiredJwtException e) {
             log.warn("만료된 Access Token");
-            throw e; // 만료는 caller 에서 처리 (refresh 로직 분기용)
+            throw e;
         } catch (JwtException | IllegalArgumentException e) {
-            log.error("유효하지 않은 Access Token: {}", e.getMessage());
-            return false;
+            log.warn("유효하지 않은 Access Token: {}", e.getMessage());
+            throw e;
         }
     }
 
@@ -197,52 +203,90 @@ public class JwtProvider {
         return getCookieValue(request, REFRESH_COOKIE_NAME);
     }
 
+    /**
+     * refresh token hash 추출
+     *
+     */
+    public String hashToken(String token) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            return HexFormat.of().formatHex(digest.digest(token.getBytes(StandardCharsets.UTF_8)));
+        } catch (Exception e) {
+            throw new IllegalStateException("Token hash failed", e);
+        }
+    }
+
     // =========================================================
     // 쿠키 관리
     // =========================================================
+
+    private String sameSite() {
+        return "local".equals(String.join(",", environment.getActiveProfiles()))
+                ? "Lax"
+                : "None";
+    }
 
     /**
      * Access Token 쿠키 세팅
      */
     public void setAccessTokenCookie(HttpServletResponse response, String token) {
-        Cookie cookie = new Cookie(ACCESS_COOKIE_NAME, token);
-        cookie.setHttpOnly(true);
-        cookie.setSecure(isCookieSecure());
-        cookie.setPath("/");
-        cookie.setMaxAge((int) (ACCESS_EXPIRATION_MS / 1000));
-        response.addCookie(cookie);
+        ResponseCookie cookie = ResponseCookie.from(ACCESS_COOKIE_NAME, token)
+                .httpOnly(true)
+                .secure(isCookieSecure())
+                .sameSite(sameSite())
+                .path("/")
+                .maxAge(ACCESS_EXPIRATION_MS / 1000)
+                .build();
+
+        response.addHeader("Set-Cookie", cookie.toString());
     }
 
     /**
      * Refresh Token 쿠키 세팅
      */
     public void setRefreshTokenCookie(HttpServletResponse response, String token) {
-        Cookie cookie = new Cookie(REFRESH_COOKIE_NAME, token);
-        cookie.setHttpOnly(true);
-        cookie.setSecure(isCookieSecure());
-        cookie.setPath("/auth/refresh");
-        cookie.setMaxAge((int) (REFRESH_EXPIRATION_MS / 1000));
-        response.addCookie(cookie);
+        ResponseCookie cookie = ResponseCookie.from(REFRESH_COOKIE_NAME, token)
+                .httpOnly(true)
+                .secure(isCookieSecure())
+                .sameSite(sameSite())
+                .path("/auth")
+                .maxAge(REFRESH_EXPIRATION_MS / 1000)
+                .build();
+
+        response.addHeader("Set-Cookie", cookie.toString());
     }
 
     /**
      * Access + Refresh 쿠키 모두 삭제 (로그아웃)
      */
     public void clearAuthCookies(HttpServletResponse response) {
-        Cookie accessCookie = new Cookie(ACCESS_COOKIE_NAME, null);
-        accessCookie.setHttpOnly(true);
-        accessCookie.setSecure(isCookieSecure());
-        accessCookie.setPath("/");
-        accessCookie.setMaxAge(0);
+        ResponseCookie accessCookie = ResponseCookie.from(ACCESS_COOKIE_NAME, "")
+                .httpOnly(true)
+                .secure(isCookieSecure())
+                .sameSite(sameSite())
+                .path("/")
+                .maxAge(0)
+                .build();
 
-        Cookie refreshCookie = new Cookie(REFRESH_COOKIE_NAME, null);
-        refreshCookie.setHttpOnly(true);
-        refreshCookie.setSecure(isCookieSecure());
-        refreshCookie.setPath("/auth/refresh");
-        refreshCookie.setMaxAge(0);
+        ResponseCookie refreshCookie = ResponseCookie.from(REFRESH_COOKIE_NAME, "")
+                .httpOnly(true)
+                .secure(isCookieSecure())
+                .sameSite(sameSite())
+                .path("/auth")
+                .maxAge(0)
+                .build();
 
-        response.addCookie(accessCookie);
-        response.addCookie(refreshCookie);
+        ResponseCookie csrfCookie = ResponseCookie.from("XSRF-TOKEN", "")
+                .httpOnly(false)
+                .secure(isCookieSecure())
+                .sameSite(sameSite())
+                .path("/")
+                .maxAge(0)
+                .build();
+
+        response.addHeader("Set-Cookie", accessCookie.toString());
+        response.addHeader("Set-Cookie", refreshCookie.toString());
+        response.addHeader("Set-Cookie", csrfCookie.toString());
     }
 
     // =========================================================

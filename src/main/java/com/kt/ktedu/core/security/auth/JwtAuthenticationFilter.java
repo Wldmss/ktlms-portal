@@ -3,6 +3,7 @@ package com.kt.ktedu.core.security.auth;
 import com.kt.ktedu.auth.jwt.JwtProvider;
 import com.kt.ktedu.auth.jwt.dto.JwtDTO;
 import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.JwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -48,19 +49,13 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
             } catch (ExpiredJwtException e) {
                 // Access Token 만료 → 401 반환 (클라이언트가 Refresh 요청 처리)
-                log.warn("Access Token 만료 - URI: {}", request.getRequestURI());
                 SecurityContextHolder.clearContext();
+                writeUnauthorized(response, "TOKEN_EXPIRED", "Access Token이 만료되었습니다.");
+                return;
 
-                boolean isAjax = "XMLHttpRequest".equals(request.getHeader("X-Requested-With"));
-                if (isAjax) {
-                    response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-                    response.setContentType("application/json;charset=UTF-8");
-                    response.getWriter().write("{\"result\":\"TOKEN_EXPIRED\",\"message\":\"Access Token이 만료되었습니다.\"}");
-                } else {
-                    response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-                    response.setContentType("application/json;charset=UTF-8");
-                    response.getWriter().write("{\"result\":\"TOKEN_EXPIRED\",\"message\":\"Access Token이 만료되었습니다.\"}");
-                }
+            } catch (JwtException | IllegalArgumentException e) {
+                SecurityContextHolder.clearContext();
+                writeUnauthorized(response, "INVALID_TOKEN", "유효하지 않은 Access Token입니다.");
                 return;
 
             } catch (Exception e) {
@@ -70,5 +65,19 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         }
 
         filterChain.doFilter(request, response);
+    }
+
+    private void writeUnauthorized(HttpServletResponse response, String result, String message) throws IOException {
+        if (response.isCommitted()) {
+            return;
+        }
+
+        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+        response.setContentType("application/json;charset=UTF-8");
+        response.getWriter().write(String.format(
+                "{\"result\":\"%s\",\"message\":\"%s\"}",
+                result,
+                message
+        ));
     }
 }

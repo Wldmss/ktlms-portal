@@ -17,7 +17,7 @@ public interface RefreshTokenMapper {
     RefreshTokenDTO findByToken(@Param("token") String token);
 
     /** userId 로 삭제 (로그아웃) */
-    void deleteByUserId(@Param("userId") String userId);
+    int deleteByUserId(@Param("userId") String userId);
 
     /** 만료된 토큰 일괄 삭제 (배치용) */
     void deleteExpired();

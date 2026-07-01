@@ -2,47 +2,57 @@ package com.kt.ktedu.core.security.config;
 
 import com.kt.ktedu.core.security.auth.CustomLdapAuthenticationProvider;
 import com.kt.ktedu.core.security.auth.JwtAuthenticationFilter;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.security.web.csrf.CsrfException;
+import org.springframework.security.web.csrf.CsrfToken;
+import org.springframework.security.web.csrf.CsrfTokenRequestAttributeHandler;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.OncePerRequestFilter;
 
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 @Configuration
 @EnableWebSecurity
-//@RequiredArgsConstructor
 public class SecurityConfig {
 
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
-    //    private final CustomUserDetailsService customUserDetailsService;
-    private final CustomLdapAuthenticationProvider customLdapAuthenticationProvider;
 
-    public SecurityConfig(CustomLdapAuthenticationProvider customLdapAuthenticationProvider,
-                          JwtAuthenticationFilter jwtAuthenticationFilter
-    ) {
-        this.customLdapAuthenticationProvider = customLdapAuthenticationProvider;
+    public SecurityConfig(JwtAuthenticationFilter jwtAuthenticationFilter) {
         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
     }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        CsrfTokenRequestAttributeHandler csrfTokenRequestHandler = new CsrfTokenRequestAttributeHandler();
+
         http
-                .csrf(AbstractHttpConfigurer::disable)
+                .csrf(csrf -> csrf
+                                .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+                                .csrfTokenRequestHandler(csrfTokenRequestHandler)
+                        // 정말 외부 서버/앱에서 CSRF 헤더를 못 붙이는 공개 API만 예외 처리
+                        // .ignoringRequestMatchers("/api/health")
+                )
+                .addFilterAfter(new CsrfCookieFilter(), BasicAuthenticationFilter.class)
                 .cors(cors -> cors.configurationSource(corsConfigurationSource())) // CORS 활성화
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 
@@ -77,8 +87,7 @@ public class SecurityConfig {
                 .exceptionHandling(ex -> ex
                         .authenticationEntryPoint((request, response, e) -> {
                             // 미인증 접근 처리
-                            boolean isAjax = "XMLHttpRequest".equals(request.getHeader("X-Requested-With"));
-                            if (isAjax) {
+                            if (isApiRequest(request)) {
                                 response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
                                 response.setContentType("application/json;charset=UTF-8");
                                 response.getWriter().write("{\"result\":\"UNAUTHORIZED\",\"message\":\"로그인이 필요합니다.\"}");
@@ -93,10 +102,15 @@ public class SecurityConfig {
                         })
                         .accessDeniedHandler((request, response, e) -> {
                             // 권한 없음 처리
-                            boolean isAjax = "XMLHttpRequest".equals(request.getHeader("X-Requested-With"));
-                            if (isAjax) {
+                            if (isApiRequest(request)) {
                                 response.setStatus(HttpServletResponse.SC_FORBIDDEN);
                                 response.setContentType("application/json;charset=UTF-8");
+
+                                if (e instanceof CsrfException) {
+                                    response.getWriter().write("{\"result\":\"CSRF_DENIED\",\"message\":\"요청 보안 토큰이 유효하지 않습니다.\"}");
+                                    return;
+                                }
+
                                 response.getWriter().write("{\"result\":\"FORBIDDEN\",\"message\":\"접근 권한이 없습니다.\"}");
                             } else {
                                 response.sendRedirect(request.getContextPath() + "/");
@@ -141,17 +155,8 @@ public class SecurityConfig {
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
-        return config.getAuthenticationManager();
-
-        /*DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        provider.setUserDetailsService(customUserDetailsService);
-        provider.setPasswordEncoder(passwordEncoder());
-        return new ProviderManager(provider);*/
-    }
-
-    public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.authenticationProvider(customLdapAuthenticationProvider);
+    public AuthenticationManager authenticationManager(CustomLdapAuthenticationProvider provider) {
+        return new ProviderManager(provider);
     }
 
     @Bean
@@ -171,5 +176,37 @@ public class SecurityConfig {
                 return true;
             }
         };
+    }
+
+    /* csrf filter */
+    private static final class CsrfCookieFilter extends OncePerRequestFilter {
+
+        @Override
+        protected void doFilterInternal(
+                HttpServletRequest request,
+                HttpServletResponse response,
+                FilterChain filterChain
+        ) throws ServletException, IOException {
+            CsrfToken csrfToken = (CsrfToken) request.getAttribute(CsrfToken.class.getName());
+
+            if (csrfToken != null) {
+                csrfToken.getToken(); // XSRF-TOKEN 쿠키 생성을 강제로 트리거
+            }
+
+            filterChain.doFilter(request, response);
+        }
+    }
+
+    /* api request check */
+    private boolean isApiRequest(HttpServletRequest request) {
+        String uri = request.getRequestURI();
+        String contextPath = request.getContextPath();
+        String path = uri.substring(contextPath.length());
+        String accept = request.getHeader("Accept");
+
+        return path.startsWith("/api/")
+                || path.startsWith("/auth/")
+                || "XMLHttpRequest".equals(request.getHeader("X-Requested-With"))
+                || (accept != null && accept.contains("application/json"));
     }
 }

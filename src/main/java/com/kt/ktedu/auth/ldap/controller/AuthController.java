@@ -113,10 +113,11 @@ public class AuthController {
     private void issueTokens(JwtDTO jwtDTO, HttpServletResponse response) {
         String accessToken = jwtProvider.createAccessToken(jwtDTO);
         String refreshToken = jwtProvider.createRefreshToken(jwtDTO.getUserId());
+        String refreshTokenHash = jwtProvider.hashToken(refreshToken);
 
         refreshTokenMapper.upsert(RefreshTokenDTO.builder()
                 .userId(jwtDTO.getUserId())
-                .token(refreshToken)
+                .token(refreshTokenHash)
                 .expiresAt(LocalDateTime.now().plusSeconds(JwtProvider.REFRESH_EXPIRATION_MS / 1000))
                 .build());
 
@@ -149,8 +150,9 @@ public class AuthController {
         // DB 에 저장된 토큰과 비교 (탈취 감지)
         String userId = jwtProvider.getUserIdFromRefreshToken(refreshToken);
         RefreshTokenDTO savedToken = refreshTokenMapper.findByUserId(userId);
+        String refreshTokenHash = jwtProvider.hashToken(refreshToken);
 
-        if (savedToken == null || !savedToken.getToken().equals(refreshToken)) {
+        if (savedToken == null || !savedToken.getToken().equals(refreshTokenHash)) {
             log.warn("Refresh Token 불일치 - 탈취 가능성 - userId: {}", userId);
             refreshTokenMapper.deleteByUserId(userId); // 의심스러운 토큰 전부 삭제
             return ResponseEntity.status(401)
@@ -180,14 +182,15 @@ public class AuthController {
      * POST /auth/logout
      * Refresh Token DB 삭제 + 쿠키 초기화
      */
-    @PostMapping("/logout")
+    @RequestMapping(value = "/logout", method = {RequestMethod.GET, RequestMethod.POST})
     public ResponseEntity<ResponseDTO> logout(HttpServletRequest request, HttpServletResponse response) {
         String refreshToken = jwtProvider.resolveRefreshToken(request);
 
         if (refreshToken != null) {
             try {
                 String userId = jwtProvider.getUserIdFromRefreshToken(refreshToken);
-                refreshTokenMapper.deleteByUserId(userId);
+                int deleted = refreshTokenMapper.deleteByUserId(userId);
+                log.info("로그아웃 - userId: {}, deletedRefreshTokenRows: {}", userId, deleted);
                 log.info("로그아웃 - userId: {}", userId);
             } catch (Exception e) {
                 log.warn("로그아웃 중 Refresh Token 파싱 실패 (무시): {}", e.getMessage());
