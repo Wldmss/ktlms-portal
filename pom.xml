@@ -248,7 +248,8 @@
         </dependency>
 
         <!-- 암호화 관련 -->
-        <dependency>
+        <!-- 삭제 예정 -->
+        <!--<dependency>
             <groupId>org.jasypt</groupId>
             <artifactId>jasypt</artifactId>
             <version>1.9.3</version>
@@ -257,7 +258,7 @@
             <groupId>org.jasypt</groupId>
             <artifactId>jasypt-spring4</artifactId>
             <version>1.9.3</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.bouncycastle</groupId>
             <artifactId>bcprov-jdk18on</artifactId>

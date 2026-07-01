@@ -54,7 +54,9 @@ public class FormXssFilter implements Filter {
             return value.replaceAll("<", "&lt;")
                     .replaceAll(">", "&gt;")
                     .replaceAll("'", "&#39;")
-                    .replaceAll("\"", "&quot;");
+                    .replaceAll("\"", "&quot;")
+                    .replaceAll("\\(", "&#40;")
+                    .replaceAll("\\)", "&#41;");
         }
     }
 }
