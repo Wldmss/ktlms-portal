@@ -1,11 +1,11 @@
-package com.kt.ktedu.auth.login.controller;
+package com.kt.ktedu.auth.ldap.controller;
 
 import com.kt.ktedu.auth.jwt.dto.JwtDTO;
 import com.kt.ktedu.auth.jwt.JwtProvider;
 import com.kt.ktedu.auth.jwt.dto.RefreshTokenDTO;
 import com.kt.ktedu.auth.jwt.RefreshTokenMapper;
 import com.kt.ktedu.auth.ldap.dto.LdapResultDTO;
-import com.kt.ktedu.auth.login.dto.LoginRequestDTO;
+import com.kt.ktedu.auth.ldap.dto.LoginDTO;
 import com.kt.ktedu.common.common.dto.ResponseDTO;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -48,7 +48,7 @@ public class AuthController {
      * 아이디/패스워드 검증 후 Access Token + Refresh Token 발급
      */
     @PostMapping("/login")
-    public ResponseEntity<ResponseDTO> login(@RequestBody LoginRequestDTO request, HttpServletResponse response) {
+    public ResponseEntity<ResponseDTO> login(@RequestBody LoginDTO request, HttpServletResponse response) {
         try {
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(request.getUserId(), request.getPassword())

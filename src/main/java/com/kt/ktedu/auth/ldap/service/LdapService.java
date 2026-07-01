@@ -45,8 +45,8 @@ public class LdapService {
         String[] idList = {"82047550", "82047551", "82047552", "82047553"}; // ldap 개발 테스트용 계정 (82047553:비번만료계정) 비번: new1234!
 
         // 운영:: user_id = test% 허용, 개발:: idList 만 ldap 적용
-        boolean doLdap = (activeProfile.equals("dev") && Arrays.asList(idList).contains(loginDTO.getUsername()))
-                || (activeProfile.equals("prod") && !loginDTO.getUsername().startsWith("test"));
+        boolean doLdap = (activeProfile.equals("dev") && Arrays.asList(idList).contains(loginDTO.getUserId()))
+                || (activeProfile.equals("prod") && !loginDTO.getUserId().startsWith("test"));
 
         if (doLdap) return this.ldapPeriod(loginDTO);
 
@@ -80,7 +80,7 @@ public class LdapService {
 
             requestData.put("connID", ldapEncrypt(ldapDTO.getConnId()));
             requestData.put("connPwd", ldapEncrypt(ldapDTO.getConnPwd()));
-            requestData.put("loginID", ldapEncrypt(loginDTO.getUsername()));
+            requestData.put("loginID", ldapEncrypt(loginDTO.getUserId()));
             requestData.put("loginPwd", ldapEncrypt(loginDTO.getPassword()));
 
             requestMap.put("request", requestData);

@@ -1,4 +1,4 @@
-package com.kt.ktedu.auth.login.service;
+package com.kt.ktedu.core.security.auth;
 
 import com.kt.ktedu.auth.jwt.dto.JwtDTO;
 import lombok.Getter;

@@ -1,7 +1,7 @@
 package com.kt.ktedu.core.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kt.ktedu.core.security.HtmlCharacterEscapes;
+import com.kt.ktedu.core.security.xss.HtmlCharacterEscapes;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;

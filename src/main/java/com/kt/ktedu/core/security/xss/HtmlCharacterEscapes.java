@@ -1,4 +1,4 @@
-package com.kt.ktedu.core.security;
+package com.kt.ktedu.core.security.xss;
 
 import com.fasterxml.jackson.core.SerializableString;
 import com.fasterxml.jackson.core.io.CharacterEscapes;

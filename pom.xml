@@ -15,8 +15,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <spring.version>6.1.15</spring.version>
-        <spring.security.version>6.1.6</spring.security.version>
+        <spring.version>6.2.19</spring.version>
+        <spring.security.version>6.5.11</spring.security.version>
         <jjwt.version>0.12.6</jjwt.version>
         <lombok.version>1.18.36</lombok.version>
     </properties>
@@ -346,6 +346,11 @@
             <version>4.3.2</version>
         </dependency>
         <dependency>
+            <groupId>org.opensaml</groupId>
+            <artifactId>opensaml-saml-impl</artifactId>
+            <version>4.3.2</version>
+        </dependency>
+        <dependency>
             <groupId>net.shibboleth.utilities</groupId>
             <artifactId>java-support</artifactId>
             <version>8.4.2</version>
@@ -379,6 +384,13 @@
             <groupId>com.github.mwiede</groupId>
             <artifactId>jsch</artifactId>
             <version>2.28.2</version>
+        </dependency>
+
+        <!-- 메일 발송 -->
+        <dependency>
+            <groupId>org.eclipse.angus</groupId>
+            <artifactId>angus-mail</artifactId>
+            <version>2.0.3</version>
         </dependency>
 
         <!-- TODO 삭제 예정 -->

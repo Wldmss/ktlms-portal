@@ -1,4 +1,4 @@
-package com.kt.ktedu.auth.login.service;
+package com.kt.ktedu.core.security.auth;
 
 import com.kt.ktedu.auth.jwt.dto.JwtDTO;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
  * TODO: LoginMapper (또는 기존 로그인 서비스) 주입 후 실제 DB 조회로 교체 필요
  *       - 레거시 사용자 테이블 컬럼명, 패스워드 암호화 방식 확인 후 구현
  */
+@Deprecated
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 

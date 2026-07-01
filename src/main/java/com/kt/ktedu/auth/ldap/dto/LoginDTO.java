@@ -11,7 +11,7 @@ import java.util.Map;
 @AllArgsConstructor
 @Builder
 public class LoginDTO {
-    String username;    // 사번
+    String userId;    // 사번
     String password;    // 비밀번호
 
     String keySeq;
@@ -23,7 +23,7 @@ public class LoginDTO {
         Map<String, Object> claims = new HashMap<>();
         claims.put("userId", userId);
 
-        setUsername(userId);
+        setUserId(userId);
         setClaims(claims);
     }
 }

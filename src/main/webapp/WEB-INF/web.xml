@@ -52,7 +52,7 @@
     <!-- form xss filter -->
     <filter>
         <filter-name>formXssFilter</filter-name>
-        <filter-class>com.kt.ktedu.core.security.FormXssFilter</filter-class>
+        <filter-class>com.kt.ktedu.core.security.xss.FormXssFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>formXssFilter</filter-name>

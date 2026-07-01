@@ -41,7 +41,7 @@ public class LoginService {
 
         if (loginDTO.getPassword() != null) {
             Authentication authentication = authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(loginDTO.getUsername(), loginDTO.getPassword())
+                    new UsernamePasswordAuthenticationToken(loginDTO.getUserId(), loginDTO.getPassword())
             );
 
             return (LdapResultDTO) authentication.getPrincipal();

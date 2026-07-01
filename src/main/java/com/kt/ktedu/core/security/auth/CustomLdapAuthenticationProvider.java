@@ -1,4 +1,4 @@
-package com.kt.ktedu.auth.ldap;
+package com.kt.ktedu.core.security.auth;
 
 import com.kt.ktedu.auth.ldap.dto.LdapResultDTO;
 import com.kt.ktedu.auth.ldap.dto.LoginDTO;
@@ -25,7 +25,7 @@ public class CustomLdapAuthenticationProvider implements AuthenticationProvider 
         String password = authentication.getCredentials().toString();
 
         LoginDTO loginDTO = LoginDTO.builder()
-                .username(username)
+                .userId(username)
                 .password(password)
                 .build();
 

@@ -1,15 +1,11 @@
-package com.kt.ktedu.core.config;
+package com.kt.ktedu.core.security.config;
 
-import com.kt.ktedu.auth.ldap.CustomLdapAuthenticationProvider;
-import com.kt.ktedu.auth.login.service.CustomUserDetailsService;
-import com.kt.ktedu.auth.jwt.JwtAuthenticationFilter;
+import com.kt.ktedu.core.security.auth.CustomLdapAuthenticationProvider;
+import com.kt.ktedu.core.security.auth.JwtAuthenticationFilter;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.ProviderManager;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -18,6 +14,7 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;

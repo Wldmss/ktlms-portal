@@ -10,6 +10,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
  * 이 Interceptor 는 인증 이후 공통 처리가 필요할 때 사용하세요.
  * (예: 요청 로깅, 권한 세분화, loginUser 세션 세팅 등)
  */
+@Deprecated
 @Component("jwtInterceptor")
 public class JwtInterceptor implements HandlerInterceptor {
 

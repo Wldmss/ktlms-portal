@@ -1,4 +1,4 @@
-package com.kt.ktedu.auth.login.controller;
+package com.kt.ktedu.auth.ldap.controller;
 
 import com.kt.ktedu.auth.jwt.JwtProvider;
 import io.jsonwebtoken.ExpiredJwtException;

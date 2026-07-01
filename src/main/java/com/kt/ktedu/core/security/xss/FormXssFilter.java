@@ -1,4 +1,4 @@
-package com.kt.ktedu.core.security;
+package com.kt.ktedu.core.security.xss;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
