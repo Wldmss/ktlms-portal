@@ -18,5 +18,4 @@
 <%-- 전역 변수 --%>
 <script type="text/javascript">
     window._contextPath = "${pageContext.request.contextPath}";
-    window._accessToken = "${sessionScope.accessToken}";
 </script>

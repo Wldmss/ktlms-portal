@@ -23,6 +23,7 @@ import java.security.MessageDigest;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HexFormat;
+import java.util.UUID;
 
 @Component
 public class JwtProvider {
@@ -30,15 +31,30 @@ public class JwtProvider {
     private static final Logger log = LoggerFactory.getLogger(JwtProvider.class);
 
     @Value("${jwt.access-key}")
-    private String ACCESS_SECRET_STRING;
+    private String accessKeyString;
 
     @Value("${jwt.refresh-key}")
-    private String REFRESH_SECRET_STRING;
+    private String refreshKeyString;
 
-    private final SecretKey accessSecretKey = Keys.hmacShaKeyFor(ACCESS_SECRET_STRING.getBytes(StandardCharsets.UTF_8));
-    private final SecretKey refreshSecretKey = Keys.hmacShaKeyFor(REFRESH_SECRET_STRING.getBytes(StandardCharsets.UTF_8));
+    private SecretKey accessSecretKey;
+    private SecretKey refreshSecretKey;
 
-    // Access Token: 3시간
+    /* value init */
+    private SecretKey accessSecretKey() {
+        if (accessSecretKey == null) {
+            accessSecretKey = Keys.hmacShaKeyFor(accessKeyString.getBytes(StandardCharsets.UTF_8));
+        }
+        return accessSecretKey;
+    }
+
+    private SecretKey refreshSecretKey() {
+        if (refreshSecretKey == null) {
+            refreshSecretKey = Keys.hmacShaKeyFor(refreshKeyString.getBytes(StandardCharsets.UTF_8));
+        }
+        return refreshSecretKey;
+    }
+
+    // Access Token: 1시간
     public static final long ACCESS_EXPIRATION_MS = 1000L * 60 * 60 * 1;
     // Refresh Token: 7일
     public static final long REFRESH_EXPIRATION_MS = 1000L * 60 * 60 * 24 * 7;
@@ -81,7 +97,7 @@ public class JwtProvider {
                 .claim("type", "access")
                 .issuedAt(now)
                 .expiration(new Date(now.getTime() + ACCESS_EXPIRATION_MS))
-                .signWith(accessSecretKey, Jwts.SIG.HS256)
+                .signWith(accessSecretKey(), Jwts.SIG.HS256)
                 .compact();
     }
 
@@ -90,7 +106,7 @@ public class JwtProvider {
      */
     public Claims parseAccessToken(String token) {
         return Jwts.parser()
-                .verifyWith(accessSecretKey)
+                .verifyWith(accessSecretKey())
                 .build()
                 .parseSignedClaims(token)
                 .getPayload();
@@ -121,15 +137,17 @@ public class JwtProvider {
 
     /**
      * Refresh Token 생성
+     * 토큰 고유 id(JWT 표준 클레임명: jti) 를 부여해 기기/세션 별로 구분 저장하고, rotation 재사용 감지에 사용한다.
      */
     public String createRefreshToken(String userId) {
         Date now = new Date();
         return Jwts.builder()
+                .id(UUID.randomUUID().toString())
                 .subject(userId)
                 .claim("type", "refresh")
                 .issuedAt(now)
                 .expiration(new Date(now.getTime() + REFRESH_EXPIRATION_MS))
-                .signWith(refreshSecretKey, Jwts.SIG.HS256)
+                .signWith(refreshSecretKey(), Jwts.SIG.HS256)
                 .compact();
     }
 
@@ -138,7 +156,7 @@ public class JwtProvider {
      */
     public Claims parseRefreshToken(String token) {
         return Jwts.parser()
-                .verifyWith(refreshSecretKey)
+                .verifyWith(refreshSecretKey())
                 .build()
                 .parseSignedClaims(token)
                 .getPayload();
@@ -162,6 +180,13 @@ public class JwtProvider {
      */
     public String getUserIdFromRefreshToken(String token) {
         return parseRefreshToken(token).getSubject();
+    }
+
+    /**
+     * Refresh Token 에서 토큰 고유 id 추출 (JWT 표준 클레임명은 jti) - 기기/세션 구분 및 rotation 재사용 감지용
+     */
+    public String getTokenIdFromRefreshToken(String token) {
+        return parseRefreshToken(token).getId();
     }
 
     // =========================================================

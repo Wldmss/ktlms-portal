@@ -46,7 +46,7 @@ public class LoginController {
 
     @GetMapping({"/logout", "/mobile/m/logout"})
     public String logout() {
-        return "redirect:/auth/logout";
+        return "common/pages/logout-redirect";
     }
 
     /* 크롬 devtools pageNotFound 로그 숨김 처리 */

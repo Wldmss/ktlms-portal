@@ -26,8 +26,8 @@ import java.util.Map;
 /**
  * 인증 API 컨트롤러
  * POST /auth/login   - 로그인 (Access + Refresh Token 발급)
- * POST /auth/refresh - Access Token 재발급
- * POST /auth/logout  - 로그아웃 (Refresh Token 삭제)
+ * POST /auth/refresh - Access Token 재발급 (Refresh Token rotation 포함)
+ * POST /auth/logout  - 로그아웃 (현재 기기의 Refresh Token 삭제)
  */
 @Slf4j
 @RestController
@@ -55,7 +55,6 @@ public class AuthController {
             );
             log.info("인증 성공 - userId: {}", request.getUserId());
 
-//            CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
             LdapResultDTO ldapResultDTO = (LdapResultDTO) authentication.getPrincipal();
 
             if (!ldapResultDTO.getIsAuth()) {
@@ -80,7 +79,8 @@ public class AuthController {
             // 2차 인증 우회 대상 여부 확인
             if (isBypassUser(jwtDTO)) {
                 log.info("bypass 대상 - 토큰 발급 시작");
-                issueTokens(jwtDTO, response);
+                String accessToken = issueTokens(jwtDTO, response);
+                data.put("accessToken", accessToken);
                 log.info("토큰 발급 완료");
                 log.info("로그인 성공 (bypass) - userId: {}", jwtDTO.getUserId());
                 return ResponseEntity.ok(ResponseDTO.bypass("로그인 성공", data));
@@ -109,20 +109,25 @@ public class AuthController {
 
     /**
      * Access Token + Refresh Token 발급 및 쿠키 세팅 공통 처리
+     * @return 발급된 Access Token (응답 바디로 내려줘서 Bearer 방식으로도 쓸 수 있게 함)
      */
-    private void issueTokens(JwtDTO jwtDTO, HttpServletResponse response) {
+    private String issueTokens(JwtDTO jwtDTO, HttpServletResponse response) {
         String accessToken = jwtProvider.createAccessToken(jwtDTO);
         String refreshToken = jwtProvider.createRefreshToken(jwtDTO.getUserId());
+        String tokenId = jwtProvider.getTokenIdFromRefreshToken(refreshToken);
         String refreshTokenHash = jwtProvider.hashToken(refreshToken);
 
-        refreshTokenMapper.upsert(RefreshTokenDTO.builder()
+        refreshTokenMapper.insert(RefreshTokenDTO.builder()
                 .userId(jwtDTO.getUserId())
+                .tokenId(tokenId)
                 .token(refreshTokenHash)
                 .expiresAt(LocalDateTime.now().plusSeconds(JwtProvider.REFRESH_EXPIRATION_MS / 1000))
                 .build());
 
         jwtProvider.setAccessTokenCookie(response, accessToken);
         jwtProvider.setRefreshTokenCookie(response, refreshToken);
+
+        return accessToken;
     }
 
     // =========================================================
@@ -131,7 +136,8 @@ public class AuthController {
 
     /**
      * POST /auth/refresh
-     * Refresh Token 으로 새 Access Token 발급
+     * Refresh Token 으로 새 Access Token 발급 + Refresh Token Rotation
+     * (매 refresh 마다 refresh token 도 새로 발급하고 기존 것은 폐기하여, 탈취된 토큰의 유효 기간을 최소화)
      * Refresh Token 은 HttpOnly Cookie 로 자동 전송됨
      */
     @PostMapping("/refresh")
@@ -147,14 +153,18 @@ public class AuthController {
             return ResponseEntity.status(401).body(ResponseDTO.fail("유효하지 않은 접근입니다. 다시 로그인해 주세요."));
         }
 
-        // DB 에 저장된 토큰과 비교 (탈취 감지)
         String userId = jwtProvider.getUserIdFromRefreshToken(refreshToken);
-        RefreshTokenDTO savedToken = refreshTokenMapper.findByUserId(userId);
+        String tokenId = jwtProvider.getTokenIdFromRefreshToken(refreshToken);
         String refreshTokenHash = jwtProvider.hashToken(refreshToken);
 
+        // DB 에 저장된 세션(userId + tokenId)과 비교 (rotation 재사용/탈취 감지)
+        RefreshTokenDTO savedToken = refreshTokenMapper.findByUserIdAndTokenId(userId, tokenId);
+
         if (savedToken == null || !savedToken.getToken().equals(refreshTokenHash)) {
-            log.warn("Refresh Token 불일치 - 탈취 가능성 - userId: {}", userId);
-            refreshTokenMapper.deleteByUserId(userId); // 의심스러운 토큰 전부 삭제
+            // 이미 rotation 으로 폐기된 토큰이 재사용됨 -> 탈취 가능성으로 판단, 해당 유저의 모든 기기 세션 무효화
+            log.warn("Refresh Token 재사용/불일치 감지 - 탈취 가능성 - userId: {}", userId);
+            refreshTokenMapper.deleteByUserId(userId);
+            jwtProvider.clearAuthCookies(response);
             return ResponseEntity.status(401)
                     .body(ResponseDTO.fail("로그인 정보가 유효하지 않습니다. 다시 로그인해 주세요."));
         }
@@ -168,10 +178,27 @@ public class AuthController {
                 .build();
 
         String newAccessToken = jwtProvider.createAccessToken(jwtDTO);
-        jwtProvider.setAccessTokenCookie(response, newAccessToken);
+        String newRefreshToken = jwtProvider.createRefreshToken(userId);
+        String newTokenId = jwtProvider.getTokenIdFromRefreshToken(newRefreshToken);
+        String newRefreshTokenHash = jwtProvider.hashToken(newRefreshToken);
 
-        log.info("Access Token 재발급 - userId: {}", userId);
-        return ResponseEntity.ok(ResponseDTO.success("Access Token이 재발급되었습니다.", null));
+        // 사용한 refresh token(tokenId) 은 삭제하고 새 세션으로 교체 -> 재사용 불가
+        refreshTokenMapper.deleteByUserIdAndTokenId(userId, tokenId);
+        refreshTokenMapper.insert(RefreshTokenDTO.builder()
+                .userId(userId)
+                .tokenId(newTokenId)
+                .token(newRefreshTokenHash)
+                .expiresAt(LocalDateTime.now().plusSeconds(JwtProvider.REFRESH_EXPIRATION_MS / 1000))
+                .build());
+
+        jwtProvider.setAccessTokenCookie(response, newAccessToken);
+        jwtProvider.setRefreshTokenCookie(response, newRefreshToken);
+
+        Map<String, Object> data = new HashMap<>();
+        data.put("accessToken", newAccessToken);
+
+        log.info("Access Token/Refresh Token 재발급(rotation) - userId: {}", userId);
+        return ResponseEntity.ok(ResponseDTO.success("Access Token이 재발급되었습니다.", data));
     }
 
     // =========================================================
@@ -180,18 +207,19 @@ public class AuthController {
 
     /**
      * POST /auth/logout
-     * Refresh Token DB 삭제 + 쿠키 초기화
+     * 현재 기기의 Refresh Token(DB) 삭제 + 쿠키 초기화
+     * GET 은 상태를 변경해도 CSRF 검증 대상에서 빠지는 문제가 있어 POST 로만 허용한다.
      */
-    @RequestMapping(value = "/logout", method = {RequestMethod.GET, RequestMethod.POST})
+    @PostMapping("/logout")
     public ResponseEntity<ResponseDTO> logout(HttpServletRequest request, HttpServletResponse response) {
         String refreshToken = jwtProvider.resolveRefreshToken(request);
 
         if (refreshToken != null) {
             try {
                 String userId = jwtProvider.getUserIdFromRefreshToken(refreshToken);
-                int deleted = refreshTokenMapper.deleteByUserId(userId);
+                String tokenId = jwtProvider.getTokenIdFromRefreshToken(refreshToken);
+                int deleted = refreshTokenMapper.deleteByUserIdAndTokenId(userId, tokenId);
                 log.info("로그아웃 - userId: {}, deletedRefreshTokenRows: {}", userId, deleted);
-                log.info("로그아웃 - userId: {}", userId);
             } catch (Exception e) {
                 log.warn("로그아웃 중 Refresh Token 파싱 실패 (무시): {}", e.getMessage());
             }

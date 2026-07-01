@@ -76,6 +76,10 @@
 
                 // BYPASS / SUCCESS 시 redirect URL 로 이동
                 if (res.result === 'BYPASS' || res.result === 'SUCCESS') {
+                    // 로그인 응답 바디로 내려준 accessToken 저장 (Bearer 헤더용, 쿠키 방식과 병행)
+                    if (res.data && res.data.accessToken) {
+                        window._accessToken = res.data.accessToken;
+                    }
                     location.href = _redirectUrl
                         ? decodeURIComponent(_redirectUrl)
                         : contextPath + '/sample';

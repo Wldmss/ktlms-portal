@@ -12,6 +12,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -49,12 +50,13 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf
                                 .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                                 .csrfTokenRequestHandler(csrfTokenRequestHandler)
-                        // 정말 외부 서버/앱에서 CSRF 헤더를 못 붙이는 공개 API만 예외 처리
+                        // 외부 서버/앱에서 CSRF 헤더를 못 붙이는 공개 API 예외 처리
                         // .ignoringRequestMatchers("/api/health")
                 )
                 .addFilterAfter(new CsrfCookieFilter(), BasicAuthenticationFilter.class)
                 .cors(cors -> cors.configurationSource(corsConfigurationSource())) // CORS 활성화
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .logout(AbstractHttpConfigurer::disable) // 기본 LogoutFilter 비활성화 (로그아웃은 /auth/logout 에서 자체 처리)
 
                 // URL 권한 설정
                 .authorizeHttpRequests(auth -> auth
@@ -180,7 +182,6 @@ public class SecurityConfig {
 
     /* csrf filter */
     private static final class CsrfCookieFilter extends OncePerRequestFilter {
-
         @Override
         protected void doFilterInternal(
                 HttpServletRequest request,
