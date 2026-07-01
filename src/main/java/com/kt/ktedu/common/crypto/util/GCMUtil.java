@@ -20,8 +20,7 @@ public class GCMUtil implements InitializingBean {
 
     private static final GCMCore core = new GCMCore();
 
-    // TODO: application.properties 에 값 설정 필요
-    @Value("${crypto.gcm.default-key:KT_GCM_SECURE_KEY_HAVE_32_BYTES_}")
+    @Value("${app.enc-key}")
     private String defaultKeyValue;  // 32자
 
     private static String DEFAULT_KEY;

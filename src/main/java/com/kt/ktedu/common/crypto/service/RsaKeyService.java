@@ -37,8 +37,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RsaKeyService {
 
-    // TODO: application.properties 에 값 설정 필요 (exam 의 kt-genius.jwt.secret-key 대응)
-    @Value("${crypto.rsa.secret-key:KT_GCM_SECURE_KEY_HAVE_32_BYTES_}")
+    @Value("${app.enc-key}")
     private String secretKey;
 
     private final RsaKeyMapper rsaKeyMapper;

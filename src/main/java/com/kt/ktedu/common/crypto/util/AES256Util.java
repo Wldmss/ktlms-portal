@@ -21,10 +21,10 @@ public class AES256Util implements InitializingBean {
 
     private static final AES256Core core = new AES256Core();
 
-    // TODO: application.properties 에 값 설정 필요
-    @Value("${crypto.aes256.default-key:KT_LMS_PROJECT_SECRET_KEY_256_BIT}")
+    @Value("${app.enc-key}")
     private String defaultKeyValue;  // 32자
 
+    // TODO
     @Value("${crypto.aes256.default-iv:KT_LMS_INIT_IV_16_}")
     private String defaultIvValue;   // 16자
 

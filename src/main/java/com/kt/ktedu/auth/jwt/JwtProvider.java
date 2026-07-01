@@ -29,12 +29,11 @@ public class JwtProvider {
 
     private static final Logger log = LoggerFactory.getLogger(JwtProvider.class);
 
-    @Value("${jwt.secret-key}")
-    private String secretKey;
+    @Value("${jwt.access-key}")
+    private String ACCESS_SECRET_STRING;
 
-    // ⚠️ 실무 보안 필수: application.properties 로 외부화 필요 (최소 32바이트 이상)
-    private static final String ACCESS_SECRET_STRING = "KT_LMS_PORTAL_ACCESS_TOKEN_SECRET_KEY_2026";
-    private static final String REFRESH_SECRET_STRING = "KT_LMS_PORTAL_REFRESH_TOKEN_SECRET_KEY_2026_LONG";
+    @Value("${jwt.refresh-key}")
+    private String REFRESH_SECRET_STRING;
 
     private final SecretKey accessSecretKey = Keys.hmacShaKeyFor(ACCESS_SECRET_STRING.getBytes(StandardCharsets.UTF_8));
     private final SecretKey refreshSecretKey = Keys.hmacShaKeyFor(REFRESH_SECRET_STRING.getBytes(StandardCharsets.UTF_8));
