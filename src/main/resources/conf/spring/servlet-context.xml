@@ -41,4 +41,12 @@
     <beans:bean id="multipartResolver"
                 class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
     </beans:bean>
+
+    <!-- direct 접속 허용 (controller 안거치고) -->
+    <view-controller path="/directSample" view-name="direct/directSample"/>
+    <!--<view-controller path="/shareLink.do" view-name="direct/shareLink"/>
+    <view-controller path="/pageLink.do" view-name="direct/pageLink"/>
+    <view-controller path="/nsso_auth.do" view-name="direct/nsso_auth"/>
+    <view-controller path="/nsso_return.do" view-name="direct/nsso_return"/>
+    <view-controller path="/sso_logon.do" view-name="direct/sso_logon"/>-->
 </beans:beans>

@@ -6,6 +6,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -19,45 +20,95 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
-import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
-import org.springframework.security.web.csrf.CsrfException;
-import org.springframework.security.web.csrf.CsrfToken;
-import org.springframework.security.web.csrf.CsrfTokenRequestAttributeHandler;
+import org.springframework.security.web.csrf.*;
+import org.springframework.security.web.header.writers.ReferrerPolicyHeaderWriter;
+import org.springframework.security.web.header.writers.StaticHeadersWriter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.OncePerRequestFilter;
+import org.springframework.web.servlet.handler.HandlerMappingIntrospector;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
+import java.util.List;
 
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfig {
-
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
-
-    public SecurityConfig(JwtAuthenticationFilter jwtAuthenticationFilter) {
-        this.jwtAuthenticationFilter = jwtAuthenticationFilter;
-    }
+    private final CookieSecurityProperties cookieSecurityProperties;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         CsrfTokenRequestAttributeHandler csrfTokenRequestHandler = new CsrfTokenRequestAttributeHandler();
 
+        CookieCsrfTokenRepository csrfRepository = CookieCsrfTokenRepository.withHttpOnlyFalse();
+        csrfRepository.setCookieCustomizer(cookie -> cookie
+                .path("/")
+                .sameSite(cookieSecurityProperties.sameSite())
+                .secure(cookieSecurityProperties.isSecure())
+        );
+
         http
                 .csrf(csrf -> csrf
-                                .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+                                .csrfTokenRepository(csrfRepository)
                                 .csrfTokenRequestHandler(csrfTokenRequestHandler)
                         // 외부 서버/앱에서 CSRF 헤더를 못 붙이는 공개 API 예외 처리
                         // .ignoringRequestMatchers("/api/health")
                 )
+                .addFilterBefore(new FetchMetadataFilter(), CsrfFilter.class)
                 .addFilterAfter(new CsrfCookieFilter(), BasicAuthenticationFilter.class)
                 .cors(cors -> cors.configurationSource(corsConfigurationSource())) // CORS 활성화
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .logout(AbstractHttpConfigurer::disable) // 기본 LogoutFilter 비활성화 (로그아웃은 /auth/logout 에서 자체 처리)
+                // 보안 헤더
+                .headers(headers -> headers
+                        // 운영에서 실제 적용되는 완화 정책
+                        .contentSecurityPolicy(csp -> csp
+                                .policyDirectives(
+                                        "default-src 'self'; " +
+                                                "script-src 'self' 'unsafe-inline'; " +
+                                                "style-src 'self' 'unsafe-inline'; " +
+                                                "img-src 'self' data: blob:; " +
+                                                "font-src 'self' data:; " +
+                                                "connect-src 'self'; " +
+                                                "object-src 'none'; " +
+                                                "base-uri 'self'; " +
+                                                "frame-ancestors 'self'; " +
+                                                "form-action 'self'"
+                                )
+                        )
 
+                        // 나중에 목표로 삼을 엄격 정책은 별도 Report-Only 헤더로 관찰
+                        .addHeaderWriter(new StaticHeadersWriter(
+                                "Content-Security-Policy-Report-Only",
+                                "default-src 'self'; " +
+                                        "script-src 'self'; " +
+                                        "style-src 'self'; " +
+                                        "img-src 'self' data: blob:; " +
+                                        "font-src 'self' data:; " +
+                                        "connect-src 'self'; " +
+                                        "object-src 'none'; " +
+                                        "base-uri 'self'; " +
+                                        "frame-ancestors 'self'; " +
+                                        "form-action 'self'"
+                        ))
+                        .frameOptions(frame -> frame.sameOrigin())
+                        .httpStrictTransportSecurity(hsts -> hsts
+                                .includeSubDomains(true)
+                                .maxAgeInSeconds(31536000)
+                        )
+                        .referrerPolicy(referrer -> referrer
+                                .policy(ReferrerPolicyHeaderWriter.ReferrerPolicy.STRICT_ORIGIN_WHEN_CROSS_ORIGIN)
+                        )
+                        .addHeaderWriter(new StaticHeadersWriter(
+                                "Permissions-Policy",
+                                "geolocation=(), camera=(), microphone=()"
+                        ))
+                )
                 // URL 권한 설정
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/robots.txt").permitAll()
@@ -147,13 +198,24 @@ public class SecurityConfig {
         configuration.addAllowedOrigin("https://exam.ktedu.kt.com");        // 운영 front
 
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-
-        configuration.addAllowedHeader("*"); // 모든 헤더 허용
+        configuration.setAllowedHeaders(List.of(
+                "Authorization",
+                "Content-Type",
+                "X-XSRF-TOKEN",
+                "X-Requested-With",
+                "Accept"
+        ));
+        configuration.setExposedHeaders(List.of("Content-Disposition"));
         configuration.setAllowCredentials(true); // 인증 정보 허용 (쿠키, 인증 헤더)
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration); // 모든 경로에 대해 CORS 정책 적용
         return source;
+    }
+
+    @Bean
+    public HandlerMappingIntrospector mvcHandlerMappingIntrospector() {
+        return new HandlerMappingIntrospector();
     }
 
     @Bean
@@ -183,10 +245,9 @@ public class SecurityConfig {
     /* csrf filter */
     private static final class CsrfCookieFilter extends OncePerRequestFilter {
         @Override
-        protected void doFilterInternal(
-                HttpServletRequest request,
-                HttpServletResponse response,
-                FilterChain filterChain
+        protected void doFilterInternal(HttpServletRequest request,
+                                        HttpServletResponse response,
+                                        FilterChain filterChain
         ) throws ServletException, IOException {
             CsrfToken csrfToken = (CsrfToken) request.getAttribute(CsrfToken.class.getName());
 
@@ -195,6 +256,45 @@ public class SecurityConfig {
             }
 
             filterChain.doFilter(request, response);
+        }
+    }
+
+    private static final class FetchMetadataFilter extends OncePerRequestFilter {
+
+        private static final List<String> SAFE_METHODS =
+                List.of("GET", "HEAD", "OPTIONS", "TRACE");
+
+        private static final List<String> EXCLUDED_PATH_PREFIXES =
+                List.of(
+                        "/api/entra-sso/",
+                        "/nsso_auth.do",
+                        "/nsso_return.do",
+                        "/sso_logon.do"
+                );
+
+        @Override
+        protected void doFilterInternal(HttpServletRequest request,
+                                        HttpServletResponse response,
+                                        FilterChain filterChain
+        ) throws ServletException, IOException {
+            String secFetchSite = request.getHeader("Sec-Fetch-Site");
+
+            if ("cross-site".equals(secFetchSite)
+                    && !SAFE_METHODS.contains(request.getMethod())
+                    && !isExcludedPath(request)) {
+                response.sendError(HttpServletResponse.SC_FORBIDDEN);
+                return;
+            }
+
+            filterChain.doFilter(request, response);
+        }
+
+        private boolean isExcludedPath(HttpServletRequest request) {
+            String uri = request.getRequestURI();
+            String contextPath = request.getContextPath();
+            String path = uri.substring(contextPath.length());
+
+            return EXCLUDED_PATH_PREFIXES.stream().anyMatch(path::startsWith);
         }
     }
 
@@ -208,6 +308,8 @@ public class SecurityConfig {
         return path.startsWith("/api/")
                 || path.startsWith("/auth/")
                 || "XMLHttpRequest".equals(request.getHeader("X-Requested-With"))
-                || (accept != null && accept.contains("application/json"));
+                || (accept != null && accept.contains("application/json"))
+                || uri.contains("Ajax")
+                || uri.contains("Json");
     }
 }

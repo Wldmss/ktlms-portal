@@ -21,7 +21,7 @@
 
 ## filter, interceptor 설정
 
-- filter 전체 삭제 - spring security 로 처리
+- filter 전체 삭제 - spring security 로 처리 (완)
 - interceptor -> @PreAuthorize 로 변경
     - 가이드 정리
 

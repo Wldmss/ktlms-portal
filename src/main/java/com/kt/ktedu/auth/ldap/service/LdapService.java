@@ -8,7 +8,7 @@ import com.kt.ktedu.auth.ldap.dto.LoginDTO;
 import com.kt.ktedu.common.crypto.util.AES256Util;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -32,9 +32,7 @@ import java.util.regex.Pattern;
 public class LdapService {
 
     private final LdapDTO ldapDTO;
-
-    @Value("${spring.profiles.active:default}")
-    private String activeProfile;
+    private final Environment environment;
 
     /**
      * ldap api 호출
@@ -45,8 +43,8 @@ public class LdapService {
         String[] idList = {"82047550", "82047551", "82047552", "82047553"}; // ldap 개발 테스트용 계정 (82047553:비번만료계정) 비번: new1234!
 
         // 운영:: user_id = test% 허용, 개발:: idList 만 ldap 적용
-        boolean doLdap = (activeProfile.equals("dev") && Arrays.asList(idList).contains(loginDTO.getUserId()))
-                || (activeProfile.equals("prod") && !loginDTO.getUserId().startsWith("test"));
+        boolean doLdap = (isActiveProfile("dev") && Arrays.asList(idList).contains(loginDTO.getUserId()))
+                || (isActiveProfile("prod") && !loginDTO.getUserId().startsWith("test"));
 
         if (doLdap) return this.ldapPeriod(loginDTO);
 
@@ -195,5 +193,9 @@ public class LdapService {
         }
 
         return null;
+    }
+
+    private boolean isActiveProfile(String profile) {
+        return Arrays.asList(environment.getActiveProfiles()).contains(profile);
     }
 }

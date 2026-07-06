@@ -25,9 +25,6 @@ public class LoginService {
     @Value("${url.domain}")
     private String appDomain;
 
-    @Value("${spring.profiles.active:default}")
-    private String activeProfile;
-
     private final AuthenticationManager authenticationManager;
 //    private final RsaKeyService rsaKeyService;
 

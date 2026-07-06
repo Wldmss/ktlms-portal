@@ -14,19 +14,15 @@ import java.util.UUID;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
+/**
+ * 파일 업로드/다운로드/zip 압축다운로드/용량계산
+ */
 public class FileUtil {
-    private static final String UPLOAD_DIR = System.getProperty("user.home") + File.separator + "ktlms_uploads" + File.separator;
 
-    // 업로드 허용 확장자 화이트리스트
-    private static final List<String> ALLOWED_EXTENSIONS = Arrays.asList("jpg", "jpeg", "png", "gif", "pdf", "doc", "docx", "xls", "xlsx", "ppt", "pptx", "txt", "zip");
-
-    // 업로드 허용 MIME Type 화이트리스트 (웹쉘 jsp, php, exe 등 원천 차단)
-    private static final List<String> ALLOWED_MIME_TYPES = Arrays.asList(
-            "image/jpeg", "image/png", "image/gif", "application/pdf",
-            "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-            "application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-            "application/vnd.ms-powerpoint", "application/vnd.openxmlformats-officedocument.presentationml.presentation",
-            "text/plain", "application/zip", "application/x-zip-compressed"
+    // 호출부가 어떤 allowedExtensions 를 넘기든 항상 차단하는 확장자 (웹쉘 등 원천 차단, 최후 방어선)
+    private static final List<String> ALWAYS_BLOCKED_EXTENSIONS = Arrays.asList(
+            "jsp", "jspx", "jspf", "php", "php3", "php4", "php5", "phtml",
+            "asp", "aspx", "exe", "sh", "bat", "cmd", "war", "jar", "class", "htaccess"
     );
 
     private FileUtil() {
@@ -35,20 +31,14 @@ public class FileUtil {
 
     /**
      * 단일 파일 업로드
+     *
+     * @param uploadPath        저장 디렉토리 (호출부에서 결정)
+     * @param multipartFile     업로드 파일
+     * @param allowedExtensions 허용 확장자 목록 (null/empty 면 ALWAYS_BLOCKED_EXTENSIONS 외에는 제한 없음)
      */
-    public static FileDTO uploadFile(MultipartFile multipartFile) throws IOException {
+    public static FileDTO uploadFile(String uploadPath, MultipartFile multipartFile, List<String> allowedExtensions) throws IOException {
         if (multipartFile == null || multipartFile.isEmpty()) {
             return null;
-        }
-
-        // 파일 확장자 및 MIME Type 이중 화이트리스트 체크
-        if (!isAllowedFile(multipartFile)) {
-            throw new SecurityException("업로드가 허용되지 않는 파일 형식입니다.");
-        }
-
-        File dir = new File(UPLOAD_DIR);
-        if (!dir.exists()) {
-            dir.mkdirs();
         }
 
         // 파일명 취약점 방어 (경로 조작 문자 제거 및 순수 파일명 추출)
@@ -59,31 +49,44 @@ public class FileUtil {
             originalFileName = "unknown_" + System.currentTimeMillis();
         }
 
-        String storedFileName = UUID.randomUUID() + "_" + originalFileName;
-        String fullPath = UPLOAD_DIR + storedFileName;
+        String ext = extensionOf(originalFileName);
+        if (ALWAYS_BLOCKED_EXTENSIONS.contains(ext)) {
+            throw new SecurityException("업로드가 허용되지 않는 파일 형식입니다.");
+        }
+        if (allowedExtensions != null && !allowedExtensions.isEmpty() && !allowedExtensions.contains(ext)) {
+            throw new SecurityException("업로드가 허용되지 않는 파일 형식입니다.");
+        }
 
-        File targetFile = new File(fullPath);
+        File dir = new File(uploadPath);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+
+        String storedFileName = UUID.randomUUID() + "_" + originalFileName;
+        File targetFile = new File(dir, storedFileName);
         multipartFile.transferTo(targetFile);
 
         return FileDTO.builder()
                 .originalFileName(originalFileName)
                 .storedFileName(storedFileName)
-                .filePath(fullPath)
+                .filePath(targetFile.getAbsolutePath())
                 .fileSize(multipartFile.getSize())
                 .build();
     }
 
     /**
      * 파일 다운로드
+     *
+     * @param downloadPath 저장 디렉토리 (호출부에서 결정, uploadFile 때 쓴 경로와 짝이 맞아야 함)
      */
-    public static void downloadFile(String originalFileName, String storedFileName, HttpServletResponse response) throws IOException {
+    public static void downloadFile(String downloadPath, String originalFileName, String storedFileName, HttpServletResponse response) throws IOException {
         // 다운로드 파일명 경로 조작 공격(../../ 방어)
-        if (storedFileName.contains("..") || storedFileName.contains("/") || storedFileName.contains("\\")) {
+        if (isPathTraversal(storedFileName)) {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             return;
         }
 
-        File file = new File(UPLOAD_DIR + storedFileName);
+        File file = new File(downloadPath, storedFileName);
         if (!file.exists() || !file.isFile()) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             return;
@@ -104,9 +107,11 @@ public class FileUtil {
     }
 
     /**
-     * 다중 파일 ZIP 압축 다운로드
+     * 다중 파일 ZIP 압축 다운로드 (디스크에 임시 zip 파일을 만들지 않고 response 로 바로 스트리밍)
+     *
+     * @param downloadPath 저장 디렉토리 (호출부에서 결정)
      */
-    public static void downloadZipFile(String[] originalNames, String[] storedNames, String zipFileName, HttpServletResponse response) throws IOException {
+    public static void downloadZipFile(String downloadPath, String[] originalNames, String[] storedNames, String zipFileName, HttpServletResponse response) throws IOException {
         if (originalNames == null || storedNames == null || originalNames.length != storedNames.length) {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             return;
@@ -123,11 +128,11 @@ public class FileUtil {
 
             for (int i = 0; i < storedNames.length; i++) {
                 // 경로 조작 검증
-                if (storedNames[i].contains("..") || storedNames[i].contains("/") || storedNames[i].contains("\\")) {
+                if (isPathTraversal(storedNames[i])) {
                     continue;
                 }
 
-                File file = new File(UPLOAD_DIR + storedNames[i]);
+                File file = new File(downloadPath, storedNames[i]);
                 if (file.exists() && file.isFile()) {
                     ZipEntry zipEntry = new ZipEntry(originalNames[i]);
                     zos.putNextEntry(zipEntry);
@@ -146,25 +151,28 @@ public class FileUtil {
     }
 
     /**
-     * 파일 사이즈 체크 연산
+     * 파일 사이즈 체크 연산 (webview 앱 호출 시 파일이 너무 커서 크래시 나는 경우 사전 방지용)
+     *
+     * @param downloadPath 저장 디렉토리 (호출부에서 결정)
      */
-    public static long checkFileSize(String[] storedNames) {
+    public static long checkFileSize(String downloadPath, String[] storedNames) {
         if (storedNames == null || storedNames.length == 0) {
             return 0L;
         }
 
         // 단일 파일
         if (storedNames.length == 1) {
-            File file = new File(UPLOAD_DIR + storedNames[0]);
+            if (isPathTraversal(storedNames[0])) return 0L;
+            File file = new File(downloadPath, storedNames[0]);
             return file.exists() ? file.length() : 0L;
         }
 
-        // 파일 여러개
+        // 파일 여러개 (zip 압축시 예상 용량)
         long estimatedZipSize = 0L;
         for (String storedName : storedNames) {
-            if (storedName.contains("..")) continue; // 보안 방어
+            if (isPathTraversal(storedName)) continue; // 보안 방어
 
-            File file = new File(UPLOAD_DIR + storedName);
+            File file = new File(downloadPath, storedName);
             if (file.exists() && file.isFile()) {
                 // ZIP 파일 내부에 들어갈 파일 기본 헤더 용량 (약 30~46 바이트)
                 estimatedZipSize += 46;
@@ -178,23 +186,12 @@ public class FileUtil {
         return estimatedZipSize;
     }
 
-    /**
-     * 확장자 및 진짜 파일 MIME Type 검증
-     */
-    private static boolean isAllowedFile(MultipartFile multipartFile) {
-        String fileName = multipartFile.getOriginalFilename();
-        if (fileName == null || !fileName.contains(".")) {
-            return false;
-        }
+    private static boolean isPathTraversal(String name) {
+        return name == null || name.contains("..") || name.contains("/") || name.contains("\\");
+    }
 
-        // 1. 확장자 체크
-        String ext = fileName.substring(fileName.lastIndexOf(".") + 1).toLowerCase();
-        if (!ALLOWED_EXTENSIONS.contains(ext)) {
-            return false;
-        }
-
-        // 2. MIME Type 체크 (변조된 파일 완벽 검출)
-        String contentType = multipartFile.getContentType();
-        return contentType != null && ALLOWED_MIME_TYPES.contains(contentType.toLowerCase());
+    private static String extensionOf(String fileName) {
+        int idx = fileName.lastIndexOf(".");
+        return idx == -1 ? "" : fileName.substring(idx + 1).toLowerCase();
     }
 }

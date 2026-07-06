@@ -1,6 +1,7 @@
 package com.kt.ktedu.auth.jwt;
 
 import com.kt.ktedu.auth.jwt.dto.JwtDTO;
+import com.kt.ktedu.core.security.config.CookieSecurityProperties;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.JwtException;
@@ -9,26 +10,27 @@ import io.jsonwebtoken.security.Keys;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseCookie;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.HexFormat;
 import java.util.UUID;
 
 @Component
+@RequiredArgsConstructor
 public class JwtProvider {
 
     private static final Logger log = LoggerFactory.getLogger(JwtProvider.class);
+
+    private final CookieSecurityProperties cookieSecurityProperties;
 
     @Value("${jwt.access-key}")
     private String accessKeyString;
@@ -61,16 +63,6 @@ public class JwtProvider {
 
     public static final String ACCESS_COOKIE_NAME = "access_token";
     public static final String REFRESH_COOKIE_NAME = "refresh_token";
-
-    @Autowired
-    private Environment environment;
-
-    /**
-     * local 프로파일이면 false, 그 외(dev/prod)는 true
-     */
-    private boolean isCookieSecure() {
-        return !Arrays.asList(environment.getActiveProfiles()).contains("local");
-    }
 
     // create login token TODO issueToken 처리
     public String loginToken(HttpServletResponse response, JwtDTO jwtDTO) {
@@ -244,20 +236,14 @@ public class JwtProvider {
     // 쿠키 관리
     // =========================================================
 
-    private String sameSite() {
-        return "local".equals(String.join(",", environment.getActiveProfiles()))
-                ? "Lax"
-                : "None";
-    }
-
     /**
      * Access Token 쿠키 세팅
      */
     public void setAccessTokenCookie(HttpServletResponse response, String token) {
         ResponseCookie cookie = ResponseCookie.from(ACCESS_COOKIE_NAME, token)
                 .httpOnly(true)
-                .secure(isCookieSecure())
-                .sameSite(sameSite())
+                .secure(cookieSecurityProperties.isSecure())
+                .sameSite(cookieSecurityProperties.sameSite())
                 .path("/")
                 .maxAge(ACCESS_EXPIRATION_MS / 1000)
                 .build();
@@ -271,8 +257,8 @@ public class JwtProvider {
     public void setRefreshTokenCookie(HttpServletResponse response, String token) {
         ResponseCookie cookie = ResponseCookie.from(REFRESH_COOKIE_NAME, token)
                 .httpOnly(true)
-                .secure(isCookieSecure())
-                .sameSite(sameSite())
+                .secure(cookieSecurityProperties.isSecure())
+                .sameSite(cookieSecurityProperties.sameSite())
                 .path("/auth")
                 .maxAge(REFRESH_EXPIRATION_MS / 1000)
                 .build();
@@ -286,24 +272,24 @@ public class JwtProvider {
     public void clearAuthCookies(HttpServletResponse response) {
         ResponseCookie accessCookie = ResponseCookie.from(ACCESS_COOKIE_NAME, "")
                 .httpOnly(true)
-                .secure(isCookieSecure())
-                .sameSite(sameSite())
+                .secure(cookieSecurityProperties.isSecure())
+                .sameSite(cookieSecurityProperties.sameSite())
                 .path("/")
                 .maxAge(0)
                 .build();
 
         ResponseCookie refreshCookie = ResponseCookie.from(REFRESH_COOKIE_NAME, "")
                 .httpOnly(true)
-                .secure(isCookieSecure())
-                .sameSite(sameSite())
+                .secure(cookieSecurityProperties.isSecure())
+                .sameSite(cookieSecurityProperties.sameSite())
                 .path("/auth")
                 .maxAge(0)
                 .build();
 
         ResponseCookie csrfCookie = ResponseCookie.from("XSRF-TOKEN", "")
                 .httpOnly(false)
-                .secure(isCookieSecure())
-                .sameSite(sameSite())
+                .secure(cookieSecurityProperties.isSecure())
+                .sameSite(cookieSecurityProperties.sameSite())
                 .path("/")
                 .maxAge(0)
                 .build();
