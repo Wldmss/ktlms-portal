@@ -62,6 +62,7 @@ function callAjax(url, data = {}, options = {}) {
         contentType: "application/json",
         dataType: "json",
         noBg: true,
+        handleAuthError: true,
         ...options
     };
 
@@ -92,7 +93,7 @@ function callAjax(url, data = {}, options = {}) {
             error: function (xhr, textStatus, errorThrown) {
                 console.error(`❌ [Ajax Error] URL: ${url} | Status: ${xhr.status}`);
 
-                if (xhr.status === 401 || xhr.status === 403) {
+                if (defaultOptions.handleAuthError !== false && (xhr.status === 401 || xhr.status === 403)) {
                     if (typeof openAlert === "function") {
                         openAlert("세션이 만료되었거나 접근 권한이 없습니다.\n로그인 화면으로 이동합니다.").then(() => {
                             location.href = (typeof contextPath !== "undefined" ? contextPath : "") + "/login";

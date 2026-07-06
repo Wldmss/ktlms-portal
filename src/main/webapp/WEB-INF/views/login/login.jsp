@@ -59,14 +59,8 @@
             return;
         }
 
-        $.ajax({
-            url: contextPath + "/auth/login",
-            type: "POST",
-            contentType: "application/json",
-            data: JSON.stringify({userId: id, password: pw}),
-            success: function (res) {
-                console.log(res);
-                console.log(res.success)
+        postAjax("/auth/login", {userId: id, password: pw}, {handleAuthError: false})
+            .then(function (res) {
                 if (!res.success && res.result !== "NEED_2FA") {
                     $("#msgBox").css("color", "#dc3545").text(res.message || "로그인에 실패했습니다.");
                     return;
@@ -90,12 +84,11 @@
                     $("#userPw").attr("readonly", true);
                     isSecondStep = true;
                 }
-            },
-            error: function (err) {
+            })
+            .catch(function (err) {
                 console.log(err);
                 $("#msgBox").css("color", "#dc3545").text(err.responseJSON?.message || "로그인 정보가 올바르지 않습니다.");
-            }
-        });
+            });
     }
 
     // 💡 [Step 2]: 번호 입력 후 최종 로그인 및 JWT 발급 요청
@@ -108,12 +101,8 @@
             return;
         }
 
-        $.ajax({
-            url: contextPath + "/auth/login/step2",
-            type: "POST",
-            contentType: "application/json",
-            data: JSON.stringify({id: id, code: code}),
-            success: function (res) {
+        postAjax("/auth/login/step2", {id: id, code: code}, {handleAuthError: false})
+            .then(function (res) {
                 if (res.status === "SUCCESS") {
                     // 🔑 발급된 JWT 토큰을 브라우저 로컬스토리지나 세션스토리지에 저장합니다.
                     localStorage.setItem("accessToken", res.token);
@@ -121,11 +110,10 @@
                     // 🚀 메인 페이지로 대이동
                     location.href = contextPath + res.redirectUrl;
                 }
-            },
-            error: function (err) {
+            })
+            .catch(function (err) {
                 $("#msgBox").css("color", "#dc3545").text(err.responseJSON?.message || "인증번호가 틀렸습니다.");
-            }
-        });
+            });
     }
 </script>
 

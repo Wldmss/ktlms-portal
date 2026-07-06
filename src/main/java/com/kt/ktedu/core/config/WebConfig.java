@@ -13,10 +13,15 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/directSample").setViewName("direct/directSample");
+        registry.addViewController("/shareLink").setViewName("direct/shareLink");
         registry.addViewController("/shareLink.do").setViewName("direct/shareLink");
+        registry.addViewController("/pageLink").setViewName("direct/pageLink");
         registry.addViewController("/pageLink.do").setViewName("direct/pageLink");
+        registry.addViewController("/nsso_auth").setViewName("direct/nsso_auth");
         registry.addViewController("/nsso_auth.do").setViewName("direct/nsso_auth");
+        registry.addViewController("/nsso_return").setViewName("direct/nsso_return");
         registry.addViewController("/nsso_return.do").setViewName("direct/nsso_return");
+        registry.addViewController("/sso_logon").setViewName("direct/sso_logon");
         registry.addViewController("/sso_logon.do").setViewName("direct/sso_logon");
     }
 }

@@ -26,8 +26,6 @@ Thumbs.db
 
 # env
 *.env
-application-admin.properties
-application-portal.properties
 
 # settings
 settings-local.xml

@@ -9,8 +9,10 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -31,11 +33,11 @@ import org.springframework.web.servlet.handler.HandlerMappingIntrospector;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 import java.util.List;
 
 @Configuration
 @EnableWebSecurity
+@EnableMethodSecurity(prePostEnabled = true)
 @RequiredArgsConstructor
 public class SecurityConfig {
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
@@ -111,6 +113,10 @@ public class SecurityConfig {
                 )
                 // URL 권한 설정
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(HttpMethod.PUT, "/**").denyAll()
+                        .requestMatchers(HttpMethod.DELETE, "/**").denyAll()
+                        .requestMatchers(HttpMethod.PATCH, "/**").denyAll()
+                        .requestMatchers(HttpMethod.TRACE, "/**").denyAll()
                         .requestMatchers("/robots.txt").permitAll()
                         // 인증 불필요
                         .requestMatchers(
@@ -126,9 +132,14 @@ public class SecurityConfig {
                         // 정적 리소스
                         .requestMatchers("/resources/**", "/webjars/**", "/favicon.ico").permitAll()
                         // 직접 접근 뷰
-                        .requestMatchers("/directSample", "/shareLink.do",
-                                "/pageLink.do", "/nsso_auth.do", "/nsso_return.do",
-                                "/sso_logon.do").permitAll()
+                        .requestMatchers(
+                                "/directSample",
+                                "/shareLink", "/shareLink.do",
+                                "/pageLink", "/pageLink.do",
+                                "/nsso_auth", "/nsso_auth.do",
+                                "/nsso_return", "/nsso_return.do",
+                                "/sso_logon", "/sso_logon.do"
+                        ).permitAll()
                         // 그 외 모든 요청 인증 필요
                         .anyRequest().authenticated()
                 )
@@ -197,7 +208,7 @@ public class SecurityConfig {
         configuration.addAllowedOrigin("https://dev.exam.ktedu.kt.com");    // 개발 front
         configuration.addAllowedOrigin("https://exam.ktedu.kt.com");        // 운영 front
 
-        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        configuration.setAllowedMethods(List.of("GET", "POST", "OPTIONS"));
         configuration.setAllowedHeaders(List.of(
                 "Authorization",
                 "Content-Type",
@@ -267,8 +278,11 @@ public class SecurityConfig {
         private static final List<String> EXCLUDED_PATH_PREFIXES =
                 List.of(
                         "/api/entra-sso/",
+                        "/nsso_auth",
                         "/nsso_auth.do",
+                        "/nsso_return",
                         "/nsso_return.do",
+                        "/sso_logon",
                         "/sso_logon.do"
                 );
 
