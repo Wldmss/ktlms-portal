@@ -25,8 +25,6 @@
 - interceptor -> @PreAuthorize 로 변경 - 코드 이전 후 진행
 - 가이드 정리
 
-## tiles 삭제 가이드
-
 ## session -> jwt 변경
 
 - jwt 세팅 (완)
@@ -37,9 +35,16 @@
 
 ## interceptor -> @PreAuthorize 로 변경
 
+- 코드 이전 후 진행
+
 ## properties 필수적인거만 설정하기
 
 - 유니코드 삭제
+- 코드 옮기면서 추가
+
+## tiles 삭제 가이드
+
+## css, js 정리
 
 ---
 여기까지 portal, admin 통일
