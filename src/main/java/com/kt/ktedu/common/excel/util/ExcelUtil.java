@@ -4,7 +4,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.streaming.SXSSFSheet;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,6 +12,14 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
+/**
+ * 엑셀 업로드/다운로드 공통 유틸 (Apache POI 기준. 레거시 JXL 은 사용하지 않는다).
+ * <ul>
+ *   <li>다운로드: {@link #downloadExcelMap}(Map 리스트) / {@link #downloadExcelDto}(DTO 리스트) — SXSSF 스트리밍(대용량 안전)</li>
+ *   <li>업로드 파싱: {@link #uploadExcel}(헤더명 key) / {@link #uploadExcel(InputStream, List)}(컬럼 순서→key) / {@link #readRows}(원시 2차원)</li>
+ * </ul>
+ * 업로드 파싱은 {@code WorkbookFactory} 를 써서 <b>.xls(97-2003) 와 .xlsx 를 모두</b> 읽는다(JXL 대체).
+ */
 public class ExcelUtil {
 
     private ExcelUtil() {
@@ -124,12 +131,15 @@ public class ExcelUtil {
     }
 
     /**
-     * 업로드된 엑셀 파일(InputStream)을 파싱하여 Map 리스트로 반환
+     * 업로드된 엑셀 파일(.xls/.xlsx)을 파싱하여 Map 리스트로 반환.
+     * 첫 행을 헤더로 보고, 각 데이터 행을 <b>헤더 텍스트를 key</b> 로 하는 Map 으로 만든다.
+     * (헤더 텍스트가 아니라 정해진 컬럼 순서로 매핑하려면 {@link #uploadExcel(InputStream, List)} 사용)
      */
     public static List<Map<String, String>> uploadExcel(InputStream inputStream) throws IOException {
         List<Map<String, String>> excelData = new ArrayList<>();
 
-        try (Workbook workbook = new XSSFWorkbook(inputStream)) {
+        // WorkbookFactory: .xls(HSSF)/.xlsx(XSSF) 자동 판별
+        try (Workbook workbook = WorkbookFactory.create(inputStream)) {
             Sheet sheet = workbook.getSheetAt(0);
             int rowCount = sheet.getPhysicalNumberOfRows();
             if (rowCount <= 1) return excelData;
@@ -162,6 +172,69 @@ public class ExcelUtil {
             }
         }
         return excelData;
+    }
+
+    /**
+     * 업로드된 엑셀(.xls/.xlsx)을 <b>지정한 컬럼 key 순서</b>로 파싱하여 Map 리스트로 반환.
+     * 첫 행(헤더)은 건너뛰고, 각 데이터 행을 columnKeys 순서(왼쪽 컬럼부터)대로 매핑한다.
+     * 헤더 텍스트가 바뀌어도 안전한, 고정 양식 업로드에 사용.
+     * <pre>uploadExcel(is, List.of("userId", "email", "name"))
+     *   → A열=userId, B열=email, C열=name</pre>
+     *
+     * @param columnKeys 컬럼(왼쪽부터) → map key
+     */
+    public static List<Map<String, String>> uploadExcel(InputStream inputStream, List<String> columnKeys) throws IOException {
+        List<Map<String, String>> excelData = new ArrayList<>();
+        if (columnKeys == null || columnKeys.isEmpty()) return excelData;
+
+        try (Workbook workbook = WorkbookFactory.create(inputStream)) {
+            Sheet sheet = workbook.getSheetAt(0);
+
+            // 0행(헤더) 건너뛰고 데이터 행부터
+            for (int r = 1; r <= sheet.getLastRowNum(); r++) {
+                Row row = sheet.getRow(r);
+                if (row == null) continue;
+
+                Map<String, String> rowMap = new LinkedHashMap<>();
+                boolean hasData = false;
+                for (int c = 0; c < columnKeys.size(); c++) {
+                    String cellValue = getCellValueAsString(row.getCell(c));
+                    if (!cellValue.isEmpty()) hasData = true;
+                    rowMap.put(columnKeys.get(c), cellValue);
+                }
+
+                if (hasData) excelData.add(rowMap);
+            }
+        }
+        return excelData;
+    }
+
+    /**
+     * 업로드된 엑셀(.xls/.xlsx)을 원시 문자열 2차원 리스트로 파싱 (헤더 포함, 모든 행).
+     * 컬럼 매핑 없이 직접 검증/배치 처리할 때 사용. 빈 행은 빈 리스트로 유지되어 행 번호가 보존된다.
+     */
+    public static List<List<String>> readRows(InputStream inputStream) throws IOException {
+        List<List<String>> rows = new ArrayList<>();
+
+        try (Workbook workbook = WorkbookFactory.create(inputStream)) {
+            Sheet sheet = workbook.getSheetAt(0);
+
+            for (int r = 0; r <= sheet.getLastRowNum(); r++) {
+                Row row = sheet.getRow(r);
+                if (row == null) {
+                    rows.add(new ArrayList<>());
+                    continue;
+                }
+
+                List<String> cells = new ArrayList<>();
+                int lastCell = row.getLastCellNum(); // -1 이면 빈 행
+                for (int c = 0; c < lastCell; c++) {
+                    cells.add(getCellValueAsString(row.getCell(c)));
+                }
+                rows.add(cells);
+            }
+        }
+        return rows;
     }
 
     /* ── 공통 컴포넌트 ── */
