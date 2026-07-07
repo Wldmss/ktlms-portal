@@ -8,6 +8,8 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.*;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
@@ -30,26 +32,39 @@ public class FileUtil {
     }
 
     /**
-     * 단일 파일 업로드
+     * 단일 파일 업로드 (용량 제한 없음)
      *
      * @param uploadPath        저장 디렉토리 (호출부에서 결정)
      * @param multipartFile     업로드 파일
      * @param allowedExtensions 허용 확장자 목록 (null/empty 면 ALWAYS_BLOCKED_EXTENSIONS 외에는 제한 없음)
      */
     public static FileDTO uploadFile(String uploadPath, MultipartFile multipartFile, List<String> allowedExtensions) throws IOException {
+        return uploadFile(uploadPath, multipartFile, allowedExtensions, 0L);
+    }
+
+    /**
+     * 단일 파일 업로드 (용량 제한 포함)
+     *
+     * @param uploadPath        저장 디렉토리 (호출부에서 결정)
+     * @param multipartFile     업로드 파일
+     * @param allowedExtensions 허용 확장자 목록 (null/empty 면 ALWAYS_BLOCKED_EXTENSIONS 외에는 제한 없음)
+     * @param maxBytes          허용 최대 바이트 (0 이하면 제한 없음)
+     * @throws SecurityException 확장자 미허용/차단, 또는 용량 초과 시
+     */
+    public static FileDTO uploadFile(String uploadPath, MultipartFile multipartFile, List<String> allowedExtensions, long maxBytes) throws IOException {
         if (multipartFile == null || multipartFile.isEmpty()) {
             return null;
         }
 
-        // 파일명 취약점 방어 (경로 조작 문자 제거 및 순수 파일명 추출)
-        String originalFileName = multipartFile.getOriginalFilename();
-        if (originalFileName != null) {
-            originalFileName = new File(originalFileName).getName();
-        } else {
-            originalFileName = "unknown_" + System.currentTimeMillis();
+        // 용량 검증
+        if (maxBytes > 0 && multipartFile.getSize() > maxBytes) {
+            throw new SecurityException("허용된 파일 용량을 초과했습니다.");
         }
 
-        String ext = extensionOf(originalFileName);
+        // 파일명 정규화 (경로 조작 문자/불용 문자 제거)
+        String originalFileName = normalizeFileName(multipartFile.getOriginalFilename());
+
+        String ext = getExtension(originalFileName);
         if (ALWAYS_BLOCKED_EXTENSIONS.contains(ext)) {
             throw new SecurityException("업로드가 허용되지 않는 파일 형식입니다.");
         }
@@ -186,12 +201,97 @@ public class FileUtil {
         return estimatedZipSize;
     }
 
-    private static boolean isPathTraversal(String name) {
-        return name == null || name.contains("..") || name.contains("/") || name.contains("\\");
+    /**
+     * 저장된 파일 삭제. (파일 수정/삭제 시 첨부 제거용)
+     *
+     * @param dirPath         저장 디렉토리
+     * @param storedFileName  저장 파일명 (path traversal 검증됨)
+     * @return 삭제 성공 여부 (파일이 없거나 경로 위반이면 false)
+     */
+    public static boolean deleteFile(String dirPath, String storedFileName) {
+        if (isPathTraversal(storedFileName)) {
+            return false;
+        }
+        File file = new File(dirPath, storedFileName);
+        return file.exists() && file.isFile() && file.delete();
     }
 
-    private static String extensionOf(String fileName) {
+    /**
+     * 파일 삭제 (예외 무시). 임시 파일 정리 등에 사용.
+     *
+     * @return 삭제 성공 여부
+     */
+    public static boolean deleteQuietly(File file) {
+        try {
+            return file != null && file.exists() && file.delete();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * 파일 이동. (임시 저장 → 최종 저장 디렉토리 이동 등). 대상 폴더가 없으면 생성, 동일명 존재 시 덮어씀.
+     *
+     * @param source        원본 파일
+     * @param targetDirPath 이동할 디렉토리
+     * @return 이동된 파일
+     */
+    public static File moveFile(File source, String targetDirPath) throws IOException {
+        File dir = new File(targetDirPath);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        File target = new File(dir, source.getName());
+        Files.move(source.toPath(), target.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        return target;
+    }
+
+    /**
+     * 파일 복사. 대상 폴더가 없으면 생성, 동일명 존재 시 덮어씀.
+     *
+     * @param source        원본 파일
+     * @param targetDirPath 복사할 디렉토리
+     * @return 복사된 파일
+     */
+    public static File copyFile(File source, String targetDirPath) throws IOException {
+        File dir = new File(targetDirPath);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        File target = new File(dir, source.getName());
+        Files.copy(source.toPath(), target.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        return target;
+    }
+
+    /**
+     * 파일명 정규화. 경로(디렉토리) 제거 + 파일 시스템 불용 문자/제어 문자 제거.
+     * <pre>normalizeFileName("../a/b<c>.pdf") → "bc.pdf"</pre>
+     *
+     * @return 정규화된 파일명 (null/빈값이면 "unknown_시각")
+     */
+    public static String normalizeFileName(String fileName) {
+        if (fileName == null) {
+            return "unknown_" + System.currentTimeMillis();
+        }
+        // 경로 제거(순수 파일명) 후 불용 문자 제거
+        String name = new File(fileName).getName()
+                .replaceAll("[\\\\/:*?\"<>|]", "")
+                .replaceAll("\\p{Cntrl}", "")
+                .trim();
+        return name.isEmpty() ? "unknown_" + System.currentTimeMillis() : name;
+    }
+
+    /**
+     * 확장자 추출 (소문자, 점 제외. 없으면 "")
+     * <pre>getExtension("보고서.PDF") → "pdf"</pre>
+     */
+    public static String getExtension(String fileName) {
+        if (fileName == null) return "";
         int idx = fileName.lastIndexOf(".");
         return idx == -1 ? "" : fileName.substring(idx + 1).toLowerCase();
+    }
+
+    private static boolean isPathTraversal(String name) {
+        return name == null || name.contains("..") || name.contains("/") || name.contains("\\");
     }
 }
