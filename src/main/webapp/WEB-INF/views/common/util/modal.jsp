@@ -77,36 +77,3 @@
         </div>
     </div>
 </div>
-
-<script type="text/javascript">
-    function openModal(title, url, params = {}) {
-        $("#global-modal-title").text(title);
-        $("#global-modal-content-body").html("");
-
-        // 로딩바 작동 (전역 로딩바 컴포넌트 연동)
-        if ($("#global-loading-overlay").length) {
-            $("#global-loading-overlay").show();
-        }
-
-        // 제이쿼리 load 기능을 활용해 다른 JSP 껍데기를 다이렉트로 인클루드 시킵니다.
-        $("#global-modal-content-body").load(window._contextPath + url, params, function (response, status, xhr) {
-            if ($("#global-loading-overlay").length) {
-                $("#global-loading-overlay").hide(); // 로딩 완료 시 끄기
-            }
-
-            if (status === "error") {
-                openAlert("화면을 불러오는 중 오류가 발생했습니다.");
-            } else {
-                // 모달 오픈
-                $("#global-content-modal").css("display", "flex");
-                checkScrollLock();
-            }
-        });
-    }
-
-    function closeModal() {
-        $("#global-content-modal").hide();
-        $("#global-modal-content-body").html("");
-        checkScrollLock();
-    }
-</script>

@@ -1,0 +1,120 @@
+/**
+ * 공통 dialog/snackbar/modal 유틸
+ */
+
+let snackbarTimer = null;
+
+function openAlert(message, isConfirm = false) {
+    return new Promise((resolve) => {
+        const safeMessage = window.Formatter && typeof window.Formatter.escapeHtml === "function"
+            ? window.Formatter.escapeHtml(message)
+            : String(message || "");
+
+        $("#global-alert-message").html(safeMessage.replace(/\n/g, "<br>"));
+        $("#global-alert-modal").css("display", "flex");
+
+        checkScrollLock();
+
+        if (isConfirm) {
+            $("#global-alert-cancel-btn").show();
+        } else {
+            $("#global-alert-cancel-btn").hide();
+        }
+
+        $("#global-alert-confirm-btn").off("click").on("click", function () {
+            $("#global-alert-modal").hide();
+            checkScrollLock();
+            resolve(true);
+        });
+
+        $("#global-alert-cancel-btn").off("click").on("click", function () {
+            $("#global-alert-modal").hide();
+            checkScrollLock();
+            resolve(false);
+        });
+    });
+}
+
+function openConfirm(message) {
+    return openAlert(message, true);
+}
+
+function showSnackbar(message, duration = 2500) {
+    const $snackbar = $("#global-snackbar");
+
+    if (snackbarTimer) {
+        clearTimeout(snackbarTimer);
+        snackbarTimer = null;
+    }
+
+    changeSnackbar(message);
+
+    setTimeout(() => {
+        $snackbar.addClass("show");
+    }, 10);
+
+    if (duration > 0) {
+        snackbarTimer = setTimeout(() => {
+            hideSnackbar();
+        }, duration);
+    }
+}
+
+function changeSnackbar(newMessage) {
+    $("#global-snackbar-text").text(newMessage);
+}
+
+function hideSnackbar() {
+    const $snackbar = $("#global-snackbar");
+    $snackbar.removeClass("show");
+
+    if (snackbarTimer) {
+        clearTimeout(snackbarTimer);
+        snackbarTimer = null;
+    }
+}
+
+function openModal(title, url, params = {}) {
+    $("#global-modal-title").text(title);
+    $("#global-modal-content-body").html("");
+
+    if ($("#global-loading-overlay").length) {
+        $("#global-loading-overlay").show();
+    }
+
+    $("#global-modal-content-body").load(resolveCommonUrl(url), params, function (response, status) {
+        if ($("#global-loading-overlay").length) {
+            $("#global-loading-overlay").hide();
+        }
+
+        if (status === "error") {
+            openAlert("화면을 불러오는 중 오류가 발생했습니다.");
+            return;
+        }
+
+        $("#global-content-modal").css("display", "flex");
+        checkScrollLock();
+    });
+}
+
+function closeModal() {
+    $("#global-content-modal").hide();
+    $("#global-modal-content-body").html("");
+    checkScrollLock();
+}
+
+function resolveCommonUrl(url) {
+    if (!url) return "";
+    if (/^(https?:)?\/\//.test(url)) return url;
+
+    const contextPath = window._contextPath || "";
+    return url.startsWith(contextPath) ? url : contextPath + (url.startsWith("/") ? url : "/" + url);
+}
+
+window.openAlert = openAlert;
+window.openConfirm = openConfirm;
+window.showSnackbar = showSnackbar;
+window.changeSnackbar = changeSnackbar;
+window.hideSnackbar = hideSnackbar;
+window.openModal = openModal;
+window.closeModal = closeModal;

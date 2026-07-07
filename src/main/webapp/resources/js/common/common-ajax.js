@@ -10,6 +10,22 @@ function getCookie(name) {
     return value ? decodeURIComponent(value.split("=")[1]) : null;
 }
 
+function getContextPath() {
+    if (typeof window._contextPath !== "undefined") return window._contextPath;
+    if (typeof contextPath !== "undefined") return contextPath;
+    return "";
+}
+
+function resolveAjaxUrl(url) {
+    if (!url) return "";
+    if (/^(https?:)?\/\//.test(url)) return url;
+
+    const basePath = getContextPath();
+    if (!basePath || url.startsWith(basePath)) return url;
+
+    return basePath + (url.startsWith("/") ? url : "/" + url);
+}
+
 /* Bearer token + CSRF 적용 */
 $.ajaxSetup({
     beforeSend: function (xhr, settings) {
@@ -39,7 +55,7 @@ let _refreshPromise = null;
 function refreshAccessToken() {
     if (_refreshPromise) return _refreshPromise;
 
-    const refreshUrl = (typeof contextPath !== "undefined" ? contextPath : "") + "/auth/refresh";
+    const refreshUrl = resolveAjaxUrl("/auth/refresh");
 
     _refreshPromise = $.ajax({
         url: refreshUrl,
@@ -64,7 +80,7 @@ function refreshAccessToken() {
 
 /* 세션 만료/권한 없음 시 로그인 화면으로 이동 */
 function redirectToLogin() {
-    const loginUrl = (typeof contextPath !== "undefined" ? contextPath : "") + "/login";
+    const loginUrl = resolveAjaxUrl("/login");
     if (typeof openAlert === "function") {
         openAlert("세션이 만료되었거나 접근 권한이 없습니다.\n로그인 화면으로 이동합니다.").then(() => {
             location.href = loginUrl;
@@ -114,25 +130,27 @@ function callAjax(url, data = {}, options = {}) {
         ...options
     };
 
-    // 전역 contextPath 가 선언되어 있다면 주소 앞에 자동 결합
-    const requestUrl = (typeof contextPath !== "undefined" && !url.startsWith(contextPath))
-        ? contextPath + url
-        : url;
+    const requestUrl = resolveAjaxUrl(url);
+    const method = defaultOptions.method.toUpperCase();
+    const isFormData = typeof FormData !== "undefined" && data instanceof FormData;
 
     // GET 메서드인 경우 데이터 직렬화 처리 분기
     let requestData = data;
-    if (defaultOptions.method.toUpperCase() === "POST" && defaultOptions.contentType.includes("json")) {
+    if (!isFormData && method === "POST" && typeof defaultOptions.contentType === "string"
+            && defaultOptions.contentType.includes("json")) {
         requestData = JSON.stringify(data);
     }
 
     return new Promise((resolve, reject) => {
         $.ajax({
             url: requestUrl,
-            type: defaultOptions.method,
-            contentType: defaultOptions.contentType,
+            type: method,
+            contentType: isFormData ? false : defaultOptions.contentType,
+            processData: isFormData ? false : defaultOptions.processData,
             dataType: defaultOptions.dataType,
             data: requestData,
             global: defaultOptions.global !== false,
+            headers: defaultOptions.headers || {},
 
             success: function (response, textStatus, xhr) {
                 resolve(response);

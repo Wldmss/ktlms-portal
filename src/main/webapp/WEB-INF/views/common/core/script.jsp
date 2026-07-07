@@ -20,6 +20,10 @@
 <%-- 공통 js--%>
 <script src="<c:url value='/resources/js/common/header.min.js' />"></script>
 <script src="<c:url value='/resources/js/common/common.min.js' />"></script>
+<script src="<c:url value='/resources/js/common/formatter.min.js' />"></script>
+<script src="<c:url value='/resources/js/common/common-dialog.min.js' />"></script>
+<script src="<c:url value='/resources/js/common/common-form.min.js' />"></script>
+<script src="<c:url value='/resources/js/common/common-file.min.js' />"></script>
+<script src="<c:url value='/resources/js/common/common-check.min.js' />"></script>
 <script src="<c:url value='/resources/js/common/common-ajax.min.js' />"></script>
 <script src="<c:url value='/resources/js/common/common-datepicker.js' />"></script>
-<script src="<c:url value='/resources/js/common/formatter.min.js' />"></script>
