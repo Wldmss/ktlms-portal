@@ -10,11 +10,8 @@
     const contextPath = "${pageContext.request.contextPath}";
 
     $(document).ready(function () {
-        $.ajax({
-            url: contextPath + "/auth/logout",
-            type: "POST"
-        }).always(function () {
-            location.href = contextPath + "/";
+        postAjax("/auth/logout").then(res => {
+            location.href = window._contextPath + "/";
         });
     });
 </script>

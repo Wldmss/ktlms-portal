@@ -13,19 +13,5 @@ public class JwtDTO {
     private String orgCd;
     private String comp;
     private String role;
-    private String s_userid;
-
-    public JwtDTO(String userId, String userNm, String orgCd, String comp, String role) {
-        this.userId = userId;
-        this.userNm = userNm;
-        this.orgCd = orgCd;
-        this.comp = comp;
-        this.role = role;
-        this.s_userid = userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-        this.s_userid = userId;
-    }
+    private String adminGrade; // 과도기용, nullable: 레거시 관리자 등급 코드(예: lms gadmin 'A', 'A1', 'ZZ')
 }

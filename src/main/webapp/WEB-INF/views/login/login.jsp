@@ -44,6 +44,14 @@
     const contextPath = "${pageContext.request.contextPath}";
     let isSecondStep = false; // 현재 2차 인증 단계인지 여부 플래그
 
+    // 입력 필드에서 Enter → 인증 요청/로그인 (사번·비밀번호·인증번호 칸 공통)
+    $("#loginForm").on("keydown", "input", function (e) {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            handleLoginStep1();
+        }
+    });
+
     // 💡 [Step 1]: ID, PW 유효성 검사 및 우회 판단 요청
     function handleLoginStep1() {
         if (isSecondStep) {

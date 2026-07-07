@@ -20,6 +20,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -121,13 +123,18 @@ public class AuthController {
                 .userId(jwtDTO.getUserId())
                 .tokenId(tokenId)
                 .token(refreshTokenHash)
-                .expiresAt(LocalDateTime.now().plusSeconds(JwtProvider.REFRESH_EXPIRATION_MS / 1000))
+                .expiresAt(toLocalDateTime(jwtProvider.getExpirationFromRefreshToken(refreshToken)))
                 .build());
 
         jwtProvider.setAccessTokenCookie(response, accessToken);
         jwtProvider.setRefreshTokenCookie(response, refreshToken);
 
         return accessToken;
+    }
+
+    /* java.util.Date → LocalDateTime (DB expiresAt 기록용) */
+    private static LocalDateTime toLocalDateTime(Date date) {
+        return LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault());
     }
 
     // =========================================================
@@ -177,8 +184,12 @@ public class AuthController {
                 .role("ROLE_USER")              // TODO: DB 조회로 교체
                 .build();
 
+        // 절대 만료 시각을 그대로 물려줌 (rotation 으로 세션 최대 수명이 연장되지 않도록 => 로그인 후 최대 24시간).
+        // 유휴 시계는 rotateRefreshToken 내부에서 now + 3시간으로 다시 갱신된다.
+        long absExp = jwtProvider.getAbsoluteExpFromRefreshToken(refreshToken);
+
         String newAccessToken = jwtProvider.createAccessToken(jwtDTO);
-        String newRefreshToken = jwtProvider.createRefreshToken(userId);
+        String newRefreshToken = jwtProvider.rotateRefreshToken(userId, absExp);
         String newTokenId = jwtProvider.getTokenIdFromRefreshToken(newRefreshToken);
         String newRefreshTokenHash = jwtProvider.hashToken(newRefreshToken);
 
@@ -188,7 +199,7 @@ public class AuthController {
                 .userId(userId)
                 .tokenId(newTokenId)
                 .token(newRefreshTokenHash)
-                .expiresAt(LocalDateTime.now().plusSeconds(JwtProvider.REFRESH_EXPIRATION_MS / 1000))
+                .expiresAt(toLocalDateTime(jwtProvider.getExpirationFromRefreshToken(newRefreshToken)))
                 .build());
 
         jwtProvider.setAccessTokenCookie(response, newAccessToken);

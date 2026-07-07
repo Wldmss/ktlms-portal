@@ -56,10 +56,15 @@ public class JwtProvider {
         return refreshSecretKey;
     }
 
-    // Access Token: 1시간
-    public static final long ACCESS_EXPIRATION_MS = 1000L * 60 * 60 * 1;
-    // Refresh Token: 7일
-    public static final long REFRESH_EXPIRATION_MS = 1000L * 60 * 60 * 24 * 7;
+    // Access Token: 30분 (만료되면 refresh 로 재발급)
+    public static final long ACCESS_EXPIRATION_MS = 1000L * 60 * 30;
+    // 유휴 만료: 마지막 재발급(활동) 후 3시간 동안 재발급이 없으면 세션 종료. 매 refresh 마다 갱신됨.
+    public static final long IDLE_EXPIRATION_MS = 1000L * 60 * 60 * 3;
+    // 절대 만료(세션 최대 수명): 24시간. rotation 으로도 연장되지 않아 로그인 후 최대 24시간이면 재로그인.
+    public static final long ABSOLUTE_EXPIRATION_MS = 1000L * 60 * 60 * 24;
+
+    // refresh token 에 절대 만료 시각(epoch ms)을 담는 custom claim 이름
+    private static final String CLAIM_ABS_EXP = "absExp";
 
     public static final String ACCESS_COOKIE_NAME = "access_token";
     public static final String REFRESH_COOKIE_NAME = "refresh_token";
@@ -86,6 +91,7 @@ public class JwtProvider {
                 .claim("orgCd", jwtDTO.getOrgCd())
                 .claim("comp", jwtDTO.getComp())
                 .claim("role", jwtDTO.getRole())
+                .claim("adminGrade", jwtDTO.getAdminGrade())
                 .claim("type", "access")
                 .issuedAt(now)
                 .expiration(new Date(now.getTime() + ACCESS_EXPIRATION_MS))
@@ -132,13 +138,30 @@ public class JwtProvider {
      * 토큰 고유 id(JWT 표준 클레임명: jti) 를 부여해 기기/세션 별로 구분 저장하고, rotation 재사용 감지에 사용한다.
      */
     public String createRefreshToken(String userId) {
-        Date now = new Date();
+        long now = System.currentTimeMillis();
+        // 최초 로그인: 절대 만료 = now + 24시간
+        return buildRefreshToken(userId, now, now + ABSOLUTE_EXPIRATION_MS);
+    }
+
+    /**
+     * Rotation 용 Refresh Token 발급.
+     * 절대 만료(absExp)는 최초 로그인 기준값을 그대로 물려받아 세션 최대 수명이 연장되지 않게 하고,
+     * 유휴 시계(exp)만 다시 now + IDLE_EXPIRATION_MS 로 갱신한다.
+     */
+    public String rotateRefreshToken(String userId, long absExp) {
+        return buildRefreshToken(userId, System.currentTimeMillis(), absExp);
+    }
+
+    private String buildRefreshToken(String userId, long nowMs, long absExp) {
+        // 실제 만료 = min(유휴 만료, 절대 만료) → 둘 중 먼저 오는 시점에 토큰이 만료됨
+        long exp = Math.min(nowMs + IDLE_EXPIRATION_MS, absExp);
         return Jwts.builder()
                 .id(UUID.randomUUID().toString())
                 .subject(userId)
                 .claim("type", "refresh")
-                .issuedAt(now)
-                .expiration(new Date(now.getTime() + REFRESH_EXPIRATION_MS))
+                .claim(CLAIM_ABS_EXP, absExp)
+                .issuedAt(new Date(nowMs))
+                .expiration(new Date(exp))
                 .signWith(refreshSecretKey(), Jwts.SIG.HS256)
                 .compact();
     }
@@ -181,6 +204,23 @@ public class JwtProvider {
         return parseRefreshToken(token).getId();
     }
 
+    /**
+     * Refresh Token 의 실제 만료 시각(=min(유휴, 절대)) 추출. DB expiresAt 기록용.
+     */
+    public Date getExpirationFromRefreshToken(String token) {
+        return parseRefreshToken(token).getExpiration();
+    }
+
+    /**
+     * Refresh Token 의 절대 만료 시각(epoch ms) 추출. rotation 시 세션 최대 수명을 물려주기 위해 사용.
+     * (구버전 토큰 등 claim 이 없으면 표준 만료 시각으로 대체)
+     */
+    public long getAbsoluteExpFromRefreshToken(String token) {
+        Claims claims = parseRefreshToken(token);
+        Number absExp = claims.get(CLAIM_ABS_EXP, Number.class);
+        return absExp != null ? absExp.longValue() : claims.getExpiration().getTime();
+    }
+
     // =========================================================
     // 공통 유틸
     // =========================================================
@@ -196,6 +236,7 @@ public class JwtProvider {
                 .orgCd(claims.get("orgCd", String.class))
                 .comp(claims.get("comp", String.class))
                 .role(claims.get("role", String.class))
+                .adminGrade(claims.get("adminGrade", String.class))
                 .build();
     }
 
@@ -260,7 +301,7 @@ public class JwtProvider {
                 .secure(cookieSecurityProperties.isSecure())
                 .sameSite(cookieSecurityProperties.sameSite())
                 .path("/auth")
-                .maxAge(REFRESH_EXPIRATION_MS / 1000)
+                .maxAge(ABSOLUTE_EXPIRATION_MS / 1000)
                 .build();
 
         response.addHeader("Set-Cookie", cookie.toString());

@@ -29,6 +29,17 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtProvider jwtProvider;
 
+    /**
+     * /auth/** 는 access token 필터를 태우지 않는다.
+     * 로그인/재발급/로그아웃은 refresh 쿠키·요청 바디로 자체 인증하며,
+     * 특히 만료된 access token 때문에 /auth/refresh 가 막혀 재발급 자체가 불가능해지는 것을 방지한다.
+     */
+    @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) {
+        String path = request.getRequestURI().substring(request.getContextPath().length());
+        return path.startsWith("/auth/");
+    }
+
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 

@@ -29,6 +29,8 @@
 
 ## session -> jwt 변경
 
+- jwt 세팅 (완)
+- 메뉴 권한/캐시성 데이터 → 매 요청 조회 or @PreAuthorize 작업
 - 가이드 문서 작성
 
 ## 공통 util 정리
