@@ -2,6 +2,10 @@
  * 공통 ajax 유틸
  */
 
+/**
+ * 쿠키 값 조회 (httpOnly 아닌 쿠키만 가능. CSRF 토큰 XSRF-TOKEN 읽기에 사용)
+ * @returns {string|null} 없으면 null
+ */
 function getCookie(name) {
     const value = document.cookie
         .split("; ")
@@ -10,12 +14,20 @@ function getCookie(name) {
     return value ? decodeURIComponent(value.split("=")[1]) : null;
 }
 
+/**
+ * 컨텍스트 패스 조회 (window._contextPath → 전역 contextPath → "" 순)
+ */
 function getContextPath() {
     if (typeof window._contextPath !== "undefined") return window._contextPath;
     if (typeof contextPath !== "undefined") return contextPath;
     return "";
 }
 
+/**
+ * 요청 URL 에 컨텍스트 패스 자동 결합.
+ * 절대 URL(http://, //)이나 이미 컨텍스트 패스로 시작하는 URL 은 그대로 반환
+ * @example resolveAjaxUrl("/api/list") → "/portal/api/list" (contextPath 가 /portal 인 경우)
+ */
 function resolveAjaxUrl(url) {
     if (!url) return "";
     if (/^(https?:)?\/\//.test(url)) return url;

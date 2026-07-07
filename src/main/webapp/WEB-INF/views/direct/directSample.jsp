@@ -50,7 +50,7 @@
 <div class="container">
     <h1>✨ 신규 아키텍처 연결 성공</h1>
 
-    <p>이 페이지는 레거시 <code>/web/</code> 폴더를 거치지 않고 자바 설정 기반의 <code>CustomViewResolver</code>에 의해 동적으로 다이렉트 매핑된 화면입니다.</p>
+    <p>이 페이지는 레거시 <code>/web/</code> 폴더를 거치지 않고 <code>WebConfig</code>의 view controller 로 다이렉트 매핑된 화면입니다.</p>
 
     <div class="info-box">
         <strong>현재 요청 정보</strong>
