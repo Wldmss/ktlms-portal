@@ -7,6 +7,7 @@ import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.lang.reflect.Field;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
@@ -235,6 +236,74 @@ public class ExcelUtil {
             }
         }
         return rows;
+    }
+
+    /**
+     * 위치 기반(제목 목록 + 행 목록) 엑셀 다운로드. 레거시 {@code JxlWrite.makeExcel(arrTitles, arrContent)} 대체.
+     * 임시 파일 없이 response 로 바로 스트리밍한다.
+     *
+     * @param headers 헤더(제목) 목록. null/빈 리스트면 헤더 행 없이 출력 (JxlWrite.makeExcelNoTitle 대체)
+     * @param rows    각 행의 셀 값 목록 (행 = List of 셀 값)
+     */
+    public static void downloadExcelRows(HttpServletResponse response, List<String> headers,
+                                         List<? extends List<?>> rows, String fileName) throws IOException {
+        try (SXSSFWorkbook workbook = buildRowsWorkbook(headers, rows)) {
+            flushExcelResponse(response, workbook, fileName);
+        }
+    }
+
+    /**
+     * 위치 기반 엑셀을 OutputStream 으로 출력. 다운로드가 아니라 <b>서버 디스크에 저장</b>해야 하는 경우 사용.
+     * (레거시 JxlWrite 가 파일 경로에 .xls 를 만들던 흐름 대체)
+     * <pre>try (OutputStream os = Files.newOutputStream(Path.of(filePath))) {
+     *     ExcelUtil.writeExcelRows(os, headers, rows);
+     * }</pre>
+     */
+    public static void writeExcelRows(OutputStream out, List<String> headers,
+                                      List<? extends List<?>> rows) throws IOException {
+        try (SXSSFWorkbook workbook = buildRowsWorkbook(headers, rows)) {
+            workbook.write(out);
+            out.flush();
+        }
+    }
+
+    private static SXSSFWorkbook buildRowsWorkbook(List<String> headers, List<? extends List<?>> rows) {
+        SXSSFWorkbook workbook = new SXSSFWorkbook(100);
+        SXSSFSheet sheet = workbook.createSheet("Data List");
+        sheet.trackAllColumnsForAutoSizing();
+
+        CellStyle headerStyle = createHeaderStyle(workbook);
+        CellStyle bodyStyle = createBodyStyle(workbook);
+
+        int rowIdx = 0;
+        int maxCols = 0;
+
+        if (headers != null && !headers.isEmpty()) {
+            Row headerRow = sheet.createRow(rowIdx++);
+            for (int i = 0; i < headers.size(); i++) {
+                Cell cell = headerRow.createCell(i);
+                cell.setCellValue(headers.get(i));
+                cell.setCellStyle(headerStyle);
+            }
+            maxCols = headers.size();
+        }
+
+        if (rows != null) {
+            for (List<?> row : rows) {
+                Row bodyRow = sheet.createRow(rowIdx++);
+                for (int c = 0; c < row.size(); c++) {
+                    Cell cell = bodyRow.createCell(c);
+                    cell.setCellStyle(bodyStyle);
+                    setCellValueByType(cell, row.get(c));
+                }
+                maxCols = Math.max(maxCols, row.size());
+            }
+        }
+
+        for (int i = 0; i < maxCols; i++) {
+            sheet.autoSizeColumn(i);
+        }
+        return workbook;
     }
 
     /* ── 공통 컴포넌트 ── */
