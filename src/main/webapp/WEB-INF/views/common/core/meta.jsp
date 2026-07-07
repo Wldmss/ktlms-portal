@@ -11,9 +11,9 @@
 <link rel="icon" href="${pageContext.request.contextPath}/resources/icons/favicon.ico" type="image/x-icon">
 
 <%-- 공통 css --%>
+<link rel="stylesheet" href="<c:url value='/resources/css/common/base.min.css' />">
 <link rel="stylesheet" href="<c:url value='/resources/css/common/common-ui.min.css' />">
 <link rel="stylesheet" href="<c:url value='/resources/css/common/common.min.css' />">
-<link rel="stylesheet" href="<c:url value='/resources/css/common/header.min.css' />">
 
 <%-- 전역 변수 --%>
 <script type="text/javascript">

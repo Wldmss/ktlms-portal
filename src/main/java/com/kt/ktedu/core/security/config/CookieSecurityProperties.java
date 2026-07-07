@@ -15,7 +15,6 @@ public class CookieSecurityProperties {
     }
 
     public boolean isSecure() {
-        System.out.println(secure);
         return secure;
     }
 

@@ -2,7 +2,7 @@
 
 <%@ include file="/WEB-INF/views/common/layout/default-top.jsp" %>
 
-<link rel="stylesheet" href="<c:url value='/resources/css/login/login.min.css' />">
+<link rel="stylesheet" href="<c:url value='/resources/css/pages/login/login.min.css' />">
 <script src="<c:url value='/resources/js/login/login.min.js' />" defer></script>
 
 <div class="login-container">

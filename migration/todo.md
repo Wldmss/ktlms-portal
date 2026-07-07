@@ -33,6 +33,8 @@
 
 ## 공통 util 정리
 
+- 가이드 정리
+
 ## interceptor -> @PreAuthorize 로 변경
 
 - 코드 이전 후 진행

@@ -22,13 +22,16 @@ public class GlobalExceptionHandler {
 
     /**
      * [API 공통 예외] @RestController 에서 ApiException 을 던지면 여기서 ResponseDTO 로 응답
+     * HTTP status 는 ErrorMessage 의 매핑을 따른다 (기본 400, NOT_FOUND=404, FORBIDDEN=403 등)
      * 페이지 컨트롤러(@Controller)의 ModelAndView 핸들러들과는 별개로 동작
      */
     @ExceptionHandler(com.kt.ktedu.core.exception.ApiException.class)
     @ResponseBody
     public ResponseEntity<ResponseDTO> handleApiException(com.kt.ktedu.core.exception.ApiException e, HttpServletRequest request) {
         log.warn("[API] 비즈니스 예외 발생 | URL: {} | message: {}", request.getRequestURI(), e.getMessage());
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ResponseDTO.fail(e.getMessage()));
+
+        HttpStatus status = e.getErrorMessage() != null ? e.getErrorMessage().getStatus() : HttpStatus.BAD_REQUEST;
+        return ResponseEntity.status(status).body(ResponseDTO.fail(e.getMessage()));
     }
 
     /**

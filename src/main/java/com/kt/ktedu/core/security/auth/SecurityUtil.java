@@ -45,4 +45,65 @@ public final class SecurityUtil {
         JwtDTO user = getCurrentUserOrNull();
         return user != null ? user.getUserId() : null;
     }
+
+    /**
+     * 현재 로그인 사용자명 반환 (미인증이면 null).
+     */
+    public static String getCurrentUserNm() {
+        JwtDTO user = getCurrentUserOrNull();
+        return user != null ? user.getUserNm() : null;
+    }
+
+    /**
+     * 현재 사용자의 회사/기관 코드 반환 (미인증이면 null). 레거시 세션 comp 대체.
+     */
+    public static String getCurrentComp() {
+        JwtDTO user = getCurrentUserOrNull();
+        return user != null ? user.getComp() : null;
+    }
+
+    /**
+     * 현재 사용자의 대표 조직코드 반환 (미인증이면 null).
+     */
+    public static String getCurrentOrgCd() {
+        JwtDTO user = getCurrentUserOrNull();
+        return user != null ? user.getOrgCd() : null;
+    }
+
+    /**
+     * 현재 사용자의 role 반환 (예: ROLE_USER, ROLE_ADMIN. 미인증이면 null).
+     */
+    public static String getCurrentRole() {
+        JwtDTO user = getCurrentUserOrNull();
+        return user != null ? user.getRole() : null;
+    }
+
+    /**
+     * 현재 사용자의 레거시 관리자 등급 코드 반환 (예: lms gadmin 'A','A1','ZZ'. 없으면/미인증이면 null).
+     * 과도기용 — 신규 코드는 role/@PreAuthorize 사용 권장.
+     */
+    public static String getCurrentAdminGrade() {
+        JwtDTO user = getCurrentUserOrNull();
+        return user != null ? user.getAdminGrade() : null;
+    }
+
+    /**
+     * 관리자 여부 (role 이 ROLE_ADMIN 인지). 레거시 isadmin/admr_yn 분기 대체.
+     */
+    public static boolean isAdmin() {
+        return hasRole("ADMIN");
+    }
+
+    /**
+     * role 보유 여부. "ADMIN" / "ROLE_ADMIN" 어느 형태로 넘겨도 동일하게 동작.
+     * <pre>if (SecurityUtil.hasRole("ADMIN")) { ... }</pre>
+     */
+    public static boolean hasRole(String role) {
+        String current = getCurrentRole();
+        if (current == null || role == null) return false;
+
+        String normalized = role.startsWith("ROLE_") ? role : "ROLE_" + role;
+        String currentNormalized = current.startsWith("ROLE_") ? current : "ROLE_" + current;
+        return currentNormalized.equals(normalized);
+    }
 }

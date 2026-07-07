@@ -26,4 +26,8 @@
 <script src="<c:url value='/resources/js/common/common-file.min.js' />"></script>
 <script src="<c:url value='/resources/js/common/common-check.min.js' />"></script>
 <script src="<c:url value='/resources/js/common/common-ajax.min.js' />"></script>
+<script src="<c:url value='/resources/js/common/common-pagination.js' />"></script>
 <script src="<c:url value='/resources/js/common/common-datepicker.js' />"></script>
+
+<%-- redirect flash 메시지 표시 (RedirectUtil 과 세트) --%>
+<%@ include file="/WEB-INF/views/common/util/flash-message.jsp" %>
