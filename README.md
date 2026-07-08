@@ -3,8 +3,9 @@
 # 환경 설정
 
 ## 설치 파일
-1. jboss wildFly 27.0.1
-   https://github.com/wildfly/wildfly/releases/download/27.0.1.Final/wildfly-27.0.1.Final.zip
+
+1. jboss wildFly 38.0.1
+   https://github.com/wildfly/wildfly/releases/download/38.0.1.Final/wildfly-38.0.1.Final.zip
 2. jdk 21
 3. intellij
 
@@ -13,7 +14,7 @@
 ## intellij jboss 연결
 
 1. [Add Configuration...] -> + -> JBoss Server -> Local 선택.
-2. Configure... 버튼을 눌러 로컬의 WildFly 27.0.1 설치 디렉토리를 지정합니다.
+2. Configure... 버튼을 눌러 로컬의 WildFly 38.0.1 설치 디렉토리를 지정합니다.
 3. Deployment 탭으로 이동하여 + -> Artifact... -> ktlms-portal:war exploded를 추가합니다.
 4. Server 탭 < URL : http://localhost:8080/ 로 변경
 5. VM Options : -Dspring.profiles.active=local 입력
