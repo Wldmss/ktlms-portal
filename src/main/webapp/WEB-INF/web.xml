@@ -16,6 +16,11 @@
         <param-value>true</param-value>
     </context-param>
 
+    <!-- JSESSIONID 쿠키 보안 설정 (SECURITY_COOKIE_SECURE 기준) -->
+    <listener>
+        <listener-class>com.kt.ktedu.core.config.SessionCookieConfigListener</listener-class>
+    </listener>
+
     <!-- Creates the Spring Container shared by all Servlets and Filters -->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -100,7 +105,6 @@
         <session-timeout>30</session-timeout>
         <cookie-config>
             <http-only>true</http-only>
-            <secure>true</secure>
         </cookie-config>
     </session-config>
 

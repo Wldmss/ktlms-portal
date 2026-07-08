@@ -17,9 +17,8 @@
 3. Deployment 탭으로 이동하여 + -> Artifact... -> ktlms-portal:war exploded를 추가합니다.
 4. Server 탭 < URL : http://localhost:8080/ 로 변경
 5. VM Options : -Dspring.profiles.active=local 입력
-
-[//]: # (   -Djboss.http.config.enable-welcome-root=false)
-4. 실행 시 지정된 와일드플라이 서버를 직접 구동하여 배포를 수행합니다.
+6. portal: -Djboss.socket.binding.port-offset=0 (8080)
+   admin : -Djboss.socket.binding.port-offset=1 (8081)
 
 ---
 
