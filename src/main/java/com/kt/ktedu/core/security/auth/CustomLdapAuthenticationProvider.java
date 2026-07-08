@@ -4,6 +4,7 @@ import com.kt.ktedu.auth.ldap.dto.LdapResultDTO;
 import com.kt.ktedu.auth.ldap.dto.LoginDTO;
 import com.kt.ktedu.auth.ldap.service.LdapService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -20,10 +21,32 @@ public class CustomLdapAuthenticationProvider implements AuthenticationProvider 
 
     private final LdapService ldapService;
 
+    /**
+     * [개발용] DB/LDAP 연동 전 테스트 계정 로그인 허용 여부. 운영 기본 false (application.properties).
+     */
+    @Value("${security.dev-login.enabled:false}")
+    private boolean devLoginEnabled;
+
+    /**
+     * 개발용 테스트 계정 ID (비밀번호 무관 로그인)
+     */
+    private static final String DEV_TEST_USER = "test";
+
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String username = authentication.getName();
-        String password = authentication.getCredentials().toString();
+        String password = authentication.getCredentials() != null ? authentication.getCredentials().toString() : "";
+
+        // [개발용] DB/LDAP 없이 개발할 때 test 은 비밀번호와 무관하게 로그인 통과.
+        // security.dev-login.enabled=true (env: SECURITY_DEV_LOGIN) 일 때만 동작하며 운영에서는 꺼둔다.
+        // TODO: DB 연동 후 제거.
+        if (devLoginEnabled && DEV_TEST_USER.equals(username)) {
+            return new UsernamePasswordAuthenticationToken(
+                    LdapResultDTO.getLdapPassResult(),
+                    password,
+                    List.of(new SimpleGrantedAuthority("ROLE_ADMIN"))
+            );
+        }
 
         LoginDTO loginDTO = LoginDTO.builder()
                 .userId(username)

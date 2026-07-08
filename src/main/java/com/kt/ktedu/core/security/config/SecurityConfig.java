@@ -17,6 +17,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -238,21 +239,20 @@ public class SecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        // TODO: 개발 완료 후 아래 주석 해제 후 임시 코드 제거
-        // return new BCryptPasswordEncoder();
+        return new BCryptPasswordEncoder();
 
         // 임시: 어떤 비밀번호든 통과 (DB 유저 데이터 없는 개발 초기 단계)
-        return new PasswordEncoder() {
-            @Override
-            public String encode(CharSequence raw) {
-                return raw.toString();
-            }
-
-            @Override
-            public boolean matches(CharSequence raw, String encoded) {
-                return true;
-            }
-        };
+//        return new PasswordEncoder() {
+//            @Override
+//            public String encode(CharSequence raw) {
+//                return raw.toString();
+//            }
+//
+//            @Override
+//            public boolean matches(CharSequence raw, String encoded) {
+//                return true;
+//            }
+//        };
     }
 
     /* csrf filter */
