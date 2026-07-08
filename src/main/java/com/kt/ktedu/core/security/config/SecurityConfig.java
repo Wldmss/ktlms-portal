@@ -134,14 +134,10 @@ public class SecurityConfig {
                         ).permitAll()
                         // 정적 리소스
                         .requestMatchers("/resources/**", "/webjars/**", "/favicon.ico").permitAll()
-                        // 직접 접근 뷰
+                        // 딥링크 진입점 (LinkController, 비로그인 접근)
                         .requestMatchers(
-                                "/directSample",
-                                "/shareLink", "/shareLink.do",
-                                "/pageLink", "/pageLink.do",
-                                "/nsso_auth", "/nsso_auth.do",
-                                "/nsso_return", "/nsso_return.do",
-                                "/sso_logon", "/sso_logon.do"
+                                "/pageLink", "/pageLink.do", "/pageLink.jsp",
+                                "/shareLink", "/shareLink.do", "/shareLink.jsp"
                         ).permitAll()
                         // 그 외 모든 요청 인증 필요
                         .anyRequest().authenticated()
@@ -300,15 +296,11 @@ public class SecurityConfig {
         private static final List<String> SAFE_METHODS =
                 List.of("GET", "HEAD", "OPTIONS", "TRACE");
 
+        // 외부에서 cross-site POST 로 들어오는 SSO 콜백 등은 Fetch Metadata 검사 제외.
+        // (pageLink/shareLink 는 GET 딥링크라 SAFE_METHODS 로 이미 통과되므로 등록 불필요)
         private static final List<String> EXCLUDED_PATH_PREFIXES =
                 List.of(
-                        "/api/entra-sso/",
-                        "/nsso_auth",
-                        "/nsso_auth.do",
-                        "/nsso_return",
-                        "/nsso_return.do",
-                        "/sso_logon",
-                        "/sso_logon.do"
+                        "/api/entra-sso/"
                 );
 
         @Override
