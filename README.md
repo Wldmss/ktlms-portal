@@ -17,6 +17,7 @@
 2. Configure... 버튼을 눌러 로컬의 WildFly 38.0.1 설치 디렉토리를 지정합니다.
 3. Deployment 탭으로 이동하여 + -> Artifact... -> ktlms-portal:war exploded를 추가합니다.
 4. Server 탭 < URL : http://localhost:8080/ 로 변경
+   1. On 'Update' action, On frame deactivation -> Update classes and resources 선택
 5. VM Options : -Dspring.profiles.active=local 입력
 6. portal: -Djboss.socket.binding.port-offset=0 (8080)
    admin : -Djboss.socket.binding.port-offset=1 (8081)
