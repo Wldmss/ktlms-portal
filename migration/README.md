@@ -86,6 +86,8 @@
 | 파일 | 내용 |
 |---|---|
 | [migration-checklist.md](migration-checklist.md) | **마스터 체크리스트** (전제~최종검증, 메뉴 작업 양식) |
+| [genius-schedule.md](genius-schedule.md) | **genius 이관 스케줄** (Phase 0~5 + DB 전략) |
+| [ibatis-to-mybatis-guide.md](ibatis-to-mybatis-guide.md) | iBatis 2 → MyBatis 3 전환 규약 |
 | [todo.md](todo.md) | 작업 순서 메모 + Util/JS 정리 우선순위 |
 | [genius-migration-analysis.md](genius-migration-analysis.md) | Genius 이관 대상 1차 분석 |
 | [lms-migration-analysis.md](lms-migration-analysis.md) | LMS 이관 대상 1차 분석 |

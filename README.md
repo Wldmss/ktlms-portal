@@ -59,8 +59,8 @@ sqi@SQIuiMacBookAir ~ % which cleancss
        - Name: Only Original CSS | Only Original JS
        - Pattern:
          ```
-         - css : file:src/main/webapp/resources/css/_.css&&!file:src/main/webapp/resources/css/_.min.css
-         - js : file:src/main/webapp/resources/js/_.js&&!file:src/main/webapp/resources/js/_.min.js
+         - css : file:src/main/webapp/resources/css/**/*.css&&!file:src/main/webapp/resources/css/**/*.min.css
+         - js : file:src/main/webapp/resources/js/**/*.js&&!file:src/main/webapp/resources/js/**/*.min.js
          ```
     
     - css
