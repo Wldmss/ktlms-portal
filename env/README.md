@@ -41,11 +41,12 @@ application.properties에 ${} 로 설정되어 있는 환경 변수 파일
 
 ## intellij(로컬) 설정
 
-1. /env 하위에 전달 받은 local.env 파일 넣기
-2. Settings > Plugins > EnvFile install
-3. Jboss Edit Configurations > Env File > Enable EnvFile > + local.env, common.env 추가
+1. `/env` 하위에 전달 받은 `local.env` 파일 넣기
+2. JBoss/Tomcat 실행 설정의 VM options에 `-Dspring.profiles.active=local` 지정
+3. working directory가 프로젝트 루트가 아니면 `-Dapp.env.directory=/path/to/ktlms-portal/env` 지정
 
 ## 개발, 운영 서버 설정
 
-1. azure keyvault 에 {profile}.env 의 값 등록
-2. Secrets Store CSI Driver 방식으로 값 로드 (설정 필요)
+1. `-Dspring.profiles.active=dev` 또는 `-Dspring.profiles.active=prod` 지정
+2. Azure Key Vault에 `{profile}.env`의 값 등록
+3. Secrets Store CSI Driver 방식으로 값 로드 (설정 필요)

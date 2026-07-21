@@ -16,6 +16,12 @@
         <param-value>true</param-value>
     </context-param>
 
+    <!-- IntelliJ Tomcat 로컬 실행 시 env/common.env + env/local.env 초기화 -->
+    <!-- ContextLoaderListener보다 먼저 선언해 Spring placeholder가 읽을 수 있게 한다. -->
+    <listener>
+        <listener-class>com.kt.ktedu.core.config.EnvFilePropertyInitializerListener</listener-class>
+    </listener>
+
     <!-- JSESSIONID 쿠키 보안 설정 (SECURITY_COOKIE_SECURE 기준) -->
     <listener>
         <listener-class>com.kt.ktedu.core.config.SessionCookieConfigListener</listener-class>

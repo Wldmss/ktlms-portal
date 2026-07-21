@@ -4,16 +4,16 @@
 
 ## 설치 파일
 
-1. jboss wildFly 38.0.1 (X) -> 로컬에서는 tomcat 사용
+1. jboss wildFly 38.0.1 - intellij ultimate 인 경우
    https://github.com/wildfly/wildfly/releases/download/38.0.1.Final/wildfly-38.0.1.Final.zip
-2. tomcat 10.1.57
+2. tomcat 10.1.57 - intellij community 인 경우
    https://tomcat.apache.org/download-10.cgi
 2. jdk 21
 3. intellij
 
 ---
 
-## intellij jboss 연결
+## intellij jboss 연결 - intellij ultimate 인 경우
 
 1. [Add Configuration...] -> + -> JBoss Server -> Local 선택.
 2. Configure... 버튼을 눌러 로컬의 WildFly 38.0.1 설치 디렉토리를 지정합니다.
@@ -23,6 +23,18 @@
 5. VM Options : -Dspring.profiles.active=local 입력
 6. portal: -Djboss.socket.binding.port-offset=0 (8080)
    admin : -Djboss.socket.binding.port-offset=1 (8081)
+
+---
+
+## intellij tomcat 연결 - intellij community 인 경우
+
+0. Settings > Plugins > EnvFile install
+1. [Add Configuration...] -> + -> SmartTomcat 선택
+2. Tomcat server : Apache Tomcat/10.1.57
+3. Deployment directory: ktlms-portal/src/main/webapp
+4. Context path : /
+5. VM Options : -Dspring.profiles.active=local -Dapp.env.directory=/Users/sqi/ktgenius/git/ktlms-portal/env 입력
+   -Dapp.env.directory={local.env, common.env 파일 경로}
 
 ---
 
@@ -97,7 +109,7 @@ sqi@SQIuiMacBookAir ~ % which cleancss
 
 ---
 
-# 환경 변수 설정
+# 환경 변수 설정 (X)
 
 1. /env 하위에 전달 받은 local.env 파일 넣기
 2. Settings > Plugins > EnvFile install
