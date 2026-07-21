@@ -111,7 +111,7 @@ sqi@SQIuiMacBookAir ~ % which cleancss
 
 # 환경 변수 설정 (X)
 
-1. /env 하위에 전달 받은 local.env 파일 넣기
+1. /env 하위에 전달 받은 local.env, common.env 파일 넣기
 2. Settings > Plugins > EnvFile install
 3. Jboss Edit Configurations > Env File > Enable EnvFile > + local.env, common.env 추가
 

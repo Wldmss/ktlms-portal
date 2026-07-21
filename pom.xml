@@ -56,13 +56,6 @@
     </pluginRepositories>-->
 
     <dependencies>
-        <!-- local Tomcat 환경변수 파일 로더(.env 계열) -->
-        <dependency>
-            <groupId>io.github.cdimascio</groupId>
-            <artifactId>dotenv-java</artifactId>
-            <version>3.0.0</version>
-        </dependency>
-
         <!--*
         * ▫️기본 라이브러리
         *-->
@@ -224,6 +217,13 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-collections4</artifactId>
             <version>4.5.0</version>
+        </dependency>
+
+        <!-- local Tomcat 환경변수 파일 로더(.env 계열) -->
+        <dependency>
+            <groupId>io.github.cdimascio</groupId>
+            <artifactId>dotenv-java</artifactId>
+            <version>3.0.0</version>
         </dependency>
 
         <!--*
