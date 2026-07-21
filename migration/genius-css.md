@@ -1,30 +1,58 @@
 # css - genius
 
-common
-new23.min
-page
-w-pop
-new23_m.min
-swiper
-video-js
-new22
-selectric
-loading
+/newPortal/css/
+
+-- resource/css/legacy 로 이동 > 나중에 사용하는 것들만 common, web, mobile.css 로 흡수
+chart
+common-
+page-
+w-pop-
+wrChart-
+
+new22 - 삭제 : 필요한거 있으면 나중에 옮김
+
+new23.min : web.css
+new23_m.min : mobile.css
+
+-- 이하 라이브러리
+selectric-
+swiper-
+video-js- : 수정내역 있는데 나중에 common.css 에 추가
+
+---
+
+/anymobi/css/
+
+-- resource/css/legacy 로 이동 > 나중에 사용하는 것들만 common, web, mobile.css 로 흡수
+academy.css
+cop
+curriculum
+curriculum_system_popup
+datepicker_custom
+development
+department
+e_learning
+main
+teacher
 login
 
-wrChart
-academy
-development
-style
-department
-curriculum
-e_learning
-curriculum_system_popup
-chart
-cop
-datepicker_custom
-teacher
-main
+/common/css/loading.css -- resource/css/legacy 로 이동
+
+-- 나중에 필요하면 추가 : import 가 있음
+/anymobi/css/style.css
+/icampus/html/css/style.css
+
+/anymobi/mobile/css/
+
+-- resource/css/legacy 로 이동 > 나중에 사용하는 것들만 common, web, mobile.css 로 흡수
+curriculum.css
+login.css
+login23.css
+my_room.css
+review.css
+style.css
+
+---
 
 # js - genius
 

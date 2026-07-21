@@ -14,6 +14,12 @@ let snackbarTimer = null;
  */
 function openAlert(message, isConfirm = false) {
     return new Promise((resolve) => {
+        const closeAlert = (result) => {
+            $(document).off("keydown.globalAlert");
+            $("#global-alert-modal").hide();
+            checkScrollLock();
+            resolve(result);
+        };
         const safeMessage = window.Formatter && typeof window.Formatter.escapeHtml === "function"
             ? window.Formatter.escapeHtml(message)
             : String(message || "");
@@ -29,16 +35,19 @@ function openAlert(message, isConfirm = false) {
             $("#global-alert-cancel-btn").hide();
         }
 
+        $(document).off("keydown.globalAlert").on("keydown.globalAlert", function (event) {
+            if (event.key === "Enter" && $("#global-alert-modal").is(":visible")) {
+                event.preventDefault();
+                $("#global-alert-confirm-btn").trigger("click");
+            }
+        });
+
         $("#global-alert-confirm-btn").off("click").on("click", function () {
-            $("#global-alert-modal").hide();
-            checkScrollLock();
-            resolve(true);
+            closeAlert(true);
         });
 
         $("#global-alert-cancel-btn").off("click").on("click", function () {
-            $("#global-alert-modal").hide();
-            checkScrollLock();
-            resolve(false);
+            closeAlert(false);
         });
     });
 }

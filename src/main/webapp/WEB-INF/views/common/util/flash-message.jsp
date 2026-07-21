@@ -12,7 +12,7 @@
          data-type="<c:out value='${flashMessageType}'/>"
          style="display:none;"><c:out value="${flashMessage}"/></div>
 
-    <script>
+    <script nonce="${cspNonce}">
         (function () {
             function showFlashMessage() {
                 const el = document.getElementById("global-flash-message");

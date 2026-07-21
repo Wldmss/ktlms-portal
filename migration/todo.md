@@ -1,3 +1,25 @@
+# 2607-3
+
+- login 마무리
+    - ldap *
+    - 인증 우회 *
+    - 그 외 loginController 부분 *
+    - entra sso
+    - exam sso
+    - saml
+    - app
+    - 기타 sso
+    - 내부에서 DB 연결해서 test?
+
+- 공통 java 옮기기
+- 공통 css tiles 에 정의해야하는거 정리하기
+- direct url 정리 및 이관
+- jsp, java, xml 옮길 때 가이드 정리
+- nsso_auth
+-
+
+---
+
 ## env 설정 정리 (완)
 
 - appilcation.properties 하나로 작업
@@ -9,6 +31,7 @@
 - 대부분 라이브러리 완료
 
 ## conf xml 필요한 내용 추가 (완)
+
 - 꼭 필요한게 아니라면 삭제
 - servlet-context.xml ,root-context.xml 두개만 사용
 - pagingProperties, systemProperties, appConfig, naverMapKey 등은 application.properties 로 이동

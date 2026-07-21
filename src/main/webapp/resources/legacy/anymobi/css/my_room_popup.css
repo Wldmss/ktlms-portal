@@ -1,0 +1,894 @@
+body {
+    background-color: #f8f8f8;
+}
+
+#my_room_popup {
+    /*width: 960px;
+    height: 705px;*/
+    background-color: #f8f8f8;
+}
+
+#my_room_popup > div {
+    position: relative;
+}
+
+.pop-header {
+    min-height: 120px;
+    color: #fff;
+    background-color: #2cbbb5;
+}
+
+.pop-header > p {
+    padding: 0 36px;
+    height: 44px;
+    line-height: 44px;
+    font-size: 20px;
+    border-bottom: 1px solid #e9e9e9;
+}
+
+.pop-header ul {
+    padding: 16px 24px 16px 36px;
+}
+
+.pop-header li.title {
+    margin-bottom: 6px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.pop-header li.title span {
+    position: relative;
+    top: -2px;
+    padding: 0 5px;
+    /*font-size: 18px;*/
+}
+
+.pop-header li.sub > * {
+    display: inline-block;
+}
+
+.pop-header li.sub em {
+    padding-right: 15px;
+    width: 700px;
+    color: #fff;
+}
+
+.pop-container {
+    position: relative;
+    min-height: 100vh;
+    padding-left: 160px;
+}
+
+.pop-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 25px 0;
+    width: 160px;
+    height: 100%;
+    background-color: #e9e9e9;
+    overflow: auto;
+}
+
+.pop-nav ul {
+    /*height: 470px;
+    overflow: auto;*/
+}
+
+.pop-nav li a {
+    display: block;
+    position: relative;
+    padding: 12px 40px;
+    width: 100%;
+    font-size: 16px;
+    color: #707070;
+    font-weight: 400;
+    text-decoration: none;
+    background-repeat: no-repeat;
+    background-position: 20px center;
+    background-image: url(/resources/legacy/anymobi/img/copboard/icon_circle_black_line.png);
+}
+
+.pop-nav li a.active {
+    color: #2cbbb5;
+    background-image: url(/resources/legacy/anymobi/img/my_room/icon_popup_leftmenu_circle_fill.png);
+}
+
+.pop-nav .bot-btn {
+    display: block;
+    position: absolute;
+    bottom: 28px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 111px;
+    height: 36px;
+    background: url(/resources/legacy/anymobi/img/my_room/btn_popup_leftmenu_e_learning.png) no-repeat center;
+}
+
+.pop-section {
+    position: relative;
+    height: 100%;
+    overflow: auto;
+    padding-bottom: 80px;
+}
+
+
+/*-----------------------------------
+			popup contents
+-----------------------------------*/
+/*--- 공 통---*/
+table.tb-com {
+    width: 100%;
+    /*border-bottom: 1px solid #8c8c8c !important;*/
+}
+
+.tb-com th {
+    height: 45px;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+    /* border-top: 2px solid #000;
+    border-bottom: 1px solid #8c8c8c; */
+}
+
+.tb-com td {
+    padding: 7px 0;
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+    line-height: 1.4em;
+    border-bottom: 1px solid #ececec;
+}
+
+.tb-com .td-1 {
+    color: #393939;
+}
+
+.tb-com td a.btn {
+    display: inline-block;
+    width: 65px;
+    height: 27px;
+    line-height: 27px;
+    font-size: 12px;
+    color: #2cbbb5;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #2cbbb5;
+}
+
+.tb-com td a.btn.memo {
+    color: #666;
+    border: 1px solid #ccc;
+}
+
+/*--- 일정_교재 ---*/
+.schedule-con {
+    padding: 44px;
+}
+
+.schedule-con td[rowspan] {
+    border-bottom: 1px solid #8c8c8c;
+}
+
+.schedule-con tr:last-child td {
+    border-bottom: 1px solid #8c8c8c;
+}
+
+.schedule-con .td-1 {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.schedule-con .td-1-a {
+    text-align: left;
+    padding-left: 22px;
+}
+
+.schedule-con .td-2 a {
+    display: block;
+    width: 350px;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/*--- 평가, 만족도조사 ---*/
+.def-con {
+    padding: 44px;
+}
+
+.def-con tbody tr:last-child td {
+    border-bottom: 1px solid #8c8c8c;
+}
+
+.def-con .th-2 {
+    padding-left: 130px;
+    text-align: left;
+}
+
+.def-con .td-2 {
+    padding-left: 40px;
+    text-align: left;
+}
+
+.def-con .td-2 a {
+    display: block;
+    width: 350px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.def-con .td-3 {
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left;
+}
+
+.def-con .td-4 {
+    font-size: 16px;
+    color: #999;
+    font-weight: 400;
+}
+
+/*-- 만조도조사 상세보기 --*/
+.survey-section {
+    width: 100%;
+    background: #f8f8f8;
+}
+
+.survey-contents {
+    padding: 25px 30px 0;
+}
+
+.survey-title {
+    border: 1px solid #dadada;
+    background: #e8e8e8;
+    width: 712px;
+    height: 80px;
+}
+
+.survey-title .title {
+    font-size: 19px;
+    padding: 17px 0 5px 25px;
+}
+
+.survey-title .period {
+    color: #666;
+    padding-left: 25px;
+}
+
+.pop-item {
+    margin-top: 30px;
+}
+
+.pop-item .question {
+    font-size: 18px;
+    padding-bottom: 17px;
+}
+
+.pop-item .answer ul {
+    margin-top: -5px;
+}
+
+.pop-item textarea {
+    width: 712px;
+    height: 150px;
+    padding: 20px;
+    border: 1px solid #dadada;
+    font-size: 14px;
+    outline: none;
+    resize: none;
+}
+
+.pop-item .img {
+    margin-bottom: 5px;
+}
+
+.pop-item .img.large > img {
+    width: 484px;
+    height: 275px;
+}
+
+.survey-section .btn-area {
+    padding: 20px 0 35px;
+    border-top: 1px solid #e1e1e1;
+    text-align: center;
+}
+
+.survey-section .btn-area .apply-btn {
+    display: inline-block;
+    width: 140px;
+    height: 38px;
+    background: url(/resources/legacy/anymobi/img/btn_popup_submit.png) no-repeat center;
+}
+
+.survey-section .btn-area .cancel-btn {
+    display: inline-block;
+    width: 140px;
+    height: 38px;
+    background: url(/resources/legacy/anymobi/img/btn_popup_cancel_gray.png) no-repeat center;
+    margin-right: 5px;
+}
+
+.img-list-v {
+    margin-top: 0 !important;
+}
+
+.img-list-v li {
+    position: relative;
+}
+
+.sample-img {
+    position: relative;
+    padding-left: 35px;
+}
+
+.sample-img .img > img {
+    width: 225px;
+    height: 128px;
+}
+
+.sample-img .txt {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 5px 0 0 245px;
+    margin-top: -135px;
+    word-break: keep-all;
+    min-height: 130px;
+}
+
+.teacher-survey {
+    margin-top: 40px;
+    background: url(/resources/legacy/anymobi/img/my_room/bg_dot.png) repeat-x left top;
+    padding: 40px 0;
+}
+
+.teacher-info {
+    position: relative;
+    border-top: 4px solid #737373;
+    border-left: 1px solid #dcdcdc;
+    border-right: 1px solid #dcdcdc;
+    border-bottom: 1px solid #dcdcdc;
+    background: #e8e8e8;
+    padding: 7px 15px 15px;
+}
+
+.teacher-info .title {
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    font-size: 19px;
+    font-weight: 400;
+    width: 135px;
+    display: inline-block;
+}
+
+.teacher-info .title span {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.teacher-info .photo {
+    position: absolute;
+    top: 5px;
+    left: 260px;
+    display: inline-block;
+}
+
+.teacher-info .photo > img {
+    width: 102px;
+    height: 102px;
+}
+
+.info-data-area {
+    position: relative;
+    padding-left: 370px;
+}
+
+.info-data-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.info-data-area th {
+    border-bottom: 1px solid #ccc;
+    padding: 15px 0 13px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+}
+
+.info-data-area td {
+    position: relative;
+    padding: 15px 0 13px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.list-h {
+    padding-left: 10px;
+}
+
+.list-h li {
+    display: inline-block;
+    padding-left: 12px;
+}
+
+/*-- 과제 --*/
+.task-con {
+    padding: 44px;
+}
+
+.task-con tbody tr:last-child td {
+    border-bottom: 1px solid #8c8c8c;
+}
+
+.task-con tbody td {
+    padding: 11px 0;
+}
+
+.task-con .th-2 {
+    padding-left: 130px;
+    text-align: left;
+}
+
+.task-con .td-2 {
+    padding-right: 5px;
+    text-align: center;
+}
+
+.task-con .td-left {
+    padding-left: 20px;
+    text-align: left;
+}
+
+.task-con .td-2 a {
+    display: block;
+    width: 450px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: left;
+    margin-left: 40px;
+}
+
+.task-con .td-3 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.task-con a.btn.gray {
+    display: inline-block;
+    width: 65px;
+    height: 27px;
+    line-height: 27px;
+    font-size: 12px;
+    color: #333;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #d1d1d1;
+}
+
+.task-con a.btn.gray:hover {
+    color: #df2428;
+}
+
+.task-con .no-send {
+    color: #2cbbb5;
+    font-size: 16px;
+}
+
+/*-- 과정게시판 --*/
+.bbs-con {
+    padding: 25px 44px 10px;
+}
+
+.bbs-con .t-btn-box {
+    text-align: right;
+}
+
+.bbs-con .t-btn-box > a {
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.bbs-con tbody td {
+    padding: 14px 0;
+}
+
+.bbs-con .td-2 a {
+    display: block;
+    width: 400px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.bbs-con .td-3 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/*-- 학습자료 --*/
+.tb-com.materials td {
+    padding: 13px 0 9px;
+    vertical-align: middle;
+}
+
+/*--- 연관콘텐츠 ---*/
+.relation-con {
+    padding: 44px;
+}
+
+.board-list {
+    max-height: 1110px;
+    overflow: hidden;
+    margin-top: -8px;
+    border-top: 1px solid #eaeaea;
+}
+
+.board-list li {
+    position: relative;
+    border-bottom: 1px solid #eaeaea;
+    height: 98px;
+}
+
+.board-list .board-subject {
+    padding: 15px 0 0 160px;
+}
+
+.board-list .thumb {
+    position: absolute;
+    width: 145px;
+    height: 83px;
+    top: 7px;
+    left: 0;
+}
+
+.board-list .thumb > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.board-list .subject-area-1 a {
+    display: block;
+    width: 560px;
+    font-size: 16px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: 8px 0 12px;
+}
+
+.board-list .subject-area-1 > p {
+    width: 560px;
+    color: #999;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.board-list .situation {
+    margin-right: 5px
+}
+
+.board-list .rateit {
+    vertical-align: middle;
+}
+
+.situation {
+    width: 60px;
+    height: 19px;
+    display: inline-block;
+    text-indent: -100px;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.situation.ing {
+    background: url(/resources/legacy/anymobi/img/lecture_ing.png) no-repeat left top;
+}
+
+.situation.done {
+    background: url(/resources/legacy/anymobi/img/lecture_done.png) no-repeat left top;
+}
+
+.pop-content {
+    padding: 44px;
+}
+
+.pop-board-area {
+    position: relative;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.pop-board-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.pop-board-area tbody th {
+    position: relative;
+    padding: 12px 10px 8px;
+    font-size: 20px;
+    font-weight: 400;
+    vertical-align: top;
+    text-align: left;
+    color: #666;
+}
+
+.pop-board-area tbody td {
+    padding: 10px 0;
+    font-size: 18px;
+    width: 100%;
+    word-break: keep-all;
+    word-wrap: break-word;
+    pdding-right: 15px;
+}
+
+.pop-board-area tbody td.align-right {
+    padding-right: 5px;
+}
+
+.pop-board-area input {
+    border: 1px solid #dcdcdc;
+    padding: 6px 10px;
+    vertical-align: middle;
+    font-size: 15px;
+    width: 100%;
+    background: #FFF;
+}
+
+.pop-board-area input[type=file] {
+    width: 250px;
+    padding: 0;
+    display: none;
+}
+
+.pop-board-area textarea {
+    border: 1px solid #dcdcdc;
+    padding: 5px 10px;
+    width: 98%;
+    height: 155px;
+    outline: none;
+    resize: none;
+    line-height: 20px;
+    font-size: 15px;
+}
+
+.pop-board-area input[readonly] {
+    background: #f8f8f8;
+    border: 1px solid #e5e5e5;
+}
+
+.pop-board-area textarea[readonly] {
+    background: #f8f8f8;
+    border: 1px solid #e5e5e5;
+}
+
+.pop-board-area img {
+    vertical-align: middle;
+    margin: 0 2px 2px 0;
+}
+
+.pop-btn-area.top {
+    margin: -15px 0 10px;
+}
+
+.pop-btn-area {
+    text-align: right;
+    margin-top: 15px;
+}
+
+.pop-btn-area a {
+    margin-left: 5px;
+}
+
+.file-search {
+    padding-bottom: 5px;
+    /* border-bottom: 1px solid #eee; */
+}
+
+.file-search a.disabled {
+    cursor: default;
+}
+
+.file-search img {
+    vertical-align: middle;
+}
+
+.file-search span {
+    color: #959595;
+    padding-left: 5px;
+}
+
+.file-list li {
+    color: #666;
+    border-bottom: 1px solid #eee;
+}
+
+.file-list li img {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.file-list .file-size {
+    color: #959595;
+    padding: 0 10px;
+}
+
+.pad-l-110 {
+    padding-left: 110px !important;
+}
+
+.w-360 {
+    width: 360px !important;
+}
+
+/*-----------------------------------
+		iCheck plugin css
+-----------------------------------*/
+.answer ul li .cj-iCheck > div {
+    display: inline-block;
+}
+
+.answer ul li .cj-iCheck > div > div {
+    display: inline-block;
+}
+
+.answer ul li .cj-iCheck label {
+    cursor: pointer;
+    display: inline-block;
+    padding: 6px;
+    font-size: 14px;
+    vertical-align: top;
+}
+
+.answer ul li .cj-iCheck label span {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 2px 0 0 10px;
+}
+
+/*--- iCheck_radio ---*/
+.answer ul li .cj-input-radio {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background-image: url(/resources/legacy/anymobi/img/btn_radio.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.answer ul li .cj-input-radio.checked {
+    background-image: url(/resources/legacy/anymobi/img/btn_radio_selected.png);
+}
+
+.answer ul.img-list-v li .cj-input-radio {
+    position: absolute;
+    top: 60px;
+}
+
+.popup-memo {
+    background-color: #c3c3c3;
+}
+
+.popup-memo > div {
+    margin: 0 auto;
+    width: 1000px;
+}
+
+.popup-memo .count {
+    padding: 20px;
+    font-size: 18px;
+    color: #333;
+    font-weight: 400;
+    text-align: center;
+}
+
+.popup-memo .count .current {
+    color: #de1a22;
+}
+
+/*-- slick slide add css --*/
+.popup-memo .slick-slider {
+    margin-bottom: 0 !important;
+}
+
+.popup-memo .slick-list {
+    margin: 50px auto 0;
+    width: 800px;
+    height: 485px;
+}
+
+.popup-memo .slider .slick-prev,
+.popup-memo .slider .slick-next {
+    display: block;
+    width: 56px;
+    height: 56px;
+    opacity: .7;
+}
+
+.popup-memo .slider .slick-prev:hover,
+.popup-memo .slider .slick-next:hover {
+    opacity: 1;
+}
+
+.popup-memo .slider .slick-prev {
+    background: url(/resources/legacy/anymobi/img/btn_memo_arrow_left.png) no-repeat center;
+    left: 18px;
+}
+
+.popup-memo .slider .slick-next {
+    background: url(/resources/legacy/anymobi/img/btn_memo_arrow_right.png) no-repeat center;
+    right: 18px;
+}
+
+.slick-slide img {
+    width: 800px;
+    height: 485px;
+}
+
+ul {
+    font-size: 15px;
+}
+
+/*-- ie8 css --*/
+.ie8 .teacher-info .title {
+    width: 160px;
+    font-weight: bold
+}
+
+.ie8 .pop-header > p,
+.ie8 .pop-header li.title,
+.ie8 .tb-com th,
+.ie8 .survey-title .title,
+.ie8 .info-data-area td,
+.ie8 .board-list .subject-area-1 a {
+    font-weight: bold;
+}
+
+.ie8 .pop-board-area th {
+    padding-left: 5px;
+    padding-right: 5px;
+    font-weight: bold
+}
+
+.ie8 .def-con .td-3 {
+    padding-left: 5px;
+    padding-right: 5px
+}
+
+.ie8 .def-con .td-3 {
+    padding-left: 0;
+    padding-right: 0
+}
+
+.ie8 .list-h li {
+    padding-left: 5px
+}
+
+.ie8 .popup-memo .count {
+    font-weight: bold
+}
+
+.table thead th span, .table thead .th span {
+    font-size: 18px;
+
+}
+
+select {
+    -webkit-appearance: none !important;
+    appearance: none;
+    padding: 7px 50px 7px 7px;
+    background: #ffffff url(/resources/legacy/newPortal/icons/more-btn-icon.png) no-repeat right 10px center/15px 10px;
+}

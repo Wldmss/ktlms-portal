@@ -1,0 +1,224 @@
+body {
+    background: #fff;
+}
+
+#container {
+    top: 0;
+}
+
+#section {
+    background: #fff;
+}
+
+#content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: 100%;
+    background-color: #fff;
+    overflow-y: hidden;
+    zoom: 1;
+}
+
+.appraisal-header {
+    height: 225px;
+    background: #e8e8e8;
+    padding: 0 120px 0 160px;
+}
+
+.appraisal-header .title-area {
+    height: 109px;
+}
+
+.appraisal-header .title-area .title {
+    width: 1000px;
+    padding-top: 40px;
+    color: #3d3d3d;
+    font-size: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.appraisal-header .title-area .location {
+    padding-top: 10px;
+    color: #666;
+}
+
+.appraisal-header .sub-title-area {
+    background: #df2428;
+    width: 1000px;
+    height: 115px;
+}
+
+.appraisal-header .sub-title-area .title {
+    padding: 35px 0 0 50px;
+    color: #fff;
+    font-size: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.appraisal-header .sub-title-area .period {
+    color: #fff;
+    padding: 10px 0 0 50px;
+}
+
+.appraisal-content {
+    padding: 0 120px 30px 160px;
+}
+
+.item {
+    margin-top: 50px;
+}
+
+.item .question {
+    font-size: 14px;
+    padding-bottom: 10px;
+}
+
+.item textarea {
+    width: 100%;
+    height: 150px;
+    padding: 20px;
+    border: 1px solid #dadada;
+    font-size: 14px;
+    outline: none;
+    resize: none;
+}
+
+.appraisal-content .btn-area {
+    margin: 45px 0;
+    padding-top: 35px;
+    border-top: 1px solid #e1e1e1;
+    text-align: center;
+}
+
+.apply-btn {
+    display: inline-block;
+    margin-bottom: 10px;
+    width: 140px;
+    height: 38px;
+    background: url(/resources/legacy/anymobi/img/btn_popup_submit.png) no-repeat center;
+}
+
+.item .img {
+    margin-bottom: 10px;
+}
+
+.item .img > img {
+    width: 225px;
+    height: 128px;
+}
+
+.item .img.large > img {
+    width: 484px;
+    height: 275px;
+}
+
+.img-list-h {
+    margin-top: 35px !important;
+}
+
+.img-list-h li {
+    position: relative;
+    display: inline-block;
+    margin-left: 14px;
+}
+
+.img-list-h li:first-child {
+    margin-left: 0;
+}
+
+.img-list-v {
+    margin-top: 5px !important;
+}
+
+.img-list-v li {
+    position: relative;
+}
+
+.sample-img {
+    position: relative;
+    padding-left: 35px;
+}
+
+.sample-img .img {
+    width: 225px;
+}
+
+.sample-img .txt {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 5px 0 0 245px;
+    margin-top: -135px;
+    word-break: keep-all;
+    min-height: 130px;
+}
+
+/*-----------------------------------
+		iCheck plugin css
+-----------------------------------*/
+.answer ul li .cj-iCheck > div {
+    display: inline-block;
+}
+
+.answer ul li .cj-iCheck > div > div {
+    display: inline-block;
+}
+
+.answer ul li .cj-iCheck label {
+    cursor: pointer;
+    display: inline-block;
+    padding: 6px;
+    font-size: 14px;
+    vertical-align: top;
+}
+
+.answer ul li .cj-iCheck label span {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 2px 0 0 10px;
+}
+
+/*--- iCheck_radio ---*/
+.answer ul li .cj-input-radio {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background-image: url(/resources/legacy/anymobi/img/btn_radio.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.answer ul li .cj-input-radio.checked {
+    background-image: url(/resources/legacy/anymobi/img/btn_radio_selected.png);
+}
+
+.answer ul.img-list-h li .cj-input-radio {
+    position: absolute;
+    top: -20px;
+    left: 110px;
+}
+
+.answer ul.img-list-v li .cj-input-radio {
+    /* position: absolute; */
+    top: 60px;
+}
+
+
+/*-- ie8 css --*/
+.ie8 .appraisal-header .title-area .title,
+.ie8 .appraisal-header .sub-title-area .title {
+    font-weight: bold
+}
+
+.ie8 .answer ul li .cj-iCheck label {
+    padding-left: 3px;
+    padding-right: 3px
+}

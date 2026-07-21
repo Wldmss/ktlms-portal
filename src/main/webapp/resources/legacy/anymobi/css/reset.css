@@ -1,0 +1,97 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body {
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: none;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+object {
+    display: block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+address, caption, cite, code, dfn, em, th, var {
+    font-style: normal;
+    font-weight: normal;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+fieldset, img {
+    border: 0;
+}
+
+caption, th {
+    text-align: left;
+}
+
+q:before, q:after {
+    content: '';
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    cursor: pointer !important;
+}
+
+/* a:hover{text-decoration:underline;color:#df2428;} */
+a:focus, a:active, a:visited {
+    border: none;
+    outline: none
+}
+
+input {
+    color: #333;
+    border-radius: 0;
+    outline: none;
+    background-color: #fff;
+}
+
+select {
+    border: 1px solid #a9a9a9;
+    border-radius: 0;
+    outline: none;
+    background-color: #fff;
+}
+
+::-webkit-input-placeholder {
+    color: #b2b2b2;
+}
+
+:-moz-placeholder {
+    color: #b2b2b2;
+    opacity: 1;
+}
+
+::-moz-placeholder {
+    color: #b2b2b2;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    color: #b2b2b2;
+}

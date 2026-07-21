@@ -1,0 +1,145 @@
+/* reset default browser setting */
+html {
+    color: #7e7e7e;
+    background: #FFF;
+    width: 100%;
+    height: 100%;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, fieldset, legend, input, button, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+    
+    color: #5c5c5c;
+}
+
+body {
+    font-size: 0.75em;
+}
+
+form {
+    margin: 0;
+    padding: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+hr {
+    display: none;
+}
+
+fieldset, img {
+    border: 0;
+}
+
+legend {
+    display: none;
+}
+
+address {
+    font-style: normal;
+}
+
+del, ins {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: #5c5c5c;
+}
+
+a:active, a:hover, a:focus {
+    text-decoration: underline;
+    color: #5c5c5c;
+}
+
+th {
+    text-align: left;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 1em;
+    font-weight: normal;
+}
+
+q:before, q:after {
+    content: '';
+}
+
+abbr, acronym {
+    border: 0;
+    font-variant: normal;
+}
+
+sup {
+    vertical-align: baseline;
+}
+
+sub {
+    vertical-align: baseline;
+}
+
+table caption, legend {
+    text-indent: -9999px;
+    font-size: 0;
+    line-height: 0;
+    height: 0;
+}
+
+input, button, textarea, select {
+    *font-size: 100%;
+}
+
+a, input {
+    selector-dummy: expression(this.hideFocus=true);
+}
+
+a {
+    outline: none;
+}
+
+.hidden {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+/* Hides from IE-mac \*/
+* html .clearfix {
+    height: 1%;
+}
+
+.clearfix {
+    display: block;
+}
+
+/* End hide from IE-mac */
+
+button {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    *overflow: visible;
+    position: relative;
+}

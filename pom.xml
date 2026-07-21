@@ -285,6 +285,16 @@
             <version>5.6.1</version>
         </dependency>
 
+        <!-- entra sso core -->
+        <dependency>
+            <groupId>com.core</groupId>
+            <artifactId>sso-core</artifactId>
+            <version>1.0.2</version>
+            <!--TODO nexus 연결 후 아래 삭제-->
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/sso-core-1.0.2.jar</systemPath>
+        </dependency>
+
         <!--*
         * ▫️portal 라이브러리
         *-->
@@ -459,6 +469,23 @@
                 <version>3.4.0</version>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
+
+                    <!-- 원본 .css와 .js 파일 War 배포 패키지에서 제외 -->
+                    <warSourceExcludes>
+                        resources/css/**/*.css
+                        resources/js/**/*.js
+                    </warSourceExcludes>
+
+                    <!-- .min.css와 .min.js는 무조건 포함하도록 보장 -->
+                    <webResources>
+                        <resource>
+                            <directory>src/main/webapp</directory>
+                            <includes>
+                                <include>resources/css/**/*.min.css</include>
+                                <include>resources/js/**/*.min.js</include>
+                            </includes>
+                        </resource>
+                    </webResources>
                 </configuration>
             </plugin>
 

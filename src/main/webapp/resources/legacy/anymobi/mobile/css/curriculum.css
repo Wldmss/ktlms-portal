@@ -1,0 +1,473 @@
+.detail-box {
+    padding: 16px 18px 0px 18px;
+}
+
+.detail-box > div {
+    margin-bottom: 35px;
+}
+
+.detail-box h4 {
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+}
+
+.detail-box table {
+    width: 100%;
+    font-size: 11px;
+    color: #666;
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #bcbcbc;
+}
+
+.detail-box tr {
+    border-bottom: 1px solid #e2e2e2 !important;
+}
+
+.detail-box th {
+    padding: 3px 8px;
+    background-color: #f3f3f3;
+    font-size: 14px;
+    border-bottom: 1px solid #bcbcbc;
+    vertical-align: middle;
+}
+
+.detail-box td {
+    padding: 11px 8px;
+    font-size: 14px;
+    vertical-align: middle;
+    border-bottom: 1px solid #bcbcbc;
+}
+
+.detail-box td ul li {
+    font-size: 14px;
+}
+
+.btn-apply-course {
+    display: inline-block;
+    padding: 2px;
+    font-size: 11px;
+    color: #EB676A;
+    text-align: center;
+    border: 1px solid #EB676A;
+}
+
+.btn-apply-course.disable {
+    pointer-events: none;
+    color: #ccc;
+    border: 1px solid #ccc;
+}
+
+.end-course {
+    color: #ccc;
+}
+
+.bor-r {
+    border-right: 1px solid #e2e2e2;
+}
+
+.detail-notice > div {
+    margin-top: 16px;
+}
+
+.detail-notice > div:nth-of-type(1) {
+    margin-top: 0;
+}
+
+.detail-notice h5 {
+    font-size: 15px;
+}
+
+.detail-notice li {
+    margin-top: 6px;
+    padding-left: 10px;
+    font-size: 15px;
+    color: #666;
+    line-height: 17px;
+}
+
+.list-type1 th {
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 1px solid #bcbcbc;
+}
+
+.list-type1 li {
+    padding: 8px 8px;
+    border-right: 1px solid #e2e2e2;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.list-type1 li:last-child {
+    border-bottom: none;
+}
+
+.list-type2 th {
+    padding: 0;
+    text-align: center;
+    border-bottom: 1px solid #bcbcbc;
+    vertical-align: middle;
+}
+
+.list-type2 td {
+    padding: 5px;
+}
+
+.list-type2 td h6 {
+    padding: 2px 5px;
+}
+
+.list-type2 strong {
+    display: block;
+    padding: 3px 10px;
+}
+
+.list-type2 ul {
+    padding: 5px 10px;
+    margin-top: 3px;
+    border-top: 1px solid #e2e2e2;
+}
+
+.list-type3 td[colspan="2"] {
+    text-align: center;
+    border-left: 1px solid #e2e2e2;
+}
+
+.list-type3 .text_bor {
+    text-align: center;
+    border-left: 1px solid #e2e2e2;
+}
+
+.list-type4 {
+    margin-bottom: 12px;
+}
+
+.list-type4 th, .list-type4 td {
+    text-align: center;
+}
+
+.list-type4 td {
+    border-left: 1px solid #e2e2e2;
+}
+
+.list-type4 thead th {
+    border-bottom: 1px solid #666;
+}
+
+.list-type4 thead th.def {
+    border-left: 1px solid #e2e2e2;
+    background-color: #fff;
+}
+
+.list-type4 tbody tr:last-child th {
+    background: #4e4e4e;
+    color: #fff;
+}
+
+.list-type4 tbody tr:last-child td {
+    background-color: #f1f1f1;
+    color: #191919;
+}
+
+.course-img {
+    margin: 0 auto 15px;
+    max-width: 540px;
+}
+
+.course-img img {
+    display: block;
+    width: 100%;
+}
+
+
+.privacy-box {
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+}
+
+.privacy-box h2 > span {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #000;
+    font-weight: bold;
+}
+
+.privacy-box h2 > p {
+    font-weight: 300;
+}
+
+.privacy-box > div {
+    margin: 0 20px;
+    padding: 22px 0 40px;
+    line-height: 1.8em;
+    word-break: keep-all;
+    border-top: 1px solid #e8e8e8;
+}
+
+.privacy-box > div:first-child {
+    border-top: none;
+}
+
+.privacy-box > div > div {
+    margin-top: 16px;
+}
+
+.privacy-box ul {
+    padding: 0 6px;
+}
+
+.privacy-box li:before {
+    display: inline-block;
+    content: "\00b7";
+    padding-right: 3px;
+    font-weight: bold;
+}
+
+.apply-box {
+
+}
+
+.apply-box h3 {
+    padding: 20px 12px;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.apply-box h3 > span {
+    padding-left: 8px;
+    font-size: 15px;
+}
+
+.apply-box > form > div {
+    margin-bottom: 15px;
+    padding: 0 16px 35px;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.apply-box > form div h4 {
+    padding: 20px 0 6px;
+    font-size: 15px;
+    border-bottom: 1px solid #999;
+}
+
+.apply-box > form div .notice {
+    position: relative;
+    padding: 10px 0 8px;
+    padding-right: 40px;
+    color: #666;
+}
+
+.apply-box > form div .notice.def {
+    font-size: 11px;
+    color: #333;
+}
+
+.apply-box form table {
+    margin-top: 10px;
+}
+
+.apply-box th, .apply-box td {
+    padding-bottom: 15px;
+    font-size: 12px;
+    color: #333;
+}
+
+.apply-box th em {
+    padding-right: 4px;
+    color: #df2428;
+}
+
+.apply-box td {
+    padding-left: 6px;
+}
+
+.apply-box td select,
+.apply-box td input {
+    display: inline-block;
+    margin-right: 5px;
+    width: 65px;
+    height: 30px;
+    font-size: 15px;
+    text-align: center;
+    border: 1px solid #e7e7e7;
+    vertical-align: middle;
+}
+
+.apply-box td select {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.apply-box tr:last-child th {
+    padding-top: 6px;
+    vertical-align: top;
+}
+
+.apply-box input[type="checkbox"] {
+    display: block;
+    position: absolute;
+    top: 2px;
+    right: 0;
+    width: 28px;
+    height: 29px;
+    vertical-align: middle;
+    background: url(/resources/legacy/anymobi/img/btn_box_normal.png) no-repeat center;
+    background-size: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+}
+
+.apply-box input[type="checkbox"]:checked {
+    background-image: url(/resources/legacy/anymobi/img/btn_box_selected.png);
+}
+
+.apply-box .btn-privacy {
+    display: inline-block;
+    padding: 2px 10px;
+    font-size: 11px;
+    color: #666;
+    border: 1px solid #e2e2e2;
+    border-radius: 3px;
+}
+
+.apply-box .btn-search {
+    display: inline-block;
+    padding: 6px;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #666;
+    border-radius: 3px;
+}
+
+.apply-box input.def {
+    display: block;
+    margin-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 210px;
+    text-align: left;
+}
+
+.zipcode-box {
+
+}
+
+.zipcode-box .enter-con {
+    position: relative;
+    padding: 12px;
+    vertical-align: middle;
+    background-color: #f1f1f1;
+}
+
+.zipcode-box .enter-con > div {
+    padding-right: 65px;
+    height: 36px;
+}
+
+.zipcode-box .enter-con input {
+    padding: 10px 12px;
+    width: 100%;
+    height: 100%;
+    font-size: 12px;
+    border: 1px solid #b0b0b0;
+}
+
+.zipcode-box .enter-con a {
+    display: inline-block;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 60px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    background-color: #e60012;
+}
+
+.zipcode-box .enter-con p {
+    margin-top: 8px;
+    font-size: 11px;
+    color: #666;
+}
+
+.zipcode-box .notice-con {
+    padding: 18px 12px;
+    font-size: 11px;
+}
+
+.zipcode-box .notice-con > span {
+    font-size: 15px;
+}
+
+.zipcode-box .notice-con > div {
+    padding: 15px;
+    border: 1px solid #dfdfdf;
+}
+
+.zipcode-box .notice-con table {
+    margin: 8px 0 10px;
+}
+
+.zipcode-box .notice-con th {
+    padding: 6px;
+    color: #fff;
+    text-align: center;
+    background-color: #b0b0b0;
+}
+
+.zipcode-box .notice-con td {
+    padding: 15px 10px;
+    text-align: center;
+    border-bottom: 1px solid #e9e9e9;
+    word-break: keep-all;
+}
+
+.zipcode-box .notice-con .txt-1 {
+    color: #666;
+}
+
+.zipcode-box .result-con h3 {
+    padding: 15px 20px;
+    border-bottom: 1px solid #999;
+}
+
+.zipcode-box .result-con h3 span {
+    color: #e60012;
+}
+
+.zipcode-box .result-con .address {
+    display: block;
+    position: relative;
+    padding: 10px 80px 10px 20px;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.zipcode-box .result-con .address p:first-child {
+    margin-bottom: 4px;
+}
+
+.zipcode-box .result-con .address span {
+    display: inline-block;
+    position: absolute;
+    top: 40%;
+    right: 10px;
+    padding: 0 5px;
+    min-width: 60px;
+    text-align: center;
+}
+
+.table tbody th, .table tbody .th {
+    padding-left: 5px;
+}

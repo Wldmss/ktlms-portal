@@ -60,7 +60,7 @@
     <p id="global-loading-text" class="global-loading-text">잠시만 기다려 주세요...</p>
 </div>
 
-<script>
+<script nonce="${cspNonce}">
     // 무한 로딩 방지용 타이머 변수
     let loadingTimeoutId = null;
 

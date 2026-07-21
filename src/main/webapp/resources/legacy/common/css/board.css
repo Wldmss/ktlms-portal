@@ -1,0 +1,701 @@
+.tbWrap01 {
+    background: url('/resources/legacy/common/images/common/bg_table_01.gif') no-repeat 0 0;
+    _clear: both;
+}
+
+.tbWrap02 {
+    background: url('/resources/legacy/common/images/common/bg_table_02.gif') no-repeat 0 0;
+}
+
+.tbWrap03 {
+    background: url('/resources/legacy/common/images/study/bg_table_01.gif') no-repeat 0 0;
+}
+
+.tbWrap04 {
+    background: url('/resources/legacy/common/images/study/bg_table_02.gif') no-repeat 0 0;
+}
+
+.tbWrap01_faq {
+    background: url('/resources/legacy/common/images/helpdesk/bg_table_01.gif') no-repeat 0 0;
+}
+
+
+/* table */
+.tbList01 {
+    width: 100%;
+}
+
+.tbList01 th {
+    height: 32px;
+    background: url('/resources/legacy/common/images/common/bg_table_vline.gif') no-repeat right bottom;
+    color: #5c5c5c;
+    text-align: center;
+}
+
+.tbList01 td {
+    border-bottom: 1px solid #c5c5c5;
+    text-align: center;
+    color: #5c5c5c;
+    padding: 7px 0 3px;
+}
+
+.tbList01 .desc01 {
+    text-align: left;
+    padding-left: 7px;
+}
+
+.tbList01 .desc02 {
+    text-align: left;
+    padding-left: 0;
+}
+
+.tbList01 .desc03 {
+    text-align: left;
+    padding-left: 15px;
+}
+
+.tbList01 .desc01 a:link, .tbList01 .desc a:visited {
+    color: #5c5c5c;
+}
+
+.tbList01 .desc03 a:link, .tbList03 .desc a:visited {
+    color: #5c5c5c;
+}
+
+.tbList01 .last {
+    background: none;
+}
+
+.tbList01 .bg01 {
+    background-color: #fafafa;
+}
+
+.tbList01 .rdata {
+    text-align: right;
+}
+
+.tbList02 {
+    width: 100%;
+}
+
+.tbList02 th {
+    height: 32px;
+    background: url('/resources/legacy/common/images/common/bg_table_vline.gif') no-repeat right bottom;
+    color: #5c5c5c;
+    text-align: center;
+}
+
+.tbList02 td {
+    border-left: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    background: #f0f0f0;
+    text-align: center;
+    color: #5c5c5c;
+    padding: 7px 0 3px;
+    line-height: 1.4em;
+}
+
+.tbList02 .subTh {
+    background: #e2e2e2;
+}
+
+.tbList02 .first {
+    border-left: 0;
+}
+
+.tbList02 .last {
+    background: none;
+}
+
+.tbList02 .desc01 {
+    text-align: left;
+    padding-left: 15px;
+}
+
+.tbList02 .reply {
+    padding: 10px 20px;
+    text-align: left;
+    background: #fff;
+}
+
+.reviewList01 {
+    width: 100%;
+}
+
+.reviewList01 th {
+    padding: 7px 0 5px;
+    border-bottom: 1px solid #c5c5c5;
+    text-align: center;
+}
+
+.reviewList01 td {
+    padding: 7px 0 5px 10px;
+    border-bottom: 1px solid #c5c5c5;
+    line-height: 1.4em;
+}
+
+.dataList01 {
+    width: 100%;
+    border-top: 2px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+
+.dataList01 thead th {
+    padding: 8px 0 5px 0;
+    background-color: #f0f0f0;
+    color: #5c5c5c;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    color: #444;
+    text-align: center;
+}
+
+.dataList01 tbody th {
+    padding: 4px 0 4px;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    color: #444;
+    text-align: center;
+    letter-spacing: -1px;
+}
+
+.dataList01 tbody td {
+    padding: 8px 0 5px 5px;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    color: #444;
+    line-height: 1.3em;
+}
+
+.dataList01 .rdata {
+    text-align: right;
+    padding-right: 10px;
+}
+
+.dataList01 .cdata {
+    text-align: center;
+    padding-left: 0;
+}
+
+.dataList01 .last {
+    background: none;
+}
+
+.dataList01 .first {
+    border-left: 0;
+}
+
+.tbView01 {
+    width: 100%;
+}
+
+.tbView01 th {
+    background: url('/resources/legacy/common/images/study/bg_table_vline_02.gif') no-repeat right bottom;
+    height: 31px;
+    border-bottom: 1px solid #dcdcdc;
+    text-align: center;
+    font-weight: normal;
+    color: #444;
+}
+
+.tbView01 th.subject {
+    background: url('/resources/legacy/common/images/common/bg_table_vline_01.gif') no-repeat right bottom;
+    border-bottom: 0;
+    font-weight: bold !important;
+}
+
+.tbView01 td {
+    background: url('/resources/legacy/common/images/study/bg_table_vline_02.gif') no-repeat right bottom;
+    padding: 7px 0 5px 13px;
+    border-bottom: 1px solid #dcdcdc;
+    color: #444;
+}
+
+.tbView01 td.subject {
+    border-bottom: 0;
+}
+
+.tbView01 td.con {
+    background: url('') no-repeat right bottom #ededed;
+    padding: 18px 14px;
+    line-height: 1.5em;
+}
+
+.tbView01 .last {
+    background: none;
+}
+
+.tbView01 .nor {
+    font-weight: normal !important;
+}
+
+.tbView01 .brdNone {
+    border-bottom: 0;
+}
+
+
+.detailView01 {
+    width: 100%;
+}
+
+.detailView01 th {
+    padding: 6px 0 4px 0;
+    border-bottom: 1px solid #fff;
+    border-right: 1px solid #fff;
+    background: #f0f0f0;
+    text-align: center;
+}
+
+.detailView01 td {
+    padding: 6px 12px 4px 12px;
+    border-bottom: 1px solid #fff;
+    background: #f0f0f0;
+    line-height: 1.3em;
+}
+
+
+.detailView03 {
+    width: 100%;
+}
+
+.detailView03 th {
+    padding: 6px 0 4px 0;
+    border-bottom: 1px solid #fff;
+    border-right: 1px solid #fff;
+    background: #f0f0f0;
+    text-align: center;
+}
+
+.detailView03 td {
+    padding: 6px 12px 4px 12px;
+    border-bottom: 1px solid #fff;
+    background: #FFFFFF;
+    line-height: 1.3em;
+}
+
+
+#detailView02 {
+    width: 100%;
+    border-top: 2px solid #b6b6b6;
+}
+
+#detailView02 th {
+    padding: 6px 0 5px 0;
+    border-bottom: 1px solid #b6b6b6;
+    border-right: 1px solid #f0f0f0;
+    background: #d9d9d9;
+    text-align: center;
+}
+
+#detailView02 td {
+    padding: 6px 0 5px 0;
+    border-bottom: 1px solid #b6b6b6;
+    border-right: 1px solid #f0f0f0;
+    background: #fff;
+    text-align: center;
+    line-height: 1.3em;
+}
+
+#detailView02 .last {
+    border-right: 0;
+}
+
+.vodView01 {
+    width: 100%;
+}
+
+.vodView01 th {
+    height: 25px;
+    border-bottom: 1px solid #d6d6d6;
+    text-align: center;
+    font-weight: bold;
+    background: #f0f0f0;
+}
+
+.vodView01 td.con {
+    height: 109px;
+    _height: 114px;
+    *height: 114px;
+    padding-left: 10px 10px 10px 15px;
+    vertical-align: top;
+}
+
+.vodView01 td.con01 {
+    height: 80px;
+    _height: 85px;
+    *height: 85px;
+    padding-left: 10px 10px 10px 15px;
+    vertical-align: top;
+}
+
+.vodView01 td.con02 {
+    height: 76px;
+    _height: 81px;
+    *height: 81px;
+    padding-left: 10px 10px 10px 15px;
+    vertical-align: top;
+}
+
+.vodView01 td {
+    height: 25px;
+    padding-left: 15px;
+    border-bottom: 1px solid #d6d6d6;
+}
+
+.vodView01 tr.last th, .vodView01 tr.last td {
+    border-bottom: 0;
+}
+
+
+.tbWrite01 {
+    width: 100%;
+    border-top: 1px solid #e2e2e2;
+    border-bottom: 2px solid #e2e2e2;
+}
+
+.tbWrite01 th {
+    padding: 6px 0 4px 0;
+    border-bottom: 1px solid #e2e2e2;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+.tbWrite01 td {
+    padding: 6px 0 4px 7px;
+    border-bottom: 1px solid #e2e2e2;
+    line-height: 1.4em;
+}
+
+.tbWrite02 {
+    width: 100%;
+}
+
+.tbWrite02 th {
+    padding: 5px 21px 6px 0;
+    text-align: right;
+}
+
+.tbWrite02 td {
+    padding: 4px 0 5px 0;
+}
+
+.tbWrite02 td img, .tbWrite02 td input, .tbWrite02 td select {
+    vertical-align: middle;
+}
+
+.tbLtable td {
+    text-align: left;
+    padding-left: 8px;
+}
+
+/* left align td table */
+.tbLtable td.cdata {
+    text-align: center;
+}
+
+.tbLtable td.rdata {
+    text-align: right;
+    padding-right: 8px;
+}
+
+.tbLtable td.desc01 {
+    line-height: 1.5em;
+}
+
+.tbCtable td {
+    text-align: center;
+    padding-left: 0 !important;
+}
+
+/* left align td table */
+
+.brRtable td {
+    border-right: 1px solid #c5c5c5 !important;
+}
+
+/* left align td table */
+.brRtable td.last {
+    border-right: 0 !important;
+}
+
+
+/* 이전,다음글 */
+.nextPrev {
+    width: 762px;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-top: 1px solid #dcdcdc;
+}
+
+.nextPrev dl {
+    width: 762px;
+    overflow: hidden;
+}
+
+.nextPrev dl dt {
+    float: left;
+    width: 78px;
+    height: 19px;
+    padding-top: 7px;
+    background: url('/resources/legacy/common/images/study/bg_table_vline_02.gif') no-repeat right 0;
+    border-bottom: 1px solid #dcdcdc;
+    text-align: center;
+    color: #444;
+}
+
+.nextPrev dl dt.next {
+    background: url('/resources/legacy/common/images/study/bg_table_vline_02.gif') no-repeat right bottom;
+}
+
+.nextPrev dl dd {
+    float: left;
+    width: 674px;
+    height: 19px;
+    padding-top: 7px;
+    padding-left: 10px;
+    text-align: left;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.nextPrev dl dd a:link, .stnextPrev dl dd a:visited {
+    color: #444;
+}
+
+
+/* 페이징 */
+.paging {
+    width: 100%;
+    text-align: center;
+    margin: 15px 0 20px 0;
+    color: #5c5c5c;
+    font-size: 0.916em;
+}
+
+.paging a {
+    padding: 0 2px 0 2px;
+    color: #5c5c5c;
+}
+
+.paging a.btn01 {
+    margin: 0 -5px 0 -4px;
+}
+
+.paging a.btn02 {
+    margin: 0 -4px 0 -5px;
+}
+
+.paging a.present {
+    color: #5c5c5c;
+    font-weight: bold;
+}
+
+.paging img {
+    position: relative;
+    top: 2px;
+}
+
+/* 게시판 버튼 */
+.rBtn01 {
+    text-align: right;
+    margin-top: 14px;
+}
+
+/* 학습창 table */
+.stList01 {
+    width: 100%;
+}
+
+.stList01 thead th {
+    height: 31px;
+    background: url('/resources/legacy/common/images/common/bg_table_vline_01.gif') no-repeat right bottom;
+    color: #5c5c5c;
+    border-bottom: 1px solid #fff;
+    color: #444;
+    text-align: center;
+}
+
+.stList01 tbody th {
+    padding: 4px 0 4px;
+    border-left: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    background: #e2e2e2;
+    color: #444;
+    text-align: center;
+    letter-spacing: -1px;
+}
+
+.stList01 tbody td {
+    padding: 4px 0 4px 5px;
+    border-left: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    background: #ededed;
+    color: #444;
+}
+
+.stList01 tbody tr.onBg td {
+    background: #ebebeb;
+}
+
+.stList01 tbody .cdata {
+    padding: 4px 0 4px 0;
+    text-align: center;
+}
+
+.stList01 tbody .desc01 {
+    padding: 4px 0 4px 13px !important;
+    text-align: left;
+    font-weight: normal !important;
+}
+
+.stList01 .first {
+    border-left: 0;
+}
+
+.stList01 .last {
+    background: none;
+}
+
+.stList01 .nor {
+    font-weight: normal !important;
+}
+
+.stList01 tbody td a:link, .stList01 tbody td a:visited {
+    color: #444;
+}
+
+.stView01 {
+    width: 100%;
+}
+
+.stView01 th {
+    background: url('/resources/legacy/common/images/study/bg_table_vline_02.gif') no-repeat right bottom;
+    height: 31px;
+    border-bottom: 1px solid #dcdcdc;
+    text-align: center;
+    font-weight: normal;
+    color: #444;
+}
+
+.stView01 th.subject {
+    background: url('/resources/legacy/common/images/common/bg_table_vline_01.gif') no-repeat right bottom;
+    border-bottom: 0;
+    font-weight: bold !important;
+}
+
+.stView01 td {
+    background: url('/resources/legacy/common/images/study/bg_table_vline_02.gif') no-repeat right bottom;
+    padding: 7px 0 5px 13px;
+    border-bottom: 1px solid #dcdcdc;
+    color: #444;
+}
+
+.stView01 td.subject {
+    border-bottom: 0;
+}
+
+.stView01 td.con {
+    background: url('') no-repeat right bottom #ededed;
+    padding: 18px 14px;
+    line-height: 1.5em;
+}
+
+.stView01 .last {
+    background: none;
+}
+
+.stView01 .nor {
+    font-weight: normal !important;
+}
+
+.stView01 .brdNone {
+    border-bottom: 0;
+}
+
+.brdTop {
+    border-top: 1px solid #dcdcdc;
+}
+
+.stWrite01 {
+    width: 100%;
+    border-top: 2px solid #dcdcdc;
+}
+
+.stWrite01 th {
+    padding: 6px 0 4px 0;
+    background: url('/resources/legacy/common/images/study/bg_table_vline_02.gif') no-repeat right bottom;
+    border-bottom: 1px solid #dcdcdc;
+    text-align: center;
+    color: #444;
+}
+
+.stWrite01 td {
+    padding: 6px 0 4px 14px;
+    border-bottom: 1px solid #dcdcdc;
+    line-height: 1.4em;
+}
+
+
+/* 이전,다음글 */
+.stnextPrev {
+    width: 775px;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-top: 1px solid #dcdcdc;
+}
+
+.stnextPrev dl {
+    width: 775px;
+    overflow: hidden;
+}
+
+.stnextPrev dl dt {
+    float: left;
+    width: 100px;
+    height: 19px;
+    padding-top: 7px;
+    background: url('/resources/legacy/common/images/study/bg_table_vline_02.gif') no-repeat right 0;
+    border-bottom: 1px solid #dcdcdc;
+    text-align: center;
+    color: #444;
+}
+
+.stnextPrev dl dt.next {
+    background: url('/resources/legacy/common/images/study/bg_table_vline_02.gif') no-repeat right bottom;
+}
+
+.stnextPrev dl dd {
+    float: left;
+    width: 665px;
+    height: 19px;
+    padding-top: 7px;
+    padding-left: 10px;
+    text-align: left;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.stnextPrev dl dd a:link, .stnextPrev dl dd a:visited {
+    color: #444;
+}
+
+.fileBtn01 {
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    #height: 25px;
+    left: 0;
+    z-index: 2;
+    -moz-opacity: 0.5;
+    -ms-filter: 'alpha(opacity:0.5)';
+    filter: alpha(opacity:0);
+    opacity: 0;
+}
+
+.stWrite01 td p.fileTxt {
+    padding-bottom: 4px;
+    position: relative;
+}
+
+.stWrite01 td p.fileTxt img, .stWrite01 td p.fileTxt input {
+    vertical-align: middle;
+}

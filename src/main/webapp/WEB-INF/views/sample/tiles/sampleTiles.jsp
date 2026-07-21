@@ -46,7 +46,7 @@
     <%@include file="/WEB-INF/views/sample/sampleSub.jsp" %>
 </div>
 
-<script>
+<script nonce="${cspNonce}">
     /*확인/취소 alert*/
     function testOpenAlertCancel() {
         openConfirm("알림창입니다.\n확인, 취소 누르기")

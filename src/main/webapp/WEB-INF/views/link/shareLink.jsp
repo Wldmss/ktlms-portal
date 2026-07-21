@@ -14,7 +14,7 @@
 </head>
 <body>
 <p style="margin:40px;text-align:center;color:#555;">이동 중입니다...</p>
-<script>
+<script nonce="${cspNonce}">
     (function () {
         // 서버 검증·정제된 내부 경로 (예: "/educontents/view.do?id=1")
         var returnPage = "${returnPage}";

@@ -1,0 +1,546 @@
+.list-box h3 {
+    padding: 8px 14px 4px;
+    font-size: 14px;
+    color: #666;
+    background-color: #e2e2e2;
+}
+
+.list-box {
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.list-box .list-item {
+    padding: 14px 12px 14px 20px;
+    border-top: 1px solid #e2e2e2;
+}
+
+.list-box .time {
+    font-size: 14px;
+    color: #657beb;
+}
+
+.list-box .title {
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.list-box .info {
+    font-size: 14px;
+    color: #999;
+    line-height: 1.5em;
+}
+
+.list-box .btn-con {
+    width: 60px;
+}
+
+.list-box .btn-con > a,
+.list-box .btn-con > span {
+    display: inline-block;
+    width: 100%;
+}
+
+.list-box .btn-con.multi a {
+    margin-bottom: 10px;
+}
+
+.list-box .btn-con.multi a:last-child {
+    margin-bottom: 0;
+}
+
+.list-box .go-room {
+    padding: 5px 0 3px 6px;
+    font-size: 11px;
+    color: #df2428;
+    border: 1px solid #df2428;
+    background-repeat: no-repeat;
+    background-position: 38px center;
+    background-image: url(/resources/legacy/anymobi/mobile/img/btn_arrow_right_red.png);
+    background-size: 6px 8px;
+}
+
+.list-box .go-room.def {
+    color: #666;
+    border: 1px solid #ccc;
+    background-image: url(/resources/legacy/anymobi/mobile/img/btn_arrow_right_gray.png);
+}
+
+.list-box .course-cancel {
+    padding: 5px 0 3px 0;
+    font-size: 13px;
+    color: #666;
+    text-align: center;
+    border: 1px solid #ccc;
+    width: auto !important;
+    display: block !important;
+    paDding: 6px 10px !important;
+}
+
+.list-box .go-certificate {
+    padding: 5px 0 3px 6px;
+    font-size: 11px;
+    color: #df2428;
+    border: 1px solid #df2428;
+    background: url(/resources/legacy/anymobi/mobile/img/btn_arrow_right_red.png) no-repeat 38px center;
+    background-size: 6px 8px;
+}
+
+.list-box .course-cancel.red {
+    width: auto !important;
+    display: block !important;
+    paDding: 6px 10px !important;
+}
+
+.go-textbook {
+    padding: 5px 0 3px 0;
+    font-size: 11px;
+    color: #df2428;
+    text-align: center;
+    border: 1px solid #df2428;
+}
+
+.list-box .item-btn {
+    display: inline-block;
+    padding: 5px 0 3px 0;
+    width: 100%;
+    font-size: 13px;
+    color: #000;
+    text-align: center;
+}
+
+.list-box .item-btn.type1 {
+    padding-left: 3px;
+    color: #2cbbb5;
+    text-align: left;
+    border: 1px solid #2cbbb5;
+    background-repeat: no-repeat;
+    background-position: 38px center;
+    background-image: url(/resources/legacy/anymobi/mobile/img/btn_arrow_right_gray.png);
+    background-size: 6px 8px;
+}
+
+.list-box .item-btn.type2 {
+    color: #bababa;
+    border: 1px solid #c9c9c9;
+}
+
+.notice-bot {
+    padding: 25px;
+}
+
+.notice-bot p {
+    padding: 10px 30px;
+    text-align: center;
+    line-height: 1.3em;
+    font-size: 14px;
+    border-radius: 8px;
+    background-color: #4c4c4c;
+    color: #fff;
+}
+
+.certificate-img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 960px;
+}
+
+.fix-con {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 500;
+}
+
+.fix-con > div {
+    margin: 0 auto;
+    /* max-width: 1280px; */
+    border: 1px solid #000;
+    background-color: #000;
+}
+
+.fix-con .info {
+    position: relative;
+    padding: 15px 12px 11px 12px;
+    color: #fff;
+    border-bottom: 1px solid #242424;
+}
+
+.fix-con .info * {
+    padding: 3px;
+}
+
+.fix-con .btn-close {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 19px;
+    height: 19px;
+    background: url(/resources/legacy/anymobi/mobile/img/top_bar_btn_close.png) no-repeat center;
+    background-size: 100%;
+}
+
+.fix-con h1 {
+    margin-top: 3px;
+    font-size: 16px;
+    color: #999;
+}
+
+.fix-con h2 {
+    font-size: 13px;
+}
+
+.fix-con p {
+    margin-top: 1px;
+    font-size: 13px;
+    color: #999;
+}
+
+.fix-con .tabs {
+    padding: 0 4px;
+}
+
+.fix-con .tabs a {
+    display: block;
+    padding: 13px 0 9px;
+    width: 100%;
+    font-size: 14px;
+    color: #ccc;
+    text-align: center;
+}
+
+.fix-con .tabs a.on {
+    color: #2cbbb5;
+    border-bottom: 3px solid #2cbbb5;
+}
+
+.btn-box > a {
+    display: inline-block;
+    margin-right: -6px;
+    margin-left: 8px;
+    width: 56px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 11px;
+    color: #666;
+    text-align: center;
+    border: 1px solid #e7e7e7;
+}
+
+.btn-box > .modify {
+    color: #df2428;
+    border: 1px solid #f0999b;
+}
+
+.btn-box > .register {
+    color: #657beb;
+    border: 1px solid #b7c1f6;
+}
+
+.detail-con {
+    padding: 20px 12px;
+    color: #323232;
+}
+
+.detail-con h1 {
+    margin-bottom: 12px;
+    padding-left: 15px;
+    text-indent: -15px;
+    font-size: 13px;
+}
+
+.detail-con textarea {
+    padding: 8px;
+    width: 100%;
+    height: 175px;
+    font-size: 12px;
+    color: #323232;
+    border: 1px solid #dadada;
+    resize: none;
+}
+
+.question label {
+    vertical-align: middle;
+}
+
+.question input[type="radio"] {
+    width: 19px;
+    height: 19px;
+    background: url(/resources/legacy/anymobi/mobile/img/btn_radio_normal.png) no-repeat center;
+    background-size: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+}
+
+.question input[type="radio"]:checked {
+    background: url(/resources/legacy/anymobi/mobile/img/btn_radio_selected.png) no-repeat center;
+    background-size: 100%;
+}
+
+.question span {
+    cursor: pointer;
+    padding: 3px 6px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.question img {
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.question.type1 {
+    margin: 0 auto;
+    padding-top: 12px;
+    text-align: center;
+}
+
+.question.type1:nth-of-type(1) {
+    padding-top: 0;
+}
+
+.question.type1 li:nth-of-type(2) {
+    width: 4%;
+}
+
+.question.type1 img {
+    margin-top: 2px;
+}
+
+.question.type2 img {
+    margin: 0 auto 14px;
+}
+
+.question.type3 {
+    display: block;
+    margin: 0 auto 30px;
+}
+
+.question.type3 input[type="radio"] {
+    margin-right: 10px;
+}
+
+.question.type3 .explain {
+    cursor: pointer;
+    margin-left: 34px;
+    padding: 5px 10px 5px 0;
+}
+
+.select-con {
+    padding: 16px 8px;
+    border-top: 1px dashed #cacaca;
+}
+
+.select-con h5 {
+    font-size: 14px;
+    color: #323232;
+    font-weight: bold;
+}
+
+.select-con .user-info {
+    margin: 8px 0 25px;
+    font-size: 13px;
+    color: #323232;
+    border-top: 2px solid #8f8f8f;
+    background-color: #e8e8e8;
+}
+
+.select-con .user-info li {
+    padding-bottom: 4px;
+    font-size: 13px;
+    color: #333;
+}
+
+.select-con .user-info li:first-child {
+    width: 60px;
+    text-align: center;
+}
+
+.select-con .user-info li:last-child {
+    padding-right: 10px;
+}
+
+.select-con .user-info li img {
+    margin-top: 6px;
+    width: 45px;
+    height: 45px;
+}
+
+.select-con .user-info li div {
+    padding: 4px 0 2px;
+    border-bottom: 1px solid #ddd;
+}
+
+.select-con .user-info li span {
+    display: inline-block;
+    width: 75px;
+    font-size: 11px;
+    color: #666;
+}
+
+.select-con .item select {
+    margin: 10px 15px 25px;
+    padding: 3px;
+    width: 95px;
+    background-position: 90%;
+}
+
+.certificate-con > div {
+    padding: 10px 5px;
+    font-size: 12px;
+    border-bottom: 1px solid #7f7f7f;
+}
+
+.certificate-con {
+    margin: 0 auto;
+    max-width: 320px;
+}
+
+.certificate-con h2 {
+    margin: 20px 0 30px;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.certificate-con .cc-list li {
+    vertical-align: top;
+}
+
+.certificate-con .cc-list li:first-child {
+    padding-top: 3px;
+    width: 85px;
+    letter-spacing: -0.1em;
+}
+
+.certificate-con .cc-list p {
+    text-align: justify;
+    line-height: 1em;
+}
+
+.certificate-con .cc-list p:after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 0;
+}
+
+.certificate-con .cc-list em {
+    padding: 0 5px;
+}
+
+.certificate-con h4 {
+    margin: 15px 0 30px;
+    line-height: 2em;
+}
+
+.certificate-con .bottom p {
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+.certificate-con img {
+    width: 85%;
+}
+
+/* 20190103 */
+.list-box .btn-con > a {
+    border-radius: 2px;
+}
+
+.list-box .btn-con.def a {
+    margin-top: 5px;
+    padding: 5px 0 3px;
+    text-align: center;
+    background: none;
+}
+
+.list-box .btn-con.def a:first-child {
+    margin-top: 0;
+}
+
+.list-box .btn-con .btn-join {
+    color: #323232;
+    border: 1px solid #666;
+}
+
+.list-box .btn-con a.circle {
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    color: #e60012;
+    text-align: center;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+}
+
+.list-box .btn-con .circle.def {
+    padding-top: 12px;
+    line-height: 1.3;
+}
+
+.list-box .btn-con .circle span {
+    padding-right: 8px;
+    background: url(/resources/legacy/anymobi/mobile/img/btn_arrow_right_red.png) no-repeat right 0px top 7px;
+    background-size: 6px 8px;
+}
+
+.notice-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 45% auto 0;
+    padding: 25px 20px;
+    width: 280px;
+    font-size: 13px;
+    text-align: center;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .4);
+    z-index: 995;
+}
+
+.notice-modal .title {
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.notice-modal .txt {
+    line-height: 1.5;
+    word-break: keep-all;
+}
+
+.notice-modal .btn-md-close {
+    display: inline-block;
+    margin-top: 20px;
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    border: 1px solid #373737;
+    background-color: #373737;
+}
+
+input[type="text"], textarea {
+    font-size: 16px;
+}
+
+.btn-wrap.bottom {
+    padding-top: 15px;
+}
+
+.btn-wrap.bottom button {
+    margin-left: 10px;
+}

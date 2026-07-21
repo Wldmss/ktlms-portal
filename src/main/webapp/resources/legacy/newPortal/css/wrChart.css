@@ -1,0 +1,438 @@
+svg {
+    display: block;
+    border: none;
+    overflow: hidden;
+}
+
+.bar {
+    fill: #6BAFBD;
+}
+
+.barText {
+    font-weight: bold;
+}
+
+.bar:hover {
+    fill: #276B79;
+}
+
+.columnText {
+    fill: #2B2B2B;
+    font-size: 15px;
+}
+
+.grayLine {
+    stroke: #5F5F5F;
+    stroke-width: 2px;
+}
+
+.grayCircle {
+    fill: #5F5F5F;
+    stroke: #CBCBCB;
+    stroke-width: 2px;
+}
+
+.grayCircle:hover {
+    stroke: #5F5F5F;
+}
+
+.grayText {
+    fill: #5F5F5F;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.redLine {
+    stroke: #E37062;
+    stroke-width: 1px;
+}
+
+.redCircle {
+    fill: #E37062;
+    stroke: #E37062;
+    stroke-width: 1px;
+}
+
+.redCircle:hover {
+    stroke: #E37062;
+}
+
+.redText {
+    fill: #E37062;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+
+.blueLine {
+    stroke: #4A6DBE;
+    stroke-width: 1px;
+}
+
+.blueCircle {
+    fill: #4A6DBE;
+    stroke: #4A6DBE;
+    stroke-width: 1px;
+}
+
+.blueCircle:hover {
+    stroke: #4A6DBE;
+}
+
+.blueText {
+    fill: #4A6DBE;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.skyLine {
+    stroke: #0EC1E5;
+    stroke-width: 1px;
+}
+
+.skyCircle {
+    fill: #0EC1E5;
+    stroke: #0EC1E5;
+    stroke-width: 1px;
+}
+
+.skyCircle:hover {
+    stroke: #0EC1E5;
+}
+
+.skyText {
+    fill: #0EC1E5;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+
+.greenLine {
+    stroke: #8DAC0F;
+    stroke-width: 1px;
+}
+
+.greenCircle {
+    fill: #8DAC0F;
+    stroke: #8DAC0F;
+    stroke-width: 1px;
+}
+
+.greenCircle:hover {
+    stroke: #8DAC0F;
+}
+
+.greenText {
+    fill: #8DAC0F;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+
+.yellowCircle {
+    fill: #B04420;
+    stroke: #F08401;
+    stroke-width: 2px;
+}
+
+.yellowCircle:hover {
+    stroke: #B04420;
+}
+
+/* 서비스 사용량 조회  */
+.aGrdLine {
+    stroke: #60b6de;
+    stroke-width: 3px;
+}
+
+.aGrdCircle {
+    fill: #60b6de;
+    stroke: #ddd;
+    stroke-width: 1px;
+}
+
+.aGrdText {
+    fill: #60b6de;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.bGrdLine {
+    stroke: #5ac3af;
+    stroke-width: 3px;
+}
+
+.bGrdCircle {
+    fill: #5ac3af;
+    stroke: #ddd;
+    stroke-width: 1px;
+}
+
+.bGrdText {
+    fill: #5ac3af;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.cGrdLine {
+    stroke: #acbc7d;
+    stroke-width: 3px;
+}
+
+.cGrdCircle {
+    fill: #acbc7d;
+    stroke: #ddd;
+    stroke-width: 1px;
+}
+
+.cGrdText {
+    fill: #acbc7d;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.trafficLine {
+    stroke: #eb4550;
+    stroke-width: 1px;
+}
+
+.trafficCircle {
+    fill: #eb4550;
+    stroke: #ddd;
+    stroke-width: 1px;
+}
+
+.trafficText {
+    fill: #eb4550;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+
+.solidLine {
+    fill: none;
+}
+
+.dotLine {
+    fill: none;
+    stroke-dasharray: 5, 3;
+    shape-rendering: crispEdges;
+}
+
+/* cpu */
+.cpuBlueLine {
+    stroke: #4c68ef;
+    stroke-width: 1px;
+}
+
+.cpuBlueCircle {
+    fill: #4c68ef;
+    stroke: #4c68ef;
+    stroke-width: 1px;
+}
+
+.cpuBlueCircle:hover {
+    stroke: #4c68ef;
+}
+
+.cpuBlueText {
+    fill: #4c68ef;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.cpuSkyLine {
+    stroke: #5fd9f9;
+    stroke-width: 1px;
+}
+
+.cpuSkyCircle {
+    fill: #5fd9f9;
+    stroke: #5fd9f9;
+    stroke-width: 1px;
+}
+
+.cpuSkyCircle:hover {
+    stroke: #5fd9f9;
+}
+
+.cpuSkyText {
+    fill: #5fd9f9;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+/* ram */
+.ramPurpleLine {
+    stroke: #8144ea;
+    stroke-width: 1px;
+}
+
+.ramPurpleCircle {
+    fill: #8144ea;
+    stroke: #8144ea;
+    stroke-width: 1px;
+}
+
+.ramPurpleCircle:hover {
+    stroke: #8144ea;
+}
+
+.ramPurpleText {
+    fill: #8144ea;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.ramPinkLine {
+    stroke: #fa9dff;
+    stroke-width: 1px;
+}
+
+.ramPinkCircle {
+    fill: #fa9dff;
+    stroke: #fa9dff;
+    stroke-width: 1px;
+}
+
+.ramPinkCircle:hover {
+    stroke: #fa9dff;
+}
+
+.ramPinkText {
+    fill: #fa9dff;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+/* traffic */
+.tRedLine {
+    stroke: #eb330e;
+    stroke-width: 1px;
+}
+
+.tRedCircle {
+    fill: #eb330e;
+    stroke: #eb330e;
+    stroke-width: 1px;
+}
+
+.tRedCircle:hover {
+    stroke: #eb330e;
+}
+
+.tRedText {
+    fill: #eb330e;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.tYellowLine {
+    stroke: #ff9c4c;
+    stroke-width: 1px;
+}
+
+.tYellowCircle {
+    fill: #ff9c4c;
+    stroke: #ff9c4c;
+    stroke-width: 1px;
+}
+
+.tYellowCircle:hover {
+    stroke: #ff9c4c;
+}
+
+.tYellowText {
+    fill: #ff9c4c;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+/* end  */
+
+.lineText {
+    fill: #2B2B2B;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+text {
+    text-anchor: middle;
+    pointer-events: none; /* Cancel the svg’s pointer-events */
+    fill: currentColor;
+}
+
+
+.axis text {
+    font-size: 14px;
+}
+
+.tooltip {
+    line-height: 1;
+    font-size: 12px;
+    padding: 4px 8px;
+    background: #313131;
+    color: #FFFFFF;
+    border: solid 1px #313131;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.tooltip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: #313131;
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
+}
+
+/* Style northward tooltips differently */
+.tooltip.n:after {
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+}
+
+.zeroLine {
+    stroke: #000000;
+    stroke-width: 1px;
+}
+
+/* KTC정산내역(BM) 꺾은선그래프 */
+.top1Line {
+    stroke: #60b6de;
+    stroke-width: 1px;
+}
+
+.top1Circle {
+    fill: #60b6de;
+    stroke: #ddd;
+    stroke-width: 1px;
+}
+
+.top2Line {
+    stroke: #eb4550;
+    stroke-width: 1px;
+}
+
+.top2Circle {
+    fill: #eb4550;
+    stroke: #ddd;
+    stroke-width: 1px;
+}
+
+.top3Line {
+    stroke: #5ac3af;
+    stroke-width: 1px;
+}
+
+.top3Circle {
+    fill: #5ac3af;
+    stroke: #ddd;
+    stroke-width: 1px;
+}

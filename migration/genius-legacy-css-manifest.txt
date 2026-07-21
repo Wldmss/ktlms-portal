@@ -1,0 +1,112 @@
+# Generated from genius_prd/WebContent CSS references
+# Paths below are preserved relative to the original WebContent root.
+copied_css_count=91
+charset_rewrites=49
+encoding_counts={"cp949": 28, "utf-8-sig": 63}
+
+[copied]
+anymobi/adm/css/common.css
+anymobi/adm/css/reset.css
+anymobi/adm/css/style.css
+anymobi/css/academy.css
+anymobi/css/advancement_capability.css
+anymobi/css/appraisal_detail.css
+anymobi/css/capability.css
+anymobi/css/community_activity_report.css
+anymobi/css/community_bbs.css
+anymobi/css/company.css
+anymobi/css/cop.css
+anymobi/css/curriculum.css
+anymobi/css/curriculum_detail.css
+anymobi/css/curriculum_system_popup.css
+anymobi/css/datepicker_custom.css
+anymobi/css/department.css
+anymobi/css/development.css
+anymobi/css/e_learning.css
+anymobi/css/first_level_learning.css
+anymobi/css/i_box.css
+anymobi/css/kate/main_kt.css
+anymobi/css/kate/main_kt2.css
+anymobi/css/login.css
+anymobi/css/m_privacy_policy.css
+anymobi/css/main.css
+anymobi/css/mini_lecture.css
+anymobi/css/my_room_popup.css
+anymobi/css/popup_competences.css
+anymobi/css/privacy_policy.css
+anymobi/css/reset.css
+anymobi/css/style.css
+anymobi/css/style_2018.css
+anymobi/css/support.css
+anymobi/css/teacher.css
+anymobi/fonts/nanumbarungothic.css
+anymobi/hrdFair/css/reset.css
+anymobi/hrdFair/css/style.css
+anymobi/hrdFair/fonts/nanumbarungothic.css
+anymobi/hrdFair/lib/js/slick/css/slick.css
+anymobi/js/jquery-ui-1.11.4/jquery-ui.min.css
+anymobi/js/jquery-ui-1.11.4/jquery-ui.theme.min.css
+anymobi/lib/jquery.rateit/jquery.rateit.css
+anymobi/lib/js/jquery-ui-1.11.4/jquery-ui.min.css
+anymobi/lib/js/jquery-ui-1.11.4/jquery-ui.theme.min.css
+anymobi/lib/scrollbar/jquery.mCustomScrollbar.min.css
+anymobi/lib/slick/slick.css
+anymobi/mobile/css/curriculum.css
+anymobi/mobile/css/datepicker_custom.css
+anymobi/mobile/css/login.css
+anymobi/mobile/css/login23.css
+anymobi/mobile/css/my_room.css
+anymobi/mobile/css/review.css
+anymobi/mobile/css/style.css
+anymobi/mobile/js/lib/slick/css/slick.css
+anymobi/roadmap/css/roadmap.css
+bootstrap/plugins/summernote/summernote-lite.css
+common/css/base.css
+common/css/board.css
+common/css/calendar.css
+common/css/layout.css
+common/css/loading.css
+common/css/style.css
+common/css/style_k.css
+htmlskin/black/open_style.css
+htmlskin/black/style4mayple5.css
+htmlskin/orange/open_style.css
+htmlskin/orange/style4mayple5.css
+htmlskin/skyblue/open_style.css
+htmlskin/skyblue/style4mayple5.css
+htmlskin/white/open_style.css
+htmlskin/white/style.css
+icampus/html/css/base.css
+icampus/html/css/layout.css
+icampus/html/css/style.css
+icampus/html/css/sub.css
+icampus/html/src/css/anymobi.css
+newPortal/css/chart.css
+newPortal/css/common.css
+newPortal/css/jquery-ui-base.css
+newPortal/css/jquery-ui.css
+newPortal/css/new22.css
+newPortal/css/new23.css
+newPortal/css/new23.min.css
+newPortal/css/new23_m.css
+newPortal/css/new23_m.min.css
+newPortal/css/page.css
+newPortal/css/selectric.css
+newPortal/css/swiper.css
+newPortal/css/video-js.css
+newPortal/css/w-pop.css
+newPortal/css/wrChart.css
+
+[missing_direct]
+assets/css/loading.css <= web/pub/courseSystem.html
+assets/css/loading.css <= web/pub/deptStatistics.html
+assets/css/loading.css <= web/pub/myCourse-apply.html
+assets/css/loading.css <= web/pub/myCourse-finish.html
+assets/css/loading.css <= web/pub/myCourse-ing.html
+assets/css/loading.css <= web/pub/myCourse-scrap.html
+stylesheet.css <= config.js
+
+[missing_import]
+
+[external]
+http://fonts.googleapis.com/earlyaccess/nanumgothic.css <= anymobi/roadmap/css/roadmap.css

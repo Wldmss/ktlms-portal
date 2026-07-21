@@ -1,0 +1,1283 @@
+# Genius 이관 대상 파일 목록
+
+> 이 문서는 genius 원본 파일을 폴더 단위로 이관하기 전, 파일별 이관 여부를 표시하는 작업 목록이다. 기본 상태는 미결정이며, 검토 후 `[x] 이관` 또는 `[x] 제외` 중 하나만 표시한다. 이관 순서는
+> JSP → Java → XML이다.
+>
+> 대상 기준: 운영 소스의 JSP(`WebContent/WEB-INF/jsp`), Java(`src/com`), SQL XML(`src/conf/sql`). 빌드 산출물, `WEB-INF/classes`,
+> 라이브러리, IDE 파일은 목록에서 제외한다.
+>
+> 집계: JSP 538개 / Java 612개 / XML 57개
+
+## 구조 요약
+
+```text
+JSP  WebContent/WEB-INF/jsp/{web,mobile}/...
+Java src/com/{anymobi,credu,kt,ktlms,oracle,oreilly}/...
+XML  src/conf/sql/{usr,common,adm,batch,mail,sms}/...
+```
+
+각 항목은 원본 전체 경로로 표시해 폴더 단위 이관 시 누락 여부를 확인한다.
+
+## JSP (`WebContent/WEB-INF/jsp`)
+
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/index.jsp`
+
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/mobile/error/error.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/mobile/error/error_old.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/mobile/login/login.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/mobile/login/testDev.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/mobile/login/testLogin.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/micampus/bookCafeList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/micampus/examList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/micampus/examView.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/micampus/menuList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/micampus/myClassMemberList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/micampus/offlineCourseInfoPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/micampus/surveyView.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/micampus/timetableList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/micampus/updateMemeberInfo.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/academy/facilitiesRsv/facilitiesChkinList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/academy/facilitiesRsv/facilitiesList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/academy/facilitiesRsv/facilitiesRsvWrite.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/academy/facilitiesRsv/searchSubjPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/alarm/alarmList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/campaign/campaignDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/campaign/campaignFileRegPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/campaign/campaignList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/campaign/campaignPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/campaign/campaignRsltDetail.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/capability/usrPostAddrPop.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/capability/usrPostDataPop.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/capability/usrPostPrivacyPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/common/commonSearchMemPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/common/openSource.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/common/privacyPolicy.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/common/searchMemberModal.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/common/userInfoDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/course/online/onlineCourseList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/course/online/onlineCourseRcmList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/course/online/onlineCourseView.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/information/community.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/information/courseBoard.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/information/courseBoardModifyView.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/information/courseBoardView.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/information/courseBoardWrite.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/information/courseInfo.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/task/articleBoard.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/task/blendBoard.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/task/cardNewsBoard.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/task/etcBoard.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/task/examBoard.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/task/examBoardDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/task/examBoardDetailTemplate.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/task/examResultBoardDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/task/homeworkBoard.jsp`
+- [ ] 이관  [ ] 제외 —
+  `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/task/livePop/offlineMultipleChoiceViewPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/task/livePop/offlineQuestionPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/task/livePop/offlineShortAnswerViewPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/task/livePop/offlineSurveyListPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/task/livePop/tutorAnswerListPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/task/livePop/tutorMultiChoicePop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/task/livePop/tutorQuestionListPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/task/livePop/tutorShortAnswerCntPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/task/livePop/tutorShortAnswerPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/task/microPlayerBoard.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/task/microPlayerBoardTest.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/task/scheduleAllBoard.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/task/stepBoard.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/task/sveyBoard.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/task/sveyBoardDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/task/sveyResultBoardDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/course/task/videoBoard.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/courseContents.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/list/courseContentForm.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/list/courseList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/list/externalContentForm.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/list/externalCourseList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/list/shortsContentForm.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/list/shortsList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/list/techContentForm.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/list/techCourseList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/list/techLearningForm.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/education/registration/courseRegister.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/educontents/courseData/courseDataDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/educontents/courseData/courseDataList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/educontents/courseData/kateCourseDataList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/educontents/courseData/kateCourseDataList2.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/educontents/hrdIbox/hrdIboxDetail.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/educontents/hrdIbox/hrdIboxList.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/educontents/hrdIbox/hrdIboxUpdateForm.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/educontents/hrdIbox/hrdIboxUpdateReply.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/educontents/hrdIbox/hrdIboxWrite.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/educontents/hrdIbox/hrdIboxWriteReply.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/educontents/leaders/leadersBoardDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/educontents/leaders/leadersBoardForm.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/educontents/leaders/leadersBoardModifyView.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/educontents/leaders/leadersBoardWrite.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/educontents/leaders/leadersContentForm.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/educontents/leaders/leadersList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/educontents/qrClass/qrUrlChk.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/exam/course/examCourseContents.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/exam/course/examCourseInfo.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/exam/course/examCourseReq.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/exam/course/examMain.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/exam/download.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/exam/list/examCourseList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/exam/result/examCourseResultDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/exam/result/examCourseResultList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/exam/result/examCourseResultLists.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/expert/expertContentForm.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/expert/expertList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/expert/recommend/expertRecomDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/expert/recommend/expertRecomForm.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/expert/recommend/expertRecomList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/expert/recommend/expertRecomPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/external/btsView.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/external/highwayView.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/external/kyoboView.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/external/mKateAuth.jsp`
+-
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/cop/copBoard/copBoardBestGroupDetail.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/cop/copBoard/copBoardBestGroupList.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/cop/copBoard/copBoardNanumBestList.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/cop/copBoard/copBoardNanumDetail.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/cop/copBoard/copBoardNanumList.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/cop/copBoard/copBoardNoticeDetail.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/cop/copBoard/copBoardNoticeList.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/cop/copBoard/copBoardQnaDetail.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/cop/copBoard/copBoardQnaList.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/cop/copBoard/copBoardQnaWriteForm.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/cop/copBoard/copBoardSpecialLectureApplyDetail.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/cop/copBoard/copBoardSpecialLectureApplyList.jsp`
+- [ ] 이관  [x] 제외 —
+  `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/cop/copBoard/copBoardSpecialLectureRecruitDetail.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/cop/copBoard/copBoardSpecialLectureRecruitList.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/cop/copBoard/copBoardSpecialLectureResultDetail.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/cop/copBoard/copBoardSpecialLectureResultList.jsp`
+- [ ] 이관  [x]  제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/cop/copBoard/copSearchCoachPop.jsp`
+-
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/cop/copCoachingPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/cop/copList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/cop/copMtiKtStaffPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/cop/copMtiStaffPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/cop/copRequest.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/cop/copSearchEtcKtStaffPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/cop/copSearchKtStaffPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/cop/copSearchMtiKtStaffPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/cop/copSearchMtiStaffPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/cop/copSearchStaffPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/cop/copViewPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/cop/copViewPop2.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/cop/mobileApprLineListPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/exlicense/exLicenseApplyPricePop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/exlicense/exLicenseList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/exlicense/exLicenseSupportModfiyPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/exlicense/exLicenseSupportWrite.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/exlicense/exLicenseView.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/exlicense/searchLicenseInfo.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/learncom/exlicense/searchLicenseListPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/main/changePw.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/main/include/section.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/main/portalMain.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/myclass/course/examDetailView.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/myclass/course/examList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/myclass/course/myCourse/form/myCourseForm.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/myclass/course/myCourse/myCourseList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/myclass/course/myCourse/myCourseScript.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/myclass/course/returnLeCmuAppPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/myclass/course/surveyDetailView.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/myclass/course/userInfoPw.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/myclass/mylearncom/cop/copActFinReportDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/myclass/mylearncom/cop/copActFinReportList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/myclass/mylearncom/cop/copActMidReportDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/myclass/mylearncom/cop/copActMidReportList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/myclass/mylearncom/cop/copBoardDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/myclass/mylearncom/cop/copBoardList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/myclass/mylearncom/cop/copBoardUpdate.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/myclass/mylearncom/cop/copBoardWrite.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/myclass/mylearncom/cop/copSummary.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/search/searchDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/selfDev/personal/usrSelfDevPersonalLearningActLookPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/selfDev/personal/usrSelfDevPersonalLearningActModPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/selfDev/personal/usrSelfDevPersonalLearningActRegPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/selfDev/personal/usrSelfDevPersonalList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/setting/pushMain.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/setting/settingMain.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/support/faq/faqList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/support/notice/noticeList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/support/notice/noticeView.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/support/qna/qnaList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/support/qna/qnaUpdate.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/support/qna/qnaView.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/support/qna/qnaWrite.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/tutor/tutorOffline/tutorOfflineClass.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/mobile/m/tutor/tutorOffline/tutorOfflineClassForm.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/redirect.jsp`
+-
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/academy/facilitiesGuide/facilitiesGuideDeajeon.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/academy/facilitiesGuide/facilitiesGuideSeoul.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/academy/facilitiesGuide/facilitiesGuideTraining.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/academy/facilitiesGuide/facilitiesGuideWonju.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/academy/facilitiesGuide/popFacilitiesGuideDeajeon.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/academy/facilitiesGuide/popFacilitiesGuideSeoul.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/academy/facilitiesGuide/popFacilitiesGuideTraining.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/academy/facilitiesGuide/popFacilitiesGuideWonju.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/academy/facilitiesRsv/facilitiesAllChkinList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/academy/facilitiesRsv/facilitiesChkinList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/academy/facilitiesRsv/facilitiesList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/academy/facilitiesRsv/facilitiesReturnPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/academy/facilitiesRsv/facilitiesRsvWrite.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/academy/facilitiesRsv/facilitiesRsvWriteFinishPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/academy/facilitiesRsv/facilityPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/academy/facilitiesRsv/reservationPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/academy/facilitiesRsv/rtnViewPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/academy/facilitiesRsv/searchSubjPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/academy/history/history.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/academy/history/popHistory.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/azure/download.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/azure/iframeJsonView.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/azure/upload.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/campaign/campaignDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/campaign/campaignFileRegPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/campaign/campaignList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/campaign/campaignPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/campaign/campaignRsltDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/campaign/campaignSveyPop.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/capability/usrDiagResultView.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/capability/usrDiagTargetShow.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/capability/usrPostAddrPop.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/capability/usrPostDataPop.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/capability/usrPostPrivacyPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/cash/myGenieCashForm.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/cash/myGenieCashList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/cash/productDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/cash/productList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/cash/productListForm.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/cds/control/cdsAdj1Control.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/cds/control/cdsAdj2Control.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/cds/control/form/cdsAdj1Step1Form.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/cds/control/form/cdsAdj1Step2Form.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/cds/control/form/cdsAdj1Step3Form.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/cds/control/form/cdsAdj2Step1Form.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/cds/control/form/cdsAdj2Step2Form.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/cds/control/form/cdsAdj2Step3Form.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/cds/control/popup/cdsAdjPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/cds/diag/cdsDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/cds/diag/cdsList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/cds/diag/form/cdsStep1Form.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/cds/diag/form/cdsStep2Form.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/cds/diag/form/cdsStep3Form.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/cds/diag/popup/cdsNotePop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/cds/diag/popup/cdsUserInfoForm.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/cds/result/cdsLeaderResultDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/cds/result/cdsPersonalResultDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/cds/result/cdsPersonalResultDetails.jsp`
+
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/common/commonSearchMemPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/common/dbCheck.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/common/deptListPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/common/deptPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/common/newDeptList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/common/pagenation.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/common/pagenationCampaign.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/common/searchMemberPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/common/selectDeptPopup.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/common/userCtgForm.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/common/userInfoDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/commonAppr/apprUserViewPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/commonAppr/commApprList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/course/online/onlineCourseList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/course/online/onlineCourseView.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/course/system/courseSystem.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/course/system/courseSystemPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/course/system/courseSystemSelectPop.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/dept/deptStatistics/deptStatisticsList.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/dept/deptStatistics/selectDeptPopup.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/dept/newDept/childGraphArea.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/dept/newDept/diagPersonalReport.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/dept/newDept/newDeptList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/dept/newDept/secondGraphArea.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/dept/newDept/thirdGraphArea.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/information/community.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/information/courseBoard.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/information/courseBoardView.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/information/courseInfo.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/articleBoard.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/articleBoardPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/blendBoard.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/cardNewsBoard.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/etcBoard.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/examBoard.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/examBoardDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/examBoardDetailTemplate.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/examResultBoardDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/examResultBoardDetailPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/homeworkBoard.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/livePop/offlineMultipleChoiceViewPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/livePop/offlineQuestionPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/livePop/offlineShortAnswerViewPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/livePop/offlineSurveyListPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/livePop/tutorAnswerListPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/livePop/tutorMultiChoicePop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/livePop/tutorQuestionListPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/livePop/tutorShortAnswerCntPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/livePop/tutorShortAnswerPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/microPlayerBoard.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/microPlayerBoardTest.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/scheduleAllBoard.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/scheduleBoard.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/stepBoard.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/sveyBoard.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/sveyBoardDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/sveyOperateBoardDetailPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/sveyOperateBoardPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/sveyOperateResultBoardDetailPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/sveyResultBoardDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/sveyResultBoardDetailPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/course/task/videoBoard.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/courseContents.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/list/courseCategoryForm.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/list/courseContentForm.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/list/courseList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/list/externalContentForm.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/list/externalCourseCategoryForm.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/list/externalCourseList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/list/shortsContentForm.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/list/shortsList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/list/techCategoryForm.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/list/techContentForm.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/list/techCourseCalendar.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/list/techCourseList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/list/techLearningMap_Ai.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/list/techLearningMap_All.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/list/techLearningMap_Azure.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/list/techLearningMap_Cloud.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/list/techLearningMap_Data.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/list/techLearningMap_It_Common.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/list/techLearningMap_It_Consult.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/list/techLearningMap_Solution.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/list/techLearningMap_Sw.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/education/registration/courseRegister.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/educontents/courseData/courseDataDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/educontents/courseData/courseDataList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/educontents/courseData/kateCourseDataList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/educontents/courseData/kateCourseDataList2.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/educontents/hrdIbox/hrdIboxDetail.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/educontents/hrdIbox/hrdIboxList.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/educontents/hrdIbox/hrdIboxWrite.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/educontents/hrdIbox/kateHrdIboxList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/educontents/leaders/leadersBoardDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/educontents/leaders/leadersBoardForm.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/educontents/leaders/leadersCategoryForm.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/educontents/leaders/leadersContentForm.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/educontents/leaders/leadersList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/educontents/qrClass/qrUrlChk.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/error/error.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/error/error_old.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/error/redirect.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/exam/course/examCourseContents.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/exam/course/examCourseInfo.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/exam/course/examCourseKiceInfo.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/exam/course/examCourseReq.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/exam/course/examMain.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/exam/list/examCourseList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/exam/result/examCourseResultDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/exam/result/examCourseResultDetailPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/exam/result/examCourseResultDetails.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/exam/result/examCourseResultItemDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/exam/result/examCourseResultList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/exam/result/examCourseResultLists.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/exam/result/examCourseUserPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/expert/expertContentForm.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/expert/expertList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/expert/expertManageList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/expert/expertRegister.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/expert/expertUpdate.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/expert/popup/expertClassUserPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/expert/recommend/expertRecomDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/expert/recommend/expertRecomList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/expert/recommend/expertRecomPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/external/btsView.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/external/highwayView.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/external/kyoboView.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/layout/KT_CpbDiagGuidePop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/layout/KT_CpbDiagPop.jsp`
+
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/layout/siteMap.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/learncom/cop/apprLineListPop.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/learncom/cop/copBoard/copActReportList.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/learncom/cop/copBoard/copBoardLeft.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/learncom/cop/copBoard/copBoardNanumList.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/learncom/cop/copBoard/copBoardSearchCmuCdPop.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/learncom/cop/copBoard/copBoardTop.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/learncom/cop/copBoard/copBoardWriteForm.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/learncom/cop/copBoard/copSearchCoachPop.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/learncom/cop/copBoard/copSearchCoachSelectPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/learncom/cop/copCoachingPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/learncom/cop/copList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/learncom/cop/copRequest.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/learncom/cop/copSearchCmuSubjGubun2Pop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/learncom/cop/copSearchEtcKtStaffPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/learncom/cop/copSearchKostCenterPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/learncom/cop/copSearchKtStaffPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/learncom/cop/copSearchMtiEtcKtStaffPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/learncom/cop/copSearchMtiKtStaffPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/learncom/cop/copViewPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/learncom/cop/copViewPop2.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/learncom/cop/prevcopRequest.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/learncom/exlicense/exLicenseList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/learncom/exlicense/exLicenseSupportModfiyPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/learncom/exlicense/exLicenseSupportWrite.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/learncom/exlicense/exLicenseView.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/learncom/exlicense/searchLicenseListPop.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/login/checkResult.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/login/login.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/login/popupOpen.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/login/testDev.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/login/testDev2.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/main/changePw.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/main/portalMain.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/myclass/course/cancelCourse.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/myclass/course/cmuExpiredPop.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/myclass/course/courseBoardInView.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/myclass/course/courseBoardUpView.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/myclass/course/courseInfo.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/myclass/course/courseOutLearningInView.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/myclass/course/courseOutLearningUpView.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/myclass/course/examDetailView.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/myclass/course/examList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/myclass/course/finishCourse/licenseRtnCmtPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/myclass/course/myCourse/certificatePop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/myclass/course/myCourse/form/myCourseForm.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/myclass/course/myCourse/membershipPopup.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/myclass/course/myCourse/myCourseList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/myclass/course/myCourse/myCourseScript.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/myclass/course/popupMemoView.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/myclass/course/returnLeCmuAppPop.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/myclass/course/scheduleList.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/myclass/course/surveyDetailView.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/myclass/course/surveyPreview.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/myclass/course/surveyView.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/myclass/course/taskUploadPop.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/myclass/course/taskUserList.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/myclass/course/taskView.jsp`
+- [ ] 이관  [x] 제외 — `WebContent/WEB-INF/jsp/web/myclass/course/userInfoPw.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/myclass/mylearncom/cop/copActFinReportDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/myclass/mylearncom/cop/copActFinReportUpdate.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/myclass/mylearncom/cop/copActFinReportWrite.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/myclass/mylearncom/cop/copActMidReportDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/myclass/mylearncom/cop/copActMidReportUpdate.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/myclass/mylearncom/cop/copActMidReportWrite.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/myclass/mylearncom/cop/copActReportList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/myclass/mylearncom/cop/copBoardDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/myclass/mylearncom/cop/copBoardList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/myclass/mylearncom/cop/copBoardUpdate.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/myclass/mylearncom/cop/copBoardWrite.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/myclass/mylearncom/cop/copSummary.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/search/searchDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/selfDev/personal/usrSelfDevPersonalLearningActLookPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/selfDev/personal/usrSelfDevPersonalLearningActModPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/selfDev/personal/usrSelfDevPersonalLearningActRegPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/selfDev/personal/usrSelfDevPersonalList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/selfDev/personal/usrSelfDevPersonalReturnHistoryPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/support/faq/faqList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/support/notice/kateNoticeList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/support/notice/noticeList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/support/notice/noticeView.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/support/qna/qnaList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/support/qna/qnaUpdate.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/support/qna/qnaView.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/support/qna/qnaWrite.jsp`
+-
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tutor/eft/eftDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tutor/eft/eftList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tutor/tutor/inLectTimeTable.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tutor/tutor/tutorInDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tutor/tutor/tutorList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tutor/tutor/tutorMayple.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tutor/tutor/tutorOutDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tutor/tutorOffline/tutorOfflineClass.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tutor/tutorOffline/tutorOfflineClassForm.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tutor/tutorOut/tutorOutDetail.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tutor/tutorOutlect/apprLineListPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tutor/tutorOutlect/tutorOutlectList.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tutor/tutorOutlect/tutorOutlectViewPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tutor/tutorOutlect/tutorOutlectWrite.jsp`
+
+# jsp (views/common/layout 흡수)
+
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/common/INC_App_Tutorial.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/common/INC_Footer.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/common/INC_Header.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/common/INC_Header2.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/common/INC_Left.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/common/INC_Top.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/common/INC_mainCommonScript.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/common/KT_Footer_Main.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/common/KT_GNB_Mobile.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/common/KT_GNB_Mobile_Main.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/common/KT_Header.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/common/KT_LNB.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/common/KT_MyLearnPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/common/KT_SearchPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/mobile/common/KT_SubGNB_Mobile.jsp`
+
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/common/INC_ADM_HEADER.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/common/INC_Footer.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/common/INC_Header.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/common/INC_Left.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/common/INC_Left_KT.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/common/INC_Pop_Group.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/common/INC_Pop_KT.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/common/INC_SCRIPT.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/common/INC_Top.jsp`
+
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/layout/KT_Footer.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/layout/KT_Footer_Main.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/layout/KT_GNB.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/layout/KT_GNB2.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/layout/KT_Header.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/layout/KT_HeaderPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/layout/KT_MyConPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/layout/KT_MyLearnPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/layout/KT_SearchPop.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/layout/KT_SubGNB.jsp`
+
+## jsp (tiles -> include로 변경)
+
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tiles/defaultCssLayout.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tiles/defaultFooterLayout.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tiles/defaultGNBLayout.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tiles/defaultJsLayout.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tiles/defaultSubGNBLayout.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tiles/education/educationCssLayout.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tiles/education/educationFooterLayout.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tiles/education/educationJsLayout.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tiles/education/educationLayout.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tiles/education/registrationLayout.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tiles/exam/examCourseCssLayout.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tiles/exam/examCourseFooterLayout.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tiles/exam/examCourseJsLayout.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tiles/exam/examCourseLayout.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tiles/gnbLayout.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tiles/mainLayout.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tiles/miniLectureLayout.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tiles/mobile/defaultMobileCssLayout.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tiles/mobile/defaultMobileFooterLayout.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tiles/mobile/defaultMobileJsLayout.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tiles/mobile/mobileContLayout.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tiles/mobile/mobileExamCourseLayout.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tiles/mobile/mobileExamCourseLnbLayout.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tiles/mobile/mobileLayout.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tiles/mobile/mobileMainFooterLayout.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tiles/mobile/mobileMainLayout.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tiles/mobile/mobileSearchLayout.jsp`
+- [ ] 이관  [ ] 제외 — `WebContent/WEB-INF/jsp/web/tiles/myCourseLayout.jsp`
+
+## Java (`src/com`)
+
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/adm/common/controller/AdminController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/adm/common/service/AdminService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/adm/common/service/impl/AdminServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/adm/common/vo/ExcelBaseVO.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/adm/common/vo/JsonResponse.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/adm/common/vo/MailVO.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/adm/educontents/intellect/controller/IntellectManagerController.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/adm/educontents/intellect/service/IntellectManagerService.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/adm/educontents/intellect/service/impl/IntellectManagerServiceImpl.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/adm/educontents/miniLecture/controller/MiniLectureManagerController.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/adm/educontents/miniLecture/service/MiniLectureManagerService.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/adm/educontents/miniLecture/service/impl/MiniLectureManagerServiceImpl.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/adm/educontents/miniLecture/vo/MiniLectureManagerVO.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/adm/selfDevelop/vo/ExcelBaseVO.java`
+-
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/adm/system/connectStatic/controller/ConnectController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/adm/system/connectStatic/service/ConnectStaticService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/adm/system/connectStatic/service/impl/ConnectStaticServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/adm/system/connectStatic/vo/ConnectStaticListExcelVo.java`
+
+- # batch는 admin 으로 이동
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/DBLogMonitoringBatch.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/SendApplyBatch.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/SendEduErpBatch.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/SendEduKCampusBatch.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/TransactionMonitoringBatch.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/controller/BatchController.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/crypt/Base64.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/crypt/HrdsCipherAES.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/crypt/HrdsEncrypt.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/dao/BatchDAO.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/dao/impl/BatchDAOImpl.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/net/ByteWriter.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/net/Http443.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/net/Http80.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/net/HttpClient.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/net/HttpResult.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/net/NetBase.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/net/PostData.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/net/WizDomXml.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/net/_Http443Dev.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/scheduler/FunctionBatchRunner.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/scheduler/SchedulerControl.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/scheduler/SchedulerExecution.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/scheduler/SendMessageMulti.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/scheduler/SendMessageOne.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/scheduler/SendMessages.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/service/BatchService.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/service/impl/BatchServiceImpl.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/slp/Apply.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/slp/ApplyResult.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/slp/BeanBase.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/slp/ContentsItem.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/slp/Course.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/slp/CourseSeq.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/slp/EduCommunity.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/slp/EduLicense.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/slp/EduTutor.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/slp/IsOnOff.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/slp/Lecture.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/slp/MiniEdu.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/slp/PassInfo.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/slp/Result.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/batch/slp/SlpClient.java`
+-
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/Constants.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/config/FirebaseConfig.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/dao/CommonDAO.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/dao/impl/CommonDAOImpl.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/exception/BaseExceptionResolver.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/filter/CrossScriptingFilter.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/filter/HttpRequestWrapper.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/filter/HttpRequestWrapperFilter.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/filter/HttpRequestWrapperXSS.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/filter/HttpsFilter.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/filter/HttpsRequestWrapper.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/filter/JsonFilter.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/interceptor/CommonMenuAuthCheckInterceptor.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/interceptor/CommonMenuAuthInterceptor.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/interceptor/ContSessionCheckInterceptor.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/interceptor/ControllerContectInfoInterceptor.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/interceptor/ControllerExecuteInterceptor.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/interceptor/CourseInterceptor.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/interceptor/CustomLiteDeviceResolver.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/interceptor/CustomMapArgumentResolver.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/interceptor/ExamLogInfoInterceptor.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/interceptor/ExamSessionCheckInterceptor.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/interceptor/MenuAuthCheckInterceptor.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/interceptor/MenuCdsLeaderResultAuthInterceptor.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/interceptor/MenuCdsResultAuthInterceptor.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/interceptor/MenuDeptAuthInterceptor.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/interceptor/MenuExecutiveAuthInterceptor.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/interceptor/MenuExpertAuthInterceptor.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/interceptor/MenuExternalCourseInterceptor.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/interceptor/MenuHrderAuthInterceptor.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/interceptor/MenuLeadersAuthInterceptor.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/interceptor/MenuTechAuthInterceptor.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/interceptor/MenuTutorAuthInterceptor.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/interceptor/MicroSessionCheckInterceptor.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/interceptor/NewMenuDeptAuthInterceptor.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/interceptor/SessionCheckInterceptor.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/interceptor/XSSInterceptor.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/interceptor/XSSInterceptorLogin.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/interceptor/XSSInterceptorMobile.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/invoker/InvokerLoadListener.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/property/PropertyService.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/service/CommonMenuAuthService.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/service/ExamLogService.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/service/ExceptionService.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/service/FirebaseService.java`
+-
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/common/service/impl/ExamLogServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/common/service/impl/ExceptionServiceImpl.java`
+
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/util/vo/PhotoVo.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/common/vo/ExceptionVo.java`
+-
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/common/vo/JsonResponse.java`
+
+- [ ] 이관  [x] 제외 — `src/com/anymobi/icampus/main/controller/ICampusMainController.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/icampus/main/service/ICampusMainService.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/icampus/main/service/impl/ICampusMainServiceImpl.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/icampus/myclass/controller/ICampusMyClassController.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/icampus/myclass/service/ICampusMyClassService.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/icampus/myclass/service/impl/ICampusMyClassServiceImpl.java`
+
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/academy/controller/AcademyController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/academy/service/AcademyService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/academy/service/impl/AcademyServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/academy/vo/FacilityChkinVO.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/api/controller/CommonApiController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/api/service/CommonApiService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/api/service/impl/CommonApiServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/api/vo/ApiResultStatusVo.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/api/vo/ApiRsaResultStatusVo.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/api/vo/PushVo.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/usr/api/vo/login/LoginFirstVo.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/usr/api/vo/login/LoginRsaVo.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/usr/api/vo/login/LoginSmsAuthVo.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/usr/api/vo/login/LoginSmsVo.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/usr/api/vo/login/LoginVo.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/campaign/controller/CampaignListController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/campaign/service/CampaignListService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/campaign/service/impl/CampaignListServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/cds/controller/CdsAdjustController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/cds/controller/CdsController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/cds/controller/CdsResultController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/cds/service/CdsAdjustService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/cds/service/CdsResultService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/cds/service/CdsService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/cds/service/impl/CdsAdjustServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/cds/service/impl/CdsResultServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/cds/service/impl/CdsServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/common/controller/CommonController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/common/controller/CommonUserController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/common/security/AesUtil.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/common/security/RSAEncryptUtil.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/common/service/CommonService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/common/service/CommonUserService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/common/service/impl/CommonServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/common/service/impl/CommonUserServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/common/solr/common/ConvertEntoKo.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/common/solr/common/SolrClientService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/common/solr/controller/SolrController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/common/solr/dto/SearchCondition.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/common/solr/dto/SearchResult.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/common/solr/service/SearchFilterFactory.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/common/solr/service/SearchRequestParser.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/common/solr/service/SelectQueryService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/common/solr/service/SolrSearchFacade.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/common/solr/service/SuggestQueryService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/common/solr/vo/SolrReqVo.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/common/solr/vo/SolrResVo.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/common/validation/Constants.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/common/validation/LMSValidator.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/common/validation/NotEmpty.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/common/validation/Pattern.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/common/validation/ProcedureException.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/common/vo/CodeInfoVo.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/course/offline/controller/OfflineClassController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/course/offline/service/OfflineClassService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/course/offline/service/impl/OfflineClassServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/course/online/controller/OnlineCourseController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/course/online/service/OnlineCourseService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/course/online/service/impl/OnlineCourseServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/course/system/controller/CourseSystemController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/course/system/service/CourseSystemService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/course/system/service/impl/CourseSystemServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/dept/controller/DeptController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/dept/service/DeptService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/dept/service/impl/DeptServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/dept/vo/DeptExamCourseUserListVO.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/dept/vo/DeptStatusDetailListVO.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/dept/vo/DeptUserExamResultListVO.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/dept/vo/DeptUserListVO.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/deptmng/commappr/controller/CommApprController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/deptmng/commappr/service/CommApprService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/deptmng/commappr/service/impl/CommApprServiceimpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/deptmng/selfdevelop/controller/SelfDeveolpController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/education/controller/AzureExamController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/education/controller/CourseController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/education/controller/CourseListController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/education/controller/CourseLiveqController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/education/controller/CourseRegisterController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/education/controller/CourseTaskController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/education/controller/ExternalCourseController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/education/controller/TechCourseController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/education/service/CourseListService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/education/service/CourseLiveqService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/education/service/CourseRegisterService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/education/service/CourseService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/education/service/CourseTaskService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/education/service/ExternalCourseService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/education/service/TechCourseService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/education/service/impl/CourseListServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/education/service/impl/CourseLiveqServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/education/service/impl/CourseRegisterServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/education/service/impl/CourseServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/education/service/impl/CourseTaskServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/education/service/impl/ExternalCourseServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/education/service/impl/TechCourseServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/education/vo/ExamAnswer.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/education/vo/ExamConverter.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/education/vo/JsonResponse.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/education/vo/TechChannel.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/educontents/courseData/controller/CourseDataController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/educontents/courseData/service/CourseDataService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/educontents/courseData/service/impl/CourseDataServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/educontents/hrdIbox/controller/HrdIboxController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/educontents/hrdIbox/service/HrdIboxService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/educontents/hrdIbox/service/impl/HrdIboxServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/educontents/leaders/controller/LeadersController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/educontents/leaders/service/LeadersService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/educontents/leaders/service/impl/LeadersServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/educontents/newLecture/vo/JsonResponse.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/exam/controller/ExamCourseController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/exam/service/ExamCourseService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/exam/service/impl/ExamCourseServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/exam/vo/ExamRestApiVO.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/expert/controller/ExpertController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/expert/controller/ExpertManageController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/expert/controller/ExpertRecomController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/expert/service/ExpertManageService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/expert/service/ExpertRecomService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/expert/service/ExpertService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/expert/service/impl/ExpertManageServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/expert/service/impl/ExpertRecomServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/expert/service/impl/ExpertServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/expert/vo/ExpertRecomVO.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/expert/vo/InputExpertVo.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/external/controller/ExternalController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/external/service/ExternalService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/external/service/impl/ExternalServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/external/vo/BtsVO.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/external/vo/CodeGeniusVO.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/external/vo/HighwayVO.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/external/vo/JsonResponse.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/external/vo/KyoboVO.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/learncom/cop/controller/CoPController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/learncom/cop/controller/CopBoardController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/learncom/cop/service/CoPService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/learncom/cop/service/CopBoardService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/learncom/cop/service/impl/CoPServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/learncom/cop/service/impl/CopBoardServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/learncom/exlicense/controller/ExLicenseController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/learncom/exlicense/service/ExLicenseService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/learncom/exlicense/service/impl/ExLicenseServiceImpl.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/usr/login/controller/LoginController.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/usr/login/service/AdminAuth.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/usr/login/service/LoginService.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/usr/login/service/impl/AdminAuthImpl.java`
+- [ ] 이관  [x] 제외 — `src/com/anymobi/usr/login/service/impl/LoginServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/main/controller/CashController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/main/controller/MainController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/main/service/CashService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/main/service/MainService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/main/service/impl/CashServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/main/service/impl/MainServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/myclass/course/controller/MyCourseController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/myclass/course/controller/NewMyCourseController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/myclass/course/service/MyCourseService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/myclass/course/service/NewMyCourseService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/myclass/course/service/impl/MyCourseServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/myclass/course/service/impl/NewMyCourseServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/myclass/course/vo/MyClassVO.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/myclass/mylearncom/controller/MyLearnComController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/myclass/mylearncom/service/MyLearnComService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/myclass/mylearncom/service/impl/MyLearnComServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/search/controller/SearchUserController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/search/service/SearchService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/search/service/impl/SearchServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/selfDev/controller/UsrSelfDevController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/selfDev/service/UsrSelfDevService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/selfDev/service/impl/UsrSelfDevServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/setting/controller/SettingController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/setting/service/SettingService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/setting/service/impl/SettingServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/sso/controller/OpenSAMLController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/sso/controller/OpenSAMLUtil.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/sso/vo/SAMLProperties.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/support/alarm/controller/AlarmController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/support/alarm/service/AlarmService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/support/alarm/service/impl/AlarmServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/support/faq/controller/FaqController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/support/faq/service/FaqService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/support/faq/service/impl/FaqServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/support/notice/controller/NoticeController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/support/notice/service/NoticeService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/support/notice/service/impl/NoticeServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/support/qna/controller/QnaController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/support/qna/service/QnaService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/support/qna/service/impl/QnaServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/tutor/controller/EftController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/tutor/controller/TutorController.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/tutor/service/EftService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/tutor/service/TutorService.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/tutor/service/impl/EftServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/tutor/service/impl/TutorServiceImpl.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/tutor/vo/EftVO.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/tutor/vo/TutorInLectVO.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/tutor/vo/TutorOnlineLectVO.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/tutor/vo/TutorOutLectVO.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/usr/tutor/vo/TutorVO.java`
+
+- # credu 삭제
+- [ ] 이관  [x] 제외 — `src/com/credu/common/CodeUtil.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/common/CommUtil.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/common/CommonCodeBean.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/common/EduInfoBean.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/common/ExcelPrint.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/common/FileUtil.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/common/GetCodenm.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/common/RiaSelectBoxBean.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/common/SearchData.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/common/StringUtilBean.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/common/SubjComBean.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/common/XMLMapper.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/complete/CompleteStatusData.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/complete/CompleteStatusData1.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/complete/CourseFinishData.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/complete/CourseScoreData.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/complete/FinishData.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/complete/StoldData.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/complete/SuRoyBean.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/complete/SubjScoreData.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/completion/EduExpenditureBean.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/completion/EduExpenditureBeanFAS.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/AlertManager.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/Buffer.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/BulletinManager.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/ByteArrayDataSource.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/CalendarUtil.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/ConfigSet.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/Constants.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/DBConnectionManager.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/DBConnectionManager_bulletin.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/DBConnectionManager_cyber.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/DataBox.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/DatabaseExecute.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/DatabaseExecute_cyber.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/EduEtc1Bean.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/Encryption.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/ErrorManager.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/FileDelete.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/FileManager.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/FileMove.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/FormMail.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/FormatDate.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/FreeMailBean.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/Ftp.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/ImanBean.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/ListSet.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/Log.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/LogErrWriter.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/LogInfoWriter.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/LogMailWriter.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/LogSysWriter.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/MMSSendBean.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/MSSQL_DBConnectionManager.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/MailSet.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/Mailing.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/MultipartRequest.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/NumberManager.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/PageList.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/PageUtil.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/PageUtilOld.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/PreparedBox.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/RequestBox.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/RequestManager.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/SMSProcessor.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/SQLString.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/SerialOneAdd.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/SessionListener.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/SmsBean.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/SmsRepository.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/SmsSendBean.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/StringManager.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/TranslateManager.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/excel/Constants.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/excel/JxlRead.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/library/excel/JxlWrite.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/mypage/MyPageSuRoyBean.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/ScormAjaxBean.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/ScormBlobBean.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/ScormContentBean.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/ScormCourseBean.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/ScormImportBean.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/ScormMappingBean.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/ScormMetadataBean.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/ScormPreviewBean.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/ScormStudyBean.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/api/ecmascript/APIErrorCodes.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/api/ecmascript/APIErrorManager.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/api/ecmascript/SCORM12APIInterface.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/api/ecmascript/SCORM13APIInterface.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/common/ComboSDO.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/common/ComboTag.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/common/StringUtil.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/Children.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/Count.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/DMDelimiter.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/DMDelimiterDescriptor.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/DMElement.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/DMElementDescriptor.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/DMErrorCodes.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/DMFactory.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/DMInterface.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/DMProcessingInfo.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/DMRequest.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/DMTimeUtility.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/DMTypeValidator.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/DataModel.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/RequestDelimiter.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/RequestToken.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/SCODataManager.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/datatypes/DateTimeValidator.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/datatypes/DurationValidator.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/datatypes/IntRangeValidator.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/datatypes/InteractionTrunc.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/datatypes/InteractionValidator.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/datatypes/LangStringValidator.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/datatypes/RealRangeValidator.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/datatypes/ResultValidator.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/datatypes/SPMRangeValidator.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/datatypes/URIValidator.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/datatypes/VocabularyValidator.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/ieee/SCORM_2004_DM.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/ieee/SCORM_2004_DMElement.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/ieee/Version.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/nav/SCORM_2004_NAV_DM.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/datamodels/nav/SCORM_2004_NAV_DMElement.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/parsers/dom/ADLDOMParser.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/parsers/dom/DOMTreeUtility.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/runtime/client/ClientRTS.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/runtime/client/ClientRTSApplet.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/runtime/client/SequencingEngine.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/runtime/client/SequencingEngineBean.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/runtime/client/ServletProxy.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/runtime/client/ServletWriter.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/runtime/server/FileHandler.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/runtime/server/LMSCMIPROC.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/runtime/server/LMSCMIServlet.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/runtime/server/LMSCMIServletRequest.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/runtime/server/LMSCMIServletResponse.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/runtime/server/LMSManifestHandler.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/sequencer/ADLAuxiliaryResource.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/sequencer/ADLDuration.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/sequencer/ADLLaunch.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/sequencer/ADLObjStatus.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/sequencer/ADLSeqParser.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/sequencer/ADLSeqUtilities.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/sequencer/ADLSequencer.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/sequencer/ADLTOC.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/sequencer/ADLTracking.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/sequencer/ADLValidRequests.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/sequencer/SeqActivity.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/sequencer/SeqActivityStateAccess.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/sequencer/SeqActivityTrackingAccess.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/sequencer/SeqActivityTree.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/sequencer/SeqCondition.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/sequencer/SeqConditionSet.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/sequencer/SeqNavRequests.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/sequencer/SeqNavigation.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/sequencer/SeqObjective.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/sequencer/SeqObjectiveMap.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/sequencer/SeqObjectiveTracking.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/sequencer/SeqReportActivityStatus.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/sequencer/SeqRollupRule.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/sequencer/SeqRollupRuleset.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/sequencer/SeqRule.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/sequencer/SeqRuleset.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/util/EnvironmentVariable.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/util/Message.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/util/MessageBox.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/util/MessageCollection.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/util/MessageType.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/util/debug/ADLSimpleFormatter.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/util/debug/DebugIndicator.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/util/debug/LogConfig.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/util/support/SupportVerifier.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/util/zip/UnZipHandler.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/validator/ADLSCORMValidator.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/validator/ADLValidatorOutcome.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/validator/DOMRulesCreator.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/validator/LOMMetadata.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/validator/MetadataCommonDataType.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/validator/RulesValidator.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/validator/contentpackage/CPValidator.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/validator/contentpackage/LaunchData.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/validator/contentpackage/ManifestHandler.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/validator/contentpackage/ManifestMap.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/validator/contentpackage/MetadataData.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/validator/contentpackage/ObjectivesData.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/validator/contentpackage/ObjectivesMapInfoData.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/validator/contentpackage/RollupRuleConditionData.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/validator/contentpackage/RollupRuleData.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/validator/contentpackage/SeqRuleConditionData.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/validator/contentpackage/SeqRuleData.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/validator/contentpackage/SequencingData.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/validator/contentpackage/XSDHandler.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/validator/metadata/MDValidator.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/validator/sequence/ObjectiveMap.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/scorm2004/validator/sequence/SequenceValidator.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/study/MyClassBean.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/system/CodeAdminBean.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/system/CodeConfigBean.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/system/CodeData.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/system/SelectParam.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/system/SelectionBean.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/system/SelectionData.java`
+- [ ] 이관  [x] 제외 — `src/com/credu/system/SelectionUtil.java`
+
+- # kt.edu 삭제
+- [ ] 이관  [x] 제외 — `src/com/kt/edu/common/DataConverter.java`
+- [ ] 이관  [x] 제외 — `src/com/kt/edu/common/PagingHandler.java`
+- [ ] 이관  [x] 제외 — `src/com/kt/edu/common/ParametersConverter.java`
+- [ ] 이관  [x] 제외 — `src/com/kt/edu/common/Util.java`
+- [ ] 이관  [x] 제외 — `src/com/kt/edu/common/db/SqlMapClientManager.java`
+- [ ] 이관  [x] 제외 — `src/com/kt/edu/handler/DataHandler.java`
+- [ ] 이관  [x] 제외 — `src/com/kt/edu/handler/DefaultDataHandler.java`
+- [ ] 이관  [x] 제외 — `src/com/kt/edu/openapi/Constants.java`
+- [ ] 이관  [x] 제외 — `src/com/kt/edu/openapi/NaverItem.java`
+- [ ] 이관  [x] 제외 — `src/com/kt/edu/openapi/NaverSearchBean.java`
+- [ ] 이관  [x] 제외 — `src/com/kt/edu/openapi/NaverSearchClient.java`
+- [ ] 이관  [x] 제외 — `src/com/kt/edu/openapi/RequestParameter.java`
+- [ ] 이관  [x] 제외 — `src/com/kt/edu/openapi/ResultXML.java`
+- [ ] 이관  [x] 제외 — `src/com/kt/edu/openapi/SearchQueryException.java`
+- [ ] 이관  [x] 제외 — `src/com/kt/edu/openapi/YouTubeTest.java`
+- [ ] 이관  [x] 제외 — `src/com/kt/edu/security/Base64.java`
+- [ ] 이관  [x] 제외 — `src/com/kt/edu/security/Crypt.java`
+- [ ] 이관  [x] 제외 — `src/com/kt/edu/security/DES.java`
+
+- [ ] 이관  [ ] 제외 — `src/com/ktlms/common/code/CommonCode.java`
+- [ ] 이관  [ ] 제외 — `src/com/ktlms/common/code/CommonService.java`
+- [ ] 이관  [ ] 제외 — `src/com/ktlms/common/code/ParentCode.java`
+- [ ] 이관  [ ] 제외 — `src/com/ktlms/common/exception/ErrorCode.java`
+- [ ] 이관  [ ] 제외 — `src/com/ktlms/common/exception/LMSServiceException.java`
+
+- [ ] 이관  [ ] 제외 — `src/com/ktlms/common/file/DownloadController.java`
+- [ ] 이관  [ ] 제외 — `src/com/ktlms/common/file/DownloadParamVO.java`
+- [ ] 이관  [ ] 제외 — `src/com/ktlms/common/file/DownloadReturn.java`
+- [ ] 이관  [ ] 제외 — `src/com/ktlms/common/file/DownloadTokenVO.java`
+- [ ] 이관  [ ] 제외 — `src/com/ktlms/common/file/DownloadView.java`
+- [ ] 이관  [ ] 제외 — `src/com/ktlms/common/file/FileObjectType.java`
+- [ ] 이관  [ ] 제외 — `src/com/ktlms/common/file/FileVO.java`
+- [ ] 이관  [ ] 제외 — `src/com/ktlms/common/file/service/DownloadService.java`
+
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/Base64Decoder.java`
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/Base64Encoder.java`
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/CacheHttpServlet.java`
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/CookieNotFoundException.java`
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/CookieParser.java`
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/DaemonHttpServlet.java`
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/HttpMessage.java`
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/HttpsMessage.java`
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/LocaleNegotiator.java`
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/LocaleToCharsetMap.java`
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/MailMessage.java`
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/MultipartFilter.java`
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/MultipartRequest.java`
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/MultipartResponse.java`
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/MultipartWrapper.java`
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/ParameterNotFoundException.java`
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/ParameterParser.java`
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/RemoteDaemonHttpServlet.java`
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/RemoteHttpServlet.java`
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/VersionDetector.java`
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/multipart/BufferedServletInputStream.java`
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/multipart/DefaultFileRenamePolicy.java`
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/multipart/ExceededSizeException.java`
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/multipart/FilePart.java`
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/multipart/FileRenamePolicy.java`
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/multipart/LimitedServletInputStream.java`
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/multipart/MacBinaryDecoderOutputStream.java`
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/multipart/MultipartParser.java`
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/multipart/ParamPart.java`
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/multipart/Part.java`
+- [ ] 이관  [x] 제외 — `src/com/oreilly/servlet/multipart/PartInputStream.java`
+
+- # @PreAuthorize로 변경
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/common/service/MenuAuth.java`
+-
+    - [ ] 이관  [ ] 제외 — `src/com/anymobi/common/vo/MenuAuthVO.java`
+-
+- # util은 portal util 로 전환. 필요한 것들만 이관
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/common/util/FileUtil.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/common/util/RedirectUtil.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/common/util/SessionUtil.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/common/util/SharedMethods.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/common/util/ShellScriptUtil.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/common/util/StringEncrypter.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/common/util/Utils.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/common/util/VRStringEncrypter.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/common/util/converter/ConvertFactory.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/common/util/converter/Converter.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/common/util/converter/ImageConvertExecutor.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/common/util/converter/Test.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/common/util/converter/image/AbstractImageConverter.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/common/util/converter/image/PDFToImageConverter.java`
+
+- # paging 새로 구현
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/common/util/paging/PageGenerator.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/common/util/paging/PageGenerator2.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/common/util/paging/PageNavigator.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/common/util/paging/PageNavigator2.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/common/util/paging/PageUtils.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/common/util/paging/PageUtils2.java`
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/common/util/paging/Pagination.java`
+
+- # portal DeviceResolver 로 이관
+- [ ] 이관  [ ] 제외 — `src/com/anymobi/common/util/vo/CustomDevice.java`
+
+# portal util 에 흡수
+
+- [ ] 이관  [ ] 제외 — `src/com/ktlms/common/util/BeanUtil.java`
+- [ ] 이관  [ ] 제외 — `src/com/ktlms/common/util/DownloadUtil.java`
+- [ ] 이관  [ ] 제외 — `src/com/ktlms/common/util/FileUtil.java`
+- [ ] 이관  [ ] 제외 — `src/com/ktlms/common/util/KTeduUtil.java`
+- [ ] 이관  [ ] 제외 — `src/com/ktlms/common/util/LogUtil.java`
+- [ ] 이관  [ ] 제외 — `src/com/ktlms/common/util/MapUtil.java`
+-
+
+## XML (`src/conf/sql`)
+
+- [ ] 이관  [x] 제외 — `src/conf/sql/adm/educontents/intellect/IntellectManager.xml`
+- [ ] 이관  [x] 제외 — `src/conf/sql/adm/educontents/miniLecture/MiniLectureManager.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/adm/system/connectStatic/ConnectStatic.xml`
+-
+- [ ] 이관  [x] 제외 — `src/conf/sql/batch/BatchSql.xml`
+- [ ] 이관  [x] 제외 — `src/conf/sql/batch/Scheduler.xml`
+-
+- [ ] 이관  [x] 제외 — `src/conf/sql/common/CommonService.xml`
+- [ ] 이관  [x] 제외 — `src/conf/sql/common/CommonSql.xml`
+- [ ] 이관  [x] 제외 — `src/conf/sql/mail/MailSql.xml`
+-
+- [ ] 이관  [ ] 제외 — `src/conf/sql/sms/SmsSql.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/academy/facilities.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/alarm/alarmList.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/api/CommonApi.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/campaign/CampaignList.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/cds/Cds.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/cds/CdsAdjust.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/cds/CdsResult.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/common/CommonUser.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/common/common.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/course/offline/OfflineClass.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/course/online/Online.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/course/system/courseSystem.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/dept/Dept.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/deptmng/commAppr/commappr.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/education/Course.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/education/CourseList.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/education/CourseLiveq.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/education/CourseRegister.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/education/CourseTask.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/education/TechCourse.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/educontents/courseData/courseData.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/educontents/hrdIbox/hrdIbox.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/educontents/leaders/Leaders.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/exam/ExamCourse.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/expert/Expert.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/expert/ExpertRecom.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/external/External.xml`
+- [ ] 이관  [x] 제외 — `src/conf/sql/usr/icampus/Main.xml`
+- [ ] 이관  [x] 제외 — `src/conf/sql/usr/icampus/MyClass.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/learncom/common/Common.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/learncom/cop/CoP.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/learncom/cop/CopBoard.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/learncom/exlicense/ExLicense.xml`
+- [ ] 이관  [x] 제외 — `src/conf/sql/usr/login/AdminAuth.xml`
+- [ ] 이관  [x] 제외 — `src/conf/sql/usr/login/Login.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/main/NewMain.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/main/cash.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/main/search/Search.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/myclass/course/MyCourse.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/myclass/course/NewMyCourse.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/myclass/learncommunity/MyLearnCom.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/selfDevelop/UsrSelfDevelopSql.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/setting/Setting.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/support/faq/Faq.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/support/notice/Notice.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/support/qna/Qna.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/tutor/Eft.xml`
+- [ ] 이관  [ ] 제외 — `src/conf/sql/usr/tutor/Tutor.xml`

@@ -1,0 +1,245 @@
+* {
+    outline: none
+}
+
+#icampus-wrap {
+    position: relative;
+    width: 2060px;
+    padding: 89px 70px 0 70px;
+}
+
+.icampus-container {
+    vertical-align: top;
+    height: 1336px;
+    position: relative;
+}
+
+.icampus-container.padding-left-385 {
+    padding-left: 385px;
+}
+
+.icampus-left {
+    width: 385px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.icampus-header {
+    height: 60px
+}
+
+.icampus-nav {
+    margin-top: 40px;
+}
+
+.icampus-nav ul li {
+    padding: 0 0 43px 0;
+}
+
+.icampus-content-non-scroll {
+    height: 1275px;
+    background: #ffffff;
+    width: 100%;
+    border: 1px solid #c9c9c9;
+    margin-bottom: 59px;
+}
+
+.icampus-content-scroll {
+    overflow: auto;
+    height: 100%;
+    background: #ffffff;
+    width: 100%;
+    border: 1px solid #c9c9c9;
+}
+
+.icampus-content-non-scroll.non-bg {
+    border: none;
+    background: transparent;
+}
+
+.icampus-content {
+    position: relative;
+}
+
+.display-none {
+    display: none;
+}
+
+#campus-1 {
+    position: absolute;
+    top: 20px;
+    left: 530px;
+}
+
+#campus-2 {
+    position: absolute;
+    top: 228px;
+    left: 20px;
+}
+
+#campus-3 {
+    position: absolute;
+    top: 228px;
+    left: 160px;
+}
+
+#campus-4 {
+    position: absolute;
+    top: 228px;
+    left: 390px;
+}
+
+#campus-5 {
+    position: absolute;
+    top: 140px;
+    left: 640px;
+}
+
+#campus-6 {
+    position: absolute;
+    bottom: 133px;
+    right: 270px;
+}
+
+#campus-7 {
+    position: absolute;
+    bottom: 20px;
+    right: 160px;
+}
+
+.image-list {
+    margin: 70px 0 50px 60px;
+}
+
+.image-list li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 0 60px 0;
+    width: 32%;
+    text-align: center;
+}
+
+.image-list li span {
+    display: inline-block;
+    box-shadow: 0 0 13px rgba(0, 0, 0, .15);
+}
+
+.image-margin {
+    margin: 75px 0 50px 0;
+}
+
+.tour-list {
+    margin-top: 130px;
+}
+
+.tour-list li {
+    list-style: none;
+    text-align: center;
+    padding-bottom: 140px;
+}
+
+.restaurant-list {
+    margin: 40px auto;
+    width: 90%;
+}
+
+.restaurant-list li {
+    list-style: none;
+    text-align: center;
+    border-top: 1px solid #bbbbbb;
+    padding: 60px 0 60px 0
+}
+
+.restaurant-list li:first-child {
+    border-top: none;
+}
+
+.training-box {
+    padding: 80px 70px 0;
+}
+
+.training-box > div {
+    margin-bottom: 70px;
+}
+
+.training-box.def > div {
+    margin-bottom: 300px;
+}
+
+.training-box > div .title {
+    margin-bottom: 40px;
+}
+
+.training-middle table {
+    border: none;
+}
+
+.training-middle td {
+    padding: 0 30px 40px 0;
+    border: none;
+}
+
+.training-middle tr td:last-child {
+    padding-right: 0;
+}
+
+.training-middle .img-thum {
+    cursor: pointer;
+}
+
+.training-middle .img-pop {
+    display: none;
+    position: fixed;
+    top: 5%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 1282px;
+    height: 877px;
+    background: url(../img/img_popup_facility_frame.png) no-repeat center;
+    background-size: 100%;
+    z-index: 999;
+}
+
+.training-middle .img-pop img {
+    margin-top: 40px;
+}
+
+.training-bottom .map {
+    position: relative;
+}
+
+.training-bottom .map > a {
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    right: 270px;
+    font-size: 26px;
+    color: #fff;
+    height: 68px;
+    line-height: 64px;
+}
+
+.overlay-box {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 980;
+}
+
+.btn-close {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -120px;
+    width: 132px;
+    height: 142px;
+    background: url(../img/btn_popup_close_shadow.png) no-repeat center;
+    background-size: 100%;
+}

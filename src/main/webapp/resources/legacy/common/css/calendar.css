@@ -1,0 +1,81 @@
+#Cal_Table /* 달력 테이블 */
+{
+    width: 100%;
+    height: 100%;
+    font-size: 12px;
+
+    border: 0;
+    border-collapse: collapse;
+}
+
+
+#Cal_Header /* 달력 헤더 부분 TR태그*/
+{
+    text-align: center;
+    height: 35px;
+}
+
+#Cal_Header td /* 달력 헤더 부분 */
+{
+    border: 0;
+}
+
+
+#Cal_Select /* 년도, 월 선택 드롭다운리스트*/
+{
+
+}
+
+
+#Cal_Week /*요일이 찍히는 부분 TR태그*/
+{
+}
+
+#Cal_Week td /*요일이 찍히는 부분 */
+{
+    padding: 3px;
+    text-align: center;
+    height: 24px;
+    font-weight: bold;
+    background-color: #eaeaea;
+}
+
+
+#Cal_Day /* 날짜가 찍히는 Tr태그 */
+{
+    height: 24px;
+    text-align: center;
+    background-color: White;
+}
+
+#Cal_Today /* 오늘 날짜 TD태그 */
+{
+}
+
+#Cal_MouseOver /* 마우스 오버 */
+{
+    cursor: Hand;
+    background-color: #C6F2ED;
+    font-weight: bold;
+}
+
+
+.Cal_Sunday /*모든 일요일*/
+{
+    color: Red;
+}
+
+.Cal_Weekday /*모든 평일*/
+{
+    color: Black;
+}
+
+.Cal_Saturday /*모든 토요일*/
+{
+    color: Blue;
+}
+
+.Cal_EmptyDay /*날짜가 출력되지 않는 부분*/
+{
+
+}

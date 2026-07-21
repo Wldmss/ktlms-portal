@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- Migrated from genius iBatis sqlMap. Keep original statement ids for traceability. -->
+<mapper namespace="com.kt.ktedu.auth.login.mapper.AdminAuthMapper">
+
+    <select id="getAdminAuthList" resultType="map">
+        SELECT
+        B.GADMIN GADMIN,
+        B.GADMINNM GADMINNM
+        FROM TZ_MANAGER A, TZ_GADMIN B
+        WHERE A.GADMIN = B.GADMIN
+        <if test="userid != null and userid != ''">
+            AND A.USERID = #{userid}
+        </if>
+        <if test="userid == null or userid == ''">
+            AND A.USERID = #{s_userid}
+        </if>
+        AND A.ISDELETED = 'N'
+        AND TO_CHAR(SYSDATE,'YYYYMMDD') BETWEEN A.FMON AND A.TMON
+        AND B.GADMIN != 'A217'
+        ORDER BY B.SEQ, B.GADMIN
+        <if test="s_service_type != null and s_service_type != ''">
+            <if test="s_service_type == 'dev'">
+                limit 100
+            </if>
+        </if>
+    </select>
+
+    <select id="getSmsAuthCheck" resultType="string">
+        SELECT
+        NVL(MAX(CASE
+        WHEN B.FAILCNT <![CDATA[>]]> 4 THEN 'F'
+        WHEN B.SERIAL <![CDATA[<>]]> #{serial} THEN 'N'
+        ELSE 'Y' END), 'T') AS TIMECHECK
+        FROM (SELECT /*+ INDEX(A IX_SMSAUTH_UI) */
+        A.FAILCNT AS FAILCNT
+        , A.SERIAL AS SERIAL
+        , ROW_NUMBER() OVER(ORDER BY A.SEQ DESC) R_NO
+        FROM TZ_SMSAUTH A
+        WHERE A.USERID = #{s_userid}
+        AND TO_CHAR(NOW(),'YYYYMMDDHH24MISS') BETWEEN A.STDT AND A.ENDT
+        ORDER BY A.SEQ DESC
+        ) B
+        WHERE B.R_NO = 1
+        <if test="s_service_type != null and s_service_type != ''">
+            <if test="s_service_type == 'dev'">
+                limit 100
+            </if>
+        </if>
+    </select>
+
+    <insert id="insertSmsAuth">
+        INSERT
+        INTO TZ_SMSAUTH
+        (
+        USERID
+        , HANDPHONE
+        , SERIAL
+        , STDT
+        , ENDT
+        <!-- 로그인 인증으로 인한 컬럼 추가 -->
+        <if test="opt != null and opt != ''">
+            , OPT
+            , LSTDT
+        </if>
+        , LG_IP
+        )
+        VALUES
+        (
+        #{s_userid}
+        , (SELECT HANDPHONE FROM TZ_MEMBER WHERE USERID = #{s_userid})
+        , #{serial}
+        , TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')
+        , TO_CHAR(SYSDATE + 3/24/60, 'YYYYMMDDHH24MISS')
+        <!-- 로그인 인증으로 인한 컬럼 추가 -->
+        <if test="opt != null and opt != ''">
+            , #{opt}
+            , TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')
+        </if>
+        , #{lgIp}
+        )
+    </insert>
+
+    <insert id="insertSdkSmsSend">
+        INSERT INTO SDK_SMS_SEND (
+        MSG_ID,
+        USER_ID,
+        SCHEDULE_TYPE,
+        SUBJECT,
+        NOW_DATE,
+        SEND_DATE,
+        CALLBACK,
+        DEST_INFO,
+        SMS_MSG
+        ) VALUES (
+        SDK_SMS_SEQ.NEXTVAL,
+        <if test="userid != null and userid != ''">
+            #{userid},
+        </if>
+        <if test="userid == null or userid == ''">
+            #{s_userid},
+        </if>
+        0,
+        '',
+        TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS'),
+        TO_CHAR(SYSDATE + 3/24/60, 'YYYYMMDDHH24MISS'),
+        '15883391',
+        #{senderTel},
+        #{title}
+        )
+    </insert>
+
+    <!-- 로그인 인증완료후 인증정보 UPDATE -->
+    <update id="updateOptAfter">
+        UPDATE TZ_SMSAUTH
+        SET OPT = 'Y'
+        , LSTDT = TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')
+        WHERE USERID = #{s_userid}
+        AND HANDPHONE = (SELECT HANDPHONE FROM TZ_MEMBER WHERE USERID = #{s_userid})
+        AND SERIAL = #{serial}
+        AND OPT = 'N'
+        <!-- SERIAL 넘버 중복으로 인해 too many results 아래와 같이 쿼리 추가 -->
+        AND TO_CHAR(NOW(),'YYYYMMDDHH24') BETWEEN TO_CHAR(TO_DATE(STDT, 'YYYYMMDDHH24MISS'), 'YYYYMMDDHH24') AND
+        TO_CHAR(TO_DATE(ENDT, 'YYYYMMDDHH24MISS'), 'YYYYMMDDHH24')
+        AND SEQ = (
+        SELECT MAX(SEQ)
+        FROM TZ_SMSAUTH
+        WHERE USERID = #{s_userid}
+        AND HANDPHONE = (SELECT HANDPHONE FROM TZ_MEMBER WHERE USERID = #{s_userid})
+        AND TO_CHAR(NOW(),'YYYYMMDDHH24') BETWEEN TO_CHAR(TO_DATE(STDT, 'YYYYMMDDHH24MISS'), 'YYYYMMDDHH24') AND
+        TO_CHAR(TO_DATE(ENDT, 'YYYYMMDDHH24MISS'), 'YYYYMMDDHH24')
+        )
+    </update>
+
+    <!-- 관리자 인증 확인 -->
+    <select id="getAdminAuth" resultType="string">
+        SELECT
+        GADMIN
+        FROM TZ_MANAGER A
+        WHERE A.GADMIN = #{p_auth}
+        AND A.USERID = #{s_userid}
+        AND A.ISDELETED = 'N'
+        AND TO_CHAR(SYSDATE,'YYYYMMDD') BETWEEN A.FMON AND A.TMON
+        <if test="s_service_type != null and s_service_type != ''">
+            <if test="s_service_type == 'dev'">
+                limit 100
+            </if>
+        </if>
+    </select>
+
+    <!-- 로그인 인증 실패 횟수 UPDATE -->
+    <update id="updateSmsAuthFail">
+        UPDATE TZ_SMSAUTH
+        SET FAILCNT = FAILCNT + 1
+        <if test="userid != null and userid != ''">
+            WHERE USERID = #{userid}
+            AND HANDPHONE = (SELECT HANDPHONE FROM TZ_MEMBER WHERE USERID=#{userid})
+        </if>
+        <if test="userid == null or userid == ''">
+            WHERE USERID = #{s_userid}
+            AND HANDPHONE = (SELECT HANDPHONE FROM TZ_MEMBER WHERE USERID=#{s_userid})
+        </if>
+        AND OPT = 'N'
+        <!-- SERIAL 넘버 중복으로 인해 too many results 아래와 같이 쿼리 추가 -->
+        AND TO_CHAR(NOW(),'YYYYMMDDHH24') BETWEEN TO_CHAR(TO_DATE(STDT, 'YYYYMMDDHH24MISS'), 'YYYYMMDDHH24') AND
+        TO_CHAR(TO_DATE(ENDT, 'YYYYMMDDHH24MISS'), 'YYYYMMDDHH24')
+        AND SEQ = (
+        SELECT MAX(SEQ)
+        FROM TZ_SMSAUTH
+        <if test="userid != null and userid != ''">
+            WHERE USERID = #{userid}
+            AND HANDPHONE = (SELECT HANDPHONE FROM TZ_MEMBER WHERE USERID=#{userid})
+        </if>
+        <if test="userid == null or userid == ''">
+            WHERE USERID = #{s_userid}
+            AND HANDPHONE = (SELECT HANDPHONE FROM TZ_MEMBER WHERE USERID=#{s_userid})
+        </if>
+        AND TO_CHAR(NOW(),'YYYYMMDDHH24') BETWEEN TO_CHAR(TO_DATE(STDT, 'YYYYMMDDHH24MISS'), 'YYYYMMDDHH24') AND
+        TO_CHAR(TO_DATE(ENDT, 'YYYYMMDDHH24MISS'), 'YYYYMMDDHH24')
+        )
+    </update>
+
+    <!-- 부서 메뉴 권한 확인 (팀장이상급 + mgrYn이 Y) -->
+    <select id="getDeptAuth" resultType="string">
+        SELECT FN_USER_CHK_MANAGER(#{s_userid})
+    </select>
+
+    <!-- cop 승인자 권한 확인 임원급만(상무보 급 + mgrYn이 Y) -->
+    <select id="getNewDeptAuth" resultType="string">
+        SELECT FN_USER_CHK_EXECUTIVE(#{s_userid})
+    </select>
+
+    <!-- 강의관리 메뉴 권한 확인 -->
+    <select id="getTutorAuth" resultType="string">
+        SELECT CASE
+        WHEN (
+        SELECT NVL(MAX('Y'),'N') AS CHECKYN
+        FROM TB_CONT_ADMR
+        WHERE OP_ADMR_ID = #{s_userid}
+        AND OP_ROLE_CD != 'CF'
+        ) = 'Y'
+        OR
+        (
+        SELECT NVL(MAX('Y'),'N') AS CHECKYN
+        FROM TZ_TUTOR
+        WHERE USERID = #{s_userid}
+        AND ISTUTOR = 'y'
+        AND ISSTATUS = 'y'
+        ) = 'Y'
+        THEN 'Y'
+        ELSE 'N' END AS CHECKYN
+        FROM DUAL
+        <if test="s_service_type != null and s_service_type != ''">
+            <if test="s_service_type == 'dev'">
+                limit 100
+            </if>
+        </if>
+    </select>
+</mapper>

@@ -1,0 +1,578 @@
+.top-con {
+    position: relative;
+    margin-bottom: 15px;
+    padding: 0 15px;
+}
+
+.top-con .btn-pop {
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 245px;
+    width: 85px;
+    height: 26px;
+    line-height: 28px;
+    font-size: 13px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    background-color: #4E79B7;
+    border-radius: 3px;
+    -webkit-transition: width 0.2s;
+    transition: width 0.2s;
+}
+
+.middle-con {
+    padding: 0 15px;
+}
+
+.middle-con.detail {
+    padding: 0 45px;
+}
+
+.middle-con > div.border {
+    margin-top: 30px;
+    border: 1px solid #ccc;
+}
+
+.middle-con > div.bg {
+    background: #f8f8f8;
+    padding: 15px 20px 40px;
+}
+
+.middle-con > div.bor-bg {
+    padding: 15px 20px 40px;
+    border: 1px solid #ccc;
+    background: #fff;
+}
+
+.list-btn {
+    display: block;
+    margin-bottom: 10px;
+    width: 90px;
+    height: 35px;
+    background: url(/resources/legacy/anymobi/img/btn_list.png) no-repeat center;
+}
+
+.m-title {
+    position: relative;
+
+}
+
+.btn-area {
+    margin-top: 10px;
+    float: right;
+}
+
+.company-top {
+    margin: 0 50px;
+}
+
+.company-top .m-title {
+    padding: 0px 0 10px;
+}
+
+.company-mid {
+    margin: 0 50px;
+    border-top: 1px solid #8a8a8a;
+    border-bottom: 1px solid #8a8a8a;
+    padding: 15px 0 20px;
+    position: relative;
+}
+
+.company-board-area {
+    position: relative;
+}
+
+.company-board-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.company-board-area tbody th {
+    position: relative;
+    padding: 14px 10px;
+    font-size: 18px;
+    font-weight: 400;
+    vertical-align: top;
+}
+
+.company-board-area tbody th .txt-red {
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    left: 0;
+    width: 10px;
+    padding-top: 13px;
+    font-weight: 400;
+}
+
+.company-board-area tbody td {
+    padding: 7px 0;
+    font-size: 12px;
+}
+
+.company-board-area input {
+    border: 1px solid #dcdcdc;
+    padding: 6px 10px;
+    width: 100%;
+    vertical-align: middle;
+    font-size: 12px;
+}
+
+.company-board-area input[readonly=readonly] {
+    background: #f8f8f8;
+}
+
+.company-board-area input[type=file] {
+    width: 250px;
+    padding: 0;
+    display: none;
+}
+
+.company-board-area textarea {
+    border: 1px solid #dcdcdc;
+    padding: 5px 10px;
+    width: 100%;
+    outline: none;
+    resize: none;
+}
+
+.company-board-area select {
+    border: 1px solid #dcdcdc;
+    padding: 5px;
+}
+
+.company-board-area .right {
+    float: right;
+}
+
+.name-area {
+    background: #fff;
+    border: 1px solid #dcdcdc;
+    padding: 8px 10px;
+    margin-top: 7px;
+    height: 65px;
+    overflow: auto
+}
+
+.file-search {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.file-search img {
+    vertical-align: middle;
+}
+
+.file-search span {
+    color: #959595;
+    padding-left: 5px;
+}
+
+.file-search span.pos-rel {
+    position: relative;
+    padding-top: 4px;
+    vertical-align: top;
+}
+
+.file-search span.pos-rel em {
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    left: 5px;
+    color: #df2428;
+}
+
+.file-list li {
+    color: #666;
+    border-bottom: 1px solid #eee;
+    padding: 7px 10px;
+}
+
+.file-list li img {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.file-list .file-size {
+    color: #959595;
+    padding: 0 10px;
+}
+
+.board-btn-area {
+    padding: 15px 50px;
+    text-align: right;
+}
+
+.board-btn-area a {
+    margin-left: 5px;
+}
+
+.pop-search {
+    width: 700px;
+    height: 535px;
+    padding: 30px;
+    background: #fff;
+    margin: 0 auto;
+}
+
+.pop-search .title {
+    text-align: center;
+}
+
+.pop-search .close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+}
+
+.pop-search .attach-list li {
+    padding: 5px 0;
+}
+
+.pop-search .attach-list li img {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.pop-search .attach-list li a {
+    text-decoration: underline;
+}
+
+.pop-search .board-head {
+    margin: 35px 0 5px 0;
+}
+
+.board-head .total {
+    font-size: 16px;
+    color: #df2428;
+    width: 200px;
+    display: inline-block;
+}
+
+/*
+.board-head .btn {
+	float: right;
+	margin-top: -20px;
+}
+*/
+.board-head {
+    margin: 40px 0 5px 0;
+    padding-bottom: 5px;
+    font-weight: 400;
+}
+
+.board-head .total {
+    font-size: 16px;
+    color: #2cbbb5;
+    width: 200px;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+/* .search {
+	float: right;
+	margin-top: -10px;
+} */
+.search input {
+    width: 150px;
+    height: 30px;
+    border: 1px solid #dcdcdc;
+    padding: 0 10px;
+    vertical-align: middle;
+    line-height: 30px;
+    margin-right: 5px;
+    font-size: 12px;
+}
+
+.search.def input {
+    margin: 0;
+    font-size: 14px;
+}
+
+.search img {
+    vertical-align: middle;
+}
+
+.search .btn {
+    background: #666;
+    min-width: 60px;
+    height: 30px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 14px;
+    padding: 0 15px;
+    line-height: 30px;
+    font-weight: 400;
+    display: inline-block;
+    vertical-align: middle;
+    text-decoration: none;
+}
+
+.search .my-btn {
+    display: inline-block;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.j-scrollbar-content {
+    border-bottom: 1px solid #8c8c8c;
+}
+
+.pop-data-area {
+    position: relative;
+}
+
+.pop-data-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.pop-data-area th,
+.pop-data-area td {
+    font-size: 14px;
+}
+
+.pop-data-area thead th {
+    padding: 13px 0 11px;
+    text-align: center;
+    background: #8c8c8c;
+    color: #fff;
+}
+
+.pop-data-area tbody td {
+    padding: 6px 0 5px;
+    text-align: center;
+    border-bottom: 1px solid #f2f2f2;
+    height: 40px;
+}
+
+.pop-data-area tbody tr.tr-last td {
+    border-bottom: none;
+}
+
+.pop-btn-area {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pop-btn-area a {
+    display: inline-block;
+    margin: 0 3px;
+}
+
+.grid-data-area {
+    position: relative;
+    border-top: 2px solid #000000;
+    border-bottom: 1px solid #8c8c8c;
+}
+
+.grid-data-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.grid-data-area th,
+.grid-data-area td {
+    font-size: 14px;
+}
+
+.grid-data-area th {
+    border-bottom: 1px solid #8c8c8c;
+    padding: 14px 0 12px;
+    text-align: center;
+}
+
+.grid-data-area td {
+    position: relative;
+    padding: 9px 0 7px;
+    text-align: center;
+    border-bottom: 1px solid #f2f2f2;
+    height: 40px;
+}
+
+.grid-data-area tr.tr-last td {
+    border-bottom: none;
+}
+
+.grid-data-area td a {
+    display: block;
+    padding: 0 20px;
+    width: 400px;
+    text-align: left;
+    vertical-align: middle;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+a.grid-pop-btn {
+    display: inline-block;
+    width: 67px;
+    height: 29px;
+    line-height: 29px;
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+    background-color: #fff;
+}
+
+a.grid-pop-btn.red {
+    color: #df2428;
+    border: 1px solid #df2428;
+}
+
+a.grid-pop-btn.gray {
+    border: 1px solid #ccc;
+}
+
+.text-money {
+    display: inline-block;
+    padding-left: 10px;
+}
+
+.list-con table {
+    margin: 20px 0;
+    width: 100%;
+}
+
+.list-con th {
+    padding: 6px 20px;
+    font-size: 14px;
+    text-align: center;
+    border: 1px solid #ccc;
+    background-color: #e3e3e3;
+}
+
+.list-con td {
+    padding: 6px 20px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+
+/* width */
+.width-90 {
+    width: 90px !important;
+}
+
+.width-100 {
+    width: 100px !important;
+}
+
+.width-270 {
+    width: 270px !important;
+}
+
+.width-290 {
+    width: 290px !important;
+}
+
+.width-89p {
+    width: 89% !important;
+}
+
+.width-90p {
+    width: 90% !important;
+}
+
+/* height */
+.height-70 {
+    height: 70px !important;
+}
+
+.height-200 {
+    height: 200px !important;
+}
+
+.height-205 {
+    height: 205px !important;
+}
+
+.height-290 {
+    height: 290px !important;
+}
+
+.height-300 {
+    height: 300px !important;
+}
+
+.height-535 {
+    height: 535px !important;
+}
+
+.height-780 {
+    height: 780px !important;
+}
+
+/* align */
+.align-left {
+    text-align: left !important;
+}
+
+.align-center {
+    text-align: center !important;
+}
+
+.align-right {
+    text-align: right !important;
+}
+
+.pad-l-120 {
+    padding-left: 120px !important
+}
+
+.float-none {
+    float: none !important;
+}
+
+/*-----------------------------------
+		iCheck plugin css
+-----------------------------------*/
+.pop-sel .cj-iCheck > div {
+    display: inline-block;
+}
+
+.pop-sel .cj-iCheck > div > div {
+    display: inline-block;
+}
+
+.pop-sel .cj-iCheck label {
+    cursor: pointer;
+    display: inline-block;
+    padding: 6px;
+    font-size: 14px;
+    vertical-align: top;
+}
+
+/*--- iCheck_radio ---*/
+.pop-sel .cj-input-radio {
+    cursor: pointer;
+    width: 19px;
+    height: 19px;
+    background-image: url(/resources/legacy/anymobi/img/btn_pop_radio.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.pop-sel .cj-input-radio.checked {
+    background-image: url(/resources/legacy/anymobi/img/btn_pop_radio_selected.png);
+}
+
+
+/*-- ie8 css --*/
+.ie8 .board-head .total,
+.ie8 .grid-data-area th,
+.ie8 .list-con th,
+.ie8 .company-board-area th,
+.ie8 .pop-data-area th {
+    font-weight: bold
+}
+
+.ie8 .file-search span.pos-rel em {
+    top: 12px
+}

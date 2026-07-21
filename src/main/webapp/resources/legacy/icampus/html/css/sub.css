@@ -1,0 +1,978 @@
+a:hover {
+    color: #DE1A22;
+    text-decoration: underline;
+}
+
+table {
+    width: 100%;
+    border-style: hidden;
+    border-top: 3px solid #333;
+    border-bottom: 2px solid #2c2d3f;
+}
+
+table th,
+table td {
+    padding: 20px;
+    border: 2px solid #ddd;
+}
+
+table thead th {
+    border: 2px solid #999;
+    background: #888;
+    color: #fff;
+    text-align: center;
+}
+
+table th,
+table td,
+table a {
+    font-size: 30px;
+}
+
+table tbody th {
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+table tbody td {
+    text-align: center;
+}
+
+table td > ul > li {
+    font-size: 30px;
+    padding-left: 20px;
+    margin-top: 15px;
+    text-align: left;
+    background: url(../images/common/bullet_2.png) no-repeat 5px 15px;
+}
+
+table td > ul > li:first-child {
+    margin-top: 0;
+}
+
+.content .table_foot {
+    padding-top: 15px;
+    font-size: 25px;
+    color: #999;
+    letter-spacing: -1px;
+    text-align: right;
+}
+
+.stage {
+    overflow: hidden;
+}
+
+.stage > li {
+    float: left;
+}
+
+.stage.stg2 > li {
+    width: 48%;
+    margin-left: 4%;
+    margin-top: 80px;
+}
+
+.stage.stg3 > li {
+    width: 30%;
+    margin-left: 5%;
+    margin-top: 100px;
+}
+
+.stage.stg4 > li {
+    width: 22%;
+    margin-left: 4%;
+    margin-top: 120px;
+}
+
+.stage.stg5 > li {
+    width: 16%;
+    margin-left: 5%;
+    margin-top: 120px;
+}
+
+.stage:first-child > li {
+    margin-top: 0;
+}
+
+.stage > li:first-child {
+    margin-left: 0;
+}
+
+.movWrap > h3 {
+    position: absolute; /*width:94%;*/
+    background-color: #000;
+    display: none;
+}
+
+.movWrap > a {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.movWrap > a > span {
+    position: absolute;
+    display: block;
+    width: 250px;
+    height: 250px;
+    top: 50%;
+    left: 50%;
+    margin: -125px;
+    cursor: pointer;
+    text-indent: -9999px;
+    background: url(../images/mov/btn_play.png) no-repeat 0 0;
+    background-size: 100%;
+}
+
+.movWrap > .thumbnail {
+    width: 100%;
+}
+
+.movWrap > .thumbnail > img {
+    width: 100%;
+    height: auto;
+}
+
+.movWrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: url(../images/mov/cover.png) no-repeat center;
+    background-size: cover;
+}
+
+
+/*--------------
+교육체계
+--------------*/
+
+.lecSystem .systemTable {
+    position: relative;
+    width: 2060px;
+    height: 1220px;
+    background: url(../images/pg_2_1/sub_2_1_ctt_1.png) no-repeat;
+}
+
+.lecSystem .systemTable .table {
+    position: absolute;
+    top: 286px;
+    left: 105px;
+    overflow: hidden;
+    height: 856px;
+}
+
+.lecSystem .systemTable .table > li {
+    position: relative;
+    float: left;
+    height: 100%;
+}
+
+.lecSystem .systemTable .table > li > a {
+    position: absolute;
+    display: block;
+}
+
+.lecSystem .systemTable .table > li > a > span {
+    display: none;
+}
+
+.lecSystem .systemTable .table > .category1 {
+    width: 640px;
+}
+
+.lecSystem .systemTable .table > .category2 {
+    width: 555px;
+    margin-left: 5px;
+}
+
+.lecSystem .systemTable .table > .category3 {
+    width: 635px;
+    margin-left: 15px;
+}
+
+.lecSystem .systemTable .table > .category1 > .lec_1 {
+    top: 129px;
+    left: 14px;
+    height: 50px;
+    width: 156px;
+    background: url(../images/pg_2_1/lec1_1.png) no-repeat;
+}
+
+.lecSystem .systemTable .table > .category1 > .lec_2 {
+    top: 254px;
+    left: 14px;
+    height: 50px;
+    width: 156px;
+    background: url(../images/pg_2_1/lec1_2.png) no-repeat;
+}
+
+.lecSystem .systemTable .table > .category1 > .lec_3 {
+    top: 369px;
+    left: 14px;
+    height: 50px;
+    width: 156px;
+    background: url(../images/pg_2_1/lec1_3.png) no-repeat;
+}
+
+.lecSystem .systemTable .table > .category1 > .lec_4 {
+    top: 434px;
+    left: 14px;
+    height: 50px;
+    width: 156px;
+    background: url(../images/pg_2_1/lec1_4.png) no-repeat;
+}
+
+.lecSystem .systemTable .table > .category1 > .lec_5 {
+    top: 536px;
+    left: 14px;
+    height: 50px;
+    width: 156px;
+    background: url(../images/pg_2_1/lec1_5.png) no-repeat;
+}
+
+.lecSystem .systemTable .table > .category1 > .lec_6 {
+    top: 611px;
+    left: 14px;
+    height: 50px;
+    width: 156px;
+    background: url(../images/pg_2_1/lec1_6.png) no-repeat;
+}
+
+.lecSystem .systemTable .table > .category1 > .lec_7 {
+    top: 686px;
+    left: 14px;
+    height: 50px;
+    width: 156px;
+    background: url(../images/pg_2_1/lec1_7.png) no-repeat;
+}
+
+.lecSystem .systemTable .table > .category1 > .lec_8 {
+    top: 761px;
+    left: 14px;
+    height: 50px;
+    width: 156px;
+    background: url(../images/pg_2_1/lec1_8.png) no-repeat;
+}
+
+.lecSystem .systemTable .table > .category1 > .lec_9 {
+    top: 314px;
+    left: 250px;
+    height: 527px;
+    width: 50px;
+    background: url(../images/pg_2_1/lec1_9.png) no-repeat;
+}
+
+.lecSystem .systemTable .table > .category1 > .lec_10 {
+    top: 314px;
+    left: 305px;
+    height: 527px;
+    width: 50px;
+    background: url(../images/pg_2_1/lec1_10.png) no-repeat;
+}
+
+.lecSystem .systemTable .table > .category1 > .lec_11 {
+    top: 204px;
+    left: 380px;
+    height: 637px;
+    width: 50px;
+    background: url(../images/pg_2_1/lec1_11.png) no-repeat;
+}
+
+.lecSystem .systemTable .table > .category1 > .lec_12 {
+    top: 364px;
+    left: 530px;
+    height: 477px;
+    width: 95px;
+    background: url(../images/pg_2_1/lec1_12.png) no-repeat;
+}
+
+.lecSystem .systemTable .table > .category2 > .lec_1 {
+    top: 238px;
+    left: 20px;
+    height: 71px;
+    width: 225px;
+    background: url(../images/pg_2_1/lec2_1.png) no-repeat;
+}
+
+.lecSystem .systemTable .table > .category2 > .lec_2 {
+    top: 352px;
+    left: 20px;
+    height: 71px;
+    width: 225px;
+    background: url(../images/pg_2_1/lec2_2.png) no-repeat;
+}
+
+.lecSystem .systemTable .table > .category2 > .lec_3 {
+    top: 17px;
+    left: 270px;
+    height: 80px;
+    width: 150px;
+    background: url(../images/pg_2_1/lec2_3.png) no-repeat;
+}
+
+.lecSystem .systemTable .table > .category2 > .lec_4 {
+    top: 62px;
+    left: 270px;
+    height: 80px;
+    width: 150px;
+    background: url(../images/pg_2_1/lec2_4.png) no-repeat;
+}
+
+.lecSystem .systemTable .table > .category2 > .lec_5 {
+    top: 207px;
+    left: 270px;
+    height: 134px;
+    width: 150px;
+    background: url(../images/pg_2_1/lec2_5.png) no-repeat;
+}
+
+.lecSystem .systemTable .table > .category2 > .lec_6 {
+    top: 352px;
+    left: 270px;
+    height: 69px;
+    width: 150px;
+    background: url(../images/pg_2_1/lec2_6.png) no-repeat;
+}
+
+.lecSystem .systemTable .table > .category2 > .lec_7 {
+    top: 19px;
+    left: 490px;
+    height: 322px;
+    width: 50px;
+    background: url(../images/pg_2_1/lec2_7.png) no-repeat;
+}
+
+.lecSystem .systemTable .table > .category3 > .lec_1 {
+    top: 19px;
+    left: 15px;
+    height: 737px;
+    width: 50px;
+    background: url(../images/pg_2_1/lec3_1.png) no-repeat;
+}
+
+.lecSystem .systemTable .table > .category3 > .lec_2 {
+    top: 19px;
+    left: 70px;
+    height: 737px;
+    width: 50px;
+    background: url(../images/pg_2_1/lec3_2.png) no-repeat;
+}
+
+.lecSystem .systemTable .table > .category3 > .lec_3 {
+    top: 19px;
+    left: 145px;
+    height: 737px;
+    width: 50px;
+    background: url(../images/pg_2_1/lec3_3.png) no-repeat;
+}
+
+.lecSystem .systemTable .table > .category3 > .lec_4 {
+    top: 19px;
+    left: 385px;
+    height: 737px;
+    width: 50px;
+    background: url(../images/pg_2_1/lec3_4.png) no-repeat;
+}
+
+.lecSystem .systemTable .table > .category3 > .lec_5 {
+    top: 19px;
+    left: 515px;
+    height: 737px;
+    width: 50px;
+    background: url(../images/pg_2_1/lec3_5.png) no-repeat;
+}
+
+.lecSystem .systemTable .table > .category3 > .lec_6 {
+    top: 19px;
+    left: 570px;
+    height: 737px;
+    width: 50px;
+    background: url(../images/pg_2_1/lec3_6.png) no-repeat;
+}
+
+.lecSystem .systemTable .table > li > a.row:hover {
+    background-position: 0 -50px;
+}
+
+.lecSystem .systemTable .table > li > a.row2:hover {
+    background-position: 0 -100px;
+}
+
+.lecSystem .systemTable .table > li > a.row3:hover {
+    background-position: 0 -150px;
+}
+
+.lecSystem .systemTable .table > li > a.col:hover {
+    background-position: -50px 0;
+}
+
+.lecSystem .systemTable .table > li > a.col2:hover {
+    background-position: -100px 0;
+}
+
+/*--------------
+교육과장
+--------------*/
+
+.subContent.lectureInfo > .subContentWrap {
+    padding: 0;
+}
+
+#container > .subContent.lectureInfo > .subContentWrap > .content {
+    padding: 50px;
+}
+
+.subContent .subHeader {
+    background-color: #d1d1d1;
+}
+
+.subContent .subHeader > .headWrap {
+    background-color: #000;
+}
+
+.subContent .subHeader > .headWrap > .head {
+    overflow: hidden;
+    min-height: 290px;
+    padding: 40px 50px 50px;;
+    background: url(../images/common/icon_lecturePlan_bg_2.png) no-repeat right bottom;
+}
+
+.subContent .subHeader > .headWrap > .head > h2 {
+    float: left;
+    margin-right: 100px;
+    min-width: 450px;
+    font-size: 52px;
+    color: #fff;
+    padding-top: 10px;
+    letter-spacing: -2px;
+}
+
+.subContent .subHeader > .headWrap > .head > h2.small {
+    font-size: 45px;
+}
+
+.subContent .subHeader > .headWrap > .head > h2 > span {
+    display: inline-block;
+    color: #666;
+}
+
+.subContent .subHeader > .headWrap > .head > h2 > span.small {
+    font-size: 45px;
+}
+
+.subContent .subHeader > .headWrap > .head > h2 > em {
+    display: block;
+    font-size: 28px;
+    color: #DE1A22;
+    line-height: 35px;
+    padding-bottom: 5px;
+}
+
+.subContent .subHeader > .headWrap > .head > .headContents {
+    float: left;
+    width: 1000px;
+}
+
+.subContent .subHeader .lecturePlan {
+    border: 0;
+    width: auto;
+}
+
+.subContent .subHeader .lecturePlan th,
+.subContent .subHeader .lecturePlan td {
+    border: 0;
+    padding: 15px !important;
+}
+
+.subContent .subHeader .lecturePlan th {
+    height: 80px;
+    background: none;
+}
+
+.subContent .subHeader .lecturePlan td {
+    min-width: 150px;
+    padding-right: 50px !important;
+    text-align: left;
+    color: #ccc;
+    font-size: 28px;
+    letter-spacing: -2px;
+}
+
+.subContent .subHeader .lecturePlan th.time {
+    background: url(../images/common/icon_lecturePlan_time.png) no-repeat 0 20px;
+}
+
+.subContent .subHeader .lecturePlan th.place {
+    background: url(../images/common/icon_lecturePlan_place.png) no-repeat 0 20px;
+}
+
+.subContent .subHeader .lecturePlan th.theacher {
+    background: url(../images/common/icon_lecturePlan_theacher.png) no-repeat 0 20px;
+}
+
+.subContent .subHeader .lecturePlan th.target {
+    background: url(../images/common/icon_lecturePlan_target.png) no-repeat 0 20px;
+}
+
+
+/*--------------
+Smart Classroom
+--------------*/
+
+/* 소개영상 */
+.infoMov {
+}
+
+/*
+.infoMov .movWrap { width:1900px; height:1069px; margin:0 auto;}
+*/
+.infoMov .movWrap {
+    width: 2060px;
+    height: 1160px;
+}
+
+
+/*--------------
+그룹사 소개
+--------------*/
+
+/* 그룹사 탐방 */
+.groupCompanyInfo > .subContentWrap {
+    width: 2020px;
+    margin: 0 auto;
+}
+
+.groupCompanyInfo .movWrap {
+    width: 100%;
+    padding-bottom: 60px
+}
+
+.groupCompanyInfo .movWrap > h3 {
+    display: block;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: 32px;
+    color: #fff;
+    text-align: center;
+    height: 40px;
+    padding: 10px 0;
+}
+
+.groupCompanyInfo .movWrap > a > span {
+    width: 100px;
+    height: 100px;
+    margin: -50px;
+    background: url(../images/mov/btn_play_s.png) no-repeat 0 0;
+}
+
+
+/* 명사 특강 */
+.subContent.celebrity > .subContentWrap {
+    padding: 49px;
+}
+
+.celebrity .movWrap {
+    width: 100%;
+    background: none;
+}
+
+.celebrity .stage.stg4 > li {
+    margin-top: 80px;
+}
+
+.celebrity .stage.stg4:first-child > li {
+    margin-top: 0;
+}
+
+.celebrity.style1 .movWrap > h3 {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 90%;
+    font-size: 28px;
+    color: #333;
+    text-align: left;
+    padding: 5%;
+    background-color: #f8f8f8;
+}
+
+.celebrity.style1 .movWrap > a {
+    width: 50%;
+    top: 0;
+    right: 0;
+    height: 100%;
+}
+
+.celebrity.style1 .movWrap > a > span {
+    width: 80px;
+    height: 80px;
+    margin: -40px;
+    background: url(../images/mov/btn_play_s.png) no-repeat 0 0;
+    background-size: 100%;
+}
+
+.celebrity.style1 .movWrap > .thumbnail {
+    padding-left: 50%;
+    width: 50%;
+    text-align: right;
+}
+
+.celebrity.style1 .movWrap > .thumbnail > img {
+    width: 100%;
+    height: auto;
+}
+
+.celebrity.style2 .movWrap {
+    width: 100%;
+    padding-bottom: 60px
+}
+
+.celebrity.style2 .movWrap > h3 {
+    display: block;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: 28px;
+    color: #fff;
+    text-align: center;
+    height: 40px;
+    padding: 10px 0;
+}
+
+.celebrity.style2 .movWrap > a > span {
+    width: 100px;
+    height: 100px;
+    margin: -50px;
+    background: url(../images/mov/btn_play_s.png) no-repeat 0 0;
+}
+
+/*--------------
+미니강좌
+--------------*/
+.subContent.hotMiniLec > .subContentWrap {
+    padding-right: 49px;
+}
+
+.hotMiniLec table th,
+.hotMiniLec table td,
+.hotMiniLec table a {
+    font-size: 25px;
+}
+
+.hotMiniLec table tbody td {
+    text-align: left;
+}
+
+.hotMiniLec.style1 .movWrap > h3 {
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    width: 30%;
+    height: 90%;
+    font-size: 28px;
+    color: #333;
+    text-align: left;
+    padding: 5%;
+    background-color: #f8f8f8;
+}
+
+.hotMiniLec.style1 .movWrap > a {
+    width: 60%;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+
+.hotMiniLec.style1 .movWrap > a > span {
+    width: 80px;
+    height: 80px;
+    margin: -40px;
+    background: url(../images/mov/btn_play_s.png) no-repeat 0 0;
+    background-size: 100%;
+}
+
+.hotMiniLec.style1 .movWrap > .thumbnail {
+    padding-right: 40%;
+    width: 60%;
+}
+
+.hotMiniLec.style1 .movWrap > .thumbnail > img {
+    width: 100%;
+    height: auto;
+}
+
+/*--------------
+추천도서
+--------------*/
+
+.subContent.hotBookList > .subContentWrap {
+    padding: 49px;
+}
+
+.bookList {
+    border-top: 2px solid #ddd
+}
+
+.bookList th,
+.bookList td {
+    padding: 30px;
+    background-color: #fff
+}
+
+.bookList th {
+    vertical-align: top;
+}
+
+.bookList th > a {
+    display: block;
+    width: 300px;
+    margin: 0 auto;
+    border: 2px solid #ddd;
+}
+
+.bookList th > a > img {
+    width: 100%;
+    height: auto;
+}
+
+.bookList td {
+    text-align: left;
+    vertical-align: top;
+}
+
+.bookList td > h3 > a {
+    font-size: 40px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+
+.bookList td > p {
+    margin-top: 20px;
+}
+
+.bookList td > .ctt,
+.bookList td > .info,
+.bookList td > .info > span {
+    font-size: 25px;
+}
+
+.bookList td > .info > span {
+    color: #ccc;
+    padding: 0 20px;
+}
+
+.bookList td > .ctt { /*height:310px;*/
+}
+
+.bookList td > .ctt,
+.bookList td > .ctt > a {
+    font-size: 30px;
+    line-height: 45px; /*text-overflow:ellipsis; overflow:hidden; -webkit-line-clamp:7; -webkit-box-orient:vertical; display:-webkit-box; word-wrap:break-word;*/
+}
+
+#bookPopWrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#bookPopWrap > .bookPop {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#bookPopWrap > .bookPop > .bookPopBg {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.5;
+    -khtml-opacity: 05;
+    -moz-opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+#bookPopWrap > .bookPop > .bookPopContents {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    padding: 100px;
+    width: 1820px;
+    height: 982px;
+    background-color: #fff;
+    z-index: 99;
+}
+
+.bookPopContents > .btn_popClose {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.bookPopContents > .bookContentWrap > .bookSide {
+    position: relative;
+    float: left;
+    width: 660px;
+    border: 2px solid #ddd;
+}
+
+.bookPopContents > .bookContentWrap > .bookSide > .bookthumbnail {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.bookPopContents > .bookContentWrap > .bookSide > .bookthumbnail > span {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.bookPopContents > .bookContentWrap > .bookSide > .bookthumbnail > span > em {
+    display: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    background: url(../images/common/btn_x.png) no-repeat 0 0;
+    background-size: 100% auto;
+    text-indent: -9999px;
+    cursor: pointer;;
+    z-index: 20;
+}
+
+.bookPopContents > .bookContentWrap > .bookSide > .bookthumbnail > span > p {
+    width: 100%;
+    height: 100%;
+    background: none;
+}
+
+.bookPopContents > .bookContentWrap > .bookSide > .bookthumbnail:hover > span > em {
+    display: block;
+}
+
+.bookPopContents > .bookContentWrap > .bookSide > .bookthumbnail:hover > span > p {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.5;
+    -khtml-opacity: 05;
+    -moz-opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.bookPopContents > .bookContentWrap > .bookSide > img {
+    width: 100%;
+    height: auto;
+}
+
+.bookPopContents > .bookContentWrap > .bookContent {
+    float: right;
+    padding-right: 10px;
+    width: 1060px;
+    height: 982px;
+    overflow: auto;
+}
+
+.bookPopContents > .bookContentWrap > .bookContent > .bookHead {
+    padding-bottom: 80px;
+}
+
+.bookPopContents > .bookContentWrap > .bookContent > .bookHead > h3 {
+    font-size: 120px;
+    color: #000;
+    padding-bottom: 40px;
+    letter-spacing: -10px;
+}
+
+.bookPopContents > .bookContentWrap > .bookContent > .bookHead > h3.size110 {
+    font-size: 110px;
+}
+
+.bookPopContents > .bookContentWrap > .bookContent > .bookHead > h3.size100 {
+    font-size: 100px;
+}
+
+.bookPopContents > .bookContentWrap > .bookContent > .bookHead > h3.size90 {
+    font-size: 90px;
+}
+
+.bookPopContents > .bookContentWrap > .bookContent > .bookHead > h3.size80 {
+    font-size: 80px;
+}
+
+.bookPopContents > .bookContentWrap > .bookContent > .bookHead > h3 > em {
+    display: block;
+    font-size: 35px;
+    color: #db0202;
+    letter-spacing: -1px;
+}
+
+.bookPopContents > .bookContentWrap > .bookContent > .bookHead > p {
+    font-size: 30px;
+    color: #555;
+    padding-bottom: 10px;
+}
+
+.bookPopContents > .bookContentWrap > .bookContent > .bookInfo > h4 {
+    overflow: hidden;
+    border-bottom: 2px solid #db0202;
+    margin-bottom: 30px;
+}
+
+.bookPopContents > .bookContentWrap > .bookContent > .bookInfo > h4 > span {
+    float: left;
+    display: block;
+    padding: 10px 30px;
+    border-radius: 20px 20px 0 0;
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #db0202;
+}
+
+.bookPopContents > .bookContentWrap > .bookContent > .bookInfo > p {
+    font-size: 35px;
+    color: #333;
+    margin-bottom: 80px;
+}
+
+.bookPopContents > .bookContentWrap > .bookContent > .bookInfo > p.bold {
+    font-weight: bold;
+    color: #3366cc;
+    margin-bottom: 30px;
+}
+
+.bookPopContents > .bookContentWrap > .bookContent > .bookInfo > p > strong {
+    font-size: 35px;
+    font-weight: bold;
+    color: #000;
+}
+
+.bookPopContents > .bookContentWrap > .bookContent > .bookInfo > p.center {
+    text-align: center;
+    line-height: 60px;
+}
+
+
+
+
+
+
+
+

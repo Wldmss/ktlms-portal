@@ -1,0 +1,410 @@
+@import "base.css";
+@import "board.css";
+
+.wrap {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+/* header */
+#header {
+    width: 1000px;
+    position: relative;
+    z-index: 3;
+    overflow: hidden;
+}
+
+#header .topLink {
+    float: right;
+    height: 20px;
+    padding: 15px 6px 0 0;
+}
+
+#header .topLink li {
+    float: left;
+    height: 7px;
+    padding-left: 6px;
+    padding-right: 5px;
+    background: url('/resources/legacy/common/images/common/top_vbar.gif') no-repeat 0 0;
+    font-size: 0;
+    line-height: 0;
+}
+
+#header .topLink li.first {
+    padding-left: 0;
+    background: none;
+}
+
+#header .topArea {
+    clear: both;
+    width: 1000px;
+    height: 130px;
+}
+
+#header img {
+    vertical-align: top;
+}
+
+.navigation {
+    width: 1000px;
+    height: 130px;
+}
+
+/* company header area _ 10-10-15 d */
+#header .topLink2 {
+    width: 989px;
+    text-align: right;
+    height: 22px;
+    padding: 15px 11px 0 0;
+    overflow: hidden;
+}
+
+#header .topLink2 li {
+    display: inline-block;
+    _display: inline;
+    font-weight: bold;
+    font-size: 0.916em;
+    letter-spacing: -1px;
+}
+
+#header h1.logo2 {
+    float: left;
+    width: 217px;
+    height: 32px;
+    text-align: center;
+}
+
+#header .gnb2 {
+    float: left;
+    width: 775px;
+    padding-top: 2px;
+}
+
+#header .gnb2 li {
+    float: left;
+    width: 155px;
+}
+
+#header .gnb2 li a:link,
+#header .gnb2 li a:visited,
+#header .gnb2 li a:active {
+    display: block;
+    width: 155px;
+    height: 21px;
+    padding-top: 9px;
+    background: url('/resources/legacy/common/images/company/bg_gnb_off.gif') no-repeat 0 0;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#header .gnb2 li a:hover {
+    display: block;
+    width: 155px;
+    height: 21px;
+    padding-top: 9px;
+    background: url('/resources/legacy/common/images/company/bg_gnb_on.gif') no-repeat 0 0;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#header img {
+    vertical-align: top;
+}
+
+.mainVisual_B {
+    clear: both;
+    width: 100%;
+    height: 132px;
+}
+
+
+/* contents */
+#contentWrap {
+    width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+#contentWrap .lnbArea {
+    float: left;
+    position: relative;
+    width: 196px;
+    padding-bottom: 30px;
+    overflow: hidden;
+}
+
+#contentWrap .lnbArea h2 {
+    height: 31px;
+    margin-top: 6px;
+    padding-left: 5px;
+}
+
+#contentWrap .lnbArea .lnb {
+    width: 187px;
+    margin: 0 0 0 5px;
+}
+
+#contentWrap .lnbArea .lnb li {
+    height: 20px;
+    margin-top: 6px;
+    padding-left: 11px;
+    border-bottom: 1px solid #bcb2a8;
+    font-size: 0;
+    line-height: 0;
+}
+
+#contentWrap .lnbArea .lnb li.sub {
+    padding-left: 24px;
+}
+
+#contentWrap .lnbArea .bnArea {
+    width: 187px;
+    margin: 0 0 0 5px;
+}
+
+#contentWrap .lnbArea .bnArea ul {
+    padding: 5px 2px;
+    height: 50px;
+    border-bottom: 1px solid #cfcfcf;
+    overflow: hidden;
+}
+
+#contentWrap .lnbArea .bnArea ul li {
+    float: left;
+    font-size: 0;
+    line-height: 0
+}
+
+/* left_company  _if text menu, use this codes
+#contentWrap .lnbArea .lnb2 {width: 187px; margin: 0 0 0 5px;}
+#contentWrap .lnbArea .lnb2 li {height: 18px; padding-top: 8px; padding-left: 20px; background: url('/resources/legacy/common/images/company/icon_arrow_01.gif') no-repeat 11px 10px; border-bottom: 1px solid #bcb2a8;}
+#contentWrap .lnbArea .lnb2 li a:link, #contentWrap .lnbArea .lnb li a:visited {text-decoration: none;}
+*/
+#main_banner {
+    overflow: hidden;
+    width: 187px;
+    font-size: 0;
+    padding: 0;
+    margin: 6px 0 0 5px;
+    border-top: 1px solid #cfcfcf;
+    border-bottom: 1px solid #cfcfcf;
+}
+
+#main_banner #mnbnnr_leftbtn {
+    float: left;
+    margin-top: 20px;
+    padding-left: 2px;
+}
+
+#main_banner #mnbnnr_rightbtn {
+    float: right;
+    margin-top: 20px;
+    padding-right: 1px;
+}
+
+#main_banner .mnbnnr_list {
+    overflow: hidden;
+    position: relative;
+    float: left;
+    width: 174px;
+    min-height: 53px;
+}
+
+* html #main_banner .mnbnnr_list {
+    height: 53px;
+}
+
+#main_banner .mnbnnr_list ul {
+    top: 0;
+    left: 0;
+    float: left;
+    width: 600px;
+}
+
+#main_banner .mnbnnr_list ul li {
+    float: left;
+    overflow: hidden;
+    width: auto;
+    height: 50px;
+    text-align: center;
+}
+
+#main_banner .mnbnnr_list a {
+    float: left;
+}
+
+#main_banner2 {
+    overflow: hidden;
+    width: 187px;
+    margin-left: 5px;
+    font-size: 0;
+    padding: 0;
+    border-bottom: 1px solid #cfcfcf;
+}
+
+#main_banner2 #mnbnnr_leftbtn2 {
+    float: left;
+    margin-top: 20px;
+    padding-left: 2px;
+}
+
+#main_banner2 #mnbnnr_rightbtn2 {
+    float: right;
+    margin-top: 20px;
+    padding-right: 1px;
+}
+
+#main_banner2 .mnbnnr_list2 {
+    overflow: hidden;
+    position: relative;
+    float: left;
+    width: 174px;
+    min-height: 53px;
+}
+
+* html #main_banner2 .mnbnnr_list2 {
+    height: 53px;
+}
+
+#main_banner2 .mnbnnr_list2 ul {
+    top: 0;
+    left: 0;
+    float: left;
+    width: 600px;
+}
+
+#main_banner2 .mnbnnr_list2 ul li {
+    float: left;
+    overflow: hidden;
+    width: auto;
+    height: 50px;
+    text-align: center;
+}
+
+#main_banner2 .mnbnnr_list2 a {
+    float: left;
+}
+
+#contentWrap .conArea {
+    float: left;
+    width: 804px;
+    margin-top: 10px;
+    min-height: 500px;
+    height: auto !important;
+    height: 500px;
+}
+
+#contentWrap .conWrap {
+    width: 763px;
+    margin-left: 32px;
+    padding-bottom: 42px;
+    overflow: hidden;
+}
+
+#contentWrap .conWrap h3 {
+    height: 27px;
+    margin-bottom: 4px;
+    position: relative;
+    background: url('/resources/legacy/common/images/common/bg_title_line.gif') no-repeat 0 bottom;
+}
+
+#contentWrap .content {
+    width: 762px;
+    position: relative;
+}
+
+#contentWrap .location {
+    position: absolute;
+    right: 2px;
+    top: 5px;
+    text-align: right;
+    color: #5e5950;
+    font-size: 0.916em;
+}
+
+#contentWrap .location img {
+    vertical-align: middle;
+}
+
+#contentWrap .mentArea {
+    padding-bottom: 20px;
+}
+
+
+/* footer */
+#footerWrap {
+    width: 1000px;
+    height: 69px;
+    margin: 0 auto;
+    padding-top: 13px;
+    background: url('/resources/legacy/common/images/common/bg_box_footer.gif') no-repeat 0 0;
+}
+
+#footerWrap img {
+    vertical-align: top;
+}
+
+#footerWrap .footer {
+    width: 961px;
+    margin: 0 auto;
+    background: url('/resources/legacy/common/images/common/certify.gif') no-repeat right 9px;
+}
+
+#footerWrap .copyright .link {
+    overflow: hidden;
+}
+
+#footerWrap .copyright .link li {
+    float: left;
+    background: url('/resources/legacy/common/images/common/bg_vbar_01.gif') no-repeat 0 2px;
+    padding: 0 7px;
+    font-size: 0;
+    line-height: 0;
+}
+
+#footerWrap .copyright .link li.first {
+    background: none;
+    padding-left: 0;
+}
+
+#footerWrap .copyright p {
+    clear: left;
+    padding: 11px 0 3px 0;
+    _padding: 5px 0 3px 0;
+    font-size: 0;
+    line-height: 0;
+}
+
+#footerWrap .copyright address {
+    font-size: 0;
+    line-height: 0;
+}
+
+/* footer_company */
+#footerWrap .footer2 {
+    width: 986px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+#footerWrap .footer2 h2.logo {
+    float: left;
+    width: 184px;
+    height: 39px;
+    padding-top: 10px;
+    border-right: 1px solid #dadada;
+    text-align: center;
+}
+
+#footerWrap .footer2 .copyright2 {
+    float: left;
+    width: 776px;
+    padding: 10px 0 0 25px;
+}
+

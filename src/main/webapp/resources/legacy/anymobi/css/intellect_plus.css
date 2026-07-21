@@ -1,0 +1,331 @@
+.top-con {
+    padding: 0 15px;
+}
+
+.middle-con {
+    padding: 0 15px;
+}
+
+.middle-con .border {
+    position: relative;
+    border: 1px solid #ccc;
+}
+
+.middle-con .border.def {
+    padding-top: 60px;
+}
+
+.middle-con .bg {
+    background: #f8f8f8;
+    padding: 15px 15px 40px;
+}
+
+.middle-con .top {
+    margin-top: 30px;
+}
+
+.top-banner {
+    margin-bottom: 10px;
+}
+
+.bottom-banner {
+    margin-top: 35px;
+}
+
+.bottom-banner li {
+    display: inline-block;
+    float: left;
+}
+
+.bottom-notice {
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #666;
+}
+
+.book-top .amount {
+    padding: 8px 5px 16px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #EB676A;
+}
+
+.book-top .search {
+    float: right;
+    margin: -45px 0 0 0;
+}
+
+.book-top input {
+    margin-right: -5px;
+    padding: 0 10px;
+    width: 190px;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+    border: 1px solid #dcdcdc;
+}
+
+.book-top .btn {
+    cursor: pointer;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #666;
+}
+
+.book-top .btn:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.book-cafe-list li {
+    display: inline-block;
+    float: left;
+    width: 575px;
+    height: 325px;
+    margin-left: -1px;
+    margin-bottom: 50px;
+}
+
+.book-cafe-list li > a {
+    position: relative;
+    display: block;
+    margin: 25px 30px 0 45px;
+}
+
+.book-cafe-list li > a:hover div {
+    text-decoration: underline;
+    color: #EB676A;
+}
+
+.book-cafe-list li > a.even {
+    margin: 25px 40px 20px 35px;
+}
+
+.book-cafe-list .book-summary {
+    width: 235px;
+    height: 210px;
+    font-size: 14px;
+    line-height: 1.9em;
+    overflow: hidden;
+    word-break: keep-all;
+}
+
+.book-cafe-list div {
+    line-height: 22px;
+    color: #666;
+}
+
+.book-cafe-list .book-thumb {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: url(/resources/legacy/anymobi/img/education_contents/book_cafe/img_book_frame.png) no-repeat left top;
+    padding: 0 0 0 10px;
+    width: 155px;
+    height: 220px;
+}
+
+.book-title {
+    margin: 3px 18px 0 30px;
+    border-bottom: 6px solid #a58e78;
+}
+
+.book-title.dark {
+    border-bottom: 6px solid #333;
+}
+
+.book-title .info {
+    color: #a58e78;
+    font-weight: 400;
+    padding: 0 5px;
+}
+
+.book-title .title {
+    font-size: 20px;
+    font-weight: 400;
+    padding: 4px 0 13px 5px;
+    color: #333;
+    width: 440px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.slide-list {
+    margin: 40px 0 0 35px;
+}
+
+.slide-list > li {
+    display: inline-block;
+    float: left;
+    width: 240px;
+    margin: 20px 20px 30px;
+}
+
+.slide-list.seminar li {
+    width: 200px;
+    margin: 20px 15px 30px;
+}
+
+.slide-list.digieco {
+    margin-top: 0;
+}
+
+.slide-list.digieco li {
+    width: 240px;
+    margin: 25px 15px 30px;
+}
+
+.hrd-thumb {
+    background: url(/resources/legacy/anymobi/img/education_contents/hrd/img_hrd_magazine_frame.png) no-repeat left top;
+    padding: 10px 0 0 10px;
+    width: 189px;
+    height: 258px;
+}
+
+.thumb-title {
+    padding: 5px 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    height: 50px;
+    word-break: keep-all;
+    overflow: hidden;
+}
+
+.thumb-title.hrd {
+    padding: 5px 10px;
+}
+
+.digieco .cat-list > a {
+    display: block;
+    position: relative;
+    padding-left: 10px;
+    text-decoration: none;
+}
+
+.digieco .cat-list > a:before {
+    content: "·";
+    position: absolute;
+    left: 0;
+}
+
+.digieco .cat-list > a span:hover {
+    text-decoration: underline;
+}
+
+.h-auto {
+    height: auto !important;
+}
+
+/*-- slick slide add css --*/
+.middle-con .top .slider {
+    margin-top: -35px;
+}
+
+.slick-slider {
+    margin-bottom: 0 !important;
+}
+
+.slider .slick-arrow {
+    margin-top: -35px;
+    width: 50px;
+    height: 50px;
+    background-size: auto;
+    z-index: 0;
+}
+
+.slider .slick-prev {
+    margin-left: -28px;
+    background-image: url(/resources/legacy/anymobi/img/btn_arrow_back.png);
+    opacity: 1;
+}
+
+.slider .slick-next {
+    margin-right: -25px;
+    background-image: url(/resources/legacy/anymobi/img/btn_arrow_next.png);
+    opacity: 1;
+}
+
+.slider .slick-arrow:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #dedede;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #fff;
+    border-radius: 25px;
+    box-shadow: 0 0 5px #ccc;
+}
+
+.slider .slick-prev:after {
+    background-image: url(/resources/legacy/anymobi/img/btn_arrow_back.png);
+}
+
+.slider .slick-next:after {
+    background-image: url(/resources/legacy/anymobi/img/btn_arrow_next.png);
+}
+
+.slider .slick-prev.slick-disabled,
+.slider .slick-next.slick-disabled {
+    cursor: default;
+    opacity: 0;
+}
+
+/*-- ie8 css --*/
+.ie8 .book-top .amount,
+.ie8 .book-title .title {
+    font-weight: bold
+}
+
+.ie8 .book-title .title {
+    font-size: 18px;
+    letter-spacing: -0.05em;
+}
+
+/* 20.09.17. 추가 */
+
+.border.top img {
+    width: 95%;
+    height: 95px;
+    margin-left: 25px;
+    margin-top: 25px;
+}
+
+@media (max-width: 1200px) {
+    .border.top img {
+        width: 87%;
+        height: 69px;
+        margin-left: 25px;
+        margin-top: 25px;
+    }
+
+    .slide-list img {
+        height: 100% !important;
+        margin-top: 0px !important;
+        margin-left: 0px !important;
+    }
+}
+
+.slide-list img {
+    height: 100% !important;
+    margin-top: 0px !important;
+    margin-left: 0px !important;
+}
+
+.slide-list.mob img {
+    width: auto;
+    margin: auto;
+    padding-bottom: 10px;
+}

@@ -1,0 +1,941 @@
+body {
+    background-color: #fff;
+}
+
+table {
+    table-layout: fixed;
+}
+
+#community_bbs {
+    height: 800px;
+    background-color: #f8f8f8;
+}
+
+#community_bbs > div {
+    position: relative;
+}
+
+.pop-header {
+    padding: 25px 36px;
+    height: 120px;
+    color: #fff;
+    font-weight: 300;
+    background-color: #EB676A;
+
+}
+
+.pop-header .title {
+    height: 44px;
+    line-height: 44px;
+    font-size: 22px;
+}
+
+.pop-header .sub-title {
+    font-size: 14px;
+}
+
+.pop-container {
+    position: relative;
+    /* height: 685px; */
+    padding-left: 160px;
+    background-color: #fff;
+}
+
+.pop-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 25px 0;
+    width: 160px;
+    height: 100%;
+    background-color: #e9e9e9;
+    /* overflow: auto; */
+}
+
+.pop-nav ul {
+    height: 470px;
+    /* overflow: auto; */
+}
+
+.pop-nav li .menu {
+    display: block;
+    position: relative;
+    padding: 12px 10px 12px 40px;
+    width: 100%;
+    font-size: 17px;
+    color: #333;
+    font-weight: 400;
+    text-decoration: none;
+    background-repeat: no-repeat;
+    background-position: 20px center;
+    background-image: url(/resources/legacy/anymobi/img/copboard/icon_circle_black_line.png);
+}
+
+.pop-nav li .menu.sub {
+    padding: 3px 10px 5px 30px;
+    font-size: 13px;
+    color: #666;
+    background: none !important;
+}
+
+.pop-nav li .menu:hover {
+    color: #000;
+}
+
+.pop-nav li .menu.active {
+    color: #EB676A;
+    background-image: url(/resources/legacy/anymobi/img/copboard/icon_circle_red.png);
+}
+
+.pop-section {
+    position: relative;
+    height: 100%;
+    overflow: auto;
+}
+
+.pop-content {
+    padding: 30px 44px;
+}
+
+.title-main {
+    margin: 6px 0 22px;
+    font-size: 13px;
+}
+
+.title-main h1 {
+    font-size: 21px; /* 20180710_���� */
+    font-weight: 400;
+    color: #070707;
+}
+
+.title-main span {
+    display: block;
+    margin-top: 6px;
+    font-size: 13px;
+    color: #666;
+}
+
+.grid-data-area {
+    position: relative;
+    /* border-top: 2px solid #000;
+    border-bottom: 1px solid #8c8c8c; */
+}
+
+.grid-data-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.grid-data-area th,
+.grid-data-area td {
+    font-size: 14px;
+}
+
+.grid-data-area th {
+    border-bottom: 1px solid #8c8c8c;
+    padding: 15px 0 13px;
+    text-align: center;
+}
+
+.grid-data-area th .arrow {
+    position: relative;
+    padding-right: 15px;
+}
+
+.grid-data-area th .arrow:after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    right: 0;
+    width: 10px;
+    height: 9px;
+    background: url(/resources/legacy/anymobi/img/icon_arrow_down_gray.png) no-repeat center;
+}
+
+.grid-data-area th .arrow.on:after {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.grid-data-area td {
+    position: relative;
+    padding: 9px 0 7px;
+    height: 50px;
+    text-align: center;
+    border-top: 1px solid #f2f2f2;
+}
+
+.grid-data-area tbody tr:first-child td {
+    border-top: 0 none;
+}
+
+.grid-data-area td a.btn-link {
+    display: block;
+    padding: 0 20px;
+    text-align: left;
+    vertical-align: middle;
+    font-size: 15px;
+}
+
+.grid-data-area td a.btn-link img {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.pop-board-area {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.pop-board-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.pop-board-area tbody th {
+    position: relative;
+    padding: 12px 10px 8px;
+    font-size: 14px;
+    font-weight: 400;
+    vertical-align: top;
+    text-align: left;
+    color: #333; /* 20180710_���� */
+}
+
+.pop-board-area tbody td {
+    padding: 7px 0;
+    font-size: 12px;
+}
+
+.pop-board-area tbody td.align-right {
+    padding-right: 5px;
+}
+
+.pop-board-area td .item-box {
+    margin-top: -3px;
+    padding: 7px 10px;
+    border: 1px solid #e5e5e5;
+}
+
+.pop-board-area .sel-1 {
+    display: block;
+    padding: 5px 15px;
+    width: 100%;
+    border: 1px solid #dcdcdc;
+    background-color: #fff;
+}
+
+.pop-board-area .sel-1.none {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    background: #f8f8f8;
+}
+
+.pop-board-area input {
+    border: 1px solid #dcdcdc;
+    padding: 7px 10px; /* 20180710_���� */
+    vertical-align: middle;
+    font-size: 14px;
+    width: 100%;
+}
+
+.pop-board-area input[type=file] {
+    width: 250px;
+    padding: 0;
+    display: none;
+}
+
+.pop-board-area textarea {
+    border: 1px solid #dcdcdc;
+    padding: 5px 10px;
+    width: 100%;
+    height: 155px;
+    outline: none;
+    resize: none;
+    line-height: 20px;
+    font-size: 15px;
+    background-color: #fff;
+}
+
+.pop-board-area input[readonly=readonly] {
+    background: #f8f8f8;
+    border: 1px solid #e5e5e5;
+}
+
+.pop-board-area textarea[readonly=readonly] {
+    background: #f8f8f8;
+    border: 1px solid #e5e5e5;
+}
+
+.pop-board-area img {
+    vertical-align: middle;
+    margin: 0 2px 2px 0;
+}
+
+select {
+    /* margin-right: 6px; */
+    /* padding: 5px; */
+    width: 115px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #333;
+    padding: 0px 35px 0px 15px;
+    vertical-align: middle;
+    border: 1px solid #ececec;
+}
+
+select.diff {
+    width: 185px;
+    font-size: 14px;
+    color: #343434;
+}
+
+select.diff-1 {
+    padding-left: 5px;
+    width: 120px;
+}
+
+select[disabled=disabled] {
+    color: #333;
+    border: 1px solid #e5e5e5;
+    background: #f8f8f8;
+}
+
+.file-search {
+    position: relative;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.file-search a.disabled {
+    cursor: default;
+}
+
+.file-search img {
+    vertical-align: middle;
+}
+
+.file-search span {
+    color: #959595;
+    padding-left: 5px;
+    line-height: 1.3;
+}
+
+.file-search.diff {
+    padding-left: 80px;
+    padding-bottom: 5px;
+    height: 40px;
+    border-bottom: 1px solid #eee;
+}
+
+.file-search.diff a {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+}
+
+.file-search1 {
+    position: relative;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.file-search1 a.disabled {
+    cursor: default;
+}
+
+.file-search1 img {
+    vertical-align: middle;
+}
+
+.file-search1 span {
+    color: #959595;
+    padding-left: 5px;
+    line-height: 1.3;
+}
+
+.file-search1.diff {
+    padding-left: 80px;
+    padding-bottom: 5px;
+    height: 40px;
+    border-bottom: 1px solid #eee;
+}
+
+.file-search1.diff a {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+}
+
+.file-list li {
+    color: #666;
+    padding: 7px 10px;
+    border-bottom: 1px solid #eee; /* 20180710_���� */
+}
+
+.file-list li:first-child {
+    border-top: 1px solid #eee; /* 20180710_���� */
+}
+
+.file-list li img {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.file-list .file-size {
+    color: #959595;
+    padding: 0 10px;
+}
+
+.tab-mn {
+    margin-bottom: 30px;
+    overflow: hidden;
+    border-bottom: 1px solid #ececec;
+}
+
+.tab-mn a {
+    display: block;
+    float: left;
+    padding: 10px 0;
+    width: 135px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #b4b4b4;
+    text-align: center;
+    text-decoration: none;
+}
+
+.tab-mn a.current {
+    color: #df2428;
+    border-bottom: 5px solid red;
+}
+
+.search-btn-con {
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.search-btn-con .search-box {
+    float: left;
+    margin-top: 5px;
+}
+
+.search-btn-con .search-box input {
+    padding: 0 15px;
+    width: 180px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    vertical-align: middle;
+    border: 1px solid #dadada;
+}
+
+.search-btn-con .search-box img {
+    vertical-align: middle;
+}
+
+.search-btn-con .btn-write {
+    display: block;
+    float: right;
+}
+
+.search-btn-con .btn-write.best {
+    margin-right: 10px;
+    width: 125px;
+    height: 33px;
+    line-height: 33px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    background: #df2428;
+}
+
+.btn-best-list {
+    display: block;
+    margin-top: 25px;
+    width: 120px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff !important;
+    text-align: center;
+    text-decoration: none !important;
+    background: #333;
+}
+
+.search-btn-con .btn-prev {
+    display: block;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+}
+
+.search-btn-con.t-center {
+    position: relative;
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+.search-btn-con.t-center h3 {
+    padding: 6px 0;
+    font-size: 22px;
+    color: #1a1a1a;
+}
+
+.search-btn-con.center .search-box {
+    margin: 25px 0 0;
+    width: 100%;
+    text-align: center;
+}
+
+.search-btn-con.center input {
+    width: 160px;
+}
+
+.pop-btn-area {
+    text-align: right;
+}
+
+.pop-btn-area a {
+    margin-left: 5px;
+}
+
+.comment-area {
+    margin-top: 40px;
+    font-size: 14px;
+    font-weight: 400;
+    border-top: 1px solid #ddd;
+}
+
+.comment-area .top-box .txt {
+    margin: 25px 0 12px;
+}
+
+.comment-area .top-box span {
+    display: inline-block;
+    font-size: 14px;
+    color: #000;
+}
+
+.comment-area .top-box .item:before {
+    content: "|";
+    padding: 0 10px 0 5px;
+    color: #ccc;
+}
+
+.comment-area .top-box .item:first-child:before {
+    display: none;
+}
+
+.comment-area .top-box .num {
+    color: #2cbbb5;
+}
+
+.comment-area .top-box .icon-good {
+    display: inline-block;
+    margin-left: 3px;
+    padding: 0 5px 0 26px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 14px;
+    color: #333;
+    text-align: right;
+    border: 1px solid #c6c6c6;
+    text-decoration: none;
+    background: #fff url(/resources/legacy/anymobi/img/copboard/icon_good_red.png) no-repeat 6px 2px;
+    background-image: url(/resources/legacy/newPortal/icons/new22_icon_thumb.png) !important;
+    background-size: 19px !important;
+}
+
+.comment-area .enter {
+    position: relative;
+    margin-bottom: 10px;
+    padding-right: 70px;
+    height: 60px;
+}
+
+.comment-area .enter textarea {
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    line-height: 1.5;
+    border: 1px solid #dcdcdc;
+    background-color: #fff;
+    word-break: keep-all;
+    outline: none;
+    resize: none;
+}
+
+.comment-area .enter textarea::-webkit-input-placeholder {
+    color: #000;
+}
+
+.comment-area .enter textarea:-moz-placeholder {
+    color: #000;
+    opacity: 1;
+}
+
+.comment-area .enter textarea::-moz-placeholder {
+    color: #000;
+    opacity: 1;
+}
+
+.comment-area .enter textarea:-ms-input-placeholder {
+    color: #000;
+}
+
+.comment-area .top-box .enter .btn-submit {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 66px;
+    height: 60px;
+    background: url(/resources/legacy/anymobi/img/copboard/btn_register_line.png) no-repeat center;
+}
+
+.comment-area .list-box {
+    font-size: 13px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.comment-area .list-box .item {
+    position: relative;
+    padding: 20px 70px 15px 50px;
+    border-top: 1px dashed #dcdcdc;
+    background: url(/resources/legacy/anymobi/img/copboard/icon_person_line.png) no-repeat left 20px;
+}
+
+.comment-area .list-box .item:first-child {
+    border-top: 0 none;
+}
+
+.comment-area .list-box .name {
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.comment-area .list-box .name span {
+    padding-left: 6px;
+    font-size: 12px;
+    color: #999;
+}
+
+.comment-area .list-box .item .txt {
+    word-break: keep-all;
+}
+
+.comment-area .list-box .item .btn-modify {
+    display: block;
+    position: absolute;
+    top: 25px;
+    right: 0;
+    width: 50px;
+    height: 30px;
+    background: url(/resources/legacy/anymobi/img/copboard/btn_del_line.png) no-repeat center;
+}
+
+.comment-area .btn-more {
+    display: block;
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    background-color: #c6c6c6;
+}
+
+.grid-con {
+    overflow: hidden;
+}
+
+.grid-con .item {
+    display: block;
+    float: left;
+    position: relative;
+    margin: 14px 5px;
+    width: 170px;
+    height: 207px;
+    text-decoration: none;
+    border: 1px solid #dcdcdc;
+    overflow: hidden;
+}
+
+.grid-con .item:nth-of-type(5n+1) {
+    margin-left: 70px;
+}
+
+.grid-con .item:nth-of-type(5n+5) {
+    margin-right: 0;
+}
+
+.grid-con .item .icon-badge {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 48px;
+    height: 23px;
+    line-height: 23px;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    background-color: #df2428;
+}
+
+.grid-con .item .thumb {
+    display: block;
+}
+
+.grid-con .item .info {
+    padding: 10px 0 0;
+    font-size: 12px;
+    color: #333;
+    line-height: 1.7;
+}
+
+.grid-con .item .info > div {
+    padding: 0 6px;
+}
+
+.grid-con .item .txt {
+    height: 40px;
+    overflow: hidden;
+}
+
+.grid-con .item .date {
+    margin: 3px 0 5px;
+    color: #999;
+}
+
+.grid-con .item .space {
+    padding: 0 5px;
+}
+
+.grid-con .item .name {
+    position: relative;
+    padding-right: 70px !important;
+    height: 30px;
+    line-height: 30px;
+    color: #9a9a9a;
+    border-top: 1px solid #ededed;
+    overflow: hidden;
+}
+
+.grid-con .item .name .good {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 8px 0 15px;
+    max-width: 65px;
+    height: 100%;
+    line-height: 32px;
+    text-align: right;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.grid-con .item .name .good:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -6px;
+    width: 10px;
+    height: 13px;
+    background: url(/resources/legacy/anymobi/img/copboard/icon_good.png) no-repeat center;
+}
+
+.grid-con .item:hover .txt {
+    color: #2cbbb5;
+    text-decoration: underline;
+}
+
+.total-list {
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #2cbbb5;
+    width: 200px;
+    display: inline-block;
+}
+
+.pop-content .top {
+    position: relative;
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+    font-size: 21px; /* 20180710_���� */
+    font-weight: 400;
+    color: #000;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.pop-content .top span {
+    display: inline-block;
+    position: absolute;
+    bottom: 8px;
+    right: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.pop-content .top em {
+    color: #2cbbb5;
+}
+
+.pop-content .top .depth { /* 20180710_�߰� */
+    position: absolute;
+    bottom: 12px;
+    right: 0;
+    font-size: 13px;
+    color: #999;
+}
+
+.pop-content .top .depth em { /* 20180710_�߰� */
+    position: relative;
+    top: 1px;
+    padding: 0 5px;
+    color: #999;
+}
+
+.astrick {
+    position: relative;
+}
+
+.astrick:before {
+    content: "*";
+    position: absolute;
+    left: -10px;
+    color: #2cbbb5;
+}
+
+.name-area {
+    background: #fff;
+    border: 1px solid #dcdcdc;
+    padding: 8px 10px;
+    margin-top: 7px;
+    height: 65px;
+    overflow: auto;
+}
+
+.name-area .name {
+    display: inline-block;
+    margin: 0 10px 5px 0;
+}
+
+/** 20180710_�߰� ����  */
+.pop-board-area .user-info {
+    line-height: 1.5;
+}
+
+.pop-board-area .user-info em {
+    font-weight: 300;
+    color: #393939;
+}
+
+.pop-board-area .user-info span {
+    font-weight: 400;
+}
+
+.pop-board-area .user-info div.first {
+    display: inline-block;
+    margin-top: 3px;
+    min-width: 120px;
+}
+
+.pop-board-area .user-info div.second {
+    display: inline-block;
+    margin-top: 3px;
+    min-width: 200px;
+}
+
+/* 20180710_�߰� �� **/
+
+.pad-tb-20 {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important
+}
+
+.pad-tb-30 {
+    padding-top: 30px !important;
+    padding-bottom: 30px !important
+}
+
+.align-right {
+    text-align: right !important
+}
+
+.width-90 {
+    width: 90px !important
+}
+
+.width-200 {
+    width: 200px !important
+}
+
+.width-450 {
+    width: 450px !important
+}
+
+.bg-f {
+    background-color: #fff !important
+}
+
+/*-----------------------------------
+		iCheck plugin css
+-----------------------------------*/
+.select-list .cj-iCheck label {
+    padding: 6px 0;
+    margin-right: 25px;
+    width: auto;
+    font-size: 12px;
+    color: #333;
+    vertical-align: middle;
+}
+
+.select-list .cj-iCheck label span {
+    font-size: 12px;
+    display: inline-block;
+    padding: 3px 0 0 8px;
+    height: 19px;
+    vertical-align: middle;
+}
+
+/*--- iCheck_radio ---*/
+.select-list .cj-input-radio {
+    cursor: pointer;
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    background-image: url(/resources/legacy/anymobi/img/copboard/btn_circle_normal.png);
+    background-repeat: no-repeat;
+    vertical-align: middle;
+}
+
+.select-list .cj-input-radio.checked {
+    background-image: url(/resources/legacy/anymobi/img/copboard/btn_circle_selected.png);
+}
+
+.pop-container ul {
+    font-size: 15px;
+}
+
+#community_bbs .pop-container .pop-section .pop-content .search-btn-con.form-wrap.type2 .select-wrap + .inp > input {
+    height: 50px;
+    border-radius: 4px;
+}
+
+#community_bbs .pop-container .pop-section .pop-content .search-btn-con.form-wrap.type2 .select-wrap + .inp > input + a.search-btn .btn.black {
+    width: 50px;
+    height: 50px;
+    background-size: 24px;
+}

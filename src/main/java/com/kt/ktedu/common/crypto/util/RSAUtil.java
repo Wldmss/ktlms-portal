@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import java.security.KeyPair;
 import java.security.PrivateKey;
 import java.security.PublicKey;
+import java.util.Base64;
 
 /**
  * RSA 암호화 유틸 (정적 메서드 제공)
@@ -61,6 +62,13 @@ public class RSAUtil {
 
     public static PublicKey toPublicKey(String base64) throws Exception {
         return rsaCore.toPublicKey(base64);
+    }
+
+    /**
+     * Base64(PKCS8 DER) 문자열 → PrivateKey 복원 (GCM 래핑 없이 평문 저장된 키용)
+     */
+    public static PrivateKey toPrivateKey(String base64) throws Exception {
+        return rsaCore.toPrivateKey(Base64.getDecoder().decode(base64));
     }
 
     public static String privateKeyToBase64(PrivateKey privateKey) {

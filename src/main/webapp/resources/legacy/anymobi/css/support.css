@@ -1,0 +1,905 @@
+.top-con {
+    position: relative;
+    margin-bottom: 15px;
+    padding: 0 15px;
+}
+
+.middle-con {
+    padding: 0 15px;
+}
+
+.middle-con > div.border {
+    border: 1px solid #ccc;
+
+}
+
+.middle-con > div.border-qna {
+    position: relative;
+    border: 1px solid #ccc;
+    padding-bottom: 30px;
+    margin: 20px 0 0;
+}
+
+.middle-con > div.border-qna.top {
+    margin: 0;
+}
+
+.top-con .day-top {
+    display: inline-block;
+    position: absolute;
+    bottom: 24px;
+    left: 50px;
+    color: #666;
+}
+
+.board-head {
+    margin-top: 20px;
+    padding-bottom: 5px;
+    font-weight: 400;
+    height: 24px;
+}
+
+.board-head .total {
+    font-size: 16px;
+    color: #EB676A;
+    width: 200px;
+    display: inline-block;
+}
+
+.board-head > a {
+    float: left;
+    margin-top: -15px;
+}
+
+/* .search {
+	float: right;
+	margin-top: -10px;
+} */
+.search select {
+    width: 118px;
+    height: 30px;
+    padding: 5px;
+    margin-right: 7px;
+    border: 1px solid #dcdcdc;
+    vertical-align: middle;
+}
+
+.search input {
+    width: 190px;
+    height: 30px;
+    border: 1px solid #dcdcdc;
+    margin-right: -5px;
+    padding: 0 10px;
+    vertical-align: middle;
+    line-height: 30px;
+}
+
+.grid-data-area {
+    position: relative;
+    border-top: 2px solid #000000;
+    border-bottom: 1px solid #8c8c8c;
+}
+
+.grid-data-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.grid-data-area th, .grid-data-area td {
+    font-size: 14px;
+}
+
+.grid-data-area thead th {
+    border-bottom: 1px solid #8c8c8c;
+    padding: 14px 0 12px;
+    text-align: center;
+}
+
+.grid-data-area tbody td {
+    padding: 9px 0 7px;
+    text-align: center;
+    border-bottom: 1px solid #f2f2f2;
+    height: 40px;
+}
+
+.grid-data-area tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.grid-data-area tbody tr.tr-last td {
+    border-bottom: none;
+}
+
+.grid-data-area tbody td a {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    padding: 4px 0 3px 25px;
+    position: relative;
+}
+
+.grid-data-area tbody td a.no-textover {
+    white-space: normal;
+}
+
+.grid-data-area tbody td .btn-txt {
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #df2428;
+    width: 80px;
+    font-size: 12px;
+    color: #df2428;
+    margin-top: -2px;
+    height: 27px;
+    padding: 6px 0;
+    text-decoration: none;
+}
+
+.grid-data-area tbody td .ing {
+    margin: 2px 0 5px;
+}
+
+.grid-data-area img {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+.grid-data-area img.attach {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.grid-data-area a span {
+    font-weight: 700;
+    color: #df2428;
+}
+
+.list-btn {
+    display: block;
+    margin-bottom: 10px;
+    width: 90px;
+    height: 35px;
+    background: url(/resources/legacy/anymobi/img/btn_list.png) no-repeat center;
+}
+
+.m-title {
+    position: relative;
+    padding: 20px 40px 30px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.m-title td.left {
+    /* width: 730px; */
+    font-size: 14px;
+}
+
+.m-title td.left .title {
+    margin: 10px 0 5px;
+    font-size: 20px;
+    color: #333;
+    font-weight: 400;
+}
+
+.m-title td.left .title.notice {
+    background: url(/resources/legacy/anymobi/img/icon_notification.png) no-repeat left top;
+    padding-left: 40px;
+}
+
+.m-title td.left .title.must_read {
+    background: url(/resources/legacy/anymobi/img/icon_must_read.png) no-repeat left top;
+    padding-left: 40px;
+}
+
+.m-title td.left span {
+    font-size: 15px;
+    color: #666;
+}
+
+.m-title td.left .date {
+    color: #666;
+    padding-right: 10px;
+}
+
+.m-title td.left .hit {
+    color: #333;
+    padding-left: 10px;
+}
+
+.m-title td.right {
+    float: right;
+    font-size: 14px;
+    color: #999;
+    padding-top: 13px;
+    padding-left: 30px;
+}
+
+.m-title td.right a {
+    display: inline-block;
+    vertical-align: middle;
+    color: #999;
+    text-decoration: none;
+}
+
+.m-title td.right a:hover {
+    color: #999;
+}
+
+.m-title td.right a:hover span {
+    color: #2cbbb5;
+    text-decoration: underline;
+}
+
+.m-title td.right img {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.m-detail p a {
+    color: #2cbbb5;
+}
+
+.m-title .pop-attach {
+    display: none;
+    position: absolute;
+    top: 32px;
+    /* right: 120px; */
+    left: 520px;
+    width: 315px;
+    background: #fff;
+    border: 1px solid #999999;
+    padding: 20px;
+}
+
+.pop-attach .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.pop-attach .attach-list li {
+    padding: 5px 0;
+}
+
+.pop-attach .attach-list li img {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.pop-attach .attach-list li a {
+    text-decoration: underline;
+}
+
+.m-detail {
+    min-height: 550px;
+    padding: 30px 40px;
+    color: #666;
+    font-size: 16px;
+    /*line-height: 23px;*/
+}
+
+.btn-area {
+    margin-top: 10px;
+    float: left;
+}
+
+.qna-top {
+    margin: 50px 50px 0px 50px;
+}
+
+.qna-top .m-title {
+    padding: 0px 0 10px;
+}
+
+.qna-top .guide {
+    float: right;
+    margin-top: -30px;
+    color: #959595;
+}
+
+.txt-red {
+    color: #df2428;
+}
+
+.qna-mid {
+    margin: 0 50px;
+    border-top: 1px solid #8a8a8a;
+    /* border-bottom: 1px solid #8a8a8a; */
+    padding: 15px 0 40px;
+}
+
+.qna-board-area {
+    position: relative;
+}
+
+.qna-board-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.qna-board-area th {
+    position: relative;
+    padding: 14px 10px;
+    font-size: 16px;
+    font-weight: 400;
+    vertical-align: top;
+}
+
+.qna-board-area th .txt-red {
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    left: 0;
+    width: 10px;
+    padding-top: 13px;
+    font-weight: 400;
+}
+
+.qna-board-area td {
+    padding: 7px 0;
+    font-size: 12px;
+}
+
+.qna-board-area input {
+    border: 1px solid #dcdcdc;
+    padding: 5px 10px;
+    width: 100%;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.qna-board-area input[type=file] {
+    width: 250px;
+    padding: 0;
+    display: none;
+}
+
+.qna-board-area textarea {
+    border: 1px solid #dcdcdc;
+    padding: 10px;
+    width: 100%;
+    /*height: 315px;*/
+    font-size: 15px;
+    height: 380px;
+    outline: none;
+    resize: none;
+    line-height: 20px;
+    font-weight: 400;
+    height: 380px;
+}
+
+.qna-board-area select {
+    border: 1px solid #dcdcdc;
+    padding: 7px;
+    width: 100%;
+    font-size: 15px;
+    background: #ffffff url(/resources/legacy/newPortal/icons/more-btn-icon.png) no-repeat right 10px center/15px 10px;
+}
+
+td.writer {
+    font-size: 15px;
+    color: #666;
+    padding-left: 20px;
+}
+
+.line {
+    color: #ccc;
+    padding: 0 10px;
+}
+
+.file-search {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.file-search img {
+    vertical-align: middle;
+}
+
+.file-search span {
+    color: #959595;
+    padding-left: 5px;
+}
+
+.file-list li {
+    color: #666;
+    border-bottom: 1px solid #eee;
+    padding: 7px 10px;
+    font-size: 15px;
+}
+
+.file-list li img {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.file-list .file-size {
+    color: #959595;
+    padding: 0 10px;
+}
+
+.board-btn-area {
+    padding: 30px 50px;
+    text-align: right;
+}
+
+.board-btn-area a {
+    margin-left: 5px;
+}
+
+.event-list {
+    margin: 30px 0;
+}
+
+.event-list > li {
+    background: #f8f8f8;
+    width: 487px;
+    height: 300px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    float: left;
+    display: inline-block;
+}
+
+.event-list > li.even {
+    margin-left: 15px;
+}
+
+.event-list > li > a > ul {
+    width: 440px;
+    margin: 15px 0 20px 25px;
+}
+
+.event-list .event-title {
+    font-size: 14px;
+    padding-bottom: 7px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.event-list .event-date {
+    padding-bottom: 10px;
+}
+
+.event-list .event-contents {
+    padding-bottom: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    height: 45px;
+}
+
+.border-qna .title {
+    font-weight: 400;
+    font-size: 24px;
+    padding: 40px 0 0 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 740px;
+}
+
+.border-qna .title span {
+    /* color: #999; */
+}
+
+.border-qna .m-detail {
+    height: 300px;
+    min-height: 300px;
+    padding: 30px 50px 0 80px;
+    font-size: 18px;
+    line-height: 23px;
+    word-break: break-all;
+    font-weight: 400;
+}
+
+.title-question {
+    position: relative;
+    border-bottom: 1px solid #f1f1f1;
+    height: 110px;
+    background: url(/resources/legacy/anymobi/img/icon_circle_question.png) no-repeat 35px center;
+}
+
+.title-reply {
+    position: relative;
+    border-bottom: 1px solid #f1f1f1;
+    height: 110px;
+    background: url(/resources/legacy/newPortal/icons/new23_icon_circle_answer.png) no-repeat 35px center;
+}
+
+.item-list {
+    padding: 5px 0 0 100px;
+}
+
+.item-list li {
+    display: inline-block;
+    position: relative;
+    padding: 0 10px 0 15px;
+    color: #666;
+}
+
+.item-list li:before {
+    content: "|";
+    display: inline-block;
+    width: 1px;
+    color: #d7d7d7;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.item-list li:first-child {
+    padding: 0 10px 0 0;
+}
+
+.item-list li:first-child:before {
+    content: "";
+}
+
+.item-list li a {
+    display: inline-block;
+    width: 250px;
+    height: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    color: #EB676A !important;
+    overflow: hidden;
+}
+
+.item-list .item {
+    padding-right: 5px;
+}
+
+.modify-btn {
+    display: inline-block;
+    width: 65px;
+    height: 30px;
+    background: url(/resources/legacy/anymobi/img/btn_l_edit.png) no-repeat center;
+}
+
+.del-btn {
+    display: inline-block;
+    width: 65px;
+    height: 30px;
+    background: url(/resources/legacy/anymobi/img/btn_l_del.png) no-repeat center;
+}
+
+.btn-area.right {
+    position: absolute;
+    top: 30px;
+    right: 25px;
+}
+
+.faq .search-con {
+    float: right;
+    margin: -50px 0 0 0;
+}
+
+.faq .search-con input {
+    margin-right: -5px;
+    padding: 0 10px;
+    width: 190px;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+    border: 1px solid #dcdcdc;
+}
+
+.faq .search-con .btn {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0;
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #666;
+}
+
+.faq .search-con .btn:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.faq-tabs {
+    padding: 6px 0 0 0;
+}
+
+.faq-tabs li {
+    cursor: pointer;
+    display: inline-block;
+    margin: 6px 10px 0 0;
+    padding: 0 5px;
+    min-width: 130px;
+    height: 38px;
+    line-height: 38px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #666;
+    text-align: center;
+    border: 1px solid #e6e6e6;
+    background-color: #e6e6e6;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.faq-tabs li:hover {
+    color: #EB676A;
+    text-decoration: underline;
+}
+
+.faq-tabs li.active {
+    cursor: default;
+    color: #EB676A;
+    text-decoration: none;
+    border: 1px solid #EB676A;
+    background-color: #fff;
+}
+
+.faq-tab-con {
+    margin-top: 20px;
+    min-height: 350px;
+    font-size: 14px;
+    /* border-top: 1px solid #000;
+    border-bottom: 1px solid #8c8c8c; */
+}
+
+.faq-tab-con table {
+    width: 990px;
+}
+
+.faq-tab-con th {
+    height: 45px;
+    line-height: 45px;
+    color: #393939;
+    text-align: center;
+    border-bottom: 1px solid #8c8c8c;
+}
+
+.faq-tab-con th.def {
+    padding-left: 270px;
+    text-align: left;
+}
+
+.faq-tab-con td {
+    cursor: pointer;
+    padding: 10px 0;
+    color: #333;
+    /*line-height: 1.5em;*/
+    text-align: center;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.faq-tab-con td.def {
+    padding-left: 10px;
+    padding-right: 20px;
+    text-align: left;
+}
+
+.faq-tab-con tr.answer td {
+    cursor: default;
+    position: relative;
+    padding: 30px 65px;
+    text-align: left;
+    background-color: #f4f4f4;
+    letter-spacing: 0.1em;
+    line-height: 1.5em;
+    font-size: 15px;
+}
+
+.faq-tab-con tr.answer td:before {
+    content: "A";
+    position: absolute;
+    left: 38px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #f13d40;
+}
+
+.faq-tab-con tr.question.change td {
+    color: #fff;
+    background-color: #EB676A;
+}
+
+.faq-tab-con tr.question.change td span {
+    color: #fff;
+}
+
+.faq-tab-con tr.question .arrow {
+    background-repeat: no-repeat;
+    background-position: right;
+    background-image: url(/resources/legacy/anymobi/img/btn_faq_down.png);
+}
+
+.faq-tab-con tr.question.change .arrow {
+    background-image: url(/resources/legacy/anymobi/img/btn_faq_up.png);
+}
+
+.grid-data-area.def th {
+    padding: 5px 0;
+}
+
+.grid-data-area.def td {
+    padding: 0;
+}
+
+.btn-del {
+    display: block;
+    position: absolute;
+    bottom: -45px;
+    left: 10px;
+    width: 65px;
+    height: 35px;
+    background: url(/resources/legacy/anymobi/img/btn_del.png) no-repeat center;
+}
+
+/*-- popup --*/
+.popup-con {
+    display: none;
+    position: fixed;
+    top: 23%;
+    left: 40%;
+    padding: 30px;
+    width: 500px;
+    font-size: 14px;
+    font-weight: 400;
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 15px #d2d2d2;
+    -moz-box-shadow: 0 0 15px #d2d2d2;
+    -o-box-shadow: 0 0 15px #d2d2d2;
+    -ms-box-shadow: 0 0 15px #d2d2d2;
+    box-shadow: 0 0 15px #d2d2d2;
+    z-index: 9999;
+}
+
+.popup-con > div {
+    position: relative;
+}
+
+.popup-con .close-btn {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 17px;
+    height: 17px;
+    background: url(/resources/legacy/anymobi/img/btn_close_pop.png) no-repeat center;
+}
+
+.popup-con .title {
+    font-size: 20px;
+    text-align: center;
+}
+
+.popup-con .comment {
+    margin: 35px 0;
+    min-height: 100px;
+    max-height: 200px;
+    line-height: 1.9em;
+    overflow-y: auto;
+}
+
+.popup-con .comment .mCSB_scrollTools {
+    width: 6px;
+}
+
+.popup-con .comment .mCSB_outside + .mCS-minimal-dark.mCSB_scrollTools_vertical {
+    right: -6px;
+    margin: 6px 0;
+}
+
+.popup-con .submit-btn {
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    width: 135px;
+    height: 37px;
+    background: url(/resources/legacy/anymobi/img/btn_popup_confirm.png) no-repeat center;
+}
+
+#overlay-box {
+    background: none;
+}
+
+html.ie8 .popup-con {
+    zoom: 1;
+    filter: progid:DXImageTransform.Microsoft.Shadow(Color=#eeeeee, Strength=10,
+    Direction=0), progid:DXImageTransform.Microsoft.Shadow(Color=#eeeeee,
+    Strength=10, Direction=90), progid:DXImageTransform.Microsoft.Shadow(Color=#eeeeee,
+    Strength=10, Direction=180), progid:DXImageTransform.Microsoft.Shadow(Color=#eeeeee,
+    Strength=10, Direction=270);
+}
+
+/* width */
+.width-150 {
+    width: 150px;
+}
+
+.width-165 {
+    width: 165px;
+}
+
+.width-210 {
+    width: 210px;
+}
+
+.width-225 {
+    width: 225px;
+}
+
+.width-430 {
+    width: 430px;
+}
+
+.width-500 {
+    width: 500px;
+}
+
+.width-700 {
+    width: 700px;
+}
+
+/* align */
+.align-left {
+    text-align: left !important;
+}
+
+.align-center {
+    text-align: center !important;
+}
+
+.align-right {
+    text-align: right !important;
+}
+
+.pa-l-100 {
+    padding-left: 290px !important;
+}
+
+.pad-r-40 {
+    padding-right: 40px !important;
+}
+
+/*-----------------------------------
+		iCheck plugin css
+-----------------------------------*/
+.cj-input-chkbox {
+    cursor: pointer;
+    width: 19px;
+    height: 19px;
+    background-image: url(/resources/legacy/anymobi/img/check_box_normal.png);
+    background-repeat: no-repeat;
+}
+
+.cj-input-chkbox.checked {
+    background-image: url(/resources/legacy/anymobi/img/pop_check_box_selected.png);
+}
+
+/*-- ie8 css --*/
+.ie8 .board-head .total, .ie8 .grid-data-area th, .ie8 .m-title td.left .title.must_read, .ie8 .faq-tabs li, .ie8 .faq-tab-con th, .ie8 .border-qna .title, .ie8 .qna-board-area th {
+    font-weight: bold
+}
+
+.ie8 .faq-tabs li {
+    letter-spacing: -0.05em;
+    margin-right: 8px;
+}
+
+.ie8 .item-list {
+    padding-top: 10px
+}
+
+.l-content ul {
+    font-size: 15px;
+}

@@ -4,8 +4,10 @@
 
 ## 설치 파일
 
-1. jboss wildFly 38.0.1
+1. jboss wildFly 38.0.1 (X) -> 로컬에서는 tomcat 사용
    https://github.com/wildfly/wildfly/releases/download/38.0.1.Final/wildfly-38.0.1.Final.zip
+2. tomcat 10.1.57
+   https://tomcat.apache.org/download-10.cgi
 2. jdk 21
 3. intellij
 
@@ -17,7 +19,7 @@
 2. Configure... 버튼을 눌러 로컬의 WildFly 38.0.1 설치 디렉토리를 지정합니다.
 3. Deployment 탭으로 이동하여 + -> Artifact... -> ktlms-portal:war exploded를 추가합니다.
 4. Server 탭 < URL : http://localhost:8080/ 로 변경
-   1. On 'Update' action, On frame deactivation -> Update classes and resources 선택
+    1. On 'Update' action, On frame deactivation -> Update classes and resources 선택
 5. VM Options : -Dspring.profiles.active=local 입력
 6. portal: -Djboss.socket.binding.port-offset=0 (8080)
    admin : -Djboss.socket.binding.port-offset=1 (8081)
@@ -27,6 +29,7 @@
 ## css, js minify 자동 설정
 
 1. terser, cleancss 설치 (node가 있어야 함)
+
 ```
 # JS 압축기 설치
 npm install -g terser
@@ -37,6 +40,7 @@ npm install -g clean-css-cli
 ```
 
 2. terser, cleancss 위치 확인
+
 ```
 (Window)
 
@@ -56,40 +60,40 @@ sqi@SQIuiMacBookAir ~ % which cleancss
     - Name: CSS Minifier | JS Minifier
     - type: Cascading style sheet | JavaScript
     - Scope: 우측 ... 클릭 -> + 클릭
-       - Name: Only Original CSS | Only Original JS
-       - Pattern:
-         ```
-         - css : file:src/main/webapp/resources/css/**/*.css&&!file:src/main/webapp/resources/css/**/*.min.css
-         - js : file:src/main/webapp/resources/js/**/*.js&&!file:src/main/webapp/resources/js/**/*.min.js
-         ```
-    
-    - css
-      - Program: cleancss (또는 cleancss 설치 경로)
-      - Arguments: -o $FileNameWithoutExtension$.min.css $FileName$
-      - Output paths to refresh: $FileNameWithoutExtension$.min.css
-      - Working directory: $FileDir$
-   
-    - js
-      - Program: terser (또는 terser 설치 경로)
-      - Arguments: $FileName$ -o $FileNameWithoutExtension$.min.js --mangle --compress 
-      - Output paths to refresh: $FileNameWithoutExtension$.min.js
-      - Working directory: $FileDir$
+        - Name: Only Original CSS | Only Original JS
+        - Pattern:
+          ```
+          - css : file:src/main/webapp/resources/css/**/*.css&&!file:src/main/webapp/resources/css/**/*.min.css&&!file:src/main/webapp/resources/css/legacy/**/*.css
+          - js : file:src/main/webapp/resources/js/**/*.js&&!file:src/main/webapp/resources/js/**/*.min.js
+          ```
 
-   - 고급 설정: 하단의 Advanced Options에서 Auto-save edited files to trigger the watcher를 체크 해제
+    - css
+        - Program: cleancss (또는 cleancss 설치 경로)
+        - Arguments: -o $FileNameWithoutExtension$.min.css $FileName$
+        - Output paths to refresh: $FileNameWithoutExtension$.min.css
+        - Working directory: $FileDir$
+
+    - js
+        - Program: terser (또는 terser 설치 경로)
+        - Arguments: $FileName$ -o $FileNameWithoutExtension$.min.js --mangle --compress
+        - Output paths to refresh: $FileNameWithoutExtension$.min.js
+        - Working directory: $FileDir$
+
+    - 고급 설정: 하단의 Advanced Options에서 Auto-save edited files to trigger the watcher를 체크 해제
 
 6. common-ui.css 용 file watcher 추가
-   - Name: Common UI Minifier
-   - type: Cascading style sheet
-   - Scope: 우측 ... 클릭 -> + 클릭
-      - Name: Common UI
-     ```text
-     file[ktlms-portal]:src/main/webapp/resources/css/common/components/*.css&&!file[ktlms-portal]:src/main/webapp/resources/css/common/components/*.min.css
-     file:src/main/webapp/resources/css/common/common-ui.css
-     ```
-   - Program: cleancss (또는 cleancss 설치 경로)
-   - Arguments: -o $FileDir$/../common-ui.min.css $FileDir$/../common-ui.css
-   - Output paths to refresh: $FileDir$/../common-ui.min.css
-   - Working directory: $FileDir$
+    - Name: Common UI Minifier
+    - type: Cascading style sheet
+    - Scope: 우측 ... 클릭 -> + 클릭
+        - Name: Common UI
+      ```text
+      file[ktlms-portal]:src/main/webapp/resources/css/common/components/*.css&&!file[ktlms-portal]:src/main/webapp/resources/css/common/components/*.min.css
+      file:src/main/webapp/resources/css/common/common-ui.css
+      ```
+    - Program: cleancss (또는 cleancss 설치 경로)
+    - Arguments: -o $FileDir$/../common-ui.min.css $FileDir$/../common-ui.css
+    - Output paths to refresh: $FileDir$/../common-ui.min.css
+    - Working directory: $FileDir$
 
 ---
 
@@ -121,11 +125,11 @@ sqi@SQIuiMacBookAir ~ % which cleancss
 ```xml
 
 <servlet-container name="default">
-   <jsp-config development="true"
-               check-interval="1"
-               modification-test-interval="1"
-               recompile-on-fail="true"/>
-   <websockets/>
+    <jsp-config development="true"
+                check-interval="1"
+                modification-test-interval="1"
+                recompile-on-fail="true"/>
+    <websockets/>
 </servlet-container>
 ```
 

@@ -1,0 +1,64 @@
+.board-head {
+    position: relative;
+}
+
+.popup-help {
+    display: none;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    z-index: 60;
+}
+
+.grid-data-area .icon-help {
+    margin-left: 6px;
+    vertical-align: bottom;
+}
+
+.grid-data-area tbody td a {
+    width: 330px;
+}
+
+.grid-data-area tbody td .btn-txt.green {
+    border: 1px solid #83d7c0;
+    color: #83d7c0;
+    width: 70px;
+    display: inline-block;
+    background: #fff;
+    font-size: 12px;
+    margin-top: -2px;
+    height: 27px;
+    padding: 6px 0;
+    text-decoration: none;
+}
+
+.grid-data-area .icon-equip span {
+    display: inline-block;
+    width: 23px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100%;
+}
+
+.grid-data-area .icon-equip .pc {
+    background-image: url(/resources/legacy/anymobi/img/curriculum/icon_pc_lg.png);
+}
+
+.grid-data-area .icon-equip .pad {
+    margin-left: 18px;
+    background-image: url(/resources/legacy/anymobi/img/curriculum/icon_ipad_lg.png);
+}
+
+.grid-data-area .icon-equip .phone {
+    margin-left: 12px;
+    background-image: url(/resources/legacy/anymobi/img/curriculum/icon_phone_lg.png);
+}
+
+.grid-data-area .icon-equip .no {
+    background-position: center;
+}
+
+.grid-data-area .icon-equip .dis {
+    background-position: center bottom;
+}

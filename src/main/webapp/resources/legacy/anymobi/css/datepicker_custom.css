@@ -1,0 +1,60 @@
+.ui-datepicker-calendar td:first-child a {
+    color: #4E79B7;
+}
+
+.ui-datepicker-calendar td:last-child a {
+    color: #4E79B7;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+    color: #000;
+}
+
+.ui-datepicker-calendar td a.ui-state-active {
+    color: #fff;
+    background: #4E79B7;
+}
+
+.ui-datepicker .ui-datepicker-buttonpane button {
+    font-size: 12px;
+}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active {
+    color: #fff;
+}
+
+.datepicker-con {
+    display: inline-block;
+}
+
+.datepicker-con input {
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.datepicker-con .ui-datepicker-trigger {
+    cursor: pointer;
+    float: left;
+    margin-top: 3px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.datepicker-con.type-1 {
+    vertical-align: middle;
+    background-color: #fff;
+}
+
+.datepicker-con.type-1 input {
+    border: none;
+}
+
+.datepicker-con.type-1 .ui-datepicker-trigger {
+    float: none;
+    margin-top: -1px;
+}
+

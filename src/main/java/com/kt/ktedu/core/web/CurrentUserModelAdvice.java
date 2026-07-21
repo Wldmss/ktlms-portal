@@ -2,6 +2,7 @@ package com.kt.ktedu.core.web;
 
 import com.kt.ktedu.auth.jwt.dto.JwtDTO;
 import com.kt.ktedu.core.security.auth.SecurityUtil;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
@@ -13,8 +14,18 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 @ControllerAdvice
 public class CurrentUserModelAdvice {
 
+    /* login user info */
     @ModelAttribute("loginUser")
     public JwtDTO loginUser() {
         return SecurityUtil.getCurrentUserOrNull();
+    }
+
+    /* portal main url */
+    @Value("${url.portal.main}")
+    private String mainUrl;
+
+    @ModelAttribute("mainUrl")
+    public String mainUrl() {
+        return mainUrl;
     }
 }

@@ -1,0 +1,909 @@
+.top-con {
+    margin-bottom: 15px;
+    padding: 0 15px;
+}
+
+.middle-con {
+    padding: 0 30px;
+}
+
+.middle-con > div.border {
+    border: 1px solid #ccc;
+}
+
+.board-head {
+    margin: 40px 0 10px 0;
+    padding-bottom: 5px;
+}
+
+.board-head.bottom {
+    margin: 30px 0 0 0;
+    padding: 0;
+}
+
+.board-head .facility {
+    font-size: 20px;
+}
+
+.board-head .person {
+    font-size: 14px;
+    color: #666;
+    padding-left: 15px;
+}
+
+.board-head .person .nbg-bold {
+    padding-right: 15px;
+}
+
+.board-head .homepage {
+    font-size: 14px;
+    color: #666;
+    padding: 10px 0 0 108px;
+}
+
+.grid-data-area {
+    position: relative;
+    border-top: 2px solid #000000;
+    border-bottom: 1px solid #8c8c8c;
+}
+
+.grid-data-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.grid-data-area thead th {
+    border-left: 1px solid #dedede;
+    border-bottom: 1px solid #808080;
+    padding: 8px 0 6px;
+    text-align: center;
+    font-size: 14px;
+    background: #f2f2f2;
+}
+
+.grid-data-area thead th:first-child {
+    border-left: none;
+}
+
+.grid-data-area thead th.bg {
+    background: #e6e6e6;
+}
+
+.grid-data-area tbody th {
+    background: #f2f2f2;
+    border-bottom: 1px solid #dedede;
+    text-align: center;
+    font-size: 14px;
+}
+
+.grid-data-area tbody th.border-non {
+    border-bottom: none;
+}
+
+.grid-data-area tbody td {
+    position: relative;
+    padding: 9px 0 7px;
+    text-align: center;
+    border-left: 1px solid #dedede;
+    border-bottom: 1px solid #dedede;
+    height: 20px;
+    font-size: 12px;
+}
+
+.grid-data-area tbody td.border {
+    border-bottom: 1px solid #f3f3f3;
+}
+
+.grid-data-area tbody tr.tr-last td {
+    border-bottom: none;
+}
+
+.txt-red {
+    color: #df2428;
+}
+
+.image-map {
+    margin: 15px 0 35px;
+    border: 1px solid #e0e0e0;
+    position: relative;
+    text-align: center;
+}
+
+.image-wrap {
+    position: relative;
+    height: 400px;
+    margin: 10px 90px;
+}
+
+.image-list li {
+    display: inline-block;
+    float: left;
+    width: 225px;
+    margin: 0 20px 20px 0;
+    cursor: pointer;
+}
+
+.image-list li.last {
+    margin: 0 0 20px 0;
+}
+
+.image-list a > div {
+    width: 225px;
+    height: 160px;
+}
+
+.image-list a {
+    display: inline-block;
+}
+
+.image-list a > p {
+    border-left: 1px solid #dcdcdc;
+    border-right: 1px solid #dcdcdc;
+    border-bottom: 1px solid #dcdcdc;
+    text-align: center;
+    font-size: 14px;
+    padding: 5px 0;
+    font-weight: 400;
+}
+
+.layer-popup {
+    display: none;
+    background: #ffffff;
+    width: 960px;
+    height: 574px;
+    position: absolute;
+    top: -70px;
+    left: 0;
+    background: url(/resources/legacy/anymobi/img/academy/img_popup_facility_frame.png) no-repeat 50% 50%;
+}
+
+.layer-popup img {
+    display: block;
+    margin: 20px auto;
+}
+
+.layer-popup > em {
+    display: block;
+    position: absolute;
+    top: -5px;
+    right: -9px;
+    width: 69px;
+    height: 75px;
+    background: url(/resources/legacy/anymobi/img/academy/btn_popup_close_shadow.png) no-repeat 50% 50%;
+    text-indent: -3000px;
+    cursor: pointer;
+}
+
+.direction {
+    width: 960px;
+    margin: 10px 90px;
+}
+
+.direction .map {
+    width: 960px;
+    height: 346px;
+    border: 1px solid #dcdcdc;
+}
+
+.direction p {
+    height: 35px;
+    padding: 11px 15px 0;
+    background: #333;
+    color: #f1f1f1;
+}
+
+.direction p a {
+    color: #f1f1f1;
+}
+
+.direction .btn {
+    float: right;
+    margin: -35px 5px 0;
+}
+
+.direction-list {
+    float: left;
+    display: inline-block;
+    width: 275px;
+    margin: 10px 67px 0 0px;
+}
+
+.direction-list:first-child {
+    margin-left: 90px;
+}
+
+.direction-list.width-445 {
+    width: 445px;
+}
+
+.direction-list > p {
+    border-bottom: 1px solid #e60012;
+    font-size: 16px;
+    padding-bottom: 5px;
+}
+
+.direction-list.last {
+    margin: 10px 0 0 0;
+}
+
+.direction-list > ul {
+    margin-top: 5px;
+}
+
+.direction-list li {
+    position: relative;
+    color: #969696;
+    padding: 3px 0;
+}
+
+.direction-list > ul p {
+    position: relative;
+    font-weight: 500;
+}
+
+.direction-list > ul p:before {
+    font-weight: bold;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 5px;
+    left: 0;
+    display: inline-block;
+}
+
+.jc-facility-tabs {
+    margin: 0 15px 30px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.jc-facility-tabs a {
+    display: inline-block;
+    padding: 9px 0;
+    width: 118px;
+    font-size: 16px;
+    color: #b4b4b4;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+}
+
+.jc-facility-tabs a:hover {
+    color: #777;
+}
+
+.jc-facility-tabs a.on {
+    color: #df2428;
+    border-bottom: 6px solid #df2428;
+}
+
+/* �߰�_2015-11-19 */
+.middle-con.reserve {
+    padding: 30px 15px !important;
+}
+
+.training-data-area {
+    position: relative;
+    border-top: 2px solid #000000;
+    border-bottom: 1px solid #8c8c8c;
+    margin: 10px 0 40px;
+}
+
+.training-data-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.training-data-area thead th {
+    border-bottom: 1px solid #808080;
+    padding: 5px 0 3px;
+    text-align: center;
+    font-size: 16px;
+    background: #f2f2f2;
+}
+
+.training-data-area thead th.bg {
+    background: #e6e6e6;
+}
+
+.training-data-area thead th.small {
+    font-size: 14px
+}
+
+.training-data-area thead th.none {
+    border: none;
+}
+
+.training-data-area tr.alone th {
+    padding: 15px 0 13px;
+}
+
+.training-data-area tbody th {
+    background: #f2f2f2;
+    padding: 9px 0 7px;
+    border-bottom: 1px solid #dedede;
+    text-align: center;
+    font-size: 15px;
+}
+
+.training-data-area tbody .border-non {
+    border-bottom: none;
+}
+
+.training-data-area tbody td {
+    position: relative;
+    padding: 9px 0 7px;
+    text-align: center;
+    border-bottom: 1px solid #dcdcdc;
+    height: 20px;
+    font-size: 15px;
+}
+
+.training-data-area tbody td.border {
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.training-data-area tbody tr.tr-last td,
+.training-data-area tbody tr.tr-last th {
+    border-bottom: none;
+}
+
+.training-data-area tbody td.align-left {
+    text-align: left !important;
+    padding-left: 10px;
+}
+
+.search-box {
+    position: relative;
+    padding: 5px;
+    background: #eeeeee;
+    border: 1px solid #dcdcdc;
+    margin-top: 30px;
+    border-radius: 8px;
+}
+
+.search-box table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.search-box th {
+    font-size: 16px;
+    text-align: center;
+}
+
+.search-box td {
+    padding: 4px 0 4px 0;
+    text-align: left;
+}
+
+.search-box td select {
+    font-size: 16px;
+    padding: 5px;
+    height: 30px;
+    border: 1px solid #dadada;
+    vertical-align: middle;
+    background: #FFF;
+    -webkit-appearance: none;
+    background: #ffffff url(/resources/legacy/newPortal/icons/more-btn-icon.png) no-repeat right 10px center/15px 10px;
+}
+
+.search-box td input {
+    font-size: 14px;
+    padding: 6px 7px;
+    border: 1px solid #dadada;
+    vertical-align: middle;
+}
+
+.btn-search {
+    width: 85px;
+    height: 33px;
+    display: inline-block;
+    vertical-align: middle;
+    background: url(/resources/legacy/anymobi/img/btn_search.png) no-repeat center center;
+}
+
+.btn-confirm {
+    width: 85px;
+    height: 33px;
+    display: inline-block;
+    vertical-align: middle;
+    background: url(/resources/legacy/anymobi/img/btn_search_classroom.png) no-repeat center center;
+}
+
+.board-head .title {
+    font-size: 20px;
+    color: #666;
+    display: inline-block;
+}
+
+.board-head .title > span {
+    color: #df2428;
+}
+
+.reserve-data-area {
+    position: relative;
+    border-top: 2px solid #000000;
+    border-bottom: 1px solid #8c8c8c;
+}
+
+.reserve-data-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.reserve-data-area th,
+.reserve-data-area td {
+    font-size: 14px;
+}
+
+.reserve-data-area thead th {
+    border-bottom: 1px solid #8c8c8c;
+    padding: 14px 0 12px;
+    text-align: center;
+}
+
+.reserve-data-area tbody td {
+    padding: 14px 0 12px;
+    text-align: center;
+    border-bottom: 1px solid #f2f2f2;
+    height: 40px;
+    font-size: 16px;
+}
+
+.reserve-data-area tbody tr.tr-last td {
+    border-bottom: none;
+}
+
+.reserve-data-area tbody td a {
+    width: 350px;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    font-size: 16px;
+}
+
+.reserve-data-area .txt {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.com-btn {
+    cursor: pointer;
+    display: inline-block;
+    margin: 4px auto 0;
+    width: 70px !important;
+    height: 27px;
+    line-height: 27px;
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.com-btn:hover {
+    text-decoration: none;
+}
+
+.com-btn.cancel-btn {
+    color: #2cbbb5;
+    border: 1px solid #2cbbb5;
+}
+
+.com-btn.checkin-btn {
+    color: #83d7c0;
+    border: 1px solid #83d7c0;
+}
+
+.return-btn {
+    cursor: pointer;
+    font-weight: 300;
+}
+
+.return-btn:hover {
+    text-decoration: underline;
+}
+
+.process {
+    border: 1px solid #dcdcdc;
+    padding: 30px;
+}
+
+.process .title {
+    font-size: 20px;
+    font-weight: 400;
+    float: left;
+    margin-top: 20px;
+}
+
+.process .step {
+    margin-left: 80px;
+}
+
+.process .step ul {
+    margin-top: 15px;
+}
+
+.process .step ul li {
+    color: #666;
+    line-height: 25px;
+}
+
+.calendar {
+    display: inline-block;
+    position: relative
+}
+
+.calendar > a {
+    position: absolute;
+    top: 4px;
+    right: 5px;
+}
+
+.width-60 {
+    width: 60px;
+}
+
+.width-70 {
+    width: 70px;
+}
+
+.width-80 {
+    width: 80px;
+}
+
+.width-100 {
+    width: 100px;
+}
+
+.width-107 {
+    width: 107px;
+}
+
+.width-112 {
+    width: 112px;
+}
+
+.width-130 {
+    width: 130px;
+}
+
+.width-165 {
+    width: 165px;
+}
+
+.width-240 {
+    width: 240px;
+}
+
+.height-300 {
+    height: 300px;
+}
+
+.height-770 {
+    height: 770px;
+}
+
+/*.height-850 { height: 850px; }*/
+body.over-s {
+    overflow-y: auto !important;
+}
+
+.pop-academy {
+    width: 840px;
+    padding: 50px 60px 20px;
+    background: #fff;
+    margin: 0 auto;
+}
+
+.pop-academy .title {
+    margin-bottom: 20px;
+}
+
+.pop-academy .txt {
+    float: right;
+    margin-top: -30px;
+    color: #959595;
+}
+
+.classroom-data-area {
+    position: relative;
+    padding: 20px 10px;
+    border-top: 1px solid #949494;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.classroom-data-area.in {
+    position: relative;
+    border: none;
+    padding: 0;
+}
+
+.classroom-data-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.classroom-data-area th,
+.classroom-data-area td {
+    font-size: 14px;
+}
+
+.classroom-data-area th {
+    position: relative;
+    padding: 8px 0 6px 0;
+    font-weight: 400;
+    text-align: center;
+}
+
+.classroom-data-area th .txt-red {
+    position: absolute;
+    top: 13px;
+    left: 6px;
+}
+
+.classroom-data-area td {
+    padding: 4px 0;
+    height: 38px;
+}
+
+.classroom-data-area td.padding {
+    padding: 0;
+}
+
+.classroom-data-area td input {
+    border: 1px solid #e5e5e5;
+    padding: 6px 5px;
+    margin: 0 5px;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 14px;
+}
+
+.classroom-data-area td input:first-child {
+    margin: 0 3px 0 0;
+}
+
+.classroom-data-area td select {
+    border: 1px solid #e5e5e5;
+    padding: 5px;
+    margin: 0 3px;
+    vertical-align: middle;
+    font-size: 14px;
+}
+
+.classroom-data-area td img {
+    vertical-align: middle;
+    margin-left: 3px;
+}
+
+.classroom-data-area td textarea {
+    border: 1px solid #e5e5e5;
+    padding: 6px 5px;
+    /*margin: 0 3px;*/
+    width: 100%;
+    height: 70px;
+    font-size: 14px;
+    outline: none;
+    resize: none;
+}
+
+.classroom-data-area td select:first-child {
+    margin: 0 3px 0 0;
+}
+
+.pop-academy .pop-btn-area {
+    border-top: 1px solid #939393;
+    padding-top: 20px !important;
+    text-align: right;
+}
+
+.pop-academy .pop-btn-area a {
+    margin: 0 3px;
+}
+
+.pop-academy .guide {
+    font-weight: 400;
+    line-height: 18px;
+    padding: 15px 30px 20px;
+}
+
+.pop-academy .guide li {
+    text-indent: -15px;
+}
+
+.align-left {
+    text-align: left !important;
+}
+
+.align-center {
+    text-align: center !important;
+}
+
+.pop-search {
+    width: 700px;
+    height: 530px;
+    padding: 30px;
+    background: #fff;
+    margin: 0 auto;
+}
+
+.pop-search .title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.pop-search .search {
+    height: 40px;
+}
+
+.pop-search .search span {
+    font-size: 16px;
+    font-weight: 400;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.pop-search .search img {
+    vertical-align: middle;
+}
+
+.pop-search .search input {
+    vertical-align: middle;
+    border: 1px solid #dadada;
+    height: 30px;
+    width: 150px;
+    padding: 5px;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.pop-data-area {
+    position: relative;
+}
+
+.pop-data-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.pop-data-area th,
+.pop-data-area td {
+    font-size: 14px;
+}
+
+.pop-data-area thead th {
+    padding: 13px 0 11px;
+    text-align: center;
+    background: #8c8c8c;
+    color: #fff;
+}
+
+.pop-data-area tbody td {
+    padding: 6px 0 5px;
+    text-align: center;
+    border-bottom: 1px solid #f2f2f2;
+    height: 40px;
+}
+
+.pop-data-area tbody td.align-left span {
+    width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+    padding-left: 10px;
+}
+
+.pop-data-area tbody tr.tr-last td {
+    border-bottom: none;
+}
+
+.pop-data-area .cc-con-none {
+    height: 300px;
+}
+
+.j-scrollbar-content.bottom {
+    border-top: none;
+    border-bottom: 1px solid #8c8c8c;
+    margin-bottom: 15px;
+}
+
+input[readonly] {
+    background-color: #eee;
+}
+
+/*-----------------------------------
+		iCheck plugin css
+-----------------------------------*/
+.cj-iCheck > div {
+    display: inline-block;
+}
+
+.cj-iCheck > div > div {
+    display: inline-block;
+}
+
+.cj-iCheck label {
+    cursor: pointer;
+    display: inline-block;
+    padding: 6px;
+    font-size: 14px;
+    vertical-align: top;
+}
+
+.cj-iCheck label span {
+    padding-left: 5px;
+}
+
+/*--- iCheck_radio ---*/
+.cj-input-radio {
+    cursor: pointer;
+    width: 19px;
+    height: 19px;
+    background-image: url(/resources/legacy/anymobi/img/btn_pop_radio.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.cj-input-radio.checked {
+    background-image: url(/resources/legacy/anymobi/img/btn_pop_radio_selected.png);
+}
+
+
+/*-- ie8 css --*/
+.ie8 .jc-facility-tabs a,
+.ie8 .direction-list > p,
+.ie8 .board-head .facility,
+.ie8 .grid-data-area th,
+.ie8 .process .title,
+.ie8 .search-box th,
+.ie8 .board-head .title,
+.ie8 .pop-search .search span,
+.ie8 .pop-data-area th,
+.ie8 .reserve-data-area th {
+    font-weight: bold
+}
+
+.ie8 .search-box th {
+    font-size: 15px;
+    letter-spacing: -0.1em
+}
+
+.ie8 .image-list a > p {
+    padding: 8px;
+    font-weight: bold
+}
+
+.ie8 .board-head .homepage {
+    padding-left: 125px
+}
+
+.ie8 .classroom-data-area th {
+    font-weight: bold;
+    letter-spacing: -0.05em;
+}
+
+/* 20190417_�߰� */
+.tab-title .btn-pop {
+    display: block;
+    position: absolute;
+    top: 195px;
+    left: 185px;
+    width: 120px;
+    height: 26px;
+    line-height: 28px;
+    font-size: 13px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    background-color: #ff565e;
+    border-radius: 3px;
+    -webkit-transition: width 0.2s;
+    transition: width 0.2s;
+}
+
+.tab-title {
+    padding: 10px 0px;
+}

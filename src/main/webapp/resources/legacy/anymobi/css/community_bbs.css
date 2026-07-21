@@ -1,0 +1,537 @@
+#community_bbs {
+    width: 100%;
+    height: 100%;
+    background-color: #f8f8f8;
+}
+
+#community_bbs > div {
+    position: relative;
+}
+
+.pop-header {
+    min-height: 120px;
+    color: #fff;
+    background-color: #EB676A;
+}
+
+.pop-header > p {
+    padding: 0 36px;
+    height: 44px;
+    line-height: 44px;
+    font-size: 20px;
+    border-bottom: 1px solid #ECECEC;
+}
+
+.pop-header ul {
+    padding: 16px 24px 16px 36px;
+}
+
+.pop-header li.title {
+    margin-bottom: 6px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.pop-header li.title span {
+    position: relative;
+    top: -2px;
+    padding: 0 5px;
+    /*font-size: 18px;*/
+}
+
+.pop-header li.sub > * {
+    display: inline-block;
+}
+
+.pop-header li.sub em {
+    padding-right: 15px;
+    width: 700px;
+    color: #ffcdcd;
+}
+
+.pop-header li.sub span {
+    float: right;
+}
+
+.pop-container {
+    position: relative;
+    height: 1000px;
+    padding-left: 160px;
+}
+
+.pop-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 25px 0;
+    width: 160px;
+    height: 100%;
+    background-color: #ECECEC;
+    overflow: auto;
+}
+
+.pop-nav ul {
+    height: 470px;
+    overflow: auto;
+}
+
+.pop-nav li a {
+    display: block;
+    position: relative;
+    padding: 12px 40px;
+    width: 100%;
+    font-size: 17px;
+    color: #707070;
+    font-weight: 400;
+    text-decoration: none;
+    background-repeat: no-repeat;
+    background-position: 20px center;
+    background-image: url(/resources/legacy/anymobi/img/copboard/icon_circle_black_line.png);
+}
+
+.pop-nav li a:hover {
+    color: #EB676A;
+}
+
+.pop-nav li a.active {
+    color: #EB676A;
+    background-image: url(/resources/legacy/anymobi/img/my_room/icon_popup_leftmenu_circle_fill.png);
+}
+
+.pop-nav li a.active em {
+    display: block;
+    position: absolute;
+    top: 11px;
+    right: 0;
+    width: 10px;
+    height: 19px;
+    background: url(/resources/legacy/anymobi/img/my_room/icon_popup_leftmenu_indicator.png) no-repeat center;
+}
+
+.pop-nav .bot-btn {
+    display: block;
+    position: absolute;
+    bottom: 28px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 111px;
+    height: 36px;
+    background: url(/resources/legacy/anymobi/img/my_room/btn_popup_leftmenu_e_learning.png) no-repeat center;
+}
+
+.pop-section {
+    position: relative;
+    height: 100%;
+    overflow: auto;
+}
+
+.pop-content {
+    padding: 44px;
+}
+
+.board-head {
+    height: 33px;
+    margin-top: 55px;
+}
+
+.board-head.top {
+    margin-top: 0;
+}
+
+.board-head .title {
+    font-size: 19px;
+    font-weight: 400;
+}
+
+.board-head .btn {
+    float: right;
+    margin-top: -40px;
+}
+
+.grid-data-area {
+    position: relative;
+    /* border-top: 2px solid #000000; */
+    border-bottom: 1px solid #ACACAC;
+}
+
+.grid-data-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.grid-data-area th,
+.grid-data-area td {
+    font-size: 18px;
+}
+
+.grid-data-area th {
+    border-bottom: 1px solid #8c8c8c;
+    padding: 15px 0 13px;
+    text-align: center;
+}
+
+.grid-data-area td {
+    position: relative;
+    padding: 9px 0 7px;
+    text-align: center;
+    border-bottom: 1px solid #f2f2f2;
+    height: 51px;
+}
+
+.grid-data-area tr.tr-last td {
+    border-bottom: none;
+}
+
+.grid-data-area tr:last-child td {
+    border-bottom: none;
+}
+
+.grid-data-area td a {
+    display: block;
+    padding: 0 20px;
+    text-align: left;
+    vertical-align: middle;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.width-90 {
+    width: 90px !important;
+}
+
+.width-450 {
+    width: 450px !important;
+}
+
+.pop-board-area {
+    position: relative;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.pop-board-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.pop-board-area tbody th {
+    position: relative;
+    padding: 12px 10px 8px;
+    font-size: 17px;
+    font-weight: 400;
+    vertical-align: top;
+    text-align: left;
+    color: #666;
+}
+
+.pop-board-area tbody td {
+    padding: 7px 0;
+    font-size: 16px;
+    width: 100%;
+}
+
+.pop-board-area tbody td.align-right {
+    padding-right: 5px;
+}
+
+.pop-board-area input {
+    border: 1px solid #dcdcdc;
+    padding: 6px 10px;
+    vertical-align: middle;
+    font-size: 16px;
+    width: 100%;
+}
+
+.pop-board-area input[type=file] {
+    /*width: 250px;
+    padding: 0;
+    display: none;*/
+}
+
+.pop-board-area textarea {
+    border: 1px solid #dcdcdc;
+    padding: 5px 10px;
+    width: 100%;
+    height: 155px;
+    outline: none;
+    resize: none;
+    line-height: 20px;
+    font-size: 15px;
+}
+
+.pop-board-area select[disabled=disabled] {
+    background: #f8f8f8;
+    border: 1px solid #e5e5e5;
+    color: #333;
+}
+
+.pop-board-area input[readonly=readonly] {
+    background: #f8f8f8;
+    border: 1px solid #e5e5e5;
+}
+
+.pop-board-area textarea[readonly=readonly] {
+    background: #f8f8f8;
+    border: 1px solid #e5e5e5;
+}
+
+.pop-board-area img {
+    vertical-align: middle;
+    margin: 0 2px 2px 0;
+}
+
+.align-right {
+    text-align: right !important;
+}
+
+.pop-btn-area.top {
+    margin: -15px 0 10px;
+}
+
+.pop-btn-area {
+    text-align: right;
+    margin-top: 15px;
+}
+
+.pop-btn-area a {
+    margin-left: 5px;
+}
+
+.com_summary {
+    padding: 44px 50px;
+}
+
+.com_summary > table {
+    width: 100%;
+    font-size: 14px;
+    line-height: 1.7em;
+}
+
+.com_summary th {
+    vertical-align: middle;
+    border: 1px solid #e0e0e0;
+}
+
+.com_summary td {
+    vertical-align: top;
+    border: 1px solid #e0e0e0;
+}
+
+.com_summary th {
+    padding: 8px 0;
+    color: #393939;
+    text-align: center;
+    font-size: 17px;
+}
+
+.com_summary td {
+    padding: 8px 20px;
+    font-weight: 400;
+    color: #333;
+    font-size: 16px;
+}
+
+.com_summary td.info > div {
+    display: inline-block;
+}
+
+.com_summary td.info > div.dep {
+    display: block;
+    width: 550px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.com_summary td.info em {
+    color: #393939;
+}
+
+.com_summary td.info > div.first {
+    width: 120px;
+}
+
+.com_summary td.info > div.second {
+    width: 200px;
+}
+
+.com_summary .attach-down img {
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.com_summary .attach-down a:hover {
+    color: #333;
+}
+
+.pad-tb-20 {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+}
+
+.pad-tb-30 {
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+}
+
+/*-----------------------------------
+		iCheck plugin css
+-----------------------------------*/
+.select-list .cj-iCheck > div > div {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.select-list .cj-iCheck label {
+    font-size: 12px;
+    color: #333;
+    vertical-align: middle;
+    width: 80px;
+    padding: 6px 0;
+}
+
+.select-list .cj-iCheck label span {
+    font-size: 12px;
+    display: inline-block;
+    padding-top: 3px;
+    height: 19px;
+    vertical-align: middle;
+}
+
+.select-list .cj-input-chkbox {
+    width: 19px;
+    height: 19px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 7px;
+}
+
+/*--- iCheck_checkbox ---*/
+.cj-input-chkbox {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    background-image: url(/resources/legacy/anymobi/img/check_box_normal.png);
+    background-repeat: no-repeat;
+}
+
+.cj-input-chkbox.checked {
+    background-image: url(/resources/legacy/anymobi/img/pop_check_box_selected.png);
+}
+
+/*--- iCheck_radio ---*/
+.answer ul li .cj-input-radio {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background-image: url(/resources/legacy/anymobi/img/btn_radio.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.answer ul li .cj-input-radio.checked {
+    background-image: url(/resources/legacy/anymobi/img/btn_radio_selected.png);
+}
+
+
+/*-- ie8 css --*/
+.ie8 .pop-header > p,
+.ie8 .pop-header li.title,
+.ie8 .grid-data-area th,
+.ie8 .pop-board-area th {
+    font-weight: bold
+}
+
+.ie8 .com_summary th {
+    letter-spacing: -0.05em;
+}
+
+
+/*--첨부 파일 관련 css 변경 --*/
+.file-search-box {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.file-search-box > p {
+    position: absolute;
+    top: 8px;
+    left: 0;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.file-search-box > p em {
+    padding-right: 3px;
+    color: #df2428;
+}
+
+.file-search {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.file-search img {
+    vertical-align: middle;
+}
+
+.file-search span {
+    color: #959595;
+    padding-left: 5px;
+}
+
+.file-list li {
+    color: #666;
+    border-bottom: 1px solid #eee;
+    padding: 7px 10px;
+}
+
+.file-list li img {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.file-list .file-size {
+    color: #959595;
+    padding: 0 10px;
+}
+
+/* 2016-02-19 추가 */
+.file-input-div {
+    position: absolute;
+    width: 90px;
+    height: 22px;
+}
+
+.file-input-button {
+    width: 90px;
+    height: 30px;
+    background: #5e5e5e;
+    color: #ffffff;
+}
+
+.file-input-hidden {
+    position: absolute;
+    right: -3px;
+    top: -3px;
+    opacity: 0;
+    cursor: pointer;
+    filter: alpha(opacity=0);
+}
+
+.file-size-div > span {
+    position: absolute;
+    left: 100px;
+    top: 10px;
+}
+
+input[type="text"] {
+    background: #fff;
+}
+
+ul {
+    font-size: 15px;
+}

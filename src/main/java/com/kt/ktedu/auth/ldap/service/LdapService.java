@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kt.ktedu.auth.ldap.dto.LdapDTO;
 import com.kt.ktedu.auth.ldap.dto.LdapResponseDTO;
 import com.kt.ktedu.auth.ldap.dto.LdapResultDTO;
-import com.kt.ktedu.auth.ldap.dto.LoginDTO;
+import com.kt.ktedu.auth.login.dto.LoginDTO;
 import com.kt.ktedu.common.crypto.util.AES256Util;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

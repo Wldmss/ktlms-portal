@@ -51,11 +51,6 @@
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.kt.ktedu"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+        <property name="annotationClass" value="org.apache.ibatis.annotations.Mapper"/>
     </bean>
-
-    <!--KT-*.xml 순서 중요-->
-    <!-- 나머지 다 삭제하면 kt-mybatis도 삭제하고 통합-->
-    <!--<import resource="classpath:conf/spring/KT-properties.xml"/>    &lt;!&ndash;환경변수&ndash;&gt;-->
-    <!--<import resource="classpath:conf/spring/KT-mybatis.xml"/>       &lt;!&ndash;DB Mybatis 설정&ndash;&gt;-->
-    <!--<import resource="classpath:conf/spring/KT-interceptors.xml"/>  &lt;!&ndash;interceptor 설정&ndash;&gt;--><!--spring security 에서 설정-->
 </beans>

@@ -62,6 +62,8 @@ public class JwtProvider {
     public static final long IDLE_EXPIRATION_MS = 1000L * 60 * 60 * 3;
     // 절대 만료(세션 최대 수명): 24시간. rotation 으로도 연장되지 않아 로그인 후 최대 24시간이면 재로그인.
     public static final long ABSOLUTE_EXPIRATION_MS = 1000L * 60 * 60 * 24;
+    // 로그인 중간 단계(OTP/중복 로그인 확인) 전용 단기 토큰: 5분
+    public static final long LOGIN_CHALLENGE_EXPIRATION_MS = 1000L * 60 * 5;
 
     // refresh token 에 절대 만료 시각(epoch ms)을 담는 custom claim 이름
     private static final String CLAIM_ABS_EXP = "absExp";
@@ -69,11 +71,7 @@ public class JwtProvider {
     public static final String ACCESS_COOKIE_NAME = "access_token";
     public static final String REFRESH_COOKIE_NAME = "refresh_token";
 
-    // create login token TODO issueToken 처리
-    public String loginToken(HttpServletResponse response, JwtDTO jwtDTO) {
-        String token = this.createAccessToken(jwtDTO);
-        return token;
-    }
+    public static final String CHALLENGE_OTP = "otp";
 
     // =========================================================
     // Access Token
@@ -130,37 +128,81 @@ public class JwtProvider {
     }
 
     // =========================================================
+    // Login Challenge Token
+    // =========================================================
+
+    /**
+     * 비밀번호 인증 이후 OTP/중복 로그인 확인 단계에서만 사용하는 단기 서명 토큰.
+     * Access Token 과 같은 키를 사용하지만 type 을 분리하여 인증 토큰으로는 사용할 수 없다.
+     */
+    public String createLoginChallenge(String userId,
+                                       String purpose,
+                                       String resultUrl,
+                                       boolean accountLocked,
+                                       String requestFingerprint) {
+        Date now = new Date();
+        return Jwts.builder()
+                .id(UUID.randomUUID().toString())
+                .subject(userId)
+                .claim("type", "login-challenge")
+                .claim("purpose", purpose)
+                .claim("resultUrl", resultUrl)
+                .claim("accountLocked", accountLocked)
+                .claim("requestFingerprint", requestFingerprint)
+                .issuedAt(now)
+                .expiration(new Date(now.getTime() + LOGIN_CHALLENGE_EXPIRATION_MS))
+                .signWith(accessSecretKey(), Jwts.SIG.HS256)
+                .compact();
+    }
+
+    public LoginChallenge parseLoginChallenge(String token) {
+        Claims claims = parseAccessToken(token);
+        if (!"login-challenge".equals(claims.get("type", String.class))) {
+            throw new JwtException("Login Challenge Token type mismatch");
+        }
+        return new LoginChallenge(
+                claims.getSubject(),
+                claims.get("purpose", String.class),
+                claims.get("resultUrl", String.class),
+                Boolean.TRUE.equals(claims.get("accountLocked", Boolean.class)),
+                claims.get("requestFingerprint", String.class)
+        );
+    }
+
+    public record LoginChallenge(String userId,
+                                 String purpose,
+                                 String resultUrl,
+                                 boolean accountLocked,
+                                 String requestFingerprint) {
+    }
+
+    // =========================================================
     // Refresh Token
     // =========================================================
 
     /**
-     * Refresh Token 생성
+     * Refresh Token 생성 (최초 로그인) — 절대 만료 = now + 24시간.
      * 토큰 고유 id(JWT 표준 클레임명: jti) 를 부여해 기기/세션 별로 구분 저장하고, rotation 재사용 감지에 사용한다.
      */
     public String createRefreshToken(String userId) {
-        long now = System.currentTimeMillis();
-        // 최초 로그인: 절대 만료 = now + 24시간
-        return buildRefreshToken(userId, now, now + ABSOLUTE_EXPIRATION_MS);
+        return createRefreshToken(userId, System.currentTimeMillis() + ABSOLUTE_EXPIRATION_MS);
     }
 
     /**
-     * Rotation 용 Refresh Token 발급.
-     * 절대 만료(absExp)는 최초 로그인 기준값을 그대로 물려받아 세션 최대 수명이 연장되지 않게 하고,
+     * 절대 만료(absExp)를 지정해 Refresh Token 을 발급한다. (rotation 시 사용)
+     * 절대 만료는 최초 로그인 기준값을 그대로 물려받아 세션 최대 수명이 연장되지 않게 하고,
      * 유휴 시계(exp)만 다시 now + IDLE_EXPIRATION_MS 로 갱신한다.
      */
-    public String rotateRefreshToken(String userId, long absExp) {
-        return buildRefreshToken(userId, System.currentTimeMillis(), absExp);
-    }
-
-    private String buildRefreshToken(String userId, long nowMs, long absExp) {
+    public String createRefreshToken(String userId, long absExp) {
+        long now = System.currentTimeMillis();
         // 실제 만료 = min(유휴 만료, 절대 만료) → 둘 중 먼저 오는 시점에 토큰이 만료됨
-        long exp = Math.min(nowMs + IDLE_EXPIRATION_MS, absExp);
+        long exp = Math.min(now + IDLE_EXPIRATION_MS, absExp);
         return Jwts.builder()
                 .id(UUID.randomUUID().toString())
                 .subject(userId)
                 .claim("type", "refresh")
                 .claim(CLAIM_ABS_EXP, absExp)
-                .issuedAt(new Date(nowMs))
+                .issuedAt(new Date(now))
                 .expiration(new Date(exp))
                 .signWith(refreshSecretKey(), Jwts.SIG.HS256)
                 .compact();
@@ -271,6 +313,23 @@ public class JwtProvider {
         } catch (Exception e) {
             throw new IllegalStateException("Token hash failed", e);
         }
+    }
+
+    /* login token validation */
+    public boolean hasValidAccessToken(HttpServletRequest request) {
+        String accessToken = this.resolveAccessToken(request);
+        if (accessToken == null) {
+            return false;
+        }
+        try {
+            this.validateAccessToken(accessToken);
+            return true;
+        } catch (ExpiredJwtException e) {
+            log.debug("만료된 Access Token 으로 로그인 페이지 진입");
+        } catch (JwtException | IllegalArgumentException e) {
+            log.debug("유효하지 않은 Access Token 으로 로그인 페이지 진입: {}", e.getMessage());
+        }
+        return false;
     }
 
     // =========================================================

@@ -1,5 +1,6 @@
 package com.kt.ktedu.core.security.config;
 
+import com.kt.ktedu.core.filter.CspNonceFilter;
 import com.kt.ktedu.core.security.auth.CustomLdapAuthenticationProvider;
 import com.kt.ktedu.core.security.auth.JwtAuthenticationFilter;
 import jakarta.servlet.FilterChain;
@@ -59,19 +60,19 @@ public class SecurityConfig {
 
         http
                 .csrf(csrf -> csrf
-                                .csrfTokenRepository(csrfRepository)
-                                .csrfTokenRequestHandler(csrfTokenRequestHandler)
-                        // 외부 서버/앱에서 CSRF 헤더를 못 붙이는 공개 API 예외 처리
-                        // .ignoringRequestMatchers("/api/health")
+                        .csrfTokenRepository(csrfRepository)
+                        .csrfTokenRequestHandler(csrfTokenRequestHandler)
+                        .ignoringRequestMatchers("/login/**", "/mobile/m/login/**", "/sso/**")
                 )
                 .addFilterBefore(new FetchMetadataFilter(), CsrfFilter.class)
+                .addFilterBefore(new CspNonceFilter(), CsrfFilter.class)   // 요청별 CSP nonce 발급 + Report-Only 헤더
                 .addFilterAfter(new CsrfCookieFilter(), BasicAuthenticationFilter.class)
                 .cors(cors -> cors.configurationSource(corsConfigurationSource())) // CORS 활성화
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .logout(AbstractHttpConfigurer::disable) // 기본 LogoutFilter 비활성화 (로그아웃은 /auth/logout 에서 자체 처리)
                 // 보안 헤더
                 .headers(headers -> headers
-                        // 운영에서 실제 적용되는 완화 정책
+                        // 운영에서 실제 적용되는 완화 정책 (CspNonceFilter 로 script nonce 주입-read-only)
                         .contentSecurityPolicy(csp -> csp
                                 .policyDirectives(
                                         "default-src 'self'; " +
@@ -86,21 +87,6 @@ public class SecurityConfig {
                                                 "form-action 'self'"
                                 )
                         )
-
-                        // 나중에 목표로 삼을 엄격 정책은 별도 Report-Only 헤더로 관찰
-                        .addHeaderWriter(new StaticHeadersWriter(
-                                "Content-Security-Policy-Report-Only",
-                                "default-src 'self'; " +
-                                        "script-src 'self'; " +
-                                        "style-src 'self'; " +
-                                        "img-src 'self' data: blob:; " +
-                                        "font-src 'self' data:; " +
-                                        "connect-src 'self'; " +
-                                        "object-src 'none'; " +
-                                        "base-uri 'self'; " +
-                                        "frame-ancestors 'self'; " +
-                                        "form-action 'self'"
-                        ))
                         .frameOptions(frame -> frame.sameOrigin())
                         .httpStrictTransportSecurity(hsts -> hsts
                                 .includeSubDomains(true)
@@ -124,12 +110,12 @@ public class SecurityConfig {
                         // 인증 불필요
                         .requestMatchers(
                                 "/",
-                                "/login",
+                                "/login", "/login/**", "/mobile/m/login", "/mobile/m/login/**",
                                 "/logout",
+                                "/sso/**",
                                 "/auth/**",
                                 "/api/test/**",
                                 "/api/health",
-                                "/api/entra-sso/**",
                                 "/api/key/**"
                         ).permitAll()
                         // 정적 리소스
@@ -159,7 +145,7 @@ public class SecurityConfig {
                                 String redirectUrl = request.getRequestURI();
                                 String query = request.getQueryString();
                                 if (query != null) redirectUrl += "?" + query;
-                                response.sendRedirect(request.getContextPath() + "/?redirect="
+                                response.sendRedirect(request.getContextPath() + "/login?redirect="
                                         + java.net.URLEncoder.encode(redirectUrl, StandardCharsets.UTF_8));
                             }
                         })
@@ -176,7 +162,7 @@ public class SecurityConfig {
 
                                 response.getWriter().write("{\"result\":\"FORBIDDEN\",\"message\":\"접근 권한이 없습니다.\"}");
                             } else {
-                                response.sendRedirect(request.getContextPath() + "/");
+                                response.sendRedirect(request.getContextPath() + "/login");
                             }
                         })
                 );
@@ -299,9 +285,7 @@ public class SecurityConfig {
         // 외부에서 cross-site POST 로 들어오는 SSO 콜백 등은 Fetch Metadata 검사 제외.
         // (pageLink/shareLink 는 GET 딥링크라 SAFE_METHODS 로 이미 통과되므로 등록 불필요)
         private static final List<String> EXCLUDED_PATH_PREFIXES =
-                List.of(
-                        "/api/entra-sso/"
-                );
+                List.of("/login/", "/mobile/m/login/");
 
         @Override
         protected void doFilterInternal(HttpServletRequest request,

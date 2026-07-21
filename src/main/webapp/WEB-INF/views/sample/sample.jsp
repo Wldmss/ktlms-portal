@@ -91,7 +91,7 @@
     <%@include file="/WEB-INF/views/sample/sampleSub.jsp" %>
 </div>
 
-<script>
+<script nonce="${cspNonce}">
     $(document).ready(function () {
         // datepicker 초기화
         CommonDatepicker.init('.date-single', 'single');

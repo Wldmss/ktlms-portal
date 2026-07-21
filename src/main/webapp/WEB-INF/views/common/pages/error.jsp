@@ -84,11 +84,18 @@
             font-size: 16px;
             line-height: 1.6;
             margin-bottom: 30px;
+            word-break: keep-all;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
         }
 
         .btn-group a {
             display: inline-block;
-            padding: 12px 35px;
+            padding: 12px 30px;
             border-radius: 6px;
             font-weight: bold;
             text-decoration: none;
@@ -110,7 +117,6 @@
             background: #fff;
             color: #444;
             border: 1px solid #ccc;
-            margin-right: 10px;
         }
 
         .btn-back:hover {

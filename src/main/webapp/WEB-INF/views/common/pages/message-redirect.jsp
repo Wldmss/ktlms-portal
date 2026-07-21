@@ -7,7 +7,7 @@
 </head>
 <body>
 <%-- alert & redirect --%>
-<script type="text/javascript">
+<script nonce="${cspNonce}">
     $(document).ready(function () {
         const message = "${serverMessage}";
         let targetUrl = "${serverTargetUrl}";

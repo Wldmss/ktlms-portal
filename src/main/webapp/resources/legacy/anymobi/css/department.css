@@ -1,0 +1,1590 @@
+.top-con {
+    margin-bottom: 15px;
+    padding: 0 15px;
+}
+
+.middle-con {
+    padding: 10px 15px 0;
+}
+
+.middle-con.detail {
+    padding: 20px 45px 0;
+}
+
+.middle-con > div {
+    padding: 0 35px;
+}
+
+.middle-con > div.border {
+    border: 1px solid #eee;
+}
+
+.jc-history-tabs {
+    margin: 0 15px 30px 15px;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.jc-history-tabs a {
+    display: inline-block;
+    padding: 9px 0;
+    width: 118px;
+    font-size: 14px;
+    color: #b4b4b4;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+}
+
+.jc-history-tabs a.long {
+    width: 135px;
+}
+
+.jc-history-tabs a:hover {
+    color: #777;
+}
+
+.jc-history-tabs a.on {
+    color: #df2428;
+    border-bottom: 6px solid #df2428;
+}
+
+.m-title {
+    margin-bottom: 15px;
+}
+
+.info-box {
+    position: relative;
+    height: 90px;
+}
+
+.info-box .num {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 90px;
+    height: 90px;
+    color: #fff;
+    font-size: 16px;
+    background: #df2428;
+    line-height: 90px;
+    text-align: center;
+}
+
+.info-box .info {
+    border: 1px solid #cccccc;
+    background: #e3e3e3;
+    padding-left: 105px;
+    height: 90px;
+}
+
+.info-box .info .subject {
+    font-size: 20px;
+    margin: 20px 0 8px;
+
+}
+
+.info-box .info .subject > span {
+    display: inline-block;
+    vertical-align: middle;
+    height: 28px;
+    padding-top: 3px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 700px;
+    vertical-align: middle;
+}
+
+.subject img {
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+.info-box .info .period {
+    color: #666;
+}
+
+.period .time {
+    position: relative;
+    padding-left: 10px;
+}
+
+.period .time:before {
+    content: "|";
+    width: 15px;
+    height: 20px;
+    color: #999;
+    position: relative;
+    display: inline-block;
+    top: 0;
+    left: 0;
+}
+
+.period .time > span {
+    color: #333;
+}
+
+.period > em {
+    color: red;
+    padding: 0 0 0 15px;
+}
+
+.chart-area-top {
+    position: relative;
+    margin-top: 30px;
+    height: 240px;
+}
+
+.chart-area-top .chart_con {
+    position: absolute;
+    background: #fff;
+}
+
+.chart-area-top .chart_con.left {
+    top: 30px;
+    left: 0px;
+    width: 188px;
+    height: 186px;
+}
+
+.chart-area-top .chart_con.left .chartdiv {
+    background: #fff;
+    width: 100%;
+    height: 186px;
+}
+
+.pie-chart-info {
+    margin-top: -115px;
+    text-align: center;
+    width: 100%;
+    height: 40px;
+}
+
+.pie-chart-info > img {
+    vertical-align: middle;
+}
+
+.pie-chart-info .chart-title-sub {
+    display: block;
+    margin-top: 10px;
+    font-size: 11px;
+    color: #999;
+}
+
+.chart-area-top .chart_con.center {
+    top: 70px;
+    left: 210px;
+    width: 225px;
+    height: 135px;
+    border-top: 1px solid #e1e1e1;
+}
+
+.chart-area-top .chart_con.center li {
+    padding: 10px 6px;
+    width: 100%;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.chart-area-top .chart_con.center li span {
+    display: inline-block;
+    font-size: 14px;
+    color: #666;
+}
+
+.chart-area-top .chart_con.center li .left {
+    padding: 3px 0 3px 18px;
+    width: 100px;
+    background: url(/resources/legacy/anymobi/img/icon_red_circle_outline.png) no-repeat left center;
+}
+
+.chart-area-top .chart_con.center li .right {
+    position: relative;
+    top: 2px;
+    width: 100px;
+    font-size: 18px;
+    color: #26272e;
+    font-weight: 400;
+    text-align: right;
+}
+
+.chart-area-top .chart_con.center li .right.red {
+    color: #f13d40;
+}
+
+.chart-area-top .chart_con.right {
+    top: 59px;
+    right: -2px;
+    width: 447px;
+}
+
+.chart-area-top .chart_con.right .chartdiv {
+    background: #fff;
+    width: 100%;
+    height: 25px;
+    margin-top: 10px;
+}
+
+.chart-area-top .chart_con.right .chartdiv.last {
+    height: 42px;
+}
+
+.chart-area-top .chart-data {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.chart-area-top .chart-data li {
+    color: #fff;
+    font-size: 12px;
+    height: 35px;
+    padding: 11px 0 0 15px;
+}
+
+.chart-area-mid {
+    position: relative;
+    margin-top: 25px;
+    height: 230px;
+}
+
+.chart-area-mid .chart_con {
+    position: absolute;
+    background: #fff;
+    width: 275px;
+    height: 186px;
+}
+
+.chart-area-mid .chart_con.left {
+    top: 0px;
+    left: 0px;
+}
+
+.chart-area-mid .chart_con.center {
+    top: 0px;
+    left: 324px;
+}
+
+.chart-area-mid .chart_con.right {
+    top: 0px;
+    left: 649px;
+}
+
+.chart-area-mid .guide {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 14px;
+    line-height: 1.5em;
+}
+
+.txt-red {
+    color: #df2428;
+}
+
+.chartdiv {
+    background: #fff;
+    width: 100%;
+    height: 25px;
+    margin-top: 10px;
+    margin-left: -2px;
+}
+
+.chartdiv.first {
+    margin-top: 15px;
+}
+
+.chartdiv.last {
+    height: 42px;
+}
+
+.chart-data {
+    position: absolute;
+    top: 29px;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.chart-data li {
+    color: #fff;
+    font-size: 12px;
+    height: 35px;
+    padding: 11px 0 0 15px;
+}
+
+.chart-area-bottom {
+    position: relative;
+    margin-top: 60px;
+    height: 400px;
+}
+
+.chartdiv.first {
+    margin-top: 15px;
+}
+
+.chart-area-bottom .chart-data {
+    top: 33px;
+}
+
+.chart-area-bottom .chart-data li {
+    color: #fff;
+    font-size: 12px;
+    height: 35px;
+    padding: 12px 0 0 15px;
+}
+
+/* 입교현황, 자격보유현황 */
+.middle-con.top {
+    margin-top: 50px;
+}
+
+.grid-data-area {
+    position: relative;
+    border-top: 2px solid #000000;
+    border-bottom: 1px solid #8c8c8c;
+}
+
+.grid-data-area.head {
+    position: relative;
+    border-top: 2px solid #000000;
+    border-bottom: none;
+}
+
+.grid-data-area.body {
+    position: relative;
+    border-top: none;
+    border-bottom: none;
+}
+
+.grid-data-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.grid-data-area th,
+.grid-data-area td {
+    font-size: 14px;
+}
+
+.grid-data-area th {
+    border-bottom: 1px solid #8c8c8c;
+    padding: 14px 0 12px;
+    text-align: center;
+}
+
+.grid-data-area td {
+    position: relative;
+    padding: 9px 0 7px;
+    text-align: center;
+    border-bottom: 1px solid #f2f2f2;
+    height: 40px;
+}
+
+.grid-data-area td.line,
+.grid-data-area th.line {
+    border-left: 1px solid #c4c4c4;
+}
+
+.grid-data-area tr.tr-last td {
+    border-bottom: none;
+}
+
+.grid-data-area tr:last-child td {
+    border-bottom: none;
+}
+
+.grid-data-area td.align-left {
+    text-align: left !important;
+    padding-left: 10px !important;
+}
+
+.grid-data-area td a.num {
+    text-decoration: underline;
+}
+
+.grid-data-area .state {
+    color: #333;
+}
+
+.grid-data-area .state.com {
+    color: #999;
+}
+
+.grid-data-area .state.uncom {
+    color: #df2428;
+}
+
+.pop-search {
+    width: 700px;
+    padding: 30px;
+    background: #fff;
+    margin: 0 auto;
+    overflow-y: auto;
+}
+
+/* edge ie mode code */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .pop-search {
+        height: 700px;
+    }
+}
+
+.pop-search .title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.pop-search .sub-title {
+    background: url(/resources/legacy/anymobi/img/icon_gray_circle_outline.png) no-repeat left 5px;
+    padding: 0 0 0 20px;
+    font-weight: 400;
+    font-size: 20px;
+    margin: 0 0 5px 0;
+}
+
+.pop-search .guide {
+    margin-top: 8px;
+    line-height: 18px;
+    word-break: keep-all;
+    font-weight: 400;
+}
+
+.pop-btn-area {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pop-btn-area a {
+    display: inline-block;
+    margin: 0 3px;
+}
+
+.j-scrollbar-content.border {
+    border-top: 1px solid #8c8c8c;
+    border-bottom: 1px solid #8c8c8c;
+    padding: 10px 0 10px 0;
+    max-height: 400px;
+}
+
+.j-scrollbar-content.bottom {
+    border-top: none;
+    border-bottom: 1px solid #8c8c8c;
+}
+
+.department-list {
+    font-weight: 400;
+    padding-left: 5px;
+}
+
+.department-list li a {
+    font-size: 16px;
+    background-image: url(/resources/legacy/anymobi/img/icon_directory.png);
+    background-repeat: no-repeat;
+    background-position: 15px center;
+    display: block;
+    padding: 11px 0 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+.department-list li a.on {
+    background-color: #f3f3f3;
+}
+
+.department-list li a span {
+    display: inline-block;
+    width: 43px;
+    height: 6px;
+    vertical-align: middle;
+}
+
+.department-list li a.end span {
+    background: none !important;
+}
+
+.department-list li a span.arrow-right {
+    background: url(/resources/legacy/anymobi/img/icon_arrow_right.png) no-repeat left top;
+}
+
+.department-list li a span.arrow-down {
+    background: url(/resources/legacy/anymobi/img/icon_arrow_down.png) no-repeat left top;
+}
+
+.department-list .step-1 a {
+    background-position: 45px center;
+    padding-left: 30px;
+}
+
+.department-list .step-2 a {
+    background-position: 70px center;
+    padding-left: 55px;
+}
+
+.department-list .step-3 a {
+    background-position: 95px center;
+    padding-left: 80px;
+}
+
+.department-list .step-4 a {
+    background-position: 120px center;
+    padding-left: 105px;
+}
+
+.department-list .step-5 a {
+    background-position: 145px center;
+    padding-left: 130px;
+}
+
+.department-list a.end {
+    background-image: url(/resources/legacy/anymobi/img/icon_node.png);
+}
+
+.info-list {
+    background: #f4f4f4;
+    padding: 10px 20px;
+    margin: 25px 0 35px;
+}
+
+.info-list li {
+    font-size: 14px;
+    color: #999;
+    padding: 7px 0;
+}
+
+.info-list li span {
+    color: #666;
+    font-weight: 400;
+    padding-left: 10px;
+}
+
+.chart_con.collective .pie-chart-info,
+.chart_con.e-learning .pie-chart-info,
+.chart_con.e-learning-2 .pie-chart-info {
+    display: block;
+    margin-top: -135px;
+}
+
+.pie-chart-info .chart-title {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #f13d40;
+}
+
+.chart-area-top .chartdiv {
+    background: #fff;
+    width: 100%;
+    height: 186px;
+}
+
+.chart_con.collective {
+    top: 30px;
+    left: 40px;
+    width: 188px;
+    height: 186px;
+}
+
+.chart_con.e-learning {
+    top: 30px;
+    left: 265px;
+    width: 188px;
+    height: 186px;
+}
+
+.chart_con.e-learning-2 {
+    top: 30px;
+    left: 520px;
+    width: 188px;
+    height: 186px;
+}
+
+.chart_con.table {
+    top: 20px;
+    right: -2px;
+    width: 425px;
+}
+
+.chart-area-top.possess .collective {
+    top: 15px;
+    left: 100px;
+}
+
+.chart-area-top.possess .e-learning {
+    top: 15px;
+    left: 350px;
+}
+
+.chart-area-top.possess .e-learning-2 {
+    top: 15px;
+    left: 600px;
+}
+
+.chart-area-mid.possess {
+    margin-top: 20px;
+    height: 135px;
+}
+
+.chart-area-mid.possess > .left {
+    width: 620px;
+    float: left;
+}
+
+.chart-area-mid.possess > .right {
+    width: 250px;
+    float: right;
+}
+
+.chart-area-mid.possess .chart_info {
+    width: 250px;
+    height: 135px;
+    border-top: 1px solid #e1e1e1;
+}
+
+.chart-area-mid.possess .chart_info li:first-child {
+    padding: 18px 6px;
+    width: 100%;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.chart-area-mid.possess .chart_info li {
+    padding: 6px;
+    width: 100%;
+    border-bottom: 1px solid #e1e1e1;
+    line-height: 20px;
+}
+
+.chart-area-mid.possess .chart_info li span {
+    display: inline-block;
+    font-size: 14px;
+    color: #666;
+    vertical-align: middle;
+}
+
+.chart-area-mid.possess .chart_info .left {
+    padding: 3px 0 3px 18px;
+    width: 150px;
+    background: url(/resources/legacy/anymobi/img/icon_red_circle_outline.png) no-repeat left center;
+}
+
+.chart-area-mid.possess .chart_info .right {
+    position: relative;
+    width: 80px;
+    font-size: 18px;
+    color: #26272e;
+    font-weight: 400;
+    text-align: center;
+}
+
+.chart-data-area {
+    position: relative;
+}
+
+.chart-data-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.chart-data-area th,
+.chart-data-area td {
+    font-size: 14px;
+}
+
+.chart-data-area thead th {
+    border-top: 1px solid #a9a9a9;
+    border-bottom: 1px solid #a9a9a9;
+    height: 30px;
+    text-align: center;
+}
+
+.chart-data-area tbody th,
+.chart-data-area tbody td {
+    position: relative;
+    text-align: center;
+    border-bottom: 1px solid #e8e8e8;
+    height: 46px;
+}
+
+.chart-data-area tbody th span {
+    font-size: 12px;
+}
+
+.chart-data-area tbody td.small {
+    font-size: 12px;
+}
+
+.member-data-area {
+    position: relative;
+    margin-top: 40px;
+    border-bottom: 1px solid #8c8c8c;
+}
+
+.member-data-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.member-data-area th,
+.member-data-area td {
+    font-size: 14px;
+}
+
+.member-data-area thead th {
+    padding: 4px 0 6px;
+    text-align: center;
+    background: #8c8c8c;
+    color: #fff;
+}
+
+.member-data-area .border-bottom {
+    display: inline-block;
+    width: 90%;
+    padding: 3px 0 6px;
+    border-bottom: 1px solid #b1b1b1;
+    margin: 2px auto 0;
+}
+
+.member-data-area tbody td {
+    padding: 6px 0 5px;
+    text-align: center;
+    border-bottom: 1px solid #f2f2f2;
+    height: 40px;
+}
+
+.member-data-area tbody td.txt-blue {
+    color: #0b7ee0;
+}
+
+.member-data-area tbody td.txt-red {
+    color: #df2428;
+}
+
+.member-data-area tbody tr.tr-last td {
+    border-bottom: none;
+}
+
+.member-data-area tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.member-data-area tbody td a.btn-txt {
+    border: 1px solid #ccc;
+    width: 70px;
+    display: inline-block;
+    background: #fff;
+    font-size: 12px;
+    margin-top: -2px;
+    height: 27px;
+    padding: 6px 0;
+    text-decoration: none;
+}
+
+.department-area {
+    position: relative;
+    border-top: 1px solid #8c8c8c;
+    border-bottom: 1px solid #8c8c8c;
+    padding: 14px 0;
+}
+
+.department-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.department-area th,
+.department-area td {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.department-area tbody th {
+    padding: 4px 15px 6px 0;
+    text-align: right;
+}
+
+.department-area tbody td {
+    padding: 6px 0 5px;
+}
+
+.department-area tbody td select {
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid #dadada;
+}
+
+.list-btn {
+    display: block;
+    margin-bottom: 10px;
+    width: 90px;
+    height: 35px;
+    background: url(/resources/legacy/anymobi/img/btn_list.png) no-repeat center;
+}
+
+.info-data-area {
+    position: relative;
+    margin-top: 30px;
+}
+
+.info-data-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.info-data-area th,
+.info-data-area td {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.info-data-area th {
+    padding: 6px 0 5px;
+    text-align: center;
+    background: #e3e3e3;
+    border-top: 1px solid #e3e3e3;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.info-data-area th.border {
+    border: 1px solid #ccc !important;
+}
+
+.info-data-area th.border-bottom {
+    border-bottom: 1px solid #ccc !important;
+}
+
+.info-data-area td {
+    padding: 6px 0 5px 17px;
+    text-align: left;
+    border: 1px solid #ccc;
+}
+
+.outline-data-area {
+    position: relative;
+    border-top: 2px solid #000;
+    padding-top: 10px;
+}
+
+.outline-data-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.outline-data-area th,
+.outline-data-area td {
+    font-size: 14px;
+}
+
+.outline-data-area tbody th {
+    padding: 7px 10px 7px 20px;
+    text-align: left;
+    color: #999;
+}
+
+.outline-data-area tbody td {
+    padding: 7px 0;
+    text-align: left;
+    color: #666;
+    font-weight: 400;
+}
+
+.develop-data-area {
+    position: relative;
+    border-bottom: 1px solid #8c8c8c;
+    margin-bottom: 50px;
+}
+
+.develop-data-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.develop-data-area th,
+.develop-data-area td {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.develop-data-area thead th {
+    padding: 6px 0 5px;
+    text-align: center;
+    background: #8c8c8c;
+    color: #fff;
+    height: 40px;
+}
+
+.develop-data-area thead tr.border th {
+    height: 30px;
+}
+
+.develop-data-area thead tr.border .bottom {
+    border-bottom: 1px solid #b1b1b1;
+}
+
+.develop-data-area thead tr.border th {
+    border-right: 1px solid #b1b1b1;
+}
+
+.develop-data-area thead tr.border th.bor-end {
+    border-right: 0;
+}
+
+.develop-data-area thead tr.border .right {
+    border-right: 1px solid #f2f2f2;
+}
+
+.develop-data-area tbody td {
+    padding: 6px 0 5px;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 1px solid #f2f2f2;
+    height: 40px;
+}
+
+.develop-data-area tbody td.line {
+    border-right: 1px solid #f2f2f2;
+}
+
+.develop-data-area tbody tr.bor-r td {
+    border-right: 1px solid #f2f2f2;
+}
+
+.develop-data-area tbody tr.bor-r td.bor-end {
+    border-right: 0;
+}
+
+.develop-data-area tbody td.align-left {
+    padding-left: 5px;
+}
+
+.develop-data-area tbody tr.padding td {
+    height: 48px;
+}
+
+.develop-data-area tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.develop-data-area tbody tr.tr-last td {
+    border-bottom: none;
+}
+
+.align-left {
+    text-align: left !important;
+}
+
+.align-right {
+    text-align: right !important;
+}
+
+.btn-area {
+    padding: 10px 0 0 !important;
+}
+
+.board-btn-area {
+    padding: 15px 0 50px;
+    text-align: right;
+}
+
+.board-btn-area a {
+    margin-left: 5px;
+}
+
+.sub-middle {
+    padding: 0 0 30px;
+}
+
+.sub-middle.border {
+    border-bottom: 1px solid #939393;
+    padding: 0 0 30px;
+}
+
+.sub-middle .guide {
+    font-size: 14px;
+    font-weight: 400;
+    margin: 10px 0 70px;
+}
+
+.sub-middle .title {
+    margin-top: 35px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.sub-middle .title-guide {
+    color: #666;
+    font-size: 14px;
+    font-weight: 300;
+    margin: 5px 0 10px;
+}
+
+.sub-title {
+    margin: 35px 0 12px;
+}
+
+.grid-title {
+    margin: 50px 0 10px;
+}
+
+.strong-tit {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 400;
+    vertical-align: middle;
+}
+
+.strong-tit em {
+    font-size: 13px;
+    vertical-align: middle;
+}
+
+.txt-title {
+    position: relative;
+    margin: 20px 0 10px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+.txt-title .list {
+    padding: 10px 0 0 15px;
+}
+
+.txt-title .reg-btn {
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 110px;
+    height: 30px;
+}
+
+.text-enter-box {
+    position: relative;
+    padding: 0 0 0 20px;
+    height: 150px;
+    border: 1px solid #dadada;
+    background-color: #fff;
+}
+
+.text-enter-box .write-count {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: -20px;
+    font-weight: 400;
+}
+
+.text-enter-box textarea {
+    display: block;
+    padding: 10px 10px 10px 0;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5em;
+    border: none;
+    outline: none;
+    resize: none;
+}
+
+.total {
+    margin-top: -50px;
+    border-bottom: 1px solid #999;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 15px 0;
+    text-align: center;
+}
+
+.total li {
+    display: inline-block;
+    width: 240px;
+}
+
+.total span {
+    font-size: 16px;
+    display: inline-block;
+    padding-left: 20px;
+}
+
+.grid-data-area .cj-iCheck > div > div {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.grid-data-area .cj-iCheck label {
+    font-size: 12px;
+    color: #333;
+    vertical-align: middle;
+    padding: 0;
+}
+
+.grid-data-area .cj-input-chkbox {
+    width: 19px;
+    height: 19px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.btn-del {
+    height: 15px;
+    margin-top: 10px;
+}
+
+.btn-del img {
+    float: left;
+}
+
+.m-title .btn {
+    float: right;
+    margin-top: -10px;
+}
+
+.search-box {
+    position: relative;
+    background: #eeeeee;
+    border: 1px solid #dcdcdc;
+}
+
+.search-box table {
+    width: 96%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.search-box th {
+    font-size: 16px;
+    border-top: 1px solid #dcdcdc;
+    padding-left: 10px;
+}
+
+.search-box td {
+    padding: 12px 0 12px 0;
+    text-align: left;
+    border-top: 1px solid #dcdcdc;
+}
+
+.search-box td input {
+    font-size: 14px;
+    padding: 6px 7px;
+    border: 1px solid #dadada;
+    vertical-align: middle;
+    width: 682px;
+}
+
+.search-box td select {
+    font-size: 14px;
+    padding: 5px;
+    line-height: auto;
+    border: 1px solid #dadada;
+    vertical-align: middle;
+}
+
+.search-box tr:first-child th,
+.search-box tr:first-child td {
+    border-top: none;
+}
+
+.pop-data-area {
+    position: relative;
+}
+
+.pop-data-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.pop-data-area th,
+.pop-data-area td {
+    font-size: 14px;
+}
+
+.pop-data-area thead th {
+    padding: 13px 0 11px;
+    text-align: center;
+    background: #8c8c8c;
+    color: #fff;
+}
+
+.pop-data-area tbody td {
+    padding: 6px 0 5px;
+    text-align: center;
+    border-bottom: 1px solid #f2f2f2;
+    height: 40px;
+}
+
+.pop-data-area tbody td.align-left {
+    padding-left: 20px;
+}
+
+.pop-data-area tbody tr.tr-last td {
+    border-bottom: none;
+}
+
+.pop-btn-area {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pop-btn-area.mid {
+    margin-bottom: 35px;
+}
+
+.pop-btn-area a {
+    display: inline-block;
+    margin: 0 3px;
+}
+
+.level-data-area {
+    margin-top: 40px;
+    position: relative;
+}
+
+.level-data-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.level-data-area thead th {
+    padding: 8px 0 7px;
+    text-align: center;
+    background: #e9e9e9;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.level-data-area thead th.bg {
+    background: #ddd;
+}
+
+.level-data-area tbody th {
+    padding: 6px 0 5px;
+    text-align: center;
+    background: #f2f2f2;
+    border-bottom: 1px solid #dedede;
+    font-size: 12px;
+}
+
+.level-data-area tbody td {
+    padding: 6px 0 5px 25px;
+    text-align: left;
+    border-bottom: 1px solid #dedede;
+    font-size: 12px;
+    line-height: 20px;
+    height: 45px;
+}
+
+.capability-data-area {
+    position: relative;
+}
+
+.capability-data-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.capability-data-area thead th {
+    padding: 8px 0 7px;
+    text-align: center;
+    background: #999;
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+}
+
+.capability-data-area tbody td {
+    padding: 6px 0 0;
+    border-bottom: 1px solid #f1f1f1;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.capability-data-area tbody td.align-left {
+    padding-left: 10px;
+    word-break: keep-all;
+}
+
+.capability-data-area tbody td textarea {
+    resize: none;
+    width: 100%;
+    height: 90px;
+    border: 1px solid #dadada;
+    outline: none;
+}
+
+.w-220 {
+    width: 220px !important;
+}
+
+.w-240 {
+    width: 240px !important;
+}
+
+.w-250 {
+    width: 250px !important;
+}
+
+.w-300 {
+    width: 300px !important;
+}
+
+.w-330 {
+    width: 330px !important;
+}
+
+.w-340 {
+    width: 340px !important;
+}
+
+.w-350 {
+    width: 350px !important;
+}
+
+.w-380 {
+    width: 380px !important;
+}
+
+.w-430 {
+    width: 430px !important;
+}
+
+.w-480 {
+    width: 480px !important;
+}
+
+.w-580 {
+    width: 580px !important;
+}
+
+.w-600 {
+    width: 600px !important;
+}
+
+.w-660 {
+    width: 660px !important;
+}
+
+.width-220 {
+    width: 220px !important;
+}
+
+.width-500 {
+    width: 500px !important;
+}
+
+.width-895 {
+    width: 895px !important;
+}
+
+.height-150 {
+    height: 150px !important;
+}
+
+.height-300 {
+    height: 300px !important;
+}
+
+.height-470 {
+    height: 470px !important;
+}
+
+.height-520 {
+    height: 520px !important;
+}
+
+.height-580 {
+    height: 580px !important;
+}
+
+.height-750 {
+    height: 750px !important;
+}
+
+.height-765 {
+    height: 765px !important;
+}
+
+.min-height-300 {
+    min-height: 300px !important;
+}
+
+.mar-b-40 {
+    margin-bottom: 40px !important;
+}
+
+.mar-b-70 {
+    margin-bottom: 70px !important;
+}
+
+.pad-l-10 {
+    padding-left: 10px !important;
+}
+
+.pad-l-30 {
+    padding-left: 30px !important;
+}
+
+.pad-l-50 {
+    padding-left: 50px !important;
+}
+
+.pad-l-60 {
+    padding-left: 60px !important;
+}
+
+.pad-l-80 {
+    padding-left: 80px !important;
+}
+
+.pad-l-100 {
+    padding-left: 100px !important;
+}
+
+.pad-l-110 {
+    padding-left: 110px !important;
+}
+
+.pad-l-140 {
+    padding-left: 140px !important;
+}
+
+.bor-b-f2 {
+    border-bottom: 1px solid #f2f2f2 !important
+}
+
+.bor-r-f2 {
+    border-right: 1px solid #f2f2f2 !important
+}
+
+.bor-r-b1 {
+    border-right: 1px solid #b1b1b1 !important
+}
+
+/*-----------------------------------
+		iCheck plugin css
+-----------------------------------*/
+.pop-sel .cj-iCheck > div {
+    display: inline-block;
+}
+
+.pop-sel .cj-iCheck > div > div {
+    display: inline-block;
+}
+
+.pop-sel .cj-iCheck label {
+    cursor: pointer;
+    display: inline-block;
+    padding: 6px;
+    font-size: 14px;
+    vertical-align: top;
+}
+
+/*--- iCheck_checkbox ---*/
+.pop-sel .cj-input-chkbox {
+    cursor: pointer;
+    width: 19px;
+    height: 19px;
+    background-image: url(/resources/legacy/anymobi/img/check_box_normal.png);
+    background-repeat: no-repeat;
+}
+
+.pop-sel .cj-input-chkbox.checked {
+    background-image: url(/resources/legacy/anymobi/img/pop_check_box_selected.png);
+}
+
+/*--- iCheck_radio ---*/
+.pop-sel .cj-input-radio {
+    cursor: pointer;
+    width: 19px;
+    height: 19px;
+    background-image: url(/resources/legacy/anymobi/img/btn_pop_radio.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.pop-sel .cj-input-radio.checked {
+    background-image: url(/resources/legacy/anymobi/img/btn_pop_radio_selected.png);
+}
+
+/*-- ie8 css --*/
+.ie8 .chart-area-top .chart_con.center li .left {
+    letter-spacing: -0.15em
+}
+
+.ie8 .chart-area-bottom .chart-data {
+    top: 31px
+}
+
+.ie8 .jc-history-tabs a,
+.ie8 .info-box .info .subject > span,
+.ie8 .chart-area-top .chart_con.center li .right,
+.ie8 .chart-data-area th,
+.ie8 .grid-data-area th,
+.ie8 .member-data-area th,
+.ie8 .pop-search .sub-title,
+.ie8 .strong-tit,
+.ie8 .search-box th,
+.ie8 .pop-data-area th {
+    font-weight: bold
+}
+
+.ie8 .chart-area-mid.possess .chart_info .left,
+.ie8 .grid-data-area td.align-left {
+    letter-spacing: -0.05em;
+}
+
+.ie8 .chart-area-mid.possess .chart_info .right {
+    font-weight: bold;
+}
+
+.ie8 .jc-history-tabs a.long {
+    width: 145px;
+}
+
+
+.department-head {
+    margin-top: 70px;
+    margin-left: -35px;
+    padding: 35px;
+    width: 930px;
+    background-color: #eee;
+}
+
+.department-head .btn-curriculum-reg {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 110px;
+    height: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(/resources/legacy/anymobi/img/btn_register_class.png);
+}
+
+.department-head .del-btn {
+    cursor: pointer;
+    display: inline-block;
+    width: 45px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 12px;
+    color: #333;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #ccc;
+}
+
+.department-head .text-enter-box {
+    padding: 15px;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5em;
+    word-break: keep-all;
+}

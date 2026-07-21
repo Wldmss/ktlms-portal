@@ -61,6 +61,49 @@ public class StringUtil {
     }
 
     /**
+     * {@link #isBlank(String)} + 문자열 리터럴 {@code "null"}(대소문자 무시)까지 blank 로 본다.
+     *
+     * <p>화면/요청 파라미터 값이 실제 문자열 {@code "null"} 로 넘어오는 레거시 케이스를 흡수하기 위한
+     * 확장 blank 판정. 로그인/SAML 등 파라미터 우선순위 처리({@link #firstNonBlank}, {@link #defaultIfBlank})에서 사용한다.</p>
+     *
+     * <pre>{@code
+     * StringUtil.isBlankParam(null);    // true
+     * StringUtil.isBlankParam("  ");     // true
+     * StringUtil.isBlankParam("null");   // true  ← isBlank 와 다른 점
+     * StringUtil.isBlankParam("kt");     // false
+     * }</pre>
+     */
+    public static boolean isBlankParam(String value) {
+        return isBlank(value) || "null".equalsIgnoreCase(value.trim());
+    }
+
+    /**
+     * 여러 값 중 첫 번째 non-blank({@link #isBlankParam}) 값을 반환한다. 모두 blank 면 {@code null}.
+     *
+     * <pre>{@code
+     * StringUtil.firstNonBlank(null, "", "kt"); // "kt"
+     * }</pre>
+     */
+    public static String firstNonBlank(String... values) {
+        if (values == null) {
+            return null;
+        }
+        for (String value : values) {
+            if (!isBlankParam(value)) {
+                return value;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * value 가 blank({@link #isBlankParam}) 이면 fallback 을, 아니면 value 를 반환한다.
+     */
+    public static String defaultIfBlank(String value, String fallback) {
+        return isBlankParam(value) ? fallback : value;
+    }
+
+    /**
      * Null이 들어오면 빈 값("")으로 변환, 값이 있으면 trim 처리
      *
      * <pre>{@code
@@ -247,5 +290,10 @@ public class StringUtil {
             return cleanPhone.substring(0, 3) + "-***-" + cleanPhone.substring(6);
         }
         return phoneNo;
+    }
+
+    /* 전화번호 숫자 추출 */
+    public static String normalizePhone(String value) {
+        return value == null ? "" : value.replaceAll("-", "");
     }
 }

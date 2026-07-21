@@ -1,0 +1,1841 @@
+/*--- reset ---*/
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+html, body {
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: none;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    border: 0;
+}
+
+object {
+    display: block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: normal;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+address, caption, cite, code, dfn, em, th, var {
+    font-style: normal;
+    font-weight: normal;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+fieldset, img {
+    border: 0;
+}
+
+caption, th {
+    text-align: left;
+}
+
+q:before, q:after {
+    content: '';
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: default;
+}
+
+input {
+    border: 1px solid #e7e7e7;
+    border-radius: 0;
+    background-color: #fff;
+    outline: none;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    border: none;
+}
+
+input[type="text"], input[type="password"], input[type="number"], input[type="tel"] {
+    -webkit-appearance: none;
+}
+
+textarea {
+    border: 1px solid #a9a9a9;
+    border-radius: 0;
+    background-color: #fff;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+input, textarea {
+    -webkit-touch-callout: default !important;
+    -webkit-user-select: text !important;
+}
+
+input::-webkit-input-placeholder {
+    color: #999;
+}
+
+input:-moz-placeholder {
+    color: #999;
+    opacity: 1;
+}
+
+input::-moz-placeholder {
+    color: #999;
+    opacity: 1;
+}
+
+input:-ms-input-placeholder {
+    color: #999;
+}
+
+select {
+    display: block;
+    padding: 8px 12px;
+    width: 100%;
+    font-size: 12px;
+    color: #333;
+    border: 1px solid #e7e7e7;
+    background: #fff url(/resources/legacy/anymobi/mobile/img/btn_arrow_down.png) no-repeat 95%;
+    background-size: 9px 9px;
+    border-radius: 0;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+}
+
+/*--- float clear ---*/
+/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+/* For modern browsers */
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/* For IE 6/7 (trigger hasLayout) */
+.clearfix {
+    zoom: 1;
+}
+
+body {
+    position: relative;
+    
+    font-size: 12px;
+    color: #333;
+    line-height: 1.5em;
+    background-color: #fff;
+}
+
+/*--- Layout ---*/
+#wrapper {
+    margin: 0 auto;
+    /* padding-bottom: 100px; */
+    min-width: 320px;
+}
+
+/*--- Header ---*/
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+}
+
+header > div {
+    margin: 0 auto;
+    background-color: #e70012;
+}
+
+header > div.title {
+    position: relative;
+    height: 44px;
+    line-height: 44px;
+    font-size: 17px;
+    color: #fff;
+    text-align: center;
+}
+
+header > div.type-gray {
+    color: #333;
+    border: 1px solid #dfdfdf;
+    background-color: #f7f7f7;
+}
+
+header > div.type-black {
+    color: #fff;
+    background-color: #000;
+}
+
+header .btn-left, header .btn-right {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    width: 42px;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+header .btn-left {
+    left: 0;
+}
+
+header .btn-right {
+    right: 0;
+}
+
+header .btn-left.smenu-open {
+    background-image: url(/resources/legacy/anymobi/mobile/img/top_bar_btn_menu.png);
+    background-size: 21px 15px;
+}
+
+header .btn-left.back {
+    background-image: url(/resources/legacy/anymobi/mobile/img/top_bar_btn_arrow_left.png);
+    background-size: 12px 21px;
+}
+
+header .btn-right.notice-bell {
+    font-size: 11px;
+    color: #000;
+    font-weight: bold;
+    line-height: 50px;
+    background-image: url(/resources/legacy/anymobi/mobile/img/top_bar_btn_notification.png);
+    background-size: 18px 21px;
+}
+
+header .btn-right.close {
+    background-image: url(/resources/legacy/anymobi/mobile/img/top_bar_btn_close_black.png);
+    background-size: 20px 19px;
+}
+
+header .type-black .btn-right.close {
+    background-image: url(/resources/legacy/anymobi/mobile/img/top_bar_btn_close.png);
+    background-size: 20px 19px;
+}
+
+header > div.title em {
+    padding: 0 5px;
+    color: #ff0000;
+}
+
+header .tabs-top {
+    padding: 0 14px 7px;
+    max-width: 1280px;
+    height: 42px;
+}
+
+header .tabs-top > div {
+    border: 1px solid #fff;
+    border-radius: 3px;
+}
+
+header .tabs-top li {
+    display: inline-block;
+    width: 50%;
+}
+
+header .tabs-top a {
+    display: inline-block;
+    width: 100%;
+    height: 33px;
+    line-height: 35px;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    background-color: #e60012;
+}
+
+header .tabs-top a.on {
+    color: #e60012;
+    background-color: #fff;
+}
+
+/*--- Section ---*/
+section .con-wrap {
+    /* margin-top: 44px; */
+    min-height: 250px;
+
+}
+
+/*--- Side(left) menu ---*/
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .7);
+    z-index: 900;
+}
+
+nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    width: 70%;
+    max-width: 400px;
+    height: 100%;
+    font-size: 13px;
+    color: #ccc;
+    background-color: #161616;
+    z-index: 990;
+}
+
+nav .home {
+    position: relative;
+    height: 45px;
+    background: url(/resources/legacy/anymobi/mobile/img/side_menu_btn_home.png) no-repeat 18px center;
+    background-size: 67px 18px;
+    border-bottom: 1px solid #292929;
+}
+
+nav .smenu-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 37px;
+    height: 100%;
+    background: url(/resources/legacy/anymobi/mobile/img/side_menu_btn_close.png) no-repeat center;
+    background-size: 17px;
+    z-index: 990;
+}
+
+nav .user {
+    padding: 16px;
+}
+
+nav .user > img {
+    display: block;
+    margin-bottom: 3px;
+    width: 19px;
+    height: 20px;
+}
+
+nav .user > h3 {
+    font-size: 15px;
+    color: #fff;
+}
+
+nav .user > p {
+    margin: 2px 0 8px;
+    font-size: 12px;
+    color: #999;
+}
+
+nav .user .btn-logout {
+    display: block;
+    width: 68px;
+    height: 26px;
+    background: url(/resources/legacy/anymobi/mobile/img/side_menu_btn_logout.png) no-repeat center;
+    background-size: 100%;
+}
+
+.nav-list {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    bottom: 0;
+    padding-bottom: 120px;
+    width: 100%;
+    height: auto;
+    overflow: auto;
+}
+
+.nav-list li a {
+    display: block;
+    padding: 11px 25px 11px 32px;
+    font-size: 13px;
+    color: #ccc;
+    border-bottom: 1px solid #1b1b1b;
+    background-image: url(/resources/legacy/anymobi/mobile/img/side_menu_btn_arrow_right_gray.png);
+    background-repeat: no-repeat;
+    background-position: 95% center;
+    background-size: 7px 11px;
+}
+
+.nav-list li.current a {
+    color: #ff0015;
+    background-color: #000;
+    background-image: url(/resources/legacy/anymobi/mobile/img/side_menu_btn_arrow_right_red.png);
+}
+
+nav .menu-title {
+    padding: 5px 18px;
+    font-size: 12px;
+    color: #999;
+    background-color: #1e1e1e;
+}
+
+/*--- bottom button ---*/
+.cc-btn-box {
+    padding: 0 15px;
+    text-align: center;
+}
+
+.cc-btn-box.def {
+    padding-top: 18px;
+    border-top: 1px solid #e2e2e2;
+}
+
+.cc-btn-box > a {
+    display: inline-block;
+    margin-left: 10px;
+    width: 115px;
+    height: 34px;
+    line-height: 34px;
+    font-size: 14px;
+    text-align: center;
+    color: #666;
+    border: 1px solid #e2e2e2;
+    background-color: #fff;
+}
+
+/* .cc-btn-box.right1 {
+	text-align: right;
+} */
+.cc-btn-box.right1 > a {
+    margin-left: 10px;
+    width: 60px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 12px;
+}
+
+.cc-btn-box .btn-wrap {
+    padding-top: 10px !important;
+}
+
+.cc-btn-box.type1 {
+    padding: 0 0 15px 0;
+}
+
+.cc-btn-box.type1 > a {
+    margin-left: 5px;
+}
+
+.cc-btn-box > a:first-child {
+    margin-left: 0;
+}
+
+.cc-btn-box .cc-submit {
+    color: #fff;
+    border: 1px solid #e60012;
+    background-color: #e60012;
+}
+
+.cc-btn-box.type-1 > a {
+    width: 60px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 13px;
+}
+
+/*--- button, icon ---*/
+.btn-qna {
+    display: inline-block;
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    padding: 7px 14px;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    background-color: #2cbbb5;
+}
+
+.icon-qna {
+    margin-top: -3px;
+    margin-right: 5px;
+    width: 22px;
+    height: 22px;
+    vertical-align: top;
+}
+
+/*--- list type ---*/
+.cc-list {
+    display: table;
+    width: 100%;
+}
+
+.cc-list > ul {
+    display: table-row;
+}
+
+.cc-list > ul > li {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.cc-list.cc-attach-con > ul {
+    display: block !important;
+}
+
+.cc-list.cc-attach-con > ul .file-con {
+    display: block !important;
+    margin-top: 10px;
+}
+
+.cc-list.cc-attach-con > ul .file-con span {
+    display: inline-block;
+    margin-bottom: 10px;
+    line-height: 1.2;
+    font-size: 12px;
+}
+
+.cc-list-top {
+    position: relative;
+    padding: 8px 10px 15px 18px;
+    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+    margin-top: 40px;
+}
+
+.cc-list-top.def {
+    padding-bottom: 15px;
+}
+
+.cc-list-top li:first-child {
+    padding-right: 18px;
+    font-size: 15px;
+}
+
+.cc-list-top li:last-child {
+    /* width: 60px; */
+}
+
+.cc-list-top strong {
+    font-weight: normal;
+    color: #4E79B7;
+}
+
+.cc-list-top .btn-write {
+    display: inline-block;
+    margin-bottom: -10px;
+    width: 100%;
+    height: 28px;
+    line-height: 28px;
+    color: #fff;
+    text-align: center;
+    background-color: #4E79B7;
+}
+
+.cc-list-top .btn-del {
+    display: inline-block;
+    margin-bottom: -8px;
+    width: 100%;
+    height: 28px;
+    line-height: 28px;
+    color: #df2428;
+    text-align: center;
+    border: 1px solid #df2428;
+    background-color: #fff;
+}
+
+.cc-list-top > p {
+    padding: 6px 0;
+    font-size: 11px;
+}
+
+.cc-list-top select {
+    margin-bottom: -7px;
+    padding: 3px 15px 3px 5px;
+    width: auto;
+    min-width: 95px;
+}
+
+.cc-list-type1 {
+    padding: 14px 18px 13px;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.cc-list-type1 h3 {
+    font-size: 14px;
+}
+
+.cc-list-type1 h3 strong {
+    margin-right: 4px;
+}
+
+.cc-list-type1 .icon-attach {
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    padding: 0 10px;
+    width: 6px;
+    height: 14px;
+    background: url(/resources/legacy/anymobi/mobile/img/icon_attachment.png) no-repeat center;
+    background-size: 7px 14px;
+}
+
+.cc-list-type1 p {
+    margin-top: 7px;
+    font-size: 14px;
+    color: #999;
+    line-height: 20px;
+}
+
+.cc-list-type1 .icon {
+    padding-top: 4px;
+    width: 33px;
+    padding-right: 6px;
+    /* vertical-align: top; */
+}
+
+.cc-list-type1 .icon em {
+    display: inline-block;
+    padding: 3px;
+    font-size: 11px;
+    color: #fff;
+    text-align: center;
+    background-color: #d1d1d1;
+    border-radius: 2px;
+}
+
+.cc-list-type1 ul .icon::before {
+    /* content: "";
+    width: 0 !important;
+    margin: 0 !important; */
+    content: none !important;
+}
+
+.cc-list .icon em.type1 {
+    color: #fff;
+    background-color: #b9b9b9;
+}
+
+.cc-list-type1 .icon em.type2 {
+    color: #fff;
+    background-color: #999;
+}
+
+.cc-list-type1 .icon em.must-read {
+    background-color: #4E79B7;
+}
+
+.cc-list-type1 .icon em.answer {
+    background-color: #d1d1d1;
+}
+
+.cc-list-type1 .icon em.answer.com {
+    background-color: #666;
+}
+
+.cc-list-type1 h3 {
+    padding-top: 2px;
+    line-height: 20px;
+}
+
+.cc-list-type1 li span {
+    padding: 0 8px;
+}
+
+.cc-list-type1 li h3 span {
+    padding: 0 0;
+}
+
+.cc-list-type1 li span.num {
+    padding: 0 0 0 3px;
+    color: #657beb;
+}
+
+.cc-list-type2 {
+    position: relative;
+    padding: 8px;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.cc-list-type2.def {
+    font-size: 11px;
+    color: #999;
+}
+
+.cc-list-type2 li {
+    position: relative;
+}
+
+.cc-list-type2 li:last-child {
+    padding: 2px 0 0 8px;
+}
+
+.cc-list-type2 .thumb {
+    width: 96px;
+}
+
+.cc-list-type2 .thumb img {
+    display: block;
+    width: 96px;
+    height: 54px;
+}
+
+.cc-list-type2 h1 {
+    margin-bottom: 2px;
+    font-size: 18px;
+    color: #333;
+    padding: 5px;
+}
+
+.cc-list-type2 h1 span {
+    padding: 0 8px;
+}
+
+.cc-list-type2 h2 {
+    color: #999;
+    font-size: 15px;
+    padding: 0 5px;
+}
+
+.cc-list-type2 p {
+    font-size: 15px;
+    padding: 0 5px;
+}
+
+.cc-list-type2 h3 {
+    padding: 6px 0 0;
+    min-height: 20px;
+    line-height: 1em;
+}
+
+.cc-list-type2 .info {
+    padding-top: 4px;
+    font-size: 10px;
+    color: #999;
+}
+
+.cc-list-type2 .icon {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 2px;
+    min-width: 45px;
+    height: 15px;
+    line-height: 18px;
+    font-size: 10px;
+    color: #fff;
+    text-align: center;
+    background-color: #df2428;
+}
+
+.cc-list-type2 .icon.com {
+    background-color: #57c2a5;
+}
+
+.cc-list-type2.def .icon {
+    top: 5px;
+    right: 5px;
+}
+
+.icon-file {
+    display: inline-block;
+    position: relative;
+    top: 3px;
+    margin-left: 5px;
+    width: 6px;
+    height: 14px;
+    background: url(/resources/legacy/anymobi/mobile/img/icon_attachment.png) no-repeat center;
+    background-size: 100%;
+}
+
+.icon-new {
+    display: inline-block;
+    position: relative;
+    top: 0;
+    margin-left: 5px;
+    font-size: 14px;
+    font-style: normal;
+    color: #e60012;
+}
+
+/*--- user write ---*/
+.cc-box {
+    margin-bottom: 15px;
+    padding: 15px 12px;
+    border-bottom: 1px solid #dfdfdf;
+    width: 100%;
+}
+
+.cc-box .enter-input {
+    display: block;
+    padding: 0 15px;
+    padding-right: 37px;
+    width: 100%;
+    height: 37px;
+    font-size: 14px;
+    color: #666;
+    border: 1px solid #ECECEC;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
+.cc-box .enter-input::-webkit-input-placeholder {
+    color: #666;
+}
+
+.cc-box .enter-select {
+    margin-top: 10px;
+    font-size: 14px;
+    border: 1px solid #e7e7e7;
+    border-radius: 8px;
+}
+
+.cc-box .enter-tarea {
+    display: block;
+    margin: 10px 0 15px;
+    padding: 10px 15px;
+    width: 100%;
+    height: 250px;
+    font-size: 16px;
+    color: #666;
+    border: 1px solid #e7e7e7;
+    resize: none;
+    border-radius: 8px;
+}
+
+.cc-box .enter-tarea::-webkit-input-placeholder {
+    color: #999;
+}
+
+.cc-box .con-img {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cc-box .con-img img {
+    display: block;
+    width: 100%;
+}
+
+.letters {
+    padding: 15px 5px;
+    font-size: 15px;
+}
+
+.cc-qna-con {
+    padding: 0 15px;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+/*--- search ---*/
+.cc-search-box > div {
+    padding: 14px;
+    border-bottom: 1px solid #dfdfdf;
+    background-color: #f1f1f1;
+}
+
+.cc-search-box select, .cc-search-box input {
+    margin-bottom: 6px;
+    padding: 8px 16px;
+    width: 100%;
+    font-size: 15px;
+    /* border: 1px solid #e7e7e7; */
+    background-color: #fff;
+    color: #707070;
+    border-radius: 8px;
+}
+
+.cc-search-box select {
+    background-position: 98%;
+}
+
+.cc-search-box > div > a {
+    display: block;
+    margin-top: 4px;
+    height: 38px;
+    line-height: 38px;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    background-color: #4c4c4c;
+    border-radius: 8px;
+}
+
+.btn-search-show {
+    width: 60px;
+    height: 20px;
+    text-align: center;
+    background-color: #ccc;
+    display: block !important;
+    margin: 0 auto !important;
+    border-radius: 0 0 3px 3px !important;
+    padding: 0 0 !important;
+}
+
+.btn-search-show em {
+    display: inline-block;
+    width: 14px;
+    height: 17px;
+    background: url(/resources/legacy/anymobi/mobile/img/btn_arrow_open_search.png) no-repeat center;
+    background-size: 100%;
+}
+
+.btn-search-show.rotate em {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+/*--- attach ---*/
+.cc-attach-box {
+    padding: 15px 18px;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.cc-attach-con li {
+    font-size: 14px;
+    color: #666;
+    vertical-align: top !important;
+    float: none !important;
+}
+
+.cc-attach-con li > span {
+    padding-bottom: 5px;
+}
+
+.cc-attach-con li.left {
+    padding-top: 2px;
+    color: #999;
+    font-size: 15px;
+}
+
+.cc-attach-con .file-con .btn-search {
+    display: block;
+    margin-bottom: 6px;
+    width: 60px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    font-size: 13px;
+    border: 1px solid #e2e2e2;
+    padding: 0 0 !important;
+}
+
+.cc-attach-con .file-con > p {
+    position: relative;
+    padding-right: 30px;
+    color: #e60012;
+    padding-bottom: 5px;
+}
+
+.cc-attach-con .file-con > p:before {
+    content: "";
+    display: inline-block;
+    position: relative;
+    top: 3px;
+    margin-right: 5px;
+    width: 6px;
+    height: 14px;
+    background: url(/resources/legacy/anymobi/mobile/img/icon_attachment.png) no-repeat center;
+    background-size: 100%;
+}
+
+.cc-attach-con .file-con > p span {
+    padding-right: 5px;
+}
+
+.cc-attach-con .file-con .btn-del {
+    position: absolute;
+    top: 5px;
+    width: 13px;
+    height: 13px;
+    background: url(/resources/legacy/anymobi/mobile/img/btn_attachment_delete.png) no-repeat center;
+    background-size: contain;
+    padding: 0 0;
+}
+
+.cc-attach-con .file-con .file-down span {
+    padding-right: 0;
+    border-bottom: 1px solid red;
+    line-height: 1.5;
+}
+
+.cc-detail-letter {
+    margin-bottom: 15px;
+    padding: 20px 18px 25px;
+    font-size: 13px;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+/*-- star rating --*/
+.star-rating {
+    position: relative;
+    width: 75px;
+    height: 14px;
+}
+
+.star-rating .stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(/resources/legacy/anymobi/mobile/img/icon_star.png);
+    background-size: 15px 14px;
+    z-index: 1;
+}
+
+.star-rating .color-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #bbb;
+    z-index: -1;
+}
+
+.star-rating .color-star {
+    width: 100%;
+    height: 100%;
+    background-color: #df2428;
+}
+
+/*--- popup ---*/
+#coverbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .7);
+    z-index: 900;
+}
+
+.cc-popup-con {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 25% auto 0;
+    padding: 30px 20px 20px;
+    width: 280px;
+    text-align: center;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .4);
+    z-index: 995;
+}
+
+.cc-popup-con h5 {
+    margin-top: 10px;
+}
+
+.cc-popup-con .btn-box {
+    margin-top: 25px;
+    font-size: 13px;
+}
+
+.cc-popup-con .btn-box > a {
+    display: inline-block;
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 8px;
+}
+
+.cc-popup-con .btn-box .submit {
+    color: #fff;
+    border: 1px solid #373737;
+    background-color: #373737;
+}
+
+.cc-popup-con .btn-box .close {
+    margin-right: 10px;
+    color: #666;
+    border: 1px solid #c3c3c3;
+}
+
+.cc-popup-con .step-2 {
+    display: none;
+}
+
+.cc-popup-con .step-2 .close {
+    margin-right: 0;
+    color: #fff;
+    border: 1px solid #373737;
+    background-color: #373737;
+}
+
+.cc-popup-con.type-file h4 {
+    font-size: 13px;
+}
+
+.cc-popup-con input[type="file"] {
+    display: block;
+    margin: 16px 0 8px;
+    width: 100%;
+    font-size: 11px;
+}
+
+.cc-popup-con .guide {
+    font-size: 11px;
+}
+
+/*--- important ---*/
+.cc-no-con {
+    padding: 35px 15px !important;
+    text-align: center !important
+}
+
+.cc-block {
+    display: block !important;
+    width: 100% !important
+}
+
+.cc-wall {
+    padding: 0 6px !important;
+    color: #ccc !important
+}
+
+.w-60 {
+    width: 60px !important
+}
+
+.w-55 {
+    width: 55px !important
+}
+
+.w-mx-540 {
+    max-width: 540px !important
+}
+
+.m-0auto {
+    margin: 0 auto !important
+}
+
+.mt-0 {
+    margin-top: 0 !important
+}
+
+.mt-84 {
+    margin-top: 84px !important
+}
+
+.mt-100 {
+    margin-top: 100px !important
+}
+
+.p-0 {
+    padding: 0 !important
+}
+
+.plr-0 {
+    padding-left: 0 !important;
+    padding-right: 0 !important
+}
+
+.pt-0 {
+    padding-top: 0 !important
+}
+
+.pt-2 {
+    padding-top: 2px !important
+}
+
+.pt-10 {
+    padding-top: 10px !important
+}
+
+.pt-15 {
+    padding-top: 15px !important
+}
+
+.pl-18 {
+    padding-left: 18px !important
+}
+
+.pl-3 {
+    padding-left: 3px !important
+}
+
+.fs-11 {
+    font-size: 15px !important
+}
+
+.fc-3 {
+    color: #333 !important
+}
+
+.fc-6 {
+    color: #666 !important
+}
+
+.fc-9 {
+    color: #999 !important
+}
+
+.fc-red {
+    color: #4E79B7 !important
+}
+
+.fc-ba {
+    color: #bababa !important
+}
+
+.fc-c {
+    color: #ccc !important
+}
+
+.t-center {
+    text-align: center !important
+}
+
+.t-right {
+    text-align: right !important
+}
+
+.b-no {
+    border: none !important
+}
+
+.t-10 {
+    top: 10px !important
+}
+
+@media all and (max-height: 400px) {
+    .cc-popup-con {
+        margin-top: 12%;
+    }
+}
+
+
+/* 20190103 */
+.ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.mt-0 {
+    margin-top: 0 !important;
+}
+
+.mt-10 {
+    margin-top: 10px !important;
+}
+
+.mt-15 {
+    margin-top: 15px !important;
+}
+
+.mt-87 {
+    margin-top: 87px !important
+}
+
+.pb-5 {
+    padding-bottom: 5px !important
+}
+
+.pr-12 {
+    padding-right: 12px !important
+}
+
+.grid-con {
+    overflow: hidden;
+}
+
+.grid-item {
+    display: block;
+    float: left;
+    width: 50%;
+}
+
+.grid-con.col-4 .grid-item {
+    width: 25%;
+}
+
+.grid-con.top-tab .grid-item {
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.grid-con.top-tab .grid-item.on {
+    color: #e60012;
+    border-bottom-color: #e60012;
+}
+
+strong {
+    font-weight: bold !important;
+}
+
+small {
+    font-size: 10px !important;
+}
+
+.cc-inlineblock {
+    display: inline-block !important;
+}
+
+.fs-14 {
+    font-size: 14px !important
+}
+
+.fc-6 {
+    color: #666;
+}
+
+.title-text {
+    position: relative;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.2;
+}
+
+.cc-box > .title-text {
+    margin-bottom: 24px;
+}
+
+.cc-btn-box.btn-wrap > .title-text {
+    padding: 0 12px;
+    text-align: left;
+    word-break: keep-all;
+}
+
+.title-text.red:before {
+    content: "*";
+    top: 2px;
+    left: -8px;
+    color: #df2428;
+}
+
+.cc-btn {
+    display: block;
+    position: relative;
+    padding: 5px;
+    font-size: 13px;
+    color: #fff !important;
+    text-align: center;
+    border-radius: 2px;
+    background-color: #4E79B7 !important;
+    border-radius: 8px;
+}
+
+.cc-btn.btn-dropdown {
+    padding: 0 10px;
+    height: 25px;
+    line-height: 25px;
+    text-align: left;
+    border: 1px solid #999;
+    background-color: #fff !important;
+    color: #191919 !important;
+}
+
+.cc-btn.btn-dropdown:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 6px;
+    margin-top: -3px;
+    width: 10px;
+    height: 7px;
+    background: url(/resources/legacy/anymobi/mobile/img/btn_arrow_down_gray.png) no-repeat center;
+    background-size: 100%;
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+}
+
+.cc-btn.btn-dropdown.rotate:after {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.cc-list-top .cc-btn.right {
+    position: absolute;
+    bottom: 7px;
+    /* padding: 7px 5px; */
+    right: 14px;
+}
+
+.cc-tabs {
+    padding: 0 10px;
+    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.cc-tabs a {
+    height: 42px;
+    line-height: 42px;
+    font-size: 14px;
+    color: #999;
+    text-align: center;
+    overflow: hidden;
+}
+
+.cc-tabs a.on {
+    color: #e60012;
+    border-bottom: 2px solid #e60012;
+}
+
+.title-box {
+    position: relative;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    padding: 10px 10px 10px 65px;
+    color: #333;
+    height: 40px;
+    border: 1px solid #ccc;
+}
+
+.title-box span.abs {
+    display: block;
+    position: absolute;
+    left: 5px;
+    color: #666;
+}
+
+.title-box span.abs + .cc-btn.btn-search {
+    left: 110px;
+}
+
+.title-box input.enter-txt {
+    padding: 0 10px;
+    text-align: left;
+    border: 1px solid #dadada;
+}
+
+.title-box .btn-search {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    margin-top: 5px;
+    width: 70px;
+    padding: 8px 0px;
+    background-color: #666;
+}
+
+.enter-list-con .title {
+    padding-bottom: 6px;
+    font-size: 14px;
+    color: #333;
+    border-bottom: 1px solid #666;
+}
+
+.enter-list-con td {
+    position: relative;
+    height: 50px;
+    font-size: 16px;
+}
+
+.enter-list-con .sort {
+    padding-left: 10px;
+    font-size: 15px;
+}
+
+.enter-list-con .sort.red {
+    position: relative;
+}
+
+.enter-list-con .sort.red:before {
+    content: "*";
+    position: absolute;
+    left: 0;
+    color: #df2428;
+}
+
+.enter-list-con input {
+    padding: 0 10px;
+    width: 100%;
+    height: 29px;
+    text-align: center;
+    border-color: #dadada;
+}
+
+.enter-list-con .datepicker-con {
+    display: block;
+    padding-left: 30px;
+}
+
+.enter-list-con .datepicker-con .ui-datepicker-trigger {
+    float: none;
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    margin-top: -10px;
+    width: 21px;
+    height: 20px;
+}
+
+.enter-list-con .price {
+    position: relative;
+    padding-right: 20px;
+}
+
+.enter-list-con .price input {
+    text-align: right;
+}
+
+.enter-list-con .price span {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.enter-list-con .notice {
+    padding: 10px 0 5px;
+    font-size: 13px;
+    color: #666;
+    word-break: keep-all;
+}
+
+.enter-list-con.default th,
+.enter-list-con.default td {
+    padding: 5px 8px;
+    height: 40px;
+    line-height: 1.5;
+    color: #666;
+    border-bottom: 1px solid #ccc;
+    word-break: keep-all;
+    font-size: 14px;
+}
+
+.enter-list-con.default th {
+    background-color: #f3f3f3;
+}
+
+.btn-attach-file {
+    display: inline-block;
+    padding: 0 0 !important;
+    height: 29px;
+    line-height: 29px;
+    font-size: 15px;
+    color: #666;
+    text-align: center;
+    border: 1px solid #c8c8c8;
+}
+
+.attach-file-list {
+    color: #e60012;
+}
+
+.attach-file-list .attach-file-item {
+    display: inline-block;
+    position: relative;
+    padding: 5px 0 5px 10px;
+    vertical-align: middle;
+    background: url(/resources/legacy/anymobi/mobile/img/icon_attachment_red.png) no-repeat left 7px;
+    background-size: 5px 13px;
+    font-size: 14px;
+}
+
+.attach-file-list .attach-file-item:after {
+    content: "";
+    display: inline-block;
+    margin-top: -2px;
+    margin-left: 5px;
+    width: 12px;
+    height: 12px;
+    vertical-align: middle;
+    background: url(/resources/legacy/anymobi/mobile/img/btn_attachment_delete.png) no-repeat center;
+    background-size: 100%;
+}
+
+.attach-file-list .attach-file-item span {
+    display: inline-block;
+    margin-top: -2px;
+    margin-left: 5px;
+    width: 12px;
+    height: 12px;
+    vertical-align: middle;
+    background: url(/resources/legacy/anymobi/mobile/img/btn_attachment_delete.png) no-repeat center;
+    background-size: 100%;
+}
+
+.popup-page-wrap {
+    padding: 25px 0 30px;
+}
+
+.popup-page-wrap .pp-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    font-size: 17px;
+    color: #333;
+    text-align: center;
+    border-bottom: 1px solid #dfdfdf;
+    background-color: #f7f7f7;
+    z-index: 100;
+}
+
+.popup-page-wrap .pp-header > div {
+    position: relative;
+}
+
+.popup-page-wrap .pp-header .btn {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 44px;
+    height: 44px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.popup-page-wrap .pp-header .btn.close {
+    right: 0;
+    background-image: url(/resources/legacy/anymobi/mobile/img/top_bar_btn_close_black.png);
+    background-size: 18px 19px;
+}
+
+.popup-page-wrap .pp-header .btn.back {
+    left: 0;
+    background-image: url(/resources/legacy/anymobi/mobile/img/top_bar_btn_arrow_left.png);
+    background-size: 12px 21px;
+}
+
+.popup-page-wrap .pp-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 8px 15px 28px;
+    width: 100%;
+    font-size: 13px;
+    color: #666;
+    text-align: center;
+    border-top: 1px solid #bcbcbc;
+    background-color: #fff;
+    z-index: 99;
+}
+
+.popup-page-wrap .pp-bottom .btn {
+    display: inline-block;
+    margin: 15px 3px 0;
+    width: 115px;
+    height: 34px;
+    line-height: 34px;
+    font-size: 14px;
+    border: 1px solid #c8c8c8;
+    border-radius: 8px;
+}
+
+.popup-page-wrap .pp-bottom .btn.submit {
+    color: #fff;
+    border-color: #e60012;
+    background-color: #e60012;
+}
+
+.popup-page-wrap .pp-middle {
+    padding: 0 15px 80px;
+}
+
+.search-con {
+    padding: 15px;
+    background-color: #f1f1f1;
+}
+
+.search-con .items {
+    position: relative;
+    padding-right: 70px;
+}
+
+.search-con input {
+    padding: 0 12px;
+    width: 100%;
+    height: 33px;
+    border-color: #aeaeae;
+}
+
+.search-con .btn-search {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -16px;
+    padding: 0;
+    width: 62px;
+    height: 33px;
+    line-height: 33px;
+}
+
+.dropdown-con {
+    border-bottom: 1px solid #bcbcbc;
+}
+
+.dropdown-con .dd-h {
+    display: block;
+    position: relative;
+    padding: 15px 35px 15px 15px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.dropdown-con .dd-h:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    margin-top: -4px;
+    width: 14px;
+    height: 8px;
+    background: url(/resources/legacy/anymobi/mobile/img/btn_down_black.png) no-repeat center;
+    background-size: 14px 8px;
+    -webkit-transition: -webkit-transform 0.5s;
+    -moz-transition: -moz-transform 0.5s;
+    -ms-transition: -ms-transform 0.5s;
+    -o-transition: -o-transform 0.5s;
+    transition: transform 0.5s;
+}
+
+.dropdown-con .dd-h.open:after {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.dropdown-con .dd-c {
+    padding: 15px 15px 25px 15px;
+    background-color: #f6f6f6;
+    line-height: 1.5;
+}
+
+input.enter-input[readonly] {
+    border: 1px solid #dadada;
+    background: #ededed;
+}
+
+.toast-msg {
+    display: block;
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 90%;
+    height: 38px;
+    line-height: 38px;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    background-color: #666;
+    border-radius: 3px;
+    opacity: 0.9;
+}
+
+.cc-box .enter-tarea {
+    line-height: 1.5;
+}
+
+.cc-box div.enter-input {
+    padding: 15px 12px;
+    height: auto;
+    font-size: 13px;
+    color: #666;
+    border: 1px solid #dadada;
+    background: #ededed;
+}
+
+.enter-search-con {
+    position: relative;
+    padding: 12px;
+    vertical-align: middle;
+    background-color: #f1f1f1;
+}
+
+.enter-search-con > div {
+    padding-right: 65px;
+    height: 36px;
+}
+
+.enter-search-con input {
+    display: block;
+    padding: 0 15px;
+    padding-right: 30px;
+    width: 100%;
+    height: 37px;
+    font-size: 13px;
+    color: #666;
+    border: 1px solid #ECECEC !important;
+    border-radius: 8px;
+}
+
+.enter-search-con a {
+    display: inline-block;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 60px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 14px;
+    color: #fff !important;
+    text-align: center;
+    background-color: #666;
+}
+
+.enter-search-con p {
+    margin-top: 8px;
+    font-size: 11px;
+    color: #666;
+}
+
+.btn-wrap .btn {
+    position: relative;
+    bottom: 15px;
+    border-radius: 8px;
+}
+
+.cc-search-box input::-webkit-input-placeholder {
+    color: #333;
+}
+
+.cc-search-box input:-moz-placeholder {
+    color: #333;
+}
+
+.cc-search-box input::-moz-placeholder {
+    color: #333;
+}
+
+.cc-search-box input:-ms-input-placeholder {
+    color: #333;
+}
+
+.cc-btn-box.top-line {
+    padding-top: 15px;
+    /* border-top: 1px solid #bcbcbc; */
+}

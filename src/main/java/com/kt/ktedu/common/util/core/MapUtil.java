@@ -116,6 +116,43 @@ public class MapUtil {
     }
 
     /**
+     * 여러 key 중 첫 번째 non-blank 값을 문자열로 반환한다. (정확한 key 매칭, 값은 trim)
+     * 모두 없거나 blank({@link StringUtil#isBlankParam}) 면 {@code null}.
+     *
+     * <p>파라미터 별칭 우선순위 처리에 사용한다 — 예: {@code firstNonBlank(param, "userid", "userId", "s_userid")}.</p>
+     */
+    public static String firstNonBlank(Map<String, Object> map, String... keys) {
+        if (isEmpty(map) || keys == null) return null;
+        for (String key : keys) {
+            Object value = map.get(key);
+            if (value != null && !StringUtil.isBlankParam(String.valueOf(value))) {
+                return String.valueOf(value).trim();
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 여러 key 를 <b>대소문자 무시</b>로 조회해 첫 번째로 존재하는 key 의 값을 문자열로 반환한다.
+     * 매칭되는 key 가 없으면 {@code null}(매칭된 key 의 값이 null 이어도 {@code null}).
+     *
+     * <p>DB 컬럼 별칭의 대소문자 편차(userid/USERID)를 흡수할 때 사용한다.
+     * 정확한 key 매칭이면 {@link #getString(Map, Object)} 를 쓰는 게 낫다.</p>
+     */
+    public static String valueAsString(Map<String, Object> map, String... keys) {
+        if (isEmpty(map) || keys == null) return null;
+        for (String key : keys) {
+            for (Map.Entry<String, Object> entry : map.entrySet()) {
+                if (entry.getKey() != null && entry.getKey().equalsIgnoreCase(key)) {
+                    Object value = entry.getValue();
+                    return value == null ? null : String.valueOf(value);
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
      * 값이 공백이 아닐 때만 put (검색조건 Map 조립 시 빈 파라미터 제외용)
      * <pre>putIfNotBlank(param, "keyword", keyword); — keyword 가 null/"" 이면 넣지 않음</pre>
      */

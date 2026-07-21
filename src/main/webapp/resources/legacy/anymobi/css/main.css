@@ -1,0 +1,1413 @@
+body, #content, #footer {
+    background-color: #ececec;
+}
+
+.small-circle-1,
+.small-circle-2,
+.small-circle-3,
+.small-circle-4 {
+    display: inline-block;
+    width: 37px;
+    height: 37px;
+    text-align: center;
+    padding-top: 8px;
+}
+
+.small-circle-1 {
+    background: url(/resources/legacy/anymobi/img/num_small/small_circle_1.png) no-repeat left top;
+}
+
+.small-circle-2 {
+    background: url(/resources/legacy/anymobi/img/num_small/small_circle_2.png) no-repeat left top;
+}
+
+.small-circle-3 {
+    background: url(/resources/legacy/anymobi/img/num_small/small_circle_3.png) no-repeat left top;
+}
+
+.small-circle-4 {
+    background: url(/resources/legacy/anymobi/img/num_small/small_circle_4.png) no-repeat left top;
+}
+
+.mid-circle-1,
+.mid-circle-2,
+.mid-circle-3 {
+    display: inline-block;
+    width: 86px;
+    height: 86px;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.mid-circle-1 {
+    background: url(/resources/legacy/anymobi/img/num_mid/mid_circle_1.png) no-repeat left top;
+}
+
+.mid-circle-2 {
+    background: url(/resources/legacy/anymobi/img/num_mid/mid_circle_2.png) no-repeat left top;
+}
+
+.mid-circle-3 {
+    background: url(/resources/legacy/anymobi/img/num_mid/mid_circle_3.png) no-repeat left top;
+}
+
+.txt-color {
+    color: #fff;
+}
+
+.txt-color-1 {
+    color: #873cc7;
+}
+
+.txt-color-2 {
+    color: #ffae00;
+}
+
+.txt-color-3 {
+    color: #38cad3;
+}
+
+.txt-color-4 {
+    color: #425cdc;
+}
+
+.txt-color-5 {
+    color: #f13d40;
+}
+
+.txt-color-6 {
+    color: #ffc875;
+}
+
+.txt-color-7 {
+    color: #83d7c0;
+}
+
+.left-area {
+    float: left;
+    width: 500px;
+}
+
+.right-area {
+    float: right;
+    width: 500px;
+}
+
+.main-board {
+    position: relative;
+    margin-top: 20px;
+    background: #fff;
+    /*overflow: hidden;*/
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, .1);
+    border-radius: 10px;
+    padding: 20px;
+    padding-left: 23px;
+}
+
+.main-board.course {
+    height: 175px;
+}
+
+.main-board.curriculum {
+    height: 280px;
+}
+
+.main-board.curriculum .tab-pannel {
+    height: 180px;
+    overflow: hidden;
+}
+
+.main-board.notice {
+    height: 143px;
+}
+
+.list-table {
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+}
+
+.list-table th {
+    text-align: center;
+    border-bottom: 1px solid #dedede;
+    padding: 10px 0 7px;
+}
+
+.list-table td {
+    padding-top: 13px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 13px;
+}
+
+.list-table tr:first-child td {
+    padding-top: 20px;
+}
+
+.list-table td > p,
+.list-table td > a {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.list-table .td-1 > p {
+    padding-left: 13px;
+    width: 95px;
+}
+
+.list-table .td-2 > a {
+    padding-left: 8px;
+    width: 280px;
+}
+
+.list-table .td-3 > p {
+    text-align: center;
+}
+
+.main-board .title {
+    position: relative;
+    padding-left: 20px;
+    font-size: 16px;
+    font-weight: 400;
+    background: url(/resources/legacy/anymobi/img/small_round_red.png) no-repeat left 2px;
+    color: #26272e;
+}
+
+.main-board .more a {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 12px;
+    color: #a8a8a8;
+}
+
+.more-btn {
+    display: inline-block;
+    margin-left: 15px;
+    font-size: 12px;
+    color: #a8a8a8;
+    text-align: center;
+}
+
+.guide {
+    margin: 15px 0 0 10px;
+    width: 80px;
+    color: #555;
+    line-height: 20px;
+    word-break: keep-all;
+    border-right: 1px solid #d3d3d3;
+    padding-right: 5px;
+}
+
+.sort-con {
+    display: inline-block;
+    position: absolute;
+    top: -5px;
+    right: 0;
+}
+
+.sort-con a {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 400;
+    color: #a8a8a8;
+}
+
+.sort-con a.on {
+    color: #f13d40;
+    text-decoration: none;
+}
+
+.sort-con a.on:hover {
+    cursor: default !important;
+}
+
+.sort-con span {
+    display: inline-block;
+    padding: 0 4px;
+    font-size: 12px;
+    font-weight: 300;
+    color: #a8a8a8;
+}
+
+.title-bullet {
+    position: relative;
+    padding: 0 0 0 20px;
+    font-size: 18px;
+    font-weight: 400;
+    color: #464646;
+    background: url(/resources/legacy/anymobi/img/small_round_red.png) no-repeat left 2px;
+}
+
+.course-situation {
+    position: absolute;
+    top: 45px;
+    left: 135px;
+}
+
+.course-situation li {
+    display: inline-block;
+    float: left;
+    width: 115px;
+    text-align: center;
+}
+
+.course-situation li img {
+    margin-top: 3px;
+}
+
+.course-situation li span[class^=txt] {
+    display: block;
+    padding-top: 12px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.course-situation li > a {
+    text-decoration: none;
+}
+
+.chart-area-admin .course-situation {
+    position: absolute;
+    top: 45px;
+    left: auto;
+    right: 15px;
+    width: 440px;
+    height: 190px;
+    background-color: #fff;
+}
+
+.chart-area-admin .course-situation ul {
+    overflow: hidden;
+}
+
+.chart-area-admin .course-situation li {
+    margin: 12px 0 15px 30px;
+}
+
+.chart-area-admin .course-situation li:first-child {
+    margin-left: 0;
+}
+
+.chart-area-admin .course-situation .mid-circle-1,
+.chart-area-admin .course-situation .mid-circle-2,
+.chart-area-admin .course-situation .mid-circle-3 {
+    width: 117px;
+    height: 117px;
+}
+
+.chart-area-admin .course-situation .mid-circle-1 {
+    background-image: url(/resources/legacy/anymobi/img/num_large_white/img_circle_red.png);
+}
+
+.chart-area-admin .course-situation .mid-circle-2 {
+    background-image: url(/resources/legacy/anymobi/img/num_large_white/img_circle_yellow.png);
+}
+
+.chart-area-admin .course-situation .mid-circle-3 {
+    background-image: url(/resources/legacy/anymobi/img/num_large_white/img_circle_green.png);
+}
+
+.chart-area-admin .course-situation span[class^=txt] {
+    padding: 18px 0 3px;
+    font-size: 16px;
+}
+
+.chart-area-admin .course-situation .txt-s {
+    font-size: 13px;
+    color: #999;
+}
+
+.notice .course-list {
+    overflow: hidden;
+    font-size: 14px;
+    padding: 20px 5px 10px;
+    height: 80px;
+}
+
+.notice .course-list li {
+    font-size: 14px;
+    padding: 4px 0 7px;
+}
+
+.course-list li a {
+    display: inline-block;
+    width: 315px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.course-list li .date {
+    display: inline-block;
+    float: right;
+    margin-right: 15px;
+    font-size: 13px;
+    color: #c8c8c8;
+}
+
+.course-list li .num {
+    display: inline-block;
+    width: 40px;
+    float: left;
+    text-align: center;
+}
+
+.course-mini {
+    height: 314px;
+    overflow: hidden;
+    margin: 18px 0 0 10px;
+}
+
+.course-mini li {
+    width: 206px;
+    display: inline-block;
+    float: left;
+}
+
+.course-mini li.even {
+    margin-right: 20px;
+}
+
+.course-mini li a {
+    display: inline-block;
+}
+
+.course-mini li a img {
+    width: 206px;
+    height: 118px;
+}
+
+.course-mini a span {
+    width: 206px;
+    display: inline-block;
+    padding: 7px 0 17px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.course-mini li a:hover span {
+    text-decoration: underline;
+}
+
+.h-auto {
+    height: auto !important;
+}
+
+/*-- tabs default --*/
+.tabs li {
+    cursor: pointer;
+    display: inline-block;
+    width: 50%;
+    height: 45px;
+    color: #818181;
+    text-align: center;
+    font-size: 16px;
+    line-height: 45px;
+    border-bottom: 5px solid #ededed;
+}
+
+.tabs li:first-child {
+    margin-right: -5px;
+}
+
+.tabs li.tab-active {
+    cursor: default;
+    color: #df2428;
+    font-weight: 400;
+    border-bottom: 5px solid #f13d40;
+}
+
+.tab-pannel {
+    height: 200px;
+    overflow: hidden;
+}
+
+.tab-pannel .course-list li .date {
+    color: #f13d40;
+}
+
+.tab-pannel .course-list li {
+    line-height: 25px;
+}
+
+/*----------------------------
+	tabs position top_left
+------------------------------*/
+.tab-tl {
+    width: 100%;
+}
+
+.tab-tl .tabs {
+    display: inline-block;
+    margin-top: 5px;
+    width: 100%;
+}
+
+/*-- popup --*/
+.jc-state-popup {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 280px;
+    padding: 10px;
+    width: 295px;
+    height: 380px;
+    background: url(/resources/legacy/anymobi/img/main/popup_ela_sericeo.png) no-repeat center;
+    z-index: 300;
+}
+
+.jc-state-popup .title {
+    position: relative;
+    padding: 13px 18px;
+    font-size: 14px;
+    line-height: 1.5em;
+    font-weight: 400;
+    color: #e90811;
+    border-bottom: 1px solid #bdbdbd;
+}
+
+.jc-state-popup .close-pop {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 14px;
+    height: 13px;
+    background: url(/resources/legacy/anymobi/img/btn_popup_x.png) no-repeat center;
+}
+
+.jc-state-popup .detail {
+    padding: 0 18px;
+}
+
+.jc-state-popup .detail li {
+    padding-top: 18px;
+    line-height: 1.5em;
+}
+
+.jc-state-popup .detail em,
+.jc-state-popup .detail span {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.jc-state-popup .detail em {
+    width: 45px;
+}
+
+.jc-state-popup .detail span {
+    width: 185px;
+}
+
+/*-- popup main --*/
+.popup-main {
+    background-color: #fff;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+
+.open-promotion {
+    position: relative;
+    margin: 0 auto;
+    padding: 0 40px;
+    width: 510px;
+    font-size: 14px;
+    color: #1a1a1a;
+}
+
+.open-promotion > h3 {
+    margin: 50px 0 0;
+    text-align: center;
+}
+
+.open-promotion > h3 span {
+    display: inline-block;
+    padding-bottom: 14px;
+    font-weight: 300;
+    font-size: 28px;
+    color: #df2428;
+    border-bottom: 1px solid #df2428;
+}
+
+.open-promotion .notice {
+    line-height: 1.7em;
+}
+
+.open-promotion .notice p {
+    margin-top: 24px;
+}
+
+.open-promotion .notice span {
+    display: block;
+    margin: 26px 0 44px;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.open-promotion .btn-con {
+    margin-bottom: 30px;
+}
+
+.open-promotion .btn-con a {
+    display: inline-block;
+    float: right;
+    padding-left: 16px;
+    width: 208px;
+    height: 44px;
+    line-height: 44px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #000;
+    background-repeat: no-repeat;
+    background-image: url(/resources/legacy/anymobi/img/btn_popup_download.png);
+    background-size: 19px 15px;
+    background-position: 174px 13px;
+}
+
+.open-promotion .btn-con a:first-child {
+    float: left;
+    background-color: #df2428;
+}
+
+.open-promotion .btn-con a:hover {
+    text-decoration: none;
+}
+
+.open-promotion .chk-today {
+    font-size: 13px;
+    color: #999;
+    text-align: center;
+}
+
+.open-promotion .chk-today label {
+    cursor: pointer;
+}
+
+.open-promotion .cj-input-chkbox {
+    margin-right: 8px;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    background-image: url(/resources/legacy/anymobi/img/btn_popup_checkbox_normal.png);
+}
+
+.open-promotion .cj-input-chkbox.checked {
+    background-image: url(/resources/legacy/anymobi/img/btn_popup_checkbox_checked.png);
+}
+
+/*-- popup --*/
+.popup-inform {
+    display: none;
+    position: fixed;
+    top: 23%;
+    left: 40%;
+    padding: 30px;
+    width: 500px;
+    font-size: 14px;
+    font-weight: 400;
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 15px #d2d2d2;
+    -moz-box-shadow: 0 0 15px #d2d2d2;
+    -o-box-shadow: 0 0 15px #d2d2d2;
+    -ms-box-shadow: 0 0 15px #d2d2d2;
+    box-shadow: 0 0 15px #d2d2d2;
+    z-index: 9999;
+}
+
+.popup-inform > div {
+    position: relative;
+}
+
+.popup-inform .close-btn {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 17px;
+    height: 17px;
+    background: url(/resources/legacy/anymobi/img/btn_close_pop.png) no-repeat center;
+}
+
+.popup-inform .title {
+    font-size: 20px;
+    text-align: center;
+}
+
+.popup-inform .comment {
+    margin: 35px 0;
+    min-height: 100px;
+    max-height: 200px;
+    line-height: 1.9em;
+}
+
+.popup-inform .comment .mCSB_outside + .mCS-minimal-dark.mCSB_scrollTools_vertical {
+    right: -6px;
+    margin: 6px 0;
+}
+
+.popup-inform .submit-btn {
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    width: 135px;
+    height: 37px;
+    background: url(/resources/legacy/anymobi/img/btn_popup_confirm.png) no-repeat center;
+}
+
+.popup-con {
+    position: relative;
+    margin: 0 auto;
+    width: 510px;
+    text-align: center;
+}
+
+.popup-con .chk-today {
+    position: absolute;
+    bottom: 22px;
+    right: 30px;
+    font-size: 12px;
+    color: #fff;
+}
+
+.popup-con .chk-today label {
+    cursor: pointer
+}
+
+.popup-con .cj-input-chkbox {
+    margin-right: 8px;
+    width: 19px;
+    height: 19px;
+    vertical-align: middle;
+    background-image: url(/resources/legacy/anymobi/img/btn_popup_checkbox2_normal.png);
+}
+
+.popup-con .cj-input-chkbox.checked {
+    background-image: url(/resources/legacy/anymobi/img/btn_popup_checkbox2_selected.png);
+}
+
+#overlay-box {
+    background: none;
+}
+
+html.ie8 .popup-inform {
+    zoom: 1;
+    filter: progid:DXImageTransform.Microsoft.Shadow(Color=#eeeeee, Strength=10, Direction=0),
+            progid:DXImageTransform.Microsoft.Shadow(Color=#eeeeee, Strength=10, Direction=90),
+            progid:DXImageTransform.Microsoft.Shadow(Color=#eeeeee, Strength=10, Direction=180),
+            progid:DXImageTransform.Microsoft.Shadow(Color=#eeeeee, Strength=10, Direction=270);
+}
+
+.menu-hrdfair {
+    margin: 0 auto 15px;
+    width: 168px;
+    height: 105px;
+    text-align: center;
+    background: url(/resources/legacy/anymobi/img/popup_competences/menu/banner_bg_hrd_fair_employee.png) no-repeat center;
+}
+
+.menu-hrdfair a {
+    display: inline-block;
+    margin-top: 55px;
+    width: 153px;
+    height: 41px;
+}
+
+.menu-hrdfair.duty {
+    height: 128px;
+    background: url(/resources/legacy/anymobi/img/popup_competences/menu/duty/banner_bg_hrd_fair_board_member.png) no-repeat center;
+}
+
+.menu-hrdfair.duty a.link-1 {
+    margin-top: 55px;
+}
+
+.menu-hrdfair.duty a.link-2 {
+    margin-top: -6px;
+}
+
+
+.chart-area-admin .chart_con.con-a ul.def {
+    margin-left: 0;
+}
+
+.chart_con.con-a ul.def .left {
+    width: 180px;
+}
+
+.chart_con.con-a ul.def .right {
+    width: 60px;
+}
+
+.btn-detail {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.btn-detail img {
+    display: block;
+}
+
+.btn-abright {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+}
+
+.cht-text {
+    position: relative;
+    margin: 12px 0;
+    font-size: 13px;
+    color: #333;
+    font-weight: 400;
+}
+
+.cht-text span {
+    padding: 0 5px;
+    font-weight: 700;
+    color: #35bd98;
+}
+
+.txt-small-year {
+    position: absolute;
+    right: 0;
+    font-size: 12px;
+    color: #666;
+}
+
+.table-con {
+    margin-bottom: 18px;
+    width: 100%;
+}
+
+.table-con th {
+    height: 32px;
+    line-height: 1.3em;
+    font-size: 12px;
+    color: #666;
+    font-weight: 400;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.table-con thead th:first-child {
+    background-color: #e3e3e3;
+}
+
+.table-con td {
+    height: 35px;
+    font-size: 12px;
+    color: #666;
+    font-weight: 400;
+    text-align: center;
+    background-color: #fff;
+}
+
+.table-con.def-h thead th {
+    height: 50px;
+}
+
+.table-con.def-h td {
+    height: 40px;
+}
+
+.table-con.def-h-28 th,
+.table-con.def-h-28 td {
+    height: 28px;
+}
+
+.table-con.def-h-32 th,
+.table-con.def-h-32 td {
+    height: 32px;
+}
+
+.table-con td strong {
+    font-size: 13px;
+    color: #f13d40;
+    font-weight: 700;
+}
+
+.table-con.fs-11 th,
+.table-con.fs-11 td {
+    font-size: 11px;
+}
+
+.table-con .bb-e3 th,
+.table-con .bb-e3 td {
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.notice-t {
+    padding: 0 5px;
+    font-size: 12px;
+    color: #666;
+    font-weight: 400;
+}
+
+.notice-t span {
+    padding-left: 15px;
+}
+
+.sub-title {
+    margin-left: 4px;
+    margin-bottom: 10px;
+    padding-left: 16px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #000;
+    background: url(/resources/legacy/anymobi/img/icon_darkgray_circle_sm.png) no-repeat left 2px;
+}
+
+.chart-stacked {
+    position: relative;
+    height: 32px;
+    padding-right: 5px;
+}
+
+.chart-stacked .data {
+    position: absolute;
+    top: 0;
+    padding: 0 18px;
+    font-size: 13px;
+    line-height: 32px;
+    color: #fff;
+    font-weight: 400;
+}
+
+.chart-stacked .data span {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.col-red th, .col-red td {
+    color: #f13d40 !important;
+}
+
+.level-info {
+    padding: 0 20px;
+}
+
+.level-info > div {
+    height: 25px;
+    line-height: 25px;
+    font-size: 11px;
+    color: #999;
+    text-align: center;
+    border: 1px solid #dadada;
+}
+
+.level-info span {
+    padding: 0 6px;
+}
+
+.pop-level {
+    position: absolute;
+    top: 23px;
+    right: -10px;
+    width: 480px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .3), 1px 0 4px rgba(0, 0, 0, .3);
+    z-index: 550;
+}
+
+.pop-level .p-title {
+    position: relative;
+    padding: 11px 18px;
+    font-size: 14px;
+    color: #e90811;
+    border-bottom: 1px solid #bdbdbd;
+}
+
+.pop-level .p-title a {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background: url(/resources/legacy/anymobi/img/btn_popup_x.png) no-repeat center;
+}
+
+.pop-level .table {
+    padding: 20px 10px;
+}
+
+.pop-level th {
+    padding: 7px;
+    font-size: 12px;
+    text-align: center;
+    background-color: #e3e3e3;
+}
+
+.pop-level td {
+    padding: 5px;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.5em;
+    text-align: center;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.pop-level td:nth-of-type(1) {
+    padding-left: 0;
+    padding-right: 0;
+    font-weight: 400;
+}
+
+.pop-level td:nth-of-type(1) p {
+    font-size: 11px;
+}
+
+.pop-level td:nth-of-type(3) {
+    font-size: 13px;
+    letter-spacing: -0.05em;
+}
+
+.self-development-state {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 26px;
+    padding: 0 30px;
+    min-width: 130px;
+    max-width: 190px;
+    height: 30px;
+    line-height: 30px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #2b2c32;
+    background-color: #ececec;
+    border-radius: 15px;
+    overflow: hidden;
+    z-index: 110;
+}
+
+.self-development-state:hover {
+    color: #2b2c32;
+    text-decoration: none;
+}
+
+.self-development-state span {
+    color: #de0a00;
+}
+
+.self-development-state:before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 8px;
+    width: 18px;
+    height: 18px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(/resources/legacy/anymobi/img/main/icon_red_light.png);
+}
+
+.self-development-state:after {
+    content: "";
+    position: absolute;
+    top: 7px;
+    right: 12px;
+    width: 14px;
+    height: 16px;
+    background: url(/resources/legacy/anymobi/img/main/btn_main_ela_sericeo.png) no-repeat center;
+}
+
+.self-development-state.good span {
+    color: #038106;
+}
+
+.self-development-state.good:before {
+    background-image: url(/resources/legacy/anymobi/img/main/icon_green_light.png);
+}
+
+.self-development-state-notice {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 200px;
+    width: 420px;
+    font-weight: 400;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 3px #9a9a9a;
+    z-index: 120;
+}
+
+.self-development-state-notice h3 {
+    position: relative;
+    padding: 12px 15px;
+    font-size: 14px;
+    color: #e90811;
+    border-bottom: 1px solid #bdbdbd;
+}
+
+.self-development-state-notice .close-pop-state-notice {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 14px;
+    height: 13px;
+    background: url(/resources/legacy/anymobi/img/btn_popup_x.png) no-repeat center;
+}
+
+.self-development-state-notice ul {
+    padding: 10px 18px 16px;
+}
+
+.self-development-state-notice li {
+    position: relative;
+    padding-left: 24px;
+    padding: 12px 0 6px 24px;
+}
+
+.self-development-state-notice li:after {
+    content: "";
+    position: absolute;
+    top: 11px;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(/resources/legacy/anymobi/img/main/icon_red_light.png);
+}
+
+.self-development-state-notice li.good:after {
+    background-image: url(/resources/legacy/anymobi/img/main/icon_green_light.png);
+}
+
+.self-development-state-notice span {
+    padding-right: 10px;
+    font-size: 14px;
+    color: #2b2c32;
+}
+
+.self-development-state-notice em {
+    color: #de0a00;
+}
+
+.self-development-state-notice .good em {
+    color: #038106;
+}
+
+.top-0 {
+    top: 0px !important
+}
+
+.mt-25 {
+    margin-top: 25px !important
+}
+
+.mt-30 {
+    margin-top: 30px !important
+}
+
+.mb-6 {
+    margin-bottom: 6px !important
+}
+
+.mb-18 {
+    margin-bottom: 18px !important
+}
+
+.plr-5 {
+    padding-left: 5px !important;
+    padding-right: 5px !important
+}
+
+.w-110 {
+    width: 110px !important
+}
+
+.w-130 {
+    width: 130px !important
+}
+
+.w-150 {
+    width: 150px !important
+}
+
+.w-215 {
+    width: 215px !important
+}
+
+.w-280 {
+    width: 280px !important
+}
+
+.h-690 {
+    height: 690px !important
+}
+
+.float-l {
+    float: left !important
+}
+
+.float-r {
+    float: right !important
+}
+
+.b-f4 {
+    border: 1px solid #f4f4f4 !important
+}
+
+.br-e3 {
+    border-right: 1px solid #e3e3e3 !important
+}
+
+
+.grid-con {
+    overflow: hidden;
+}
+
+.grid-item {
+    float: left;
+    width: 50%;
+}
+
+.con-title {
+    display: block;
+    position: relative;
+    padding: 30px;
+    font-size: 22px;
+    font-weight: 400;
+    color: #2b2c32;
+}
+
+.con-title.btn-dropdown {
+    color: #2b2c32 !important;
+    text-decoration: none;
+}
+
+.con-title.btn-dropdown span {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-right: 70px;
+    width: 150px;
+    height: 86px;
+    line-height: 86px;
+    font-size: 16px;
+    color: #666;
+    text-align: right;
+}
+
+.con-title.btn-dropdown span:before {
+    content: "자세히보기";
+}
+
+.con-title.btn-dropdown.active span:before {
+    content: "접 기";
+}
+
+.con-title.btn-dropdown span:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 35px;
+    margin-top: -7px;
+    width: 21px;
+    height: 12px;
+    background: url(/resources/legacy/anymobi/img/btn_arrow_gray.png);
+    /*
+    -webkit-transition: -webkit-transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+    */
+}
+
+.con-title.btn-dropdown.active span:after {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg)
+}
+
+.recommended-curriculum {
+    margin-top: 20px;
+    font-size: 14px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, .1);
+}
+
+.recommended-curriculum .grid-con {
+    padding: 40px 0;
+    border-top: 1px solid #e3e3e3;
+}
+
+.recommended-curriculum .grid-item {
+    padding: 0 30px;
+    border-left: 1px solid #e3e3e3;
+}
+
+.recommended-curriculum .grid-item:first-child {
+    border-left: 0 none;
+}
+
+.recommended-curriculum .main-board {
+    margin-top: 0;
+    padding: 0;
+    height: 250px;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.recommended-curriculum .main-board:last-child {
+    height: 195px;
+}
+
+.recommended-curriculum .sort-con {
+    top: 0;
+}
+
+.recommended-curriculum .course-mini {
+    height: auto;
+    overflow: visible;
+}
+
+.recommended-curriculum .info {
+    position: relative;
+    margin-top: 8px;
+    padding-right: 60px;
+    font-size: 13px;
+    color: #999;
+}
+
+.recommended-curriculum .info em {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-left: 18px;
+    background-repeat: no-repeat;
+    background-position: left top;
+}
+
+.recommended-curriculum .info em.time {
+    background-image: url(/resources/legacy/anymobi/img/icon_time.png);
+}
+
+.recommended-curriculum .info em.hit {
+    background-image: url(/resources/legacy/anymobi/img/icon_hit.png);
+}
+
+.recommended-curriculum .course-mini a:hover {
+    text-decoration: none;
+}
+
+.recommended-curriculum .list-table {
+    margin-top: 20px;
+}
+
+.recommended-curriculum .list-table th {
+    padding: 10px 13px 7px;
+    font-size: 13px;
+    border-bottom: 0 none;
+    background: #f1f1f1;
+}
+
+.recommended-curriculum .list-table td {
+    font-size: 14px;
+}
+
+.recommended-curriculum .list-table a {
+    padding: 0 13px;
+    width: 280px;
+}
+
+.recommended-curriculum .slick-slide a {
+    display: block;
+    width: 206px;
+}
+
+.recommended-curriculum .slick-arrow {
+    margin-top: -60px;
+    width: 50px;
+    height: 50px;
+    background-size: auto;
+    z-index: 100;
+}
+
+.recommended-curriculum .slick-prev {
+    margin-left: -40px;
+    background-image: url(/resources/legacy/anymobi/img/btn_arrow_back.png);
+    opacity: 1;
+}
+
+.recommended-curriculum .slick-next {
+    margin-right: -25px;
+    background-image: url(/resources/legacy/anymobi/img/btn_arrow_next.png);
+    opacity: 1;
+}
+
+.recommended-curriculum .slick-arrow:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #dedede;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #fff;
+    border-radius: 25px;
+    box-shadow: 0 0 5px #ccc;
+    visibility: hidden;
+    -webkit-transform: scale(0.3);
+    transform: scale(0.3);
+    -webkit-transition: -webkit-transform 0.25s, visibility 0s 0.25s;
+    transition: transform 0.25s, visibility 0s 0.25s;
+}
+
+.recommended-curriculum .slick-prev:after {
+    background-image: url(/resources/legacy/anymobi/img/btn_arrow_back.png);
+}
+
+.recommended-curriculum .slick-next:after {
+    background-image: url(/resources/legacy/anymobi/img/btn_arrow_next.png);
+}
+
+.recommended-curriculum .slick-arrow:hover:after {
+    visibility: visible;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: -webkit-transform 0.25s;
+    transition: transform 0.25s;
+}
+
+.recommended-curriculum .self-development-state,
+.recommended-curriculum .btn-abright {
+    top: 0;
+    right: 0;
+}
+
+/*-- ie8 css --*/
+.ie8 #header .name > p,
+.ie8 .main-board .title,
+.ie8 .tabs li {
+    font-weight: bold;
+}
+
+.ie8 .book-list li {
+    width: 148px
+}
+
+.ie8 .book-list .info {
+    letter-spacing: -0.05em
+}
+
+.ie8 .open-promotion {
+    padding: 0 35px;
+    letter-spacing: -0.05em
+}
+
+.ie8 .open-promotion .btn-con a {
+    font-size: 15px;
+}

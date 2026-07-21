@@ -1,95 +1,415 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Malgun Gothic', sans-serif;
-    background: #f4f7f9;
+:root {
+    --login-accent: var(--primary-color, #ff6b71);
+    --login-accent-dark: #e2555b;
+    --login-ink: #1f2329;
+    --login-muted: #4b4c4d;
+    --login-line: #e3e7ee;
+    --login-field-bg: #f6f8fb;
+}
+
+html, body {
+    height: 100%;
+}
+
+body.font-normal {
+    background-color: #0e1116;
+}
+
+.main-wrapper {
+    min-height: 100vh;
+}
+
+/* ── 배경 (배경화면 안에 카드) ───────────────────────── */
+#wrap-login {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px 0;
+    box-sizing: border-box;
+    background-image: linear-gradient(180deg, rgba(14, 17, 22, 0.35) 0%, rgba(14, 17, 22, 0.55) 100%),
+    url(/resources/legacy/newPortal/images/new23_img_login_full.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#loginForm {
+    width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
 }
 
-.login-container {
-    background: #ffffff;
-    width: 420px;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    border-top: 5px solid var(--primary-color);
-    margin: auto;
-}
-
-.login-header h2 {
-    margin: 0 0 10px 0;
-    color: #333;
-    font-size: 24px;
-    text-align: center;
-}
-
-.login-header p {
-    margin: 0 0 30px 0;
-    color: #666;
-    font-size: 13px;
-    text-align: center;
-}
-
-.input-group {
-    margin-bottom: 20px;
-}
-
-.input-group label {
-    display: block;
-    margin-bottom: 8px;
-    color: #444;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.input-group input {
+/* ── 로그인 카드 ─────────────────────────────────────── */
+.enter-box {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    max-width: 400px;
+    padding: 40px 36px 32px;
+    box-sizing: border-box;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+    text-align: center;
+    animation: login-fadein 0.5s ease;
+}
+
+@keyframes login-fadein {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.login-logo {
+    height: 34px;
+    width: auto;
+    margin: 0 auto 20px;
+}
+
+.login-title {
+    margin: 15px auto 15px;
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--login-muted);
+}
+
+/* ── 입력 필드 ───────────────────────────────────────── */
+.login-field {
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.login-field input {
+    width: 100%;
+    height: 50px;
+    padding: 0 16px;
     box-sizing: border-box;
     font-size: 15px;
+    color: var(--login-ink);
+    background: var(--login-field-bg);
+    border: 1.5px solid transparent;
+    border-radius: 12px;
+    outline: none;
+    transition: border-color 0.15s, background 0.15s;
 }
 
-.input-group input:focus {
-    border-color: var(--primary-dark);
+.login-field input::placeholder {
+    color: #aab2bf;
+}
+
+.login-field input:focus {
+    background: #fff;
+    border-color: var(--login-accent);
+}
+
+/* ── 버튼 ────────────────────────────────────────────── */
+.btn-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    margin-top: 4px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    background: var(--login-accent);
+    border: 0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.15s, opacity 0.15s;
+}
+
+.btn-login:hover {
+    background: var(--login-accent-dark);
+    color: #fff;
+}
+
+.btn-login.is-busy {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.login-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 18px 0;
+    color: #b6bdc9;
+    font-size: 12px;
+}
+
+.login-divider::before,
+.login-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--login-line);
+}
+
+.entra-sso-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    height: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #3a3a3a;
+    text-decoration: none;
+    background: #fff;
+    border: 1.5px solid var(--login-line);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+}
+
+.entra-sso-btn:hover {
+    color: #3a3a3a;
+    background: #fafbfc;
+    border-color: #cfd6e0;
+}
+
+/* ── 안내/메시지 ─────────────────────────────────────── */
+#loginMsg {
+    display: block;
+    margin-top: 15px;
+    color: var(--login-muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.login-proc-msg {
+    /*min-height: 20px;*/
+    margin: 10px auto;
+    color: #e0242c;
+    font-size: 12.5px;
+    line-height: 1.5;
+    white-space: pre-line;
+}
+
+.login-proc-msg.ok {
+    color: #1a73e8;
+}
+
+/* ── 인증번호(OTP) 영역 ──────────────────────────────── */
+#otpArea {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--login-line);
+    text-align: left;
+}
+
+#authTime {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--login-accent);
+    font-size: 12.5px;
+    font-weight: 600;
+    text-align: center;
+}
+
+#smsSerial {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 8px;
+    padding: 0 16px;
+    box-sizing: border-box;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.4em;
+    text-align: center;
+    color: var(--login-ink);
+    background: var(--login-field-bg);
+    border: 1.5px solid transparent;
+    border-radius: 12px;
     outline: none;
 }
 
-.btn-submit {
+#smsSerial:focus {
+    background: #fff;
+    border-color: var(--login-accent);
+}
+
+#reSendSmsAuth {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    padding: 14px;
-    background: var(--primary-color);
-    border: none;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 4px;
+    height: 40px;
+    margin-top: 8px;
+    color: var(--login-muted);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    background: #fff;
+    border: 1.5px solid var(--login-line);
+    border-radius: 10px;
     cursor: pointer;
-    margin-top: 10px;
+    transition: border-color 0.15s, color 0.15s, background 0.15s;
 }
 
-.btn-submit:hover {
-    background: var(--primary-dark);
+#reSendSmsAuth:hover {
+    color: var(--login-ink);
+    background: #fafbfc;
+    border-color: #cfd6e0;
 }
 
-/* 2차 인증번호 입력창 (처음에는 숨김) */
-#secondAuthArea {
+/* ── 문의 및 연락처 ──────────────────────────────────── */
+.inquiry-btn {
+    display: inline-block;
+    margin-top: 18px;
+    color: var(--login-muted);
+    font-size: 12.5px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+}
+
+.inquiry-popup {
     display: none;
-    background: #fcfcfc;
-    border: 1px dashed #ced4da;
-    padding: 15px;
-    border-radius: 4px;
-    margin-top: 15px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 200;
+    width: min(92%, 380px);
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 0 0 18px;
+    text-align: left;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
 }
 
-.system-msg {
+.inquiry-popup > p:first-child {
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 23px 25px 16px;
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--login-ink);
+    background: #fff;
+    border-bottom: 1px solid var(--login-line);
+    border-radius: 16px 16px 0 0;
+}
+
+.inquiry-popup .popup-close {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.inquiry-popup .popup-close::before {
+    content: "\00d7";
+    display: block;
+    font-size: 22px;
+    line-height: 24px;
     text-align: center;
-    color: var(--primary-color);
-    font-size: 13px;
-    margin-top: 15px;
-    min-height: 20px;
+    color: var(--login-muted);
+}
+
+.inquiry-popup ul {
+    margin: 0;
+    padding: 16px 30px 0;
+    list-style: none;
+}
+
+.inquiry-popup li {
+    margin-bottom: 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--login-ink);
+    line-height: 1.5;
+}
+
+.inquiry-popup li p {
+    margin: 4px 0 0;
+    font-weight: 400;
+    color: #5a6472;
+}
+
+.inquiry-popup a {
+    color: var(--login-accent);
+}
+
+/* ── footer ──────────────────────────────────────────── */
+#footer {
+    width: 100%;
+    margin-top: 24px;
+    padding: 18px 20px 26px;
+    color: rgba(255, 255, 255, 0.82);
+    text-align: center;
+}
+
+#footer p {
+    margin: 2px 0;
+    font-size: 12.5px;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+#footer .f-nbg {
+    margin-top: 8px;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 11.5px;
+}
+
+#footer .policy-btn {
+    display: inline-block;
+    margin-top: 8px;
+    color: #fff;
+    font-size: 12.5px;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+}
+
+/* ── 반응형 (웹/모바일) ──────────────────────────────── */
+@media (max-width: 768px) {
+    #wrap-login {
+        padding: 24px 16px 0;
+        justify-content: flex-start;
+        background-image: linear-gradient(180deg, rgba(14, 17, 22, 0.30) 0%, rgba(14, 17, 22, 0.55) 100%),
+        url(/resources/legacy/newPortal/images/new23_img_login_full_mobile.png);
+    }
+
+    #loginForm {
+        flex: 1;
+        align-items: center;
+    }
+
+    .enter-box {
+        padding: 32px 24px 28px;
+        max-width: 420px;
+    }
+
+    /* 개인정보처리방침: 모바일에선 로그인 후 메뉴에서 제공 → 로그인 화면에서는 숨김 */
+    .policy-btn {
+        display: none;
+    }
+
+    #footer {
+        margin-top: auto;
+    }
+}
+
+@media (max-width: 360px) {
+    .enter-box {
+        padding: 26px 18px 22px;
+    }
 }

@@ -1,0 +1,306 @@
+.w-popup {
+    max-width: 1250px;
+    min-width: 872px;
+    margin: 0 auto;
+}
+
+.w-popup-inner {
+    padding: 15px;
+}
+
+.w-popup-inner .table {
+    margin-bottom: 10px;
+    table-layout: fixed;
+}
+
+@media (max-width: 1200px) {
+    .w-popup-inner .table {
+        padding: 0;
+    }
+}
+
+.w-popup-inner .table-wrap {
+    margin-bottom: 22px;
+}
+
+.w-popup-inner .table-wrap .inpt input[type='radio']:checked + label::after {
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.w-popup-inner .table-wrap .inpt input[type='radio'] + label::before {
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.w-popup-inner .table-wrap.table-people {
+    border-top: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    margin-bottom: 22px;
+}
+
+.w-popup-inner .table-wrap.table-people .table-title::before {
+    display: inline-block;
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    background: url(/resources/legacy/newPortal/icons/group-icon.png) no-repeat center/20px 15px;
+    vertical-align: middle;
+    content: '';
+}
+
+.w-popup-inner .table-wrap.table-people h5 {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.w-popup-inner .btm-btn {
+    text-align: center;
+}
+
+.w-popup-t {
+    padding: 20px 0;
+    border-bottom: 1px solid #ECECEC;
+    text-align: center;
+}
+
+.w-popup-t h4 {
+    font-size: 28px;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.w-popup-t h4 + p {
+    line-height: 42px;
+}
+
+.w-popup .prev-quiz {
+    padding-top: 40px;
+}
+
+.w-popup .prev-quiz .box:not(:first-child) {
+    margin-top: 10px;
+}
+
+.w-popup .box-content {
+    min-height: auto;
+}
+
+.w-popup .prev-quiz .quiz-box .top-level-btn {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.w-popup .prev-quiz .quiz-box .top-level-btn .btn-wrap .btn {
+    width: auto;
+}
+
+.w-popup .btn-wrap .btn {
+    height: 37px;
+    padding: 0 15px;
+}
+
+.w-popup .btn-wrap .btn.add {
+    width: 300px;
+    height: 60px;
+}
+
+.w-popup .btn-wrap .btn.edit, .w-popup .btn-wrap .btn.download {
+    width: 150px;
+    height: 60px;
+    margin-left: 0;
+}
+
+.w-popup .reset-wrap {
+    position: absolute;
+    top: 160px;
+    right: 15px;
+    z-index: 1;
+}
+
+.w-popup .reset-wrap.type2 {
+    position: static;
+    margin-top: 30px;
+}
+
+.w-popup .study-note {
+    padding: 30px;
+}
+
+.w-popup .textarea-wrap textarea {
+    height: 200px;
+}
+
+.w-popup-inner .class-room .fix-timer {
+    text-align: center;
+    color: #f00;
+    font-size: 30px;
+}
+
+.w-popup-inner .class-room .fix-timer.fixed {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px;
+    background-color: #fff;
+    width: 100%;
+    z-index: 999;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2)
+}
+
+.w-popup-inner .class-room .fix-timer .desc {
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+
+@media (max-width: 800px) {
+    .w-popup.live .table .td.no-data span {
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .w-popup-inner .form-wrap.type2.box {
+        border-top: 1px;
+    }
+
+    .w-popup-inner .form-wrap.type2 .search-form .form-title {
+        margin-right: 10px;
+        font-size: 16px;
+    }
+
+    .w-popup-inner .form-wrap.type2 .search-form .inp {
+        display: inline-block;
+    }
+    
+    .w-popup.mob-pop .w-popup-t h4 {
+        font-size: 40px;
+        float: none;
+    }
+
+    .w-popup-t h4 + .m-right {
+        float: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    .class-room .quiz-list {
+        padding: 20px;
+        border: 1px solid #ECECEC;
+    }
+
+    .w-popup.live .w-popup-t h4 {
+        font-size: 50px;
+    }
+
+    .w-popup.live .w-popup-t h4 + p {
+        font-size: 40px;
+    }
+
+    .class-room .quiz-list.type2 p {
+        font-size: 41px;
+    }
+
+    .w-popup.live .btn-wrap .btn {
+        position: initial !important;
+    }
+
+    .class-room .quiz-list.type2 .btn-wrap .btn {
+        width: 200px;
+    }
+
+    .w-popup.live .btn-wrap .btn span {
+        font-size: 41px !important;
+    }
+
+    .w-popup.live .btn-wrap .btn {
+        height: 78px;
+        width: 200px;
+    }
+
+    .class-room .quiz-title span {
+        font-size: 39px;
+    }
+
+    .quiz-list.opinion-list p,
+    .class-room .quiz-title,
+    .result.right2 span,
+    .class-room .quiz-list .inpt input[type="radio"] + label span:not(.numbering) {
+        font-size: 39px;
+    }
+
+    .class-room .satisfaction-wrap .quiz-title,
+    .class-room .satisfaction-wrap .quiz-title span {
+        font-size: 18px !important;
+    }
+
+    .class-room .satisfaction-wrap .quiz-list .inpt input[type="radio"] + label span {
+        font-size: 16px !important;
+    }
+
+
+    .form-wrap .form-content-title span {
+        font-size: 26px;
+    }
+
+    .w-popup.live .form-content .inp input {
+        padding: 5px 10px;
+    }
+
+    .w-popup.live .form-content .inp input[type="text"] {
+        font-size: 32px;
+        padding: 30px;
+        margin-top: 11px;
+    }
+
+    .w-popup.live .inpt.left {
+        float: left;
+    }
+
+    .w-popup.mob-pop .content .tag {
+        display: inline-block;
+        margin-bottom: 10px;
+        border-radius: 25px;
+        height: 36px;
+        line-height: 32px;
+        padding: 0px 17px;
+        font-size: 23px;
+    }
+
+    .w-popup.mob-pop .content-list span {
+        font-size: 26px;
+        padding-top: 3px;
+    }
+
+    .w-popup.mob-pop .prev-quiz .quiz-box .top-level-btn .btn-wrap .btn {
+        width: 180px;
+        height: 60px;
+        padding: 7px;
+    }
+
+    .w-popup.mob-pop .content-tit {
+        font-size: 38px;
+        width: 77%;
+    }
+
+    .w-popup.mob-pop .btn-wrap .btn {
+        height: 61px;
+    }
+
+    .w-popup.mob-pop .btn-wrap span {
+        font-size: 30px;
+    }
+
+    .class-room .quiz-list .inpt input[type="radio"] + label span, .class-room .quiz-list .inpt label span {
+        font-size: 1.5vh;
+    }
+
+    .num-list .numbering {
+        width: 35px !important;
+        height: 35px;
+    }
+}

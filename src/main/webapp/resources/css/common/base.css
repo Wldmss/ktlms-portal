@@ -20,7 +20,7 @@
 /* ─── global font : 전역 폰트 ─── */
 /* 얇게 (Light) - 300 */
 @font-face {
-    font-family: 'NotoSansKR';
+    font-family: 'Noto Sans KR';
     font-weight: 300;
     font-style: normal;
     src: url('../../fonts/NotoSans-Light.woff2') format('woff2');
@@ -29,7 +29,7 @@
 
 /* 보통 - 기준 글자 (Regular) - 400 */
 @font-face {
-    font-family: 'NotoSansKR';
+    font-family: 'Noto Sans KR';
     font-weight: 400;
     font-style: normal;
     src: url('../../fonts/NotoSans-Regular.woff2') format('woff2');
@@ -38,7 +38,7 @@
 
 /* 조금 두껍게 (Medium) - 500 */
 @font-face {
-    font-family: 'NotoSansKR';
+    font-family: 'Noto Sans KR';
     font-weight: 500;
     font-style: normal;
     src: url('../../fonts/NotoSans-Medium.woff2') format('woff2');
@@ -47,7 +47,7 @@
 
 /* 아주 두껍게 (Bold) - 700 */
 @font-face {
-    font-family: 'NotoSansKR';
+    font-family: 'Noto Sans KR';
     font-weight: 700;
     font-style: normal;
     src: url('../../fonts/NotoSans-Bold.woff2') format('woff2');

@@ -1,0 +1,227 @@
+@import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    width: 100%;
+    height: 100%
+}
+
+img {
+    border: 0;
+    vertical-align: top;
+}
+
+ul, li {
+    list-style: none;
+    margin: 0;
+}
+
+#r_wrap {
+    width: 838px;
+    margin: 0 auto;
+}
+
+#r_header {
+    position: relative;
+    height: 49px;
+    background: url(/resources/legacy/anymobi/roadmap/img/icon_development_course_map.png) no-repeat 0px 15px;
+    border-bottom: solid 2px #0d0d0d;
+    text-align: right;
+}
+
+#r_stitle {
+    text-align: right;
+    margin-top: 20px;
+}
+
+#r_level {
+    float: left;
+    width: 118px;
+}
+
+#r_capability {
+    float: left;
+    width: 478px;
+}
+
+#r_list {
+    width: 240px;
+    margin-left: 598px;
+}
+
+#r_list div {
+    width: 238px;
+    border: 1px solid #a8a9ad;
+}
+
+iframe {
+    width: 239px;
+}
+
+#r_bottom {
+    height: 50px;
+    text-align: right;
+    margin-top: 11px;
+}
+
+#list {
+    width: 221px;
+}
+
+#list table {
+    margin: 2px 1px;
+}
+
+#list td {
+    width: 207px;
+    text-align: center;
+    padding: 7px 0px;
+    
+    font-size: 13px;
+    font-weight: 700;
+    color: #3f3f3f;
+    line-height: 17px;
+}
+
+#list a {
+    color: #3f3f3f;
+    text-decoration: none;
+}
+
+#list a:hover {
+    color: #e50012;
+}
+
+.td_r {
+    background: #f2dfd9;
+    border: 1px solid #dfa580;
+}
+
+.td_b {
+    background: #deebf4;
+    border: 1px solid #8eb4e3;
+}
+
+.td_g {
+    background: #ebf0d9;
+    border: 1px solid #b6df81;
+}
+
+.fs_12 {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.fs_11 {
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+#r_wrap * {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -ms-box-sizing: content-box;
+    -o-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.pop-justice {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 810px;
+    
+    text-align: left;
+    background-color: #fff;
+    box-shadow: 2px 0 5px #ccc, -2px 0 5px #ccc;
+}
+
+.pop-justice .title {
+    position: relative;
+    height: 60px;
+    line-height: 56px;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    background-color: #333;
+}
+
+.pop-justice .title .btn-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 65px;
+    height: 100%;
+    background: url(../img/btn_popup_x_gray.png) no-repeat center;
+}
+
+.pop-justice .detail {
+    min-height: 460px;
+    max-height: 590px;
+    overflow-y: auto;
+}
+
+.pop-justice .detail table {
+    margin: 40px auto;
+    width: 730px;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.pop-justice .detail th {
+    font-size: 15px;
+    color: #333;
+    text-align: center;
+    font-weight: 400;
+    line-height: 1.5em;
+    border-right: 1px solid #f1f1f1;
+}
+
+.pop-justice .detail td {
+    padding: 15px 20px;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5em;
+    text-align: left;
+    border-right: 1px solid #f1f1f1;
+    border-bottom: 1px solid #f1f1f1;
+    word-break: keep-all;
+}
+
+.pop-justice .detail th:last-child {
+    border-right: none;
+}
+
+.pop-justice .detail td:last-child {
+    font-size: 13px;
+    color: #666;
+    border-right: none;
+}
+
+.pop-justice .detail thead th {
+    height: 40px;
+    border-top: 2px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+.pop-justice .detail thead th:first-child {
+    background-color: #f6f6f6;
+}
+
+.pop-justice .detail tbody th:first-child {
+    font-weight: 500;
+    background-color: #f6f6f6;
+}
+
+.pop-justice .detail tbody th[rowspan] {
+    border-bottom: 1px solid #ccc;
+}
+
+.border-b td {
+    border-bottom: 1px solid #ccc !important;
+}

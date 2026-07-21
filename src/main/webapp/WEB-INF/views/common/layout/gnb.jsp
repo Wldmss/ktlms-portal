@@ -11,7 +11,7 @@
         z-index: 9999;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         box-sizing: border-box;
-        min-width: 440px;
+        /*min-width: 440px;*/
     }
 
     .gnb-top {
@@ -92,7 +92,7 @@
 <header class="gnb-header d-flex ai-center" style="justify-content: space-between;">
 
     <div class="gnb-top">
-        <div class="gnb-logo" onclick="location.href=window._contextPath + '/sample'">
+        <div class="gnb-logo" onclick="location.href=window._contextPath + window._mainUrl">
             KT LMS <span class="font-light" style="color:#999; font-size:14px; margin-left:4px;">Edu Portal</span>
         </div>
 
@@ -115,7 +115,7 @@
     </button>
 </header>
 
-<script type="text/javascript">
+<script nonce="${cspNonce}">
     function handleGnbLogout() {
         if (typeof openConfirm === 'function') {
             openConfirm("로그아웃 하시겠습니까?").then(function (isConfirm) {

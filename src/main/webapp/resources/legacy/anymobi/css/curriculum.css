@@ -1,0 +1,235 @@
+.top-con {
+    margin-bottom: 15px;
+    padding: 0 15px;
+}
+
+.middle-con {
+    /* padding: 0 15px; */
+}
+
+.middle-con.detail {
+    padding: 0 45px;
+}
+
+.search-box {
+    position: relative;
+    padding: 5px;
+    background: #eeeeee;
+    border: 1px solid #dcdcdc;
+}
+
+.search-box table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.search-box th {
+    font-size: 16px;
+    text-align: center;
+}
+
+.search-box td {
+    padding: 4px 10px 4px 0;
+    text-align: left;
+}
+
+.search-box td select {
+    font-size: 14px;
+    padding: 5px;
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    border: 1px solid #dadada;
+    vertical-align: middle;
+}
+
+.search-box td input {
+    font-size: 14px;
+    width: 100%;
+    padding: 6px 7px;
+    border: 1px solid #dadada;
+    vertical-align: middle;
+}
+
+.btn-search {
+    width: 85px;
+    height: 33px;
+    display: inline-block;
+    vertical-align: middle;
+    background: url(/resources/legacy/anymobi/img/btn_search.png) no-repeat center center;
+}
+
+.board-head {
+    margin: 40px 0 5px 0;
+    padding-bottom: 5px;
+}
+
+.board-head .total {
+    font-size: 16px;
+    color: #eb676a;
+    width: 100px;
+    display: inline-block;
+}
+
+.board-head .view {
+    float: right;
+    margin-top: 2px;
+}
+
+.board-head .view a {
+    display: inline-block;
+    padding: 0 10px 0 12px;
+    color: #999;
+    font-size: 16px;
+    background: url(/resources/legacy/anymobi/img/bg_line.png) no-repeat left center;
+
+}
+
+.board-head .view a:first-child {
+    background: none;
+}
+
+/* .board-head .view a:hover {
+	color: #eb676a;
+} */
+.board-head .view a.on {
+    color: #eb676a;
+}
+
+.grid-data-area {
+    position: relative;
+    border-top: 2px solid #000000;
+    border-bottom: 1px solid #8c8c8c;
+}
+
+.grid-data-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.grid-data-area th,
+.grid-data-area td {
+    font-size: 14px;
+}
+
+.grid-data-area thead th {
+    border-bottom: 1px solid #8c8c8c;
+    padding: 14px 0 12px;
+    text-align: center;
+}
+
+.grid-data-area tbody td {
+    padding: 8px 0 6px;
+    text-align: center;
+    border-bottom: 1px solid #f2f2f2;
+    height: 40px;
+    color: #707070;
+    font-size: 18px;
+}
+
+.grid-data-area tbody tr.tr-last td {
+    border-bottom: none;
+}
+
+.grid-data-area tbody td span {
+    display: block;
+    padding: 0 10px 0 5px;
+    width: 148px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.grid-data-area tbody td a {
+    width: 480px;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+}
+
+.grid-data-area td.t-red {
+    color: #df2428;
+}
+
+.grid-data-area tbody td .ing {
+    margin: 2px 0 5px;
+}
+
+.width-165 {
+    width: 165px;
+}
+
+.width-210 {
+    width: 210px;
+}
+
+.width-260 {
+    width: 250px;
+}
+
+.align-left {
+    text-align: left !important;
+}
+
+.align-center {
+    text-align: center !important;
+}
+
+.align-right {
+    text-align: right !important;
+}
+
+.system {
+    padding-top: 15px;
+    text-align: center;
+}
+
+.list-btn {
+    display: block;
+    margin-bottom: 10px;
+    width: 90px;
+    height: 35px;
+    background: url(/resources/legacy/anymobi/img/btn_list.png) no-repeat center;
+}
+
+#content .con-area.con-system {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.con-system {
+    padding: 30px 0 200px;
+}
+
+.con-system .middle-con {
+    padding: 0;
+}
+
+.con-system .top-con {
+    position: relative;
+    padding: 0 45px;
+}
+
+.con-system .system-btn {
+    display: block;
+    position: absolute;
+    top: 14px;
+    right: 78px;
+    width: 161px;
+    height: 39px;
+}
+
+
+/*-- ie8 css --*/
+.ie8 .search-box th,
+.ie8 .board-head .total,
+.ie8 .grid-data-area thead th {
+    font-weight: bold
+}
+
+.ie8 .search-box td input {
+    padding-top: 6px;
+    padding-bottom: 2px
+}

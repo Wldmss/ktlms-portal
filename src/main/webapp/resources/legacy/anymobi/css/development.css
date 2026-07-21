@@ -1,0 +1,1781 @@
+.top-con {
+    position: relative;
+    margin-bottom: 15px;
+    padding: 0 15px;
+}
+
+
+.top-con .btn-pop {
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 185px;
+    width: 85px;
+    height: 26px;
+    line-height: 28px;
+    font-size: 13px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    background-color: #ff565e;
+    border-radius: 3px;
+    -webkit-transition: width 0.2s;
+    transition: width 0.2s;
+}
+
+.middle-con {
+    padding: 10px 15px 0;
+}
+
+.middle-con.detail {
+    padding: 20px 45px 0;
+}
+
+.middle-con > div {
+    padding: 0 35px;
+}
+
+.jc-tabs {
+    margin: 0 15px 30px 15px;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.jc-tabs a {
+    display: inline-block;
+    padding: 9px 0;
+    width: 140px;
+    font-size: 14px;
+    color: #b4b4b4;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+}
+
+.jc-tabs a:hover {
+    color: #777;
+}
+
+.jc-tabs a.on {
+    color: #df2428;
+    border-bottom: 6px solid #df2428;
+}
+
+.m-title {
+    position: relative;
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.m-title .jc-learn-reg-btn {
+    display: block;
+    position: absolute;
+    top: -5px;
+    right: 0;
+    width: 120px;
+    height: 35px;
+}
+
+.list-btn {
+    display: block;
+    margin-bottom: 10px;
+    width: 90px;
+    height: 35px;
+    background: url(/resources/legacy/anymobi/img/btn_list.png) no-repeat center;
+}
+
+.board-btn-area {
+    margin-bottom: 20px;
+    padding: 15px 0;
+    text-align: right;
+    border-top: 1px solid #8a8a8a;
+}
+
+.board-btn-area em {
+    cursor: pointer;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.btn-area {
+    margin-top: 10px;
+}
+
+.list-box {
+    padding: 30px 40px;
+    border: 1px solid #eee;
+}
+
+.btn-result-change {
+    margin-bottom: 20px;
+}
+
+.btn-result-change em {
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 8px;
+    width: 140px;
+    height: 35px;
+}
+
+.est-det table {
+    width: 838px;
+}
+
+.est-det table th, .est-det table td {
+    font-size: 14px;
+    color: #333;
+}
+
+.est-det .list-type-1 {
+    margin-bottom: 40px;
+}
+
+.est-det .list-type-1 th {
+    text-align: center;
+    font-weight: 400;
+    border: 1px solid #ccc;
+    background-color: #e3e3e3;
+}
+
+.est-det .list-type-1 td {
+    padding: 6px 20px;
+    font-weight: 400;
+    border: 1px solid #ccc;
+}
+
+.est-det .list-title {
+    position: relative;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #0d0d0d;
+}
+
+.approver-change {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    width: 110px;
+    height: 30px;
+    background-image: url(/resources/legacy/anymobi/img/btn_board_change_authority.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.est-det .list-type-2 {
+    padding-bottom: 12px;
+}
+
+.est-det .list-type-2 > div {
+    margin-bottom: 20px;
+}
+
+.est-det .list-type-2 th {
+    color: #afafaf;
+    text-align: center;
+}
+
+.est-det .list-type-2 td {
+    padding: 7px 0;
+    font-weight: 400;
+    color: #666;
+}
+
+.est-det .strong-tit {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 400;
+    vertical-align: middle;
+}
+
+.est-det .strong-tit em {
+    font-size: 13px;
+    vertical-align: middle;
+}
+
+.est-det .notice {
+    position: relative;
+    margin-bottom: 16px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.est-det .notice.def {
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.est-det .notice strong {
+    color: #df2428;
+    font-weight: 400;
+}
+
+.est-det .notice .reg-btn {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: -6px;
+    width: 110px;
+    height: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.est-det .notice .process {
+    background-image: url(/resources/legacy/anymobi/img/btn_register_class.png);
+}
+
+.est-det .notice .obtain {
+    background-image: url(/resources/legacy/anymobi/img/btn_register_certification.png);
+}
+
+.est-det .notice .activity {
+    background-image: url(/resources/legacy/anymobi/img/btn_register_activity.png);
+}
+
+.est-det .notice .group {
+    background-image: url(/resources/legacy/anymobi/img/btn_view_group.png);
+}
+
+.est-det .notice .mini {
+    background-image: url(/resources/legacy/anymobi/img/btn_view_mini_lecture.png);
+}
+
+.est-det .notice .plan {
+    display: inline-block;
+    position: relative;
+    bottom: 0;
+    top: 10px;
+    margin-left: 5px;
+    background-image: url(/resources/legacy/anymobi/img/btn_view_selection_plan.png);
+}
+
+.est-det .notice ul {
+    padding: 16px 20px 0;
+    line-height: 1.5em;
+}
+
+.est-det .text-enter-box {
+    position: relative;
+    padding: 0 0 0 20px;
+    height: 150px;
+    border: 1px solid #dadada;
+    background-color: #fff;
+}
+
+.est-det .text-enter-box .write-count {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: -20px;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.est-det .text-enter-box textarea {
+    display: block;
+    padding: 10px 10px 10px 0;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5em;
+    border: none;
+    outline: none;
+    resize: none;
+}
+
+.est-det .list-type-3 > div {
+    margin-bottom: 75px;
+}
+
+.est-det .list-type-3 > div.end {
+    margin-bottom: 30px;
+}
+
+.est-det .list-type-3 table {
+    border-bottom: 1px solid #8c8c8c;
+}
+
+.est-det .list-type-3 th {
+    padding: 15px 0;
+    color: #fff !important;
+    text-align: center;
+    background-color: #999;
+}
+
+.est-det .list-type-3 th.fc-39 {
+    color: #393939 !important;
+}
+
+.est-det .list-type-3 th.def {
+    padding-left: 100px;
+    text-align: left;
+}
+
+.est-det .list-type-3 th.def-1 {
+    padding-left: 110px;
+    text-align: left;
+}
+
+.est-det .list-type-3 .fc-3 tbody th {
+    color: #333 !important;
+}
+
+.est-det .list-type-3 td {
+    padding: 11px 0;
+    font-weight: 400;
+    color: #666;
+    text-align: center;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.est-det .list-type-3 tbody.def td {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.est-det .list-type-3 .def td {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.est-det .list-type-3 .text-left {
+    padding-left: 20px;
+    text-align: left;
+}
+
+.est-det .list-type-3 .text-left-1 {
+    padding-left: 10px;
+    text-align: left;
+}
+
+.est-det .list-type-3 .link {
+    cursor: pointer;
+    display: block;
+}
+
+.est-det .list-type-3 .link:hover {
+    color: #df2428;
+    text-decoration: underline;
+}
+
+.est-det .list-type-3 .del-btn {
+    cursor: pointer;
+    display: inline-block;
+    width: 45px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 12px;
+    color: #333;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #ccc;
+}
+
+.est-det .list-type-3 span.item,
+.est-det .list-type-3 input.item {
+    display: inline-block;
+    width: 55px;
+    height: 38px;
+    line-height: 38px;
+    font-size: 14px;
+    color: #393939;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #ccc;
+}
+
+.est-det .list-type-3 tr.end td {
+    border-bottom: none;
+}
+
+.est-det .list-type-3 .info-table table {
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+}
+
+.est-det .list-type-3 .info-table.def-1 table {
+    border: none;
+}
+
+.est-det .list-type-3 .info-table th {
+    padding: 8px 10px;
+    color: #333;
+    border-bottom: 1px solid #ccc;
+    background-color: #e3e3e3;
+}
+
+.est-det .list-type-3 .info-table td {
+    padding: 8px 10px;
+    text-align: left;
+    border: 1px solid #ccc;
+    border-top: 0;
+}
+
+.est-det .list-type-3 .info-table.def-1 td {
+    border: none;
+}
+
+.est-det .list-type-3 .info-table.def-1 td:first-child {
+    border-left: none;
+}
+
+.est-det .list-type-3 .info-table tr.def th {
+    height: 46px;
+    background-color: #fff;
+}
+
+.est-det .list-type-3 .info-table tbody tr.def th {
+    border-bottom: none;
+}
+
+.est-det .list-type-3 .info-table tr.bg th {
+    color: #fff;
+    background-color: #999;
+}
+
+.est-det .list-type-3 .info-table tr.def td {
+    height: 46px;
+    text-align: center;
+    border-top: 1px solid #f2f2f2;
+}
+
+.est-det .list-type-3 .info-table .detail {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.est-det .list-type-3 .info-table .detail li:first-child {
+    margin-bottom: 10px;
+}
+
+.est-det .list-type-3 .info-table .detail span {
+    display: inline-block;
+    padding-right: 30px;
+}
+
+.est-det .list-type-3 .info-table .total {
+    border-top: 1px solid #999;
+    border-bottom: 1px solid #999;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 15px 0;
+    text-align: center;
+}
+
+.est-det .list-type-3 .info-table .total li {
+    display: inline-block;
+    width: 240px;
+}
+
+.est-det .list-type-3 .info-table .total span {
+    font-size: 16px;
+    display: inline-block;
+    padding-left: 20px;
+}
+
+
+.est-det .list-type-4 > div {
+    margin-bottom: 60px;
+}
+
+.est-det .list-type-4 > div:last-child {
+    margin-bottom: 35px;
+}
+
+.est-det td select {
+    margin: 3px 0;
+    padding-left: 5px;
+    width: 75px;
+    height: 30px;
+    border: 1px solid #ccc;
+}
+
+.grid-data-area {
+    position: relative;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #8c8c8c;
+}
+
+.grid-data-area table {
+    width: 920px;
+    border-collapse: collapse;
+}
+
+.grid-data-area th,
+.grid-data-area td {
+    font-size: 14px;
+}
+
+.grid-data-area th {
+    border-bottom: 1px solid #8c8c8c;
+    padding: 14px 0 12px;
+    text-align: center;
+}
+
+.grid-data-area th.def {
+    padding-left: 90px;
+    text-align: left;
+}
+
+.grid-data-area td {
+    position: relative;
+    padding: 9px 4px 7px;
+    text-align: center;
+    border-bottom: 1px solid #f1f1f1;
+    height: 40px;
+}
+
+.grid-data-area tr:last-child td {
+    border-bottom: none;
+}
+
+.grid-data-area .align-left {
+    text-align: left !important;
+    padding-left: 30px !important;
+}
+
+.state.type-1 {
+    color: #999;
+}
+
+.state.type-2 {
+    color: #df2428;
+}
+
+.state.type-3 {
+    color: #333;
+}
+
+.state.type-4 {
+    color: #2556d3;
+}
+
+.state.type-3 a {
+    display: inline-block;
+    margin: 3px 2px 0;
+    padding: 0 4px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #df2428;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #df2428;
+    background-color: #fff;
+}
+
+.attach-down {
+    display: inline-block;
+    margin-left: 5px;
+    width: 15px;
+    height: 17px;
+    vertical-align: middle;
+    background: url(/resources/legacy/anymobi/img/btn_download_file.png) no-repeat center;
+}
+
+.jc-pop-return:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+/*-- popup_common --*/
+.popup-con {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+
+.popup-con {
+    background-color: #fff;
+}
+
+.popup-con > div {
+    margin: 0 auto;
+}
+
+/*-- popup_type1 --*/
+/* 기존 스타일 유지 */
+.popup-con .return-reason {
+    padding: 0 35px;
+    width: 440px;
+    height: 270px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+}
+
+.popup-con .return-reason > p {
+    padding: 40px 0 30px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.popup-con .return-reason li {
+    line-height: 2em
+}
+
+.popup-con .return-reason li span {
+    color: #000;
+}
+
+.popup-con .return-reason .close {
+    display: block;
+    margin: 30px auto 0;
+    width: 135px;
+    height: 37px;
+    background: url(/resources/legacy/anymobi/img/btn_popup_confirm.png) no-repeat center;
+}
+
+/* 재신청버튼 추가 */
+/* 버튼 그룹: 재신청 + 닫기 나란히 정렬 */
+.popup-con .return-reason .btn-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+/* 재신청 버튼: 텍스트 스타일 */
+.popup-con .return-reason .btn-resubmit {
+    display: inline-block;
+    width: 135px;
+    height: 37px;
+    line-height: 37px;
+    text-align: center;
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* 확인 버튼이 그룹 안에 있을 경우 margin 제거 */
+.popup-con .return-reason .btn-group .close {
+    margin: 0;
+}
+
+/* 재신청버튼 추가 끝 */
+
+
+/*-- popup_type2 --*/
+.popup-con .learning-registration {
+    padding: 0 35px;
+    /* width: 500px;
+    height: 475px; */
+}
+
+.popup-con .learning-registration > p {
+    padding: 35px 0 20px;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    border-bottom: 1px solid #8c8c8c;
+}
+
+.popup-con .learning-registration .reg-enter-box {
+    padding: 15px 0;
+    width: 428px;
+    border-bottom: 1px solid #8c8c8c;
+}
+
+.popup-con .reg-enter-box th {
+    padding-right: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    text-align: right;
+}
+
+.popup-con .reg-enter-box td {
+    padding: 5px 0;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    font-weight: 400;
+    color: #333;
+}
+
+.popup-con .reg-enter-box td.file-list div > img {
+    height: 16px;
+    width: auto;
+    margin-right: 6px;
+    vertical-align: -4px;
+}
+
+.popup-con .reg-enter-box td.file-list div a > img {
+    margin-left: 4px;
+    vertical-align: -1px;
+}
+
+.popup-con .reg-enter-box select {
+    display: block;
+    padding: 0px 5px 5px 10px;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #dadada;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.popup-con .reg-enter-box input {
+    display: inline-block;
+    padding: 0 10px;
+    width: 100%;
+    height: 30px;
+    line-height: 27px;
+    font-size: 14px;
+    color: #333;
+    border: 1px solid #dadada;
+    border-radius: 8px;
+}
+
+.popup-con .reg-enter-box .date label {
+    display: inline-block;
+}
+
+.popup-con .reg-enter-box .date span {
+    padding: 0 6px;
+}
+
+.popup-con .reg-enter-box .date input {
+    cursor: pointer;
+    padding: 0 5px;
+    font-size: 12px;
+}
+
+.popup-con .reg-enter-box .time span {
+    padding: 0 10px;
+    font-size: 12px;
+    color: #666;
+}
+
+.popup-con .reg-enter-box .upload .file-name {
+    width: 250px;
+}
+
+.popup-con .reg-enter-box .upload a {
+    display: inline-block;
+    /* margin-left: 6px; */
+    margin-bottom: 6px;
+    width: 72px;
+    height: 30px;
+    vertical-align: middle;
+    background: url(/resources/legacy/anymobi/img/btn_find_file_2.png) no-repeat center;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.popup-con .reg-enter-box .upload .file-list li a {
+    width: auto;
+    background-image: none;
+}
+
+.popup-con .reg-enter-box .upload .file-list li > img {
+    width: 8px;
+    height: auto;
+    margin-right: 6px;
+    vertical-align: -4px;
+}
+
+.popup-con .reg-enter-box .upload .file-list li a img {
+    margin-left: 6px;
+}
+
+.popup-con .reg-enter-box .upload .file-list li .file-size {
+    font-size: 12px;
+}
+
+.popup-con .bot-btn {
+    margin: 22px 0;
+    text-align: center;
+}
+
+.popup-con .bot-btn a {
+    display: inline-block;
+    margin-right: 10px;
+    width: 135px;
+    height: 37px;
+}
+
+.popup-con .bot-btn .reset {
+    background: url(/resources/legacy/anymobi/img/btn_popup_cancel_gray_2.png) no-repeat center;
+}
+
+.popup-con .bot-btn .cancel {
+    background: url(/resources/legacy/anymobi/img/btn_popup_cancel.png) no-repeat center;
+}
+
+.popup-con .bot-btn .submit {
+    margin-right: 0;
+    background: url(/resources/legacy/anymobi/img/btn_popup_request_confirmation.png) no-repeat center;
+}
+
+/*-- popup_type3 --*/
+.popup-con .multipop {
+    padding: 0 35px;
+    width: 800px;
+    height: 580px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+}
+
+.popup-con .multipop.def {
+    height: 540px;
+}
+
+.popup-con .multipop > p {
+    padding: 30px 0 25px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.popup-con .multipop .notice {
+    margin-top: 25px;
+    font-size: 12px;
+}
+
+.popup-con .multipop .list-con {
+    margin-top: 12px;
+}
+
+.popup-con .multipop .serch-con table {
+    width: 728px;
+    border: 1px solid #eee;
+}
+
+.popup-con .multipop .serch-con td {
+    height: 56px;
+    background-color: #eee;
+}
+
+.multipop .serch-con p {
+    padding-left: 30px;
+    font-size: 16px;
+}
+
+.multipop .serch-con a {
+    display: block;
+    margin: 0 auto;
+    width: 60px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    background-color: #666;
+}
+
+.multipop .serch-con input {
+    display: block;
+    padding: 0 10px;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #dadada;
+}
+
+.multipop .serch-con select {
+    display: block;
+    padding: 5px 10px;
+    width: 100%;
+    height: 30px;
+    border: 1px solid #dadada;
+}
+
+.popup-con .list-con {
+    margin-top: 25px;
+}
+
+.popup-con .over-scroll {
+    margin-top: 0 !important;
+    overflow-y: auto;
+    border-bottom: 1px solid #8c8c8c;
+}
+
+.popup-con .multipop.def .list-con {
+    margin-top: 0;
+}
+
+.popup-con .list-con .mCSB_scrollTools {
+    margin: 5px 0;
+    width: 8px;
+}
+
+.popup-con .multipop .text-left {
+    padding-left: 20px;
+    text-align: left;
+}
+
+.popup-con .list-con table {
+    width: 728px;
+}
+
+.popup-con .list-con th {
+    height: 40px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 300;
+    text-align: center;
+    background-color: #8c8c8c;
+}
+
+.popup-con .list-con td {
+    height: 40px;
+    font-size: 14px;
+    color: #393939;
+    font-weight: 300;
+    text-align: center;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.popup-con .list-con .end td {
+    border-bottom: none;
+}
+
+.popup-con .multipop .bot-btn {
+    margin-top: 28px;
+}
+
+.popup-con .multipop .reset {
+    background: url(/resources/legacy/anymobi/img/btn_popup_cancel_gray_2.png) no-repeat center;
+}
+
+.popup-con .multipop .submit {
+    margin-right: 0;
+    background: url(/resources/legacy/anymobi/img/btn_popup_done_2.png) no-repeat center;
+}
+
+.popup-con .multipop .submit.add-plan {
+    background: url(/resources/legacy/anymobi/img/btn_popup_add_plan.png) no-repeat center;
+}
+
+/*-- popup_type4 --*/
+.popup-con .tabpop {
+    padding: 0 30px;
+    width: 900px;
+    height: 720px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+}
+
+.popup-con .tabpop > p {
+    padding: 30px 0 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.tabpop .tabs {
+    padding: 0 10px;
+    width: 100%;
+    height: 43px;
+    display: inline-block;
+    border-bottom: 2px solid #999
+}
+
+.tabpop .tabs li {
+    cursor: pointer;
+    display: inline-block;
+    width: 170px;
+    height: 43px;
+}
+
+.tabpop .tabs li.img-menu-1 {
+    width: 170px;
+    background-image: url(/resources/legacy/anymobi/img/capability_development/btn_popup_tap_left_normal.png);
+}
+
+.tabpop .tabs li.img-menu-2 {
+    width: 168px;
+    background-image: url(/resources/legacy/anymobi/img/capability_development/btn_popup_tap_right_normal.png);
+}
+
+.tabpop .tabs li.img-menu-1.tab-active {
+    cursor: default;
+    background-image: url(/resources/legacy/anymobi/img/capability_development/btn_popup_tap_left_selected.png);
+}
+
+.tabpop .tabs li.img-menu-2.tab-active {
+    cursor: default;
+    background-image: url(/resources/legacy/anymobi/img/capability_development/btn_popup_tap_right_selected.png);
+}
+
+.tabpop .tabs li.img-menu-a {
+    width: 160px; /* 170 */
+    background-image: url(/resources/legacy/anymobi/img/capability_development/btn_popup_tap_set_course_normal.png);
+}
+
+.tabpop .tabs li.img-menu-b {
+    width: 160px; /* 168 */
+    background-image: url(/resources/legacy/anymobi/img/capability_development/btn_popup_tap_elearning_normal.png);
+}
+
+.tabpop .tabs li.img-menu-a.tab-active {
+    cursor: default;
+    background-image: url(/resources/legacy/anymobi/img/capability_development/btn_popup_tap_set_course_selected.png);
+}
+
+.tabpop .tabs li.img-menu-b.tab-active {
+    cursor: default;
+    background-image: url(/resources/legacy/anymobi/img/capability_development/btn_popup_tap_elearning_selected.png);
+}
+
+
+.popup-con .tabpop .notice {
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+.popup-con .tabpop .serch-con {
+    margin-top: 15px;
+    padding: 0 25px;
+    border: 1px solid #ededed;
+    background-color: #eee;
+}
+
+.popup-con .tabpop .serch-con table {
+    width: 790px;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.popup-con .tabpop .serch-con table.def td {
+    padding-left: 10px;
+}
+
+.popup-con .tabpop .serch-con table.end {
+    border-bottom: 0;
+}
+
+.popup-con .tabpop .serch-con th {
+    padding-left: 10px;
+    font-size: 16px;
+    color: #000;
+}
+
+.popup-con .tabpop .serch-con td {
+    height: 55px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+}
+
+.popup-con .tabpop .serch-con select {
+    display: block;
+    padding: 4px 10px 6px;
+    width: 100%;
+    height: 30px;
+    border: 1px solid #dadada;
+    background-color: #fff;
+}
+
+.popup-con .tabpop .serch-con input {
+    display: block;
+    padding: 6px 10px;
+    width: 100%;
+    height: 30px;
+    border: 1px solid #dadada;
+    background-color: #fff;
+}
+
+.popup-con .tabpop .serch-con .cj-iCheck {
+    display: inline-block;
+}
+
+.popup-con .tabpop .serch-con .cj-input-radio {
+    display: inline-block;
+    margin: 0 6px 0 3px;
+    vertical-align: middle;
+}
+
+.popup-con .tabpop .inquiry-btn {
+    display: block;
+    margin: 15px auto 0;
+    width: 135px;
+    height: 37px;
+}
+
+.popup-con .tab-list-con {
+    margin-top: 15px;
+}
+
+.popup-con .tab-list-con table {
+    width: 840px;
+}
+
+.popup-con .tab-list-con th {
+    height: 40px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 300;
+    text-align: center;
+    background-color: #8c8c8c;
+}
+
+.popup-con .tab-list-con td {
+    height: 40px;
+    font-size: 14px;
+    color: #393939;
+    font-weight: 300;
+    text-align: center;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.popup-con .tab-list-con span.text-left {
+    cursor: pointer;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.popup-con .tab-list-con span.text-left:hover {
+    color: #df2428;
+    text-decoration: underline;
+}
+
+.popup-con .tab-list-con th.text-left {
+    padding-left: 75px;
+    text-align: left;
+}
+
+.popup-con .tab-list-con select {
+    display: block;
+    padding: 6px 10px;
+    width: 100%;
+    height: 30px;
+    border: 1px solid #dadada;
+    background-color: #fff;
+}
+
+.popup-con .tabpop .submit.add {
+    background: url(/resources/legacy/anymobi/img/btn_popup_add.png) no-repeat center;
+}
+
+.list-box {
+    padding: 30px 40px;
+    border: 1px solid #eee;
+}
+
+.list-box table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.list-box .list-type-2 th {
+    color: #333;
+}
+
+.list-box.est-det th, .list-box.est-det td {
+    font-size: 15px;
+    color: #333;
+    font-weight: 400;
+}
+
+.list-box .table-1 {
+    margin-bottom: 40px;
+}
+
+.list-box .table-1 th {
+    padding: 6px 20px;
+    color: #333;
+    border: 1px solid #ccc;
+    text-align: center;
+    background-color: #e3e3e3;
+}
+
+.list-box .table-1 td {
+    padding: 6px 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.btn-link-plan {
+    display: block;
+    margin: 0 auto 25px;
+    width: 810px;
+}
+
+.btn-link-plan img {
+    display: block;
+    width: 100%;
+}
+
+
+.popup-con .zipcode {
+    padding: 0 30px;
+    width: 600px;
+    height: 550px;
+}
+
+.popup-con .zipcode input {
+    font-size: 14px;
+}
+
+.popup-con .zipcode table {
+    width: 100% !important;
+}
+
+.popup-con .zipcode .serch-con {
+    border: 1px solid #ddd;
+}
+
+.popup-con .zipcode .serch-con tr.bottom td {
+    padding-bottom: 8px;
+    height: auto;
+    font-size: 12px;
+    color: #666;
+}
+
+.popup-con .zipcode .list-con td {
+    height: 60px;
+    line-height: 1.3em;
+}
+
+.popup-con .zipcode td .address {
+    display: block;
+    text-align: left;
+}
+
+.popup-con .zipcode td .address:hover,
+.popup-con .zipcode td .address:hover span {
+    color: #db2a2f;
+    text-decoration: underline;
+}
+
+.popup-con .zipcode td .address span {
+    font-weight: 400;
+    color: #393939;
+}
+
+.popup-con .zipcode .txt-1 {
+    margin-top: 18px;
+}
+
+.popup-con .zipcode .txt-1 span {
+    color: #db2a2f;
+}
+
+.popup-con .zipcode .notice-con {
+    margin-top: 5px;
+    padding: 16px;
+    font-size: 13px;
+    border: 1px solid #e9e9e9;
+}
+
+.popup-con .zipcode .notice-con table {
+    margin: 14px 0;
+    border: 1px solid #b8b8b8;
+}
+
+.popup-con .zipcode .notice-con th {
+    height: 40px;
+    font-size: 13px;
+    color: #fff;
+    text-align: center;
+    background-color: #bfbfbf;
+}
+
+.popup-con .zipcode .notice-con td {
+    height: 60px;
+    font-size: 13px;
+    color: #393939;
+    text-align: center;
+    border-top: 1px solid #e2e2e2;
+}
+
+.popup-con .zipcode .txt-2 {
+    font-size: 12px;
+    color: #666;
+}
+
+
+.w-570 {
+    width: 570px !important;
+}
+
+.w-550 {
+    width: 550px !important;
+}
+
+.w-480 {
+    width: 480px !important;
+}
+
+.w-420 {
+    width: 420px !important;
+}
+
+.w-410 {
+    width: 410px !important;
+}
+
+.w-390 {
+    width: 390px !important;
+}
+
+.w-350 {
+    width: 350px !important;
+}
+
+.w-340 {
+    width: 340px !important;
+}
+
+.w-320 {
+    width: 320px !important;
+}
+
+.w-300 {
+    width: 300px !important;
+}
+
+.w-250 {
+    width: 250px !important;
+}
+
+.w-290 {
+    width: 290px !important;
+}
+
+.w-230 {
+    width: 230px !important;
+}
+
+.w-220 {
+    width: 220px !important;
+}
+
+.w-190 {
+    width: 190px !important;
+}
+
+.w-160 {
+    width: 160px !important;
+}
+
+.w-140 {
+    width: 140px !important;
+}
+
+.w-110 {
+    width: 110px !important;
+}
+
+.w-80 {
+    width: 80px !important;
+}
+
+.h-200 {
+    height: 200px !important
+}
+
+.h-240 {
+    height: 240px !important
+}
+
+.h-285 {
+    height: 285px !important
+}
+
+.h-400 {
+    height: 400px !important
+}
+
+.pad-t-25 {
+    padding-top: 25px !important
+}
+
+.pad-r-30 {
+    padding-right: 20px !important
+}
+
+.pad-l-5 {
+    padding-left: 5px !important
+}
+
+.pad-l-0 {
+    padding-left: 0 !important
+}
+
+.pad-lr-0 {
+    padding-left: 0 !important
+}
+
+.pad-l-195 {
+    padding-left: 195px !important;
+}
+
+.pad-b-30 {
+    padding-bottom: 30px !important
+}
+
+.pad-5 {
+    padding: 5px !important
+}
+
+.bor-t-8c {
+    border-top: 1px solid #8c8c8c !important
+}
+
+.bor-b-f2 {
+    border-bottom: 1px solid #f2f2f2 !important
+}
+
+.bor-b-8c {
+    border-bottom: 1px solid #8c8c8c !important
+}
+
+.bor-r-f2 {
+    border-right: 1px solid #f2f2f2 !important
+}
+
+.bor-r-b1 {
+    border-right: 1px solid #b1b1b1 !important
+}
+
+.m-t-50 {
+    margin-top: 50px !important
+}
+
+.m-b-50 {
+    margin-bottom: 50px !important
+}
+
+.m-b-12 {
+    margin-bottom: 12px !important
+}
+
+.m-b-0 {
+    margin-bottom: 0 !important
+}
+
+.t-space {
+    letter-spacing: -0.05em
+}
+
+.t-lh {
+    line-height: 1.3em !important
+}
+
+.st-1 {
+    padding: 5px 0 5px 10px !important;
+    line-height: 1.3em !important;
+    text-align: left !important;
+}
+
+/*-----------------------------------
+		iCheck plugin css
+-----------------------------------*/
+/*--- iCheck_checkbox ---*/
+.cj-input-chkbox {
+    width: 19px;
+    height: 19px;
+    background-image: url(/resources/legacy/anymobi/img/check_box_normal.png);
+}
+
+.cj-input-chkbox.checked {
+    background-image: url(/resources/legacy/anymobi/img/pop_check_box_selected.png);
+}
+
+/*--- iCheck_radio ---*/
+.cj-input-radio {
+    width: 19px;
+    height: 19px;
+    background-image: url(/resources/legacy/anymobi/img/btn_pop_radio.png);
+}
+
+.cj-input-radio.checked {
+    background-image: url(/resources/legacy/anymobi/img/btn_pop_radio_selected.png);
+}
+
+/*-- ie8 css --*/
+.ie8 .grid-data-area th {
+    font-size: 13px
+}
+
+.ie8 .popup-con .reg-enter-box th {
+    font-size: 13px
+}
+
+.ie8 .est-det .notice.fs-16,
+.ie8 .popup-con,
+.ie8 .popup-con .multipop > p,
+.ie8 .multipop .serch-con p,
+.ie8 .jc-tabs a,
+.ie8 .m-title,
+.ie8 .grid-data-area th,
+.ie8 .est-det .list-type-1 th,
+.ie8 .popup-con .tab-list-con th,
+.ie8 .popup-con .list-con th,
+.ie8 .multipop .serch-con a,
+.ie8 .est-det .strong-tit,
+.ie8 .est-det .list-type-3 .info-table .total,
+.ie8 .popup-con .learning-registration > p,
+.ie8 .popup-con .return-reason > p,
+.ie8 .list-box.est-det .table-1 th,
+.ie8 .popup-con .tabpop > p {
+    font-weight: bold
+}
+
+.ie8 .est-det .list-type-3 .info-table th {
+    padding-left: 5px;
+    padding-right: 5px;
+    font-weight: bold
+}
+
+.ie8 .multipop .serch-con p {
+    letter-spacing: -0.05em
+}
+
+.ie8 .tabpop .serch-con th {
+    font-weight: bold;
+    letter-spacing: -0.05em;
+}
+
+.ie8 .cj-iCheck label {
+    padding: 6px 0
+}
+
+.ie8 .grid-data-area th {
+    font-size: 13px;
+    letter-spacing: -0.15em
+}
+
+.ie8 .popup-con .reg-enter-box th {
+    padding-right: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: -0.05em;
+}
+
+.ie8 .est-det .notice {
+    letter-spacing: -0.05em
+}
+
+.ie8 .popup-con .zipcode td {
+    font-size: 13px
+}
+
+.ie8 .popup-con .zipcode td .address span {
+    font-weight: bold
+}
+
+
+.department-head {
+    margin-top: 70px;
+    margin-left: -40px;
+    padding: 35px;
+    width: 920px;
+    background-color: #eee;
+}
+
+.department-head .del-btn {
+    cursor: pointer;
+    display: inline-block;
+    width: 45px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 12px;
+    color: #333;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #ccc;
+}
+
+.department-head .develop-data-area {
+    position: relative;
+    border-bottom: 1px solid #8c8c8c;
+    margin-bottom: 50px;
+}
+
+.department-head .develop-data-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.department-head .develop-data-area th,
+.department-head .develop-data-area td {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.department-head .develop-data-area thead th {
+    padding: 6px 0 5px;
+    text-align: center;
+    background: #8c8c8c;
+    color: #fff !important;
+    height: 40px;
+}
+
+.department-head .develop-data-area thead tr.border th {
+    height: 30px;
+}
+
+.department-head .develop-data-area thead tr.border .bottom {
+    border-bottom: 1px solid #b1b1b1;
+}
+
+.department-head .develop-data-area thead tr.border th {
+    border-right: 1px solid #b1b1b1;
+}
+
+.department-head .develop-data-area thead tr.border th.bor-end {
+    border-right: 0;
+}
+
+.department-head .develop-data-area thead tr.border .right {
+    border-right: 1px solid #f2f2f2;
+}
+
+.department-head .develop-data-area tbody td {
+    padding: 6px 0 5px;
+    text-align: center;
+    border-bottom: 1px solid #f2f2f2;
+    height: 40px;
+}
+
+.department-head .develop-data-area tbody td.line {
+    border-right: 1px solid #f2f2f2;
+}
+
+.department-head .develop-data-area tbody tr.bor-r td {
+    border-right: 1px solid #f2f2f2;
+}
+
+.department-head .develop-data-area tbody tr.bor-r td.bor-end {
+    border-right: 0;
+}
+
+.department-head .develop-data-area tbody td.align-left {
+    padding-left: 5px;
+}
+
+.department-head .develop-data-area tbody tr.padding td {
+    height: 48px;
+}
+
+.department-head .develop-data-area tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.department-head .develop-data-area tbody tr.tr-last td {
+    border-bottom: none;
+}
+
+.department-head .txt-title {
+    position: relative;
+    margin: 20px 0 10px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+.department-head .text-enter-box {
+    padding: 15px;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5em;
+    word-break: keep-all;
+}
+
+.txt-red {
+    color: #df2428 !important;
+}
+
+/*-- popup --*/
+.popup-survey {
+    position: fixed;
+    top: 25%;
+    left: 37%;
+    padding: 0 0 35px;
+    width: 730px;
+    font-size: 15px;
+    font-weight: 300;
+    color: #333;
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 15px #d2d2d2;
+    -moz-box-shadow: 0 0 15px #d2d2d2;
+    -o-box-shadow: 0 0 15px #d2d2d2;
+    -ms-box-shadow: 0 0 15px #d2d2d2;
+    box-shadow: 0 0 15px #d2d2d2;
+    z-index: 9999;
+}
+
+.popup-survey .close-btn {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    background: url(/resources/legacy/anymobi/img/btn_popup_x_gray.png) no-repeat center;
+}
+
+.popup-survey h3 {
+    height: 60px;
+    line-height: 60px;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    background-color: #3f3f3f;
+}
+
+.popup-survey ul {
+    position: relative;
+    padding: 35px 35px 0;
+}
+
+.popup-survey li {
+    margin-bottom: 40px;
+}
+
+.popup-survey .txt-q {
+    margin-bottom: 8px;
+    letter-spacing: -0.05em;
+}
+
+.popup-survey label {
+    cursor: pointer;
+    padding-right: 20px;
+    vertical-align: middle;
+}
+
+.popup-survey label span {
+    position: relative;
+    top: -2px;
+}
+
+.popup-survey .submit-btn {
+    cursor: pointer;
+    display: block;
+    margin: 75px auto 0;
+    width: 135px;
+    height: 37px;
+    line-height: 40px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    background-color: #ef0a12;
+}
+
+.popup-survey .submit-btn:hover {
+    text-decoration: none;
+}
+
+#overlay-box {
+    background: none;
+}

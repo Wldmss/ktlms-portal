@@ -1,0 +1,738 @@
+.top-con {
+    position: relative; /* 20190417_추가 */
+    margin-bottom: 15px;
+    padding: 0 15px;
+}
+
+
+/* 20190417_추가 */
+.top-con .btn-pop {
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 255px;
+    width: 85px;
+    height: 26px;
+    line-height: 28px;
+    font-size: 13px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    background-color: #ff565e;
+    border-radius: 3px;
+    -webkit-transition: width 0.2s;
+    transition: width 0.2s;
+}
+
+.top-con .btn-pop:hover {
+    width: 95px;
+}
+
+.middle-con {
+    padding: 0 15px;
+}
+
+.middle-con.detail {
+    padding: 0 45px;
+}
+
+.middle-con > div.border {
+    border: 1px solid #ccc;
+    margin-top: 50px;
+}
+
+.middle-con > div.bg {
+    background: #f8f8f8;
+}
+
+.list-btn {
+    display: block;
+    margin-bottom: 10px;
+    width: 90px;
+    height: 35px;
+    background: url(/resources/legacy/anymobi/img/btn_list.png) no-repeat center;
+}
+
+.m-title {
+    position: relative;
+    padding: 20px 40px 30px;
+}
+
+.btn-area {
+    margin-top: 10px;
+    float: right;
+}
+
+.cop-top {
+    margin: 0 50px;
+}
+
+.cop-top .m-title {
+    padding: 25px 0 10px;
+}
+
+.item-list {
+    float: right;
+    margin-top: -25px;
+}
+
+.item-list li {
+    display: inline-block;
+    position: relative;
+    padding: 0 10px 0 15px;
+    color: #666;
+}
+
+.item-list li:before {
+    content: '|';
+    display: inline-block;
+    width: 1px;
+    color: #d7d7d7;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.item-list li:first-child {
+    padding: 0 10px 0 0;
+}
+
+.item-list li:first-child:before {
+    content: '';
+}
+
+.item-list .item {
+    padding-right: 5px;
+}
+
+.cop-mid {
+    margin: 0 50px;
+    border-top: 1px solid #8a8a8a;
+    border-bottom: 1px solid #8a8a8a;
+    padding: 15px 0 20px;
+    position: relative;
+}
+
+.cop-board-area {
+    position: relative;
+}
+
+.cop-board-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cop-board-area tbody th {
+    position: relative;
+    padding: 14px 15px 14px 0;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: right;
+    vertical-align: top;
+}
+
+.cop-board-area tbody th .txt-red {
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    left: 0;
+    width: 10px;
+    padding-top: 13px;
+    font-weight: 400;
+}
+
+.cop-board-area tbody td {
+    padding: 7px 0;
+    font-size: 12px;
+    width: 100%;
+}
+
+.cop-board-area tbody .total-day {
+    display: inline-block;
+    font-size: 15px;
+}
+
+.cop-board-area tbody .total-day em {
+    padding-right: 20px;
+}
+
+.cop-board-area .search-btn {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.cop-board-area input {
+    border: 1px solid #dcdcdc;
+    padding: 7px 10px;
+    width: 100%;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+.cop-board-area input[readonly] {
+    background-color: #f8f8f8;
+}
+
+.cop-board-area input[type=file] {
+    width: 250px;
+    padding: 0;
+    display: none;
+}
+
+.cop-board-area textarea {
+    border: 1px solid #dcdcdc;
+    padding: 5px 10px;
+    width: 100%;
+    outline: none;
+    resize: none;
+    font-size: 15px;
+}
+
+.cop-board-area select {
+    border: 1px solid #dcdcdc;
+    padding: 5px;
+}
+
+.cop-board-area .in-con {
+    margin-left: 30px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.cop-board-area .in-con select {
+    margin: 0 8px;
+    width: 70px;
+}
+
+.cop-board-area img {
+    vertical-align: middle;
+    margin: 0 3px;
+}
+
+.cop-board-area img:first-child {
+    vertical-align: middle;
+    margin: 0 3px 0 0;
+}
+
+.name-area {
+    background: #fff;
+    border: 1px solid #dcdcdc;
+    padding: 8px 10px;
+    margin-top: 7px;
+    height: 65px;
+    overflow: auto
+}
+
+.name {
+    display: inline-block;
+    margin: 0 10px 5px 0;;
+    font-size: 15px;
+}
+
+.name a {
+    display: inline-block;
+    margin-left: 3px;
+}
+
+.line {
+    color: #ccc;
+    padding: 0 10px;
+}
+
+.file-search {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.file-search img {
+    vertical-align: middle;
+}
+
+.file-search span {
+    color: #959595;
+    padding-left: 5px;
+}
+
+.file-list li {
+    color: #666;
+    border-bottom: 1px solid #eee;
+    padding: 7px 10px;
+}
+
+.file-list li img {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.file-list .file-size {
+    color: #959595;
+    padding: 0 10px;
+}
+
+.board-btn-area {
+    padding: 15px 50px;
+    text-align: right;
+}
+
+.board-btn-area a {
+    margin-left: 5px;
+}
+
+.pop-add {
+    width: 700px;
+    padding: 30px;
+    background: #fff;
+    margin: 0 auto;
+}
+
+.pop-add .title {
+    text-align: center;
+}
+
+.pop-add .sub-title {
+    margin: 45px 0 5px 0;
+}
+
+.pop-add .close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+}
+
+.pop-add .attach-list li {
+    padding: 5px 0;
+}
+
+.pop-add .attach-list li img {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.pop-add .attach-list li a {
+    text-decoration: underline;
+}
+
+.pop-add .board-head {
+    margin: 35px 0 5px 0;
+}
+
+.board-head {
+    margin: 40px 0 5px 0;
+    font-weight: 400;
+    overflow: hidden;
+}
+
+.board-head .total {
+    font-size: 16px;
+    color: #df2428;
+    width: 200px;
+    display: inline-block;
+    left: 80px;
+}
+
+.board-head .search-btn {
+    vertical-align: middle;
+    margin-right: 15px;
+}
+
+.board-head .search-btn img {
+    vertical-align: middle;
+}
+
+.board-head .btn {
+    margin-bottom: 6px;
+    text-align: right;
+}
+
+.board-head .btn a {
+    display: inline-block;
+}
+
+.board-head .btn a img {
+    display: block;
+}
+
+.board-head .total {
+    font-size: 16px;
+    color: #df2428;
+    width: 200px;
+    display: inline-block;
+}
+
+.search-box {
+    position: relative;
+    margin-bottom: 20px;
+    background: #eee;
+    border: 1px solid #dfdfdf;
+}
+
+.search-box table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.search-box th {
+    font-size: 16px;
+    padding-left: 10px;
+    text-align: center;
+}
+
+.search-box td {
+    padding: 12px 0 12px 0;
+    text-align: left;
+}
+
+.search-box td input {
+    font-size: 14px;
+    padding: 0 15px;
+    height: 30px;
+    line-height: 30px;
+    width: 188px;
+    border: 1px solid #dadada;
+    vertical-align: middle;
+}
+
+.search-box td select {
+    padding: 5px;
+    width: 115px;
+    line-height: 30px;
+    font-size: 14px;
+    vertical-align: middle;
+    border: 1px solid #dadada;
+}
+
+.btn-search {
+    display: block;
+    margin: 0 auto;
+    width: 85px;
+    height: 33px;
+    vertical-align: middle;
+    background: url(/resources/legacy/anymobi/img/btn_search.png) no-repeat center center;
+}
+
+.search input {
+    width: 150px;
+    height: 30px;
+    border: 1px solid #dcdcdc;
+    padding: 0 10px;
+    vertical-align: middle;
+    line-height: 30px;
+    margin-right: 5px;
+}
+
+.search img {
+    vertical-align: middle;
+}
+
+.j-scrollbar-content {
+    border-bottom: 1px solid #8c8c8c;
+}
+
+.pop-data-area {
+    position: relative;
+}
+
+.pop-data-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.pop-data-area th,
+.pop-data-area td {
+    font-size: 16px;
+}
+
+.pop-data-area thead th {
+    padding: 13px 0 11px;
+    text-align: center;
+    background: #ECECEC;
+    color: #707070;
+}
+
+table.table {
+    border-top: 1px solid #ACACAC;
+}
+
+.pop-data-area tbody td {
+    padding: 6px 0 5px;
+    text-align: center;
+    border-bottom: 1px solid #f2f2f2;
+    height: 40px;
+}
+
+.pop-data-area tbody tr.tr-last td {
+    border-bottom: none;
+}
+
+.pop-btn-area {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pop-btn-area a {
+    display: inline-block;
+    margin: 0 3px;
+}
+
+.grid-data-area {
+    position: relative;
+    border-top: 2px solid #000000;
+    border-bottom: 1px solid #8c8c8c;
+}
+
+.grid-data-area table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.grid-data-area th,
+.grid-data-area td {
+    font-size: 14px;
+}
+
+.grid-data-area th {
+    border-bottom: 1px solid #8c8c8c;
+    padding: 14px 0 12px;
+    text-align: center;
+}
+
+.grid-data-area td {
+    position: relative;
+    padding: 9px 0 7px;
+    text-align: center;
+    border-bottom: 1px solid #f2f2f2;
+    height: 40px;
+}
+
+.grid-data-area tr.tr-last td {
+    border-bottom: none;
+}
+
+.grid-data-area td a {
+    display: block;
+    padding: 0 20px;
+    width: 500px;
+    text-align: left;
+    vertical-align: middle;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+a.grid-pop-btn {
+    display: inline-block;
+    width: 67px;
+    height: 29px;
+    line-height: 29px;
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+    background-color: #fff;
+}
+
+a.grid-pop-btn.red {
+    color: #2cbbb5;
+    border: 1px solid #2cbbb5;
+}
+
+a.grid-pop-btn.gray {
+    border: 1px solid #ccc;
+}
+
+.serch-con {
+    margin: 25px 0 20px;
+}
+
+.serch-con table {
+    width: 640px;
+    border: 1px solid #eee;
+}
+
+.serch-con td {
+    /* height: 56px; */
+    background-color: #eee;
+}
+
+.serch-con p {
+    padding-left: 30px;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 20px 0px 30px 0px;
+}
+
+.serch-con a {
+    display: block;
+    margin: 0 auto;
+    width: 60px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    background-color: #666;
+}
+
+.serch-con input {
+    display: block;
+    padding: 0 10px;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #dadada;
+}
+
+/* width */
+.width-80 {
+    width: 80px !important;
+}
+
+.width-90 {
+    width: 90px !important;
+}
+
+.width-100 {
+    width: 100px !important;
+}
+
+.width-180 {
+    width: 180px !important;
+}
+
+.width-200 {
+    width: 200px !important;
+}
+
+.width-220 {
+    width: 220px !important;
+}
+
+.width-310 {
+    width: 310px !important;
+}
+
+/* height */
+.height-70 {
+    height: 70px !important;
+}
+
+.height-200 {
+    height: 200px !important;
+}
+
+.height-205 {
+    height: 205px !important;
+}
+
+.height-290 {
+    height: 290px !important;
+}
+
+.height-300 {
+    height: 300px !important;
+}
+
+.height-535 {
+    height: 535px !important;
+}
+
+.height-780 {
+    height: 780px !important;
+}
+
+/* align */
+.align-left {
+    text-align: left !important;
+}
+
+.align-center {
+    text-align: center !important;
+}
+
+.align-right {
+    text-align: right !important;
+}
+
+/*-----------------------------------
+		iCheck plugin css
+-----------------------------------*/
+.pop-sel .cj-iCheck > div {
+    display: inline-block;
+}
+
+.pop-sel .cj-iCheck > div > div {
+    display: inline-block;
+}
+
+.pop-sel .cj-iCheck label {
+    cursor: pointer;
+    display: inline-block;
+    padding: 6px;
+    font-size: 14px;
+    vertical-align: top;
+}
+
+/*--- iCheck_radio ---*/
+.pop-sel .cj-input-radio {
+    cursor: pointer;
+    width: 19px;
+    height: 19px;
+    background-image: url(/resources/legacy/anymobi/img/btn_pop_radio.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.pop-sel .cj-input-radio.checked {
+    background-image: url(/resources/legacy/anymobi/img/btn_pop_radio_selected.png);
+}
+
+
+/*-- ie8 css --*/
+.ie8 .cop-board-area th,
+.ie8 .board-head .total,
+.ie8 .grid-data-area th,
+.ie8 .serch-con p,
+.ie8 .pop-data-area th {
+    font-weight: bold
+}
+
+.ie8 .cop-board-area th {
+    padding-right: 8px;
+    letter-spacing: -0.05em;
+    line-height: 1.3em
+}
+
+.ie8 .serch-con p {
+    padding-left: 15px
+}
+
+
+.btn-down {
+    position: absolute;
+    right: 0;
+    bottom: 6px;
+    padding: 8px;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    background-color: #df2428;
+}
+
+.btn-down:hover {
+    color: #fff;
+}
+
+.no-ellipsis {
+    overflow: auto !important;
+    white-space: normal !important;
+    text-overflow: clip !important;
+}
+
+.file-wrap input[type="text"], input[type="text"] {
+    font-size: 15px;
+    background: #FFF;
+}

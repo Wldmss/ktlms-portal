@@ -1,0 +1,80 @@
+.ui-datepicker {
+    /* top: 10% !important; */
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 auto;
+    padding: 5px;
+    width: 300px;
+    border: 1px solid #ccc;
+    z-index: 990 !important;
+}
+
+.ui-datepicker table {
+    font-size: 13px !important;
+}
+
+.ui-datepicker-calendar td:first-child a {
+    color: #df2428;
+}
+
+.ui-datepicker-calendar td:last-child a {
+    color: #67b7dc;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+    color: #000;
+}
+
+.ui-datepicker-calendar td a.ui-state-active {
+    color: #fff;
+    background: #df2428;
+}
+
+.ui-datepicker .ui-datepicker-buttonpane button {
+    font-size: 12px;
+}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active {
+    color: #fff;
+}
+
+.ui-datepicker-title {
+    font-size: 14px;
+}
+
+.datepicker-con {
+    display: inline-block;
+}
+
+.datepicker-con input {
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.datepicker-con .ui-datepicker-trigger {
+    cursor: pointer;
+    left: -26px;
+}
+
+.datepicker-con.type-1 {
+    vertical-align: middle;
+    background-color: #fff;
+}
+
+.datepicker-con.type-1 input {
+    border: none;
+}
+
+.datepicker-con.type-1 .ui-datepicker-trigger {
+    float: none;
+    margin-top: -1px;
+}
+
+.ui-datepicker td span, .ui-datepicker td a {
+    padding: 8px;
+    text-align: center;
+}

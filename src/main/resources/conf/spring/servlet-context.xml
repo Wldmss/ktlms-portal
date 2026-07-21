@@ -7,7 +7,7 @@
         http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <annotation-driven />
+    <annotation-driven/>
 
     <!--
         servlet-context : @Controller 만 스캔
@@ -43,7 +43,7 @@
     </beans:bean>
 
     <!-- direct 접속 허용 (controller 안거치고) -->
-    <view-controller path="/directSample" view-name="direct/directSample"/>
+    <!--<view-controller path="/directSample" view-name="direct/directSample"/>-->
     <!--<view-controller path="/shareLink.do" view-name="direct/shareLink"/>
     <view-controller path="/pageLink.do" view-name="direct/pageLink"/>
     <view-controller path="/nsso_auth.do" view-name="direct/nsso_auth"/>

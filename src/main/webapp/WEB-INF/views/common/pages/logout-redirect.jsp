@@ -6,9 +6,7 @@
     <p>로그아웃 처리 중입니다...</p>
 </div>
 
-<script>
-    const contextPath = "${pageContext.request.contextPath}";
-
+<script nonce="${cspNonce}">
     $(document).ready(function () {
         postAjax("/auth/logout").then(res => {
             location.href = window._contextPath + "/";

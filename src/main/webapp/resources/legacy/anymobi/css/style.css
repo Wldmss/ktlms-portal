@@ -1,0 +1,723 @@
+@import "reset.css";
+
+body {
+    position: relative;
+    font-size: 12px;
+    color: #333;
+    font-weight: 300;
+    background-color: #fff;
+}
+
+.nbg-bold {
+    font-weight: 700;
+}
+
+.nbg-reg {
+    font-weight: 400;
+}
+
+
+/*-----------------------------------
+			layout
+-----------------------------------*/
+/*-- header --*/
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: #000;
+    background-color: #fff;
+    z-index: 500;
+    border-bottom: 1px solid #ff4d55;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-transition: -webkit-transform 0.2s;
+    transition: transform 0.2s;
+}
+
+#header.hide {
+    -webkit-transform: translateY(-67px);
+    transform: translateY(-67px);
+    -webkit-transition: -webkit-transform 0.2s;
+    transition: transform 0.2s;
+}
+
+#header .top {
+    position: relative;
+    margin: 0 auto;
+    padding-left: 200px;
+    width: 1280px;
+    height: 67px;
+    line-height: 67px;
+    text-align: right;
+    overflow: hidden;
+}
+
+#header .logo {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background: url(/resources/legacy/anymobi/img/logo_main.png) no-repeat center;
+}
+
+#header .btn-department {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 215px;
+    width: 150px;
+    height: 100%;
+    background: url(/resources/legacy/anymobi/img/btn_department_view.png) no-repeat center;
+}
+
+#header .user-info * {
+    display: inline-block;
+}
+
+#header .name {
+    padding: 0 0 0 46px;
+    background: url(/resources/legacy/anymobi/img/header/icon_user.png) no-repeat left 20px;
+}
+
+#header .name > p {
+    font-size: 16px;
+    font-weight: 400;
+    vertical-align: middle;
+}
+
+#header .name > div {
+    position: relative;
+    margin: 0 15px;
+    height: 28px;
+    line-height: 28px;
+    background-color: #f4f4f4;
+}
+
+#header .name > div:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -10px;
+    width: 13px;
+    height: 28px;
+    background: url(/resources/legacy/anymobi/img/header/info_bg_1.png) no-repeat left center;
+}
+
+#header .name > div:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -10px;
+    width: 13px;
+    height: 28px;
+    background: url(/resources/legacy/anymobi/img/header/info_bg_2.png) no-repeat left center;
+}
+
+#header .name i {
+    padding: 0 1px 0 2px;
+    font-size: 11px;
+    color: #ffc875;
+    font-weight: 700;
+    font-style: normal;
+}
+
+#header .name em {
+    padding: 0 8px 0 4px;
+    font-size: 12px;
+    color: #333;
+}
+
+#header .name a.jc-logout-btn {
+    padding: 0 10px;
+    height: 22px;
+    line-height: 26px;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    background-color: #ffc875;
+    border-radius: 3px;
+    margin-right: 7px;
+    vertical-align: middle;
+}
+
+#header .name a.jc-logout-btn:hover {
+    text-decoration: none;
+}
+
+#nav {
+    position: relative;
+}
+
+#nav:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 63px;
+    background: #ff4d55;
+    z-index: -1;
+}
+
+#nav > div {
+    margin: 0 auto;
+    width: 1280px;
+}
+
+#nav .m-menu {
+    overflow: hidden;
+}
+
+#nav .m-menu > li {
+    float: left;
+    width: 14.285%;
+    text-align: center;
+}
+
+#nav .m-menu a {
+    display: block;
+    overflow: hidden;
+}
+
+#nav .m-menu > li > a {
+    height: 63px;
+    line-height: 63px;
+    font-size: 18px;
+    font-weight: 400;
+    color: #fff;
+    text-decoration: none;
+    border-right: 1px solid #ff8a90;
+}
+
+#nav .m-menu > li:first-child > a {
+    border-left: 1px solid #ff8a90;
+}
+
+#nav .s-menu {
+    height: 0;
+    background-color: #fff;
+    border-right: 1px solid #e3e3e3;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+#nav .m-menu > li:first-child .s-menu {
+    border-left: 1px solid #e3e3e3;
+}
+
+#nav .s-menu a {
+    height: 35px;
+    line-height: 35px;
+
+    font-size: 14px;
+    color: #666;
+    letter-spacing: -0.03em;
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+}
+
+#nav .s-menu a:hover {
+    background-color: #fff2f3;
+}
+
+#nav .s-menu span {
+    display: inline-block;
+    position: relative;
+}
+
+#nav .m-menu:hover .s-menu {
+    padding: 28px 0;
+    height: 320px;
+    visibility: visible;
+    opacity: 1;
+}
+
+#nav .m-menu > li > a:hover + .s-menu {
+    background-color: #fff2f3;
+}
+
+#nav .s-menu a.on {
+    cursor: default !important;
+    font-weight: bold;
+    color: #000;
+    background: transparent;
+}
+
+#nav .s-menu a.on span:after {
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #ff4d55;
+}
+
+/*-- container --*/
+#container {
+    position: relative;
+    margin: 130px auto 0;
+    /*padding-left: 200px;*/
+    width: 1280px;
+    overflow: hidden;
+}
+
+#lnb {
+    /*position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;*/
+    float: left;
+    padding: 30px 0;
+    width: 200px;
+    height: auto;
+    min-height: 100%;
+    overflow: visible;
+    z-index: 50;
+    zoom: 1;
+}
+
+#lnb .menu-con {
+    margin-bottom: 20px;
+    border: 1px solid #ff565e;
+    background-color: #fff;
+}
+
+#lnb .menu-con .title {
+    padding: 15px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.5;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+#lnb .menu-con ul {
+    padding: 15px 0;
+}
+
+#lnb .menu-con a {
+    display: block;
+    padding: 0 15px;
+    height: 35px;
+    line-height: 35px;
+    text-decoration: none;
+}
+
+#lnb .menu-con a span {
+    display: inline-block;
+    position: relative;
+    font-size: 15px;
+    color: #999;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    -webkit-transition: -webkit-transform 0.3s, color 0.2s;
+    transition: transform 0.3s, color 0.2s;
+}
+
+#lnb .menu-con a:hover span {
+    color: #000;
+    -webkit-transform: translateX(5px);
+    transform: translateX(5px);
+    -webkit-transition: -webkit-transform 0.4s, color 0.2s;
+    transition: transform 0.4s, color 0.2s;
+}
+
+#lnb .menu-con a.on:hover span {
+    -webkit-transform: none;
+    transform: none;
+    -webkit-transition: none;
+    transition: none;
+}
+
+#lnb .menu-con a.on {
+    cursor: default !important;
+}
+
+#lnb .menu-con a.on span {
+    font-weight: 400;
+    color: #000;
+}
+
+#lnb .menu-con a.on span:after {
+    content: "";
+    position: absolute;
+    bottom: 7px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #ff565e;
+}
+
+#lnb .banner-con img {
+    display: block;
+    width: 100%;
+}
+
+#lnb .banner-con .item {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #323232;
+}
+
+#lnb .banner-con .item.icon {
+    border: 1px solid #e3e3e3;
+    background-color: #fff;
+}
+
+#lnb .banner-con .item.icon a {
+    display: block;
+    text-decoration: none;
+    border-top: 1px solid #e3e3e3;
+}
+
+#lnb .banner-con .item.icon a:first-child {
+    border-top: 0 none;
+}
+
+#lnb .banner-con .item.icon a span {
+    display: block;
+    padding: 0 10px 0 70px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 16px;
+    color: #323232;
+    background: url(/resources/legacy/anymobi/img/icon_book.png) no-repeat 17px center;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+}
+
+#lnb .banner-con .item.icon a:hover span {
+    -webkit-transform: translateX(5px);
+    transform: translateX(5px);
+    -webkit-transition: -webkit-transform 0.4s;
+    transition: transform 0.4s;
+}
+
+#content {
+    float: right;
+    width: 1080px;
+}
+
+#content .con-area {
+    position: relative;
+    padding: 30px 30px 200px;
+    min-height: 850px;
+}
+
+/*-- footer --*/
+#footer {
+    border-top: 1px solid #eee;
+    border-top: 1px solid #ddd;
+    background-color: #fff;
+}
+
+#footer > div {
+    position: relative;
+    margin: 0 auto;
+    width: 1280px;
+    padding: 12px 180px 40px 30px;
+    font-size: 12px;
+    color: #afafaf;
+    font-weight: 400;
+    line-height: 1.5em;
+}
+
+#footer .policy-btn {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 30px;
+    margin-top: 16px;
+    width: 120px;
+    height: 28px;
+    line-height: 28px;
+    color: #8c8c8c;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #afafaf;
+}
+
+@media all and (min-height: 2000px) {
+    #footer {
+        position: fixed;
+        bottom: 0;
+        width: 1080px;
+    }
+}
+
+/*--- float clear ---*/
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+/*-----------------------------------
+		link icon colors
+-----------------------------------*/
+.cc-link-icon {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 16px;
+    height: 16px;
+}
+
+.cc-link-icon.red {
+    background-image: url(/resources/legacy/anymobi/img/btn_more_red.png);
+}
+
+/*-----------------------------------
+		iCheck plugin css
+-----------------------------------*/
+.cj-iCheck > div {
+    display: inline-block;
+}
+
+.cj-iCheck > div > div {
+    display: inline-block;
+}
+
+.cj-iCheck label {
+    cursor: pointer;
+    display: inline-block;
+    padding: 6px;
+    font-size: 14px;
+    vertical-align: top;
+}
+
+/*--- iCheck_checkbox ---*/
+.cj-input-chkbox {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    background-image: url(/resources/legacy/anymobi/img/check_box_normal.png);
+    background-repeat: no-repeat;
+}
+
+.cj-input-chkbox.checked {
+    background-image: url(/resources/legacy/anymobi/img/check_box_selected.png);
+}
+
+/*--- iCheck_radio ---*/
+.cj-input-radio {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    background-image: url(/resources/legacy/anymobi/img/radio_button_normal.png);
+    background-repeat: no-repeat;
+}
+
+.cj-input-radio.checked {
+    background-image: url(/resources/legacy/anymobi/img/radio_button_selected.png);
+}
+
+/*-----------------------------------
+			paging css
+-----------------------------------*/
+.cc-paging {
+    position: relative;
+    margin: 40px auto;
+    font-weight: 400;
+    text-align: center;
+}
+
+.cc-paging a {
+    border: 1px solid #ececec;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 25px;
+    margin: 0 1px 0 1px;
+    background-color: #fff;
+}
+
+.cc-paging a.on {
+    color: #fff;
+    background: #ea1821;
+    border: 1px solid #ea1821;
+}
+
+/*--- overlay box ---*/
+#overlay-box {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #bfbfbf;
+    z-index: 990;
+}
+
+/*-----------------------------------
+			etc css
+-----------------------------------*/
+.h-600 {
+    height: 600px
+}
+
+.cc-con-none {
+    padding: 40px 0 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    text-align: center !important;
+    border: none !important;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.text-over {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.inblock {
+    display: inline-block !important;
+}
+
+.cc-tline {
+    color: #0000ff; /* text-decoration: underline !important; */
+}
+
+.fs-12 {
+    font-size: 12px !important
+}
+
+input, select, textarea {
+
+}
+
+.btn-small {
+    display: inline-block;
+    margin: 3px 2px 0;
+    padding: 0 4px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #df2428;
+    text-align: center;
+    text-decoration: none !important;
+    border: 1px solid #df2428;
+    background-color: #fff;
+}
+
+/* 20190116 */
+.display-play-time {
+    position: relative;
+}
+
+.display-play-time img {
+    display: block;
+    width: 100%;
+}
+
+.display-play-time .play-time {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 6px 10px;
+    font-size: 13px;
+    color: #fff;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.loading-block {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: block;
+    opacity: 0.8;
+    background: white;
+    color: black;
+    z-index: 99;
+    text-align: center;
+}
+
+.loading-block > img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 100;
+}
+
+.loading-block > p {
+    position: absolute;
+    top: 60%;
+    left: 46%;
+    z-index: 100;
+    font-size: 15px;
+}
+
+.popup-con .learning-registration .reg-enter-box + .bottom {
+    margin: 22px 0;
+    text-align: center;
+}
+
+.popup-con .learning-registration .reg-enter-box + .bottom > .btn-cancel,
+.popup-con .learning-registration .reg-enter-box + .bottom > .btn-request {
+    display: inline-block;
+    margin-right: 10px;
+    width: 135px;
+    height: 37px;
+    border: none;
+    background: #cacaca;
+    font-size: 16px;
+    color: #fff;
+    border-radius: 8px;
+}
+
+.popup-con .learning-registration .reg-enter-box + .bottom > .btn-request {
+    background: #4c4c4c;
+    position: relative;
+    top: 2px;
+}
+
+
+.pop-search .pop-btn-area .btn.large {
+    width: 135px;
+    height: 38px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.pop-search .pop-btn-area .btn.large.action {
+    background: #2cbbb5;
+    color: #fff;
+}

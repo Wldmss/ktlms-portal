@@ -1,7 +1,7 @@
 package com.kt.ktedu.core.security.auth;
 
 import com.kt.ktedu.auth.ldap.dto.LdapResultDTO;
-import com.kt.ktedu.auth.ldap.dto.LoginDTO;
+import com.kt.ktedu.auth.login.dto.LoginDTO;
 import com.kt.ktedu.auth.ldap.service.LdapService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;

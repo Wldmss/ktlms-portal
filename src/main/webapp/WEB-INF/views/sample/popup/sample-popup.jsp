@@ -84,7 +84,7 @@
 
 </div>
 
-<script type="text/javascript">
+<script nonce="${cspNonce}">
     // 팝업 내부에서 상위 전역 함수인 showSnackbar 호출 테스트
     function popupTestSnackbar() {
         showSnackbar("⚡ 팝업창에서 보낸 스낵바 알림입니다!");

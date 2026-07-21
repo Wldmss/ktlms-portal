@@ -1,0 +1,625 @@
+.con-area img {
+    display: block;
+}
+
+.top-con {
+    margin-bottom: 15px;
+    padding: 0 15px;
+}
+
+
+.middle-con {
+    padding: 10px 15px 0;
+}
+
+.middle-con > div {
+    padding: 0 35px;
+}
+
+.jc-history-tabs {
+    margin: 0 15px 30px 15px;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.jc-history-tabs a {
+    display: inline-block;
+    padding: 9px 6px;
+    width: auto;
+    font-size: 14px;
+    color: #b4b4b4;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+}
+
+.jc-history-tabs a.long {
+    width: 135px;
+}
+
+.jc-history-tabs a:hover {
+    color: #777;
+}
+
+.jc-history-tabs a.on {
+    color: #df2428;
+    border-bottom: 6px solid #df2428;
+}
+
+.m-title {
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+}
+
+table th, table td {
+    text-align: center;
+}
+
+table a {
+    display: block;
+    font-size: 13px;
+    color: #df2428;
+    text-decoration: underline;
+}
+
+.table-type1 th {
+    font-size: 14px;
+    color: #fff;
+    line-height: 1.5em;
+    background-color: #999;
+}
+
+.table-type1 thead th {
+    height: 46px;
+    font-weight: 400;
+}
+
+.table-type1 thead tr.bg-f1 th.def {
+    font-size: 13px;
+    font-weight: 700;
+    text-align: right;
+}
+
+.table-type1 thead tr.bg-f1 th {
+    font-weight: 300;
+    color: #333;
+    border-bottom: 1px solid #8c8c8c;
+    background-color: #f1f1f1;
+}
+
+.table-type1 thead tr.h-60 th {
+    height: 60px;
+}
+
+.table-type1 thead tr.h-50 th {
+    height: 50px;
+}
+
+.table-type1 tbody tr.h-160 th {
+    height: 160px;
+    line-height: 2.5em;
+}
+
+.table-type1 tbody th {
+    height: 60px;
+    line-height: 1.5em;
+    font-size: 14px;
+    color: #393939;
+    letter-spacing: -0.05em;
+    border-right: 1px solid #8c8c8c;
+    border-bottom: 1px solid #f2f2f2;
+    background-color: #fff;
+}
+
+.table-type1 tbody tr {
+    border-bottom: 1px solid #8c8c8c;
+}
+
+.table-type1 td {
+    font-size: 15px;
+    color: #666;
+    height: 60px;
+    line-height: 1.5em;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.table-type1 td > p {
+    font-size: 12px;
+}
+
+.table-type1 tfoot th,
+.table-type1 tfoot td {
+    border-bottom: 1px solid #8c8c8c;
+    background-color: #f1f1f1;
+}
+
+.table-type1 tr.br-b th,
+.table-type1 tr.br-b td,
+.table-type1 th[rowspan="5"] {
+    border-bottom: 1px solid #8c8c8c !important;
+}
+
+.table-type1.h-40 td {
+    height: 40px;
+}
+
+.simple-table {
+    margin: 40px 0 20px;
+}
+
+.simple-table th {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5em;
+    border: 1px solid #ccc;
+}
+
+.simple-table th.rspan {
+    font-size: 16px;
+    color: #fff;
+    background-color: #999;
+}
+
+.simple-table td {
+    padding: 0 30px;
+    height: 70px;
+    line-height: 1.7em;
+    font-size: 14px;
+    color: #333;
+    text-align: left;
+    border: 1px solid #ccc;
+}
+
+.simple-table.h-50 td {
+    height: 50px;
+}
+
+tr.weakness td {
+    color: #df2428;
+    background-color: #fff3f3;
+}
+
+tr.strength td {
+    color: #2556d3;
+    background-color: #f1f5ff;
+}
+
+.t-notice {
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+
+.barchart-item {
+    float: left;
+    margin-left: 40px;
+}
+
+.barchart-item:first-child {
+    margin-left: 0;
+}
+
+.barchart-item .title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+}
+
+.barchart-item .chartdiv {
+    width: 400px;
+    background-color: #fff;
+}
+
+.barchart-item.left {
+    margin-right: 35px;
+}
+
+.barchart-item .legend {
+    padding: 15px 0 5px;
+    font-size: 12px;
+    font-weight: 300;
+    color: #666;
+    text-align: right;
+}
+
+.barchart-item .legend li {
+    display: inline-block;
+    position: relative;
+    margin-left: 15px;
+    padding: 0 0 0 18px;
+}
+
+.barchart-item .legend li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 10px;
+    height: 10px;
+}
+
+.barchart-item .legend li.one:before {
+    background-color: #528fff;
+}
+
+.barchart-item .legend li.two:before {
+    background-color: #ff9c00;
+}
+
+.barchart-item .chartdiv {
+    margin: 0;
+    height: auto;
+}
+
+.select-box {
+    margin-bottom: 20px;
+    padding: 13px 20px 13px 32px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #000;
+    border: 1px solid #ddd;
+    background-color: #eee;
+    overflow: hidden;
+}
+
+.select-box span {
+    /* position: relative; */
+    /* top: 2px; */
+}
+
+.select-box select {
+    margin: 0 50px 0 20px;
+    padding-left: 55px;
+    width: 175px;
+    height: 30px;
+    border: 1px solid #dadada;
+}
+
+.select-box select.def {
+    padding-left: 75px;
+}
+
+.select-box .btn-search {
+    display: block;
+    float: right;
+}
+
+.item-box {
+    font-size: 15px;
+    color: #333;
+    overflow: hidden;
+}
+
+.item-box .title {
+    height: 40px;
+    line-height: 40px;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    background-color: #999;
+}
+
+.item-box .item-1 {
+    float: left;
+    width: 395px;
+    border: 1px solid #ddd;
+}
+
+.item-box .item-2 {
+    float: right;
+    width: 510px;
+    border: 1px solid #ddd;
+}
+
+.item-box .item-2 td {
+    line-height: 1.3em;
+    border-bottom: 1px solid #f1f1f1;
+    word-break: keep-all;
+}
+
+.item-box .item-2 td.link a {
+    font-size: 15px;
+}
+
+.item-box .item-2 td.link span {
+    font-size: 12px;
+}
+
+.department-list li a {
+    font-size: 15px;
+    background-image: url(/resources/legacy/anymobi/img/icon_directory.png);
+    background-repeat: no-repeat;
+    background-position: 35px center;
+    display: block;
+    padding: 11px 20px 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+.department-list li a.on {
+    background-color: #f3f3f3;
+}
+
+.department-list li a span {
+    display: inline-block;
+    width: 43px;
+    height: 6px;
+    vertical-align: middle;
+}
+
+.department-list li a.end span {
+    background: none !important;
+}
+
+.department-list li a span.arrow-right {
+    background: url(/resources/legacy/anymobi/img/icon_arrow_right.png) no-repeat left top;
+}
+
+.department-list li a span.arrow-down {
+    background: url(/resources/legacy/anymobi/img/icon_arrow_down.png) no-repeat left top;
+}
+
+.department-list .step-1 a {
+    background-position: 45px center;
+    padding-left: 30px;
+}
+
+.department-list .step-2 a {
+    background-position: 70px center;
+    padding-left: 55px;
+}
+
+.department-list .step-3 a {
+    background-position: 95px center;
+    padding-left: 80px;
+}
+
+.department-list .step-4 a {
+    background-position: 120px center;
+    padding-left: 105px;
+}
+
+.department-list .step-5 a {
+    background-position: 145px center;
+    padding-left: 130px;
+}
+
+.department-list .step-6 a {
+    background-position: 170px center;
+    padding-left: 155px;
+}
+
+.department-list .step-7 a {
+    background-position: 195px center;
+    padding-left: 180px;
+}
+
+
+.department-list a.end {
+    background-image: url(/resources/legacy/anymobi/img/icon_node.png);
+}
+
+/*2016-10-05 start*/
+.icon-group-map > div {
+    position: relative;
+    margin-top: 3px;
+    height: 18px;
+}
+
+.icon-group-map > div > a {
+    display: inline-block;
+    margin-left: 3px;
+    width: 62px;
+    height: 18px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.icon-group-map a:first-child {
+    margin-left: 0;
+}
+
+.icon-group-map a.map {
+    background-image: url(/resources/legacy/anymobi/img/btn_table_map.png);
+}
+
+.icon-group-map a.group {
+    background-image: url(/resources/legacy/anymobi/img/btn_table_department.png);
+}
+
+.icon-group-map.def {
+    padding: 10px 10px 12px;
+    border-top: 1px solid #f2f2f2;
+}
+
+.icon-group-map.def:first-child {
+    border-top: 0;
+}
+
+.pop-group {
+    position: absolute;
+    top: -10px;
+    left: 175px;
+    width: 180px;
+    font-size: 12px;
+    text-align: left;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, .2), 1px 0 10px rgba(0, 0, 0, .2);
+    z-index: 500;
+}
+
+
+.team-leader .pop-group {
+    left: 165px;
+}
+
+.pop-group > div {
+    position: relative;
+}
+
+.pop-group p {
+    padding: 10px 30px 10px 18px;
+    font-size: 14px;
+    color: #e90811;
+    border-bottom: 1px solid #bdbdbd;
+}
+
+.pop-group a {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background: url(/resources/legacy/anymobi/img/btn_popup_x.png) no-repeat center;
+}
+
+.pop-group ul {
+    padding: 14px 10px;
+    min-height: 80px;
+}
+
+.pop-group li {
+    padding-left: 10px;
+    text-indent: -10px;
+}
+
+.pop-group li:before {
+    content: "·";
+    padding-right: 3px;
+}
+
+/* pop-group1 추가 시작 */
+.pop-group1 {
+    position: absolute;
+    top: -10px;
+    left: 175px;
+    width: 180px;
+    font-size: 12px;
+    text-align: left;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, .2), 1px 0 10px rgba(0, 0, 0, .2);
+    z-index: 500;
+}
+
+.pop-group1 > div {
+    position: relative;
+}
+
+.pop-group1 p {
+    padding: 10px 30px 10px 18px;
+    font-size: 14px;
+    color: #e90811;
+    border-bottom: 1px solid #bdbdbd;
+}
+
+.pop-group1 a {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background: url(/resources/legacy/anymobi/img/btn_popup_x.png) no-repeat center;
+}
+
+.pop-group1 ul {
+    padding: 14px 10px;
+    min-height: 80px;
+}
+
+.pop-group1 li {
+    padding-left: 10px;
+    text-indent: -10px;
+}
+
+.pop-group1 li:before {
+    content: "·";
+    padding-right: 3px;
+}
+
+/* pop-group1 추가 종료 */
+
+/*2016-10-05 end*/
+
+.mt-20 {
+    margin-top: 20px !important
+}
+
+.mt-30 {
+    margin-top: 30px !important
+}
+
+.pl-420 {
+    padding-left: 420px !important
+}
+
+.pr-18 {
+    padding-right: 18px !important
+}
+
+.br-8c {
+    border-right: 1px solid #8c8c8c !important
+}
+
+.bb-8c {
+    border-bottom: 1px solid #8c8c8c !important
+}
+
+.h-420 {
+    height: 420px !important;
+}
+
+/* 추가 : 2016-12-15; */
+.btn-main {
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    width: 90px;
+    height: 35px;
+}
+
+.btn-detail {
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    width: 90px;
+    height: 35px;
+}
+
+.simple-table th.rspan.bg-red {
+    background-color: #df2428;
+}
+
+.strong-item {
+    position: relative;
+    padding-left: 15px;
+    padding-bottom: 10px;
+}
+
+.strong-item.fs-16 {
+    font-size: 16px;
+}
+
+.strong-item:before {
+    position: absolute;
+    top: 8px;
+    left: 0;
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: url(../img/icon_darkgray_circle_xs.png) no-repeat center;
+}
+
+.strong-item span {
+    color: #df2428;
+}
+
+.strong-item span.blue {
+    color: #2556d3;
+}

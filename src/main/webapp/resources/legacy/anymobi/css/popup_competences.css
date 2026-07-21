@@ -1,0 +1,309 @@
+.popup-con {
+    background-color: #fff;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+
+.popup-con .tabpop {
+    margin: 0 auto;
+    padding: 0 30px;
+    width: 900px;
+    height: 720px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+}
+
+.popup-con .tabpop > p {
+    padding: 30px 0 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.top-box {
+    position: relative;
+    margin-bottom: 10px;
+    padding: 0 45px;
+}
+
+.top-box > .btn {
+    display: block;
+    float: right;
+}
+
+.top-box > .btn img {
+    display: block;
+}
+
+.txt-title {
+    margin-top: 40px;
+}
+
+.middle-con.detail {
+    padding: 10px 45px 0;
+}
+
+.sign-con {
+    float: right;
+    margin-top: 12px;
+}
+
+.weakness td {
+    background-color: #fff3f3;
+}
+
+.strength td {
+    background-color: #f1f5ff;
+}
+
+.last td {
+    background-color: #f8f8f8;
+}
+
+td.br-def {
+    background-color: #fff;
+}
+
+em.write {
+    font-size: 18px;
+    color: #393939;
+}
+
+span.write {
+    font-size: 12px;
+    color: #999;
+}
+
+
+.link-btn {
+    display: inline-block;
+    width: 68px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 12px;
+    color: #333;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.link-btn:focus,
+.link-btn:active,
+.link-btn:visited {
+    border: 1px solid #ccc;
+}
+
+.est-det td select.user {
+    display: block;
+    margin: 0;
+    width: 100%;
+    height: 28px;
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+}
+
+.est-det td select.case {
+    display: inline-block;
+    margin: 0;
+    width: 55px;
+    height: 38px;
+    line-height: 38px;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+.est-det .list-type-3 input.item {
+    display: inline-block;
+    padding: 0 8px;
+    width: 55px;
+    height: 38px;
+    line-height: 38px;
+    font-size: 14px;
+    color: #393939;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #ccc;
+}
+
+.est-det .list-type-3 td {
+    border-top: 1px solid #f1f1f1;
+    border-bottom: none;
+}
+
+.est-det .list-type-3 tr:first-child td {
+    border-top: none;
+}
+
+.establish-text {
+    margin-bottom: 20px;
+    height: 33px;
+    line-height: 33px;
+}
+
+.establish-text p, .establish-text a {
+    float: left;
+}
+
+.establish-text a {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.barchart-item {
+    float: left;
+}
+
+.barchart-item .chartdiv {
+    width: 400px;
+    background-color: #fff;
+}
+
+.barchart-item.left {
+    margin-right: 35px;
+}
+
+.barchart-item .legend {
+    padding: 15px 0 5px;
+    font-size: 12px;
+    font-weight: 300;
+    color: #666;
+    text-align: right;
+}
+
+.barchart-item .legend li {
+    display: inline-block;
+    position: relative;
+    margin-left: 15px;
+    padding: 0 0 0 18px;
+}
+
+.barchart-item .legend li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 10px;
+    height: 10px;
+}
+
+.barchart-item .legend li.one:before {
+    background-color: #11d58d;
+}
+
+.barchart-item .legend li.two:before {
+    background-color: #528fff;
+}
+
+.barchart-item .legend li.three:before {
+    background-color: #ff9c00;
+}
+
+.fs-12 {
+    font-size: 12px !important
+}
+
+.fs-14 {
+    font-size: 14px !important
+}
+
+.fs-16 {
+    font-size: 16px !important
+}
+
+.w-130 {
+    width: 130px !important
+}
+
+.w-220 {
+    width: 220px !important
+}
+
+.w-405 {
+    width: 405px !important
+}
+
+.w-1080 {
+    width: 1080px !important
+}
+
+.h-800 {
+    height: 800px !important
+}
+
+.p-l-30 {
+    padding-left: 30px !important
+}
+
+.p-l-65 {
+    padding-left: 65px !important
+}
+
+.p-lr-15 {
+    padding: 0 15px !important
+}
+
+.p-lr-12 {
+    padding-left: 12px !important;
+    padding-right: 12px !important
+}
+
+.m-t-50 {
+    margin-top: 50px !important
+}
+
+.m-t-60 {
+    margin-top: 60px !important
+}
+
+.m-t-0 {
+    margin-top: 0 !important
+}
+
+.m-b-60 {
+    margin-bottom: 60px !important
+}
+
+.m-b-50 {
+    margin-bottom: 50px !important
+}
+
+.m-b-15 {
+    margin-bottom: 15px !important
+}
+
+.bgc-f4 {
+    background-color: #f4f4f4 !important
+}
+
+.bor-l-f1 {
+    border-left: 1px solid #f1f1f1 !important
+}
+
+.fc-df {
+    color: #df2428 !important
+}
+
+.fc-39 {
+    color: #393939 !important
+}
+
+.bor-none {
+    border: none !important
+}
+
+.t-left {
+    text-align: left !important
+}
+
+
+/*-- ie8 css --*/
+.ie8 .establish-text > p,
+.ie8 .popup-con .tabpop > p,
+.ie8 .txt-title.fs-16 {
+    font-weight: bold;
+}
+
+.ie8 .letterspace {
+    letter-spacing: -0.05em
+}
+

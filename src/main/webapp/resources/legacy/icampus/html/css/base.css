@@ -1,0 +1,315 @@
+/* Reset */
+html, body, h1, h2, h3, h4, h5, h6, div, p, span, strong, em, blockquote, pre, address,
+ul, ol, li, dl, dt, dd, table, th, td, form, fieldset, input, select, button, label, textarea, img, a,
+header, nav, hgroup, section, article, footer, figure {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    color: #666;
+    
+    font-style: normal;
+    word-break: keep-all;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+fieldset {
+    border: 0;
+}
+
+ul, ol {
+    list-style: none
+}
+
+table {
+    border-collapse: collapse;
+}
+
+img {
+    border: 0;
+    vertical-align: top
+}
+
+img, input, select, textarea, button {
+    vertical-align: top;
+}
+
+legend, .hidden {
+    overflow: hidden;
+    position: absolute;
+    visibility: hidden;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    z-index: -1;
+}
+
+caption {
+    display: none;
+    position: absolute;
+    visibility: hidden;
+    height: 0;
+    font-size: 0 !important;
+    width: 0;
+}
+
+hr {
+    border: 0;
+    visibility: hidden;
+}
+
+a {
+    text-decoration: none
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+}
+
+.visible {
+    border: 0;
+    visibility: visible;
+}
+
+.mb5 {
+    margin-bottom: 5px !important;
+}
+
+.mb10 {
+    margin-bottom: 10px !important;
+}
+
+.mb20 {
+    margin-bottom: 20px !important;
+}
+
+.mb30 {
+    margin-bottom: 30px !important;
+}
+
+.mb40 {
+    margin-bottom: 40px !important;
+}
+
+.mb50 {
+    margin-bottom: 50px !important;
+}
+
+.mb60 {
+    margin-bottom: 60px !important;
+}
+
+.mb70 {
+    margin-bottom: 70px !important;
+}
+
+.mb80 {
+    margin-bottom: 80px !important;
+}
+
+.mb90 {
+    margin-bottom: 90px !important;
+}
+
+.mb100 {
+    margin-bottom: 100px !important;
+}
+
+.bb1 {
+    border-bottom: 1px solid #ddd;
+}
+
+.pl5 {
+    padding-left: 5px !important;
+}
+
+.w20 {
+    width: 20px !important;
+}
+
+.w30 {
+    width: 30px !important;
+}
+
+.w40 {
+    width: 40px !important;
+}
+
+.w50 {
+    width: 50px !important;
+}
+
+.w60 {
+    width: 60px !important;
+}
+
+.w70 {
+    width: 70px !important;
+}
+
+.w80 {
+    width: 80px !important;
+}
+
+.w90 {
+    width: 90px !important;
+}
+
+.w100 {
+    width: 100px !important;
+}
+
+.w110 {
+    width: 110px !important;
+}
+
+.w120 {
+    width: 120px !important;
+}
+
+.w130 {
+    width: 130px !important;
+}
+
+.w140 {
+    width: 140px !important;
+}
+
+.w150 {
+    width: 150px !important;
+}
+
+.w160 {
+    width: 160px !important;
+}
+
+.w170 {
+    width: 170px !important;
+}
+
+.w180 {
+    width: 180px !important;
+}
+
+.w190 {
+    width: 190px !important;
+}
+
+.w200 {
+    width: 200px !important;
+}
+
+.w250 {
+    width: 250px !important;
+}
+
+.w300 {
+    width: 300px !important;
+}
+
+.w350 {
+    width: 350px !important;
+}
+
+.w400 {
+    width: 400px !important;
+}
+
+.w450 {
+    width: 450px !important;
+}
+
+.w500 {
+    width: 500px !important;
+}
+
+.w600 {
+    width: 600px !important;
+}
+
+.w700 {
+    width: 700px !important;
+}
+
+.w800 {
+    width: 800px !important;
+}
+
+.w900 {
+    width: 900px !important;
+}
+
+.w1000 {
+    width: 1000px !important;
+}
+
+.h50 {
+    height: 50px !important;
+}
+
+.h60 {
+    height: 60px !important;
+}
+
+.h70 {
+    height: 70px !important;
+}
+
+.h80 {
+    height: 80px !important;
+}
+
+.h90 {
+    height: 90px !important;
+}
+
+.h100 {
+    height: 100px !important;
+}
+
+.h150 {
+    height: 150px !important;
+}
+
+.h200 {
+    height: 200px !important;
+}
+
+.h250 {
+    height: 250px !important;
+}
+
+.fleft {
+    float: left !important;
+}
+
+.fright {
+    float: right !important;
+}
+
+.clear {
+    clear: both !important;
+}
+
+.alignR {
+    text-align: right !important;
+}
+
+.alignL {
+    text-align: left !important;
+}
+
+.alignC {
+    text-align: center !important;
+}
+
+.alignM {
+    vertical-align: middle !important;
+}
+
+.fcRed {
+    color: #df2428
+}

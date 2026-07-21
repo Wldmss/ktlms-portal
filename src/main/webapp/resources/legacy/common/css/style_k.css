@@ -1,0 +1,1412 @@
+@import "layout.css";
+
+/* blog heakyoung css */
+
+.red {
+    border: 1px solid red;
+}
+
+.blue {
+    border: 1px solid blue;
+}
+
+.black {
+    border: 1px solid black;
+}
+
+.green {
+    border: 1px solid green;
+}
+
+.yellow {
+    border: 1px solid yellow;
+}
+
+.orange {
+    border: 1px solid orange;
+}
+
+.mg_t20 {
+    margin-top: 20px;
+}
+
+/* blog left Menu */
+div.local {
+    margin: 10px 0 0 5px;
+    width: 187px;
+}
+
+div.myblog {
+    background: url(/resources/legacy/common/images/blog/box_bottom.gif) no-repeat 0 bottom;
+    padding-bottom: 9px;
+}
+
+div.myblog div.inner {
+    background: url(/resources/legacy/common/images/blog/box_top.gif) no-repeat 0 0;
+    padding: 11px 0 0 7px;
+}
+
+div.inner h3 {
+    background: url(/resources/legacy/common/images/blog/ico_tit_h3.gif) no-repeat 0 1px;
+    margin-left: 6px;
+    padding-left: 15px;
+    margin-bottom: 15px;
+}
+
+div.inner ul.mg_l22 {
+    margin-left: 22px;
+}
+
+ul.blogmenu li {
+    background: url(/resources/legacy/common/images/blog/ico_arrow_black.gif) no-repeat 0 3px;
+    padding-left: 9px;
+    margin-bottom: 4px;
+}
+
+ul.blogmenu li a {
+    color: #5c5c5c;
+    text-decoration: none;
+}
+
+div.myblog ul.mymenu {
+    overflow: hidden;
+    margin-top: 8px;
+    width: 175px;
+}
+
+div.myblog ul.mymenu li {
+    float: left;
+}
+
+div.bestBlog, div.tagBox {
+    background: url(/resources/legacy/common/images/blog/box2_bottom.gif) no-repeat 0 bottom;
+}
+
+div.bestBlog div.inner, div.tagBox div.inner {
+    background: url(/resources/legacy/common/images/blog/box2_top.gif) no-repeat 0 top;
+    padding: 11px 0 0 13px;
+    overflow: hidden;
+}
+
+div.imgArea {
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 14px;
+}
+
+div.imgArea img {
+    float: left;
+    margin-right: 11px;
+    width: 65px;
+    height: 47px;
+}
+
+div.imgArea ul.blogmenu {
+    width: 8em;
+    margin-top: 5px;
+    overflow: hidden;
+}
+
+div.imgArea ul.blogmenu li {
+    width: 100%;
+    overflow: hidden;
+    height: 14px;
+}
+
+div.bestBlog ul.best {
+    overflow: hidden;
+    width: 170px;
+    margin-bottom: 4px;
+}
+
+div.bestBlog ul.best li {
+    float: left;
+    margin-right: 5px;
+}
+
+div.tagBox p {
+    width: 165px;
+    line-height: 19px;
+    margin-bottom: 10px;
+}
+
+div.blogPop {
+    background: url(/resources/legacy/common/images/blog/bg_popup.gif) no-repeat 0 0;
+    width: 500px;
+    height: 203px;
+    background-color: #fff;
+}
+
+div.blogPop div.popTitle {
+    text-align: center;
+    position: relative;
+    height: 35px;
+    padding-top: 11px;
+}
+
+div.blogPop div.popTitle img.closePop {
+    position: absolute;
+    top: 20px;
+    right: 9px;
+}
+
+div.blogPop div.detail {
+    padding: 5px 5px 0 5px;;
+}
+
+div.blogPop div.detail div.blogSearch {
+    border-bottom: 1px solid #b3b0aa;
+    padding-bottom: 5px;
+}
+
+div.blogPop div.detail div.blogSearch span {
+    margin: 0 5px;
+}
+
+div.blogPop div.detail div.blogSearch * {
+    vertical-align: middle;
+}
+
+div.blogPop div.detail div.blogSearch img {
+    margin-right: 260px;
+}
+
+div.blogPop div.detail div.blogSearch input.write {
+    width: 120px;
+    border: 1px solid #dfdfdf;
+    background: #cecece;
+    color: #7c7c7c;
+    padding: 1px;
+    margin-right: 5px;
+}
+
+div.blogPop div.detail ul {
+    margin: 17px 0 0 4px;
+}
+
+div.blogPop div.detail ul li {
+    background: url(/resources/legacy/common/images/blog/bg_heart.gif) no-repeat 0 2px;
+    padding-left: 13px;
+    margin-bottom: 8px;
+}
+
+/* my blog contents */
+div.searchArea {
+    background: url(/resources/legacy/common/images/blog/bg_search.gif) no-repeat 0 0;
+    padding: 10px 0 11px 10px;
+    overflow: hidden;
+    width: 755px;
+}
+
+div.searchArea * {
+    vertical-align: top;
+}
+
+div.searchArea select {
+    width: 122px;
+    padding: 1px;
+    float: left;
+    margin: 3px 5px 0 0;
+}
+
+div.searchArea div img {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+div.searchArea input.writeBar {
+    border: 3px solid #eadfd9;
+    padding: 1px 0 0 2px;
+    width: 550px;
+    float: left;
+    font-size: 1.1em;
+    margin-top: 2px;
+}
+
+div.searchArea input.mg5 {
+    margin: 4px 5px 7px 4px;
+}
+
+div.searchArea img.mg5 {
+    margin: 4px 5px 7px 4px;
+}
+
+div.category {
+    background: url(/resources/legacy/common/images/blog/category_bottom.gif) no-repeat 0 bottom;
+    width: 765px;
+    position: relative;
+    margin: 4px 0 25px 0;
+}
+
+div.category div.inner {
+    background: url(/resources/legacy/common/images/blog/category_top.gif) no-repeat 0 top;
+    width: 100%;
+    padding: 6px 0 1px 22px;
+}
+
+div.category div.inner p {
+    width: 720px;
+    line-height: 23px;
+}
+
+div.category div.inner p a {
+    margin-right: 14px;
+    text-decoration: none;
+}
+
+div.category div.inner .btn_cate {
+    position: absolute;
+    top: 6px;
+    left: 632px;
+}
+
+div.photo_list {
+    padding: 12px 0 13px 30px;
+    overflow: hidden;
+    width: 730px;
+    border: 1px solid #e2e2e2;
+    margin-top: 11px;
+    background: url(/resources/legacy/common/images/blog/bg_sizebox.gif) no-repeat 255px 7px;
+}
+
+div.photo_list div.sizebox {
+    width: 230px;
+    height: 179px;
+    float: left;
+    padding: 0 28px 17px 0;
+    font-size: 0.9em;
+}
+
+div.photo_list h4 {
+    background: url(/resources/legacy/common/images/blog/bg_h4_line.gif) no-repeat -16px 17px;
+    margin: 18px 0 8px 0;
+    height: 19px;
+}
+
+div.photo_list p strong {
+    color: #0a7c22;
+}
+
+div.photo_list ul {
+    margin-top: 20px;
+}
+
+div.photo_list div.sizebox_right {
+    width: 200px;
+    height: 179px;
+    float: left;
+    font-size: 0.9em;
+}
+
+div.sam_bloger {
+    overflow: hidden;
+    margin-top: 25px;
+}
+
+.float_l {
+    float: left;
+}
+
+.float_r {
+    float: right;
+}
+
+div.sam_bloger div.menuBlog img {
+    margin-right: 9px;
+}
+
+div.report_list div.partition {
+    overflow: hidden;
+    width: 760px;
+    padding: 15px 0;
+    border-bottom: 1px dotted #c0c0c0;
+}
+
+div.report_list div.partition div.photoBox {
+    float: right;
+    width: 111px;
+}
+
+div.report_list div.partition div.photoBox img {
+    width: 106px;
+    height: 93px;
+}
+
+div.report_list div.partition div.brief {
+    float: left;
+    width: 630px;
+    padding-top: 6px;
+}
+
+div.report_list div.partition div.noImg_brief {
+    margin-left: 5px;
+}
+
+div.report_list div.partition h4 {
+    color: #454545;
+    margin: 2px 0 10px 0;
+}
+
+div.report_list div.partition h4 a, div.report_list div.partition div.subject h4 a:hover {
+    color: #454545;
+}
+
+div.report_list div.partition p {
+    color: #777;
+    line-height: 16px;
+    padding-left: 2px;
+    line-height: 18px;
+    margin-bottom: 3px;
+}
+
+
+/* new My blog Css layout */
+div.blogWrap {
+    width: 100%;
+}
+
+div.container {
+    width: 1000px;
+    margin: 0 auto;
+    background: url(/resources/legacy/common/images/blog/bg_container.jpg) no-repeat 0 0;
+}
+
+div.header {
+    height: 87px;
+    width: 100%;
+    overflow: hidden;
+}
+
+div.contentWrap {
+    padding: 0 6px 0 5px;
+    overflow: hidden;
+    width: 989px;
+    margin-top: 73px;
+}
+
+div.contentWrap div.left {
+    width: 191px;
+    float: left;
+    font-size: 0.9em;
+}
+
+div.contentWrap div.contents {
+    width: 613px;
+    float: left;
+}
+
+div.contentWrap div.right {
+    width: 185px;
+    float: left;
+}
+
+div.blogWrap a {
+    text-decoration: none !important;
+}
+
+div.header h1 {
+    width: 568px;
+    float: left;
+    padding: 17px 0 0 11px;
+}
+
+div.header div.myMenu {
+    float: left;
+    width: 420px;
+    padding-top: 27px;
+}
+
+div.header div.myMenu * {
+    vertical-align: middle;
+}
+
+div.header div.myMenu ul {
+    padding-top: 5px;
+    float: left;
+    width: 180px;
+}
+
+div.header div.myMenu ul li {
+    float: left;
+    font-weight: bold;
+    margin-left: 4px;
+}
+
+div.header div.myMenu ul li a {
+    text-decoration: none;
+}
+
+div.header div.myMenu select {
+    width: 170px;
+    font-size: 1em;
+}
+
+h2.blogTitle {
+    background: url(/resources/legacy/common/images/blog/bg_h2.gif) no-repeat 0 0;
+    height: 33px;
+    margin-left: 6px;
+    padding: 8px 0 0 45px;
+    font-weight: bold;
+    font-size: 1.25em;
+    color: #444;
+}
+
+div.designBox {
+    background: url(/resources/legacy/common/images/blog/bg_board_bottom.gif) no-repeat 0 bottom;
+    padding-bottom: 7px;
+}
+
+div.designBox div.inner {
+    background: url(/resources/legacy/common/images/blog/bg_board_top.gif) no-repeat 0 -1px;
+    padding: 27px 0 0 6px;
+}
+
+div.gray {
+    background: url(/resources/legacy/common/images/blog/gray_bottom.gif) no-repeat 0 bottom;
+    width: 170px;
+}
+
+div.gray div.inside {
+    background: url(/resources/legacy/common/images/blog/gray_top.gif) no-repeat 0 top;
+}
+
+
+/* left */
+div.left img, div.left input {
+    vertical-align: middle;
+}
+
+div.my_infor div.inside {
+    padding: 8px 0 5px 9px;
+}
+
+div.my_infor img.myphoto {
+    border: 1px solid #d0d0d0;
+    width: 149px;
+    height: 99px;
+}
+
+div.my_infor dl dt {
+    margin: 9px 0 5px 0;
+    color: #444;
+}
+
+div.my_infor div.mend {
+    text-align: right;
+    margin: 9px 10px 0 0;
+}
+
+div.btnArea {
+    margin-top: 7px;
+}
+
+div.btnArea img {
+    margin: 0 1px 0 3px;
+}
+
+div.textRight {
+    text-align: right;
+}
+
+div.today {
+    margin-top: 8px;
+}
+
+div.today div.inside {
+    padding: 14px 0 0 12px;
+}
+
+div.today div.inside ul li {
+    background: url(/resources/legacy/common/images/blog/ico_05.gif) no-repeat 0 3px;
+    padding-left: 7px;
+    padding-bottom: 6px;
+}
+
+div.cate {
+    margin-top: 15px;
+    width: 170px;
+}
+
+div.cate p {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+}
+
+div.cate dl {
+}
+
+div.cate dl dt {
+    border-bottom: 1px dotted #c4c4c4;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    width: 160px;
+    padding-left: 2px
+}
+
+div.cate dl dd {
+    padding-left: 11px;
+}
+
+div.cate dl dd ul.category li {
+    background: url(/resources/legacy/common/images/blog/ico_03.gif) no-repeat 0 0;
+    padding-left: 12px;
+}
+
+div.cate dl dd ul.category li ul.subcategory {
+    margin-top: 3px;
+}
+
+div.cate dl dd ul.category li ul.subcategory li.first {
+    background: url(/resources/legacy/common/images/blog/ico_03_01.gif) no-repeat 0 0;
+    padding-left: 24px;
+    margin-bottom: 5px;
+}
+
+div.cate dl dd ul.category li ul.subcategory li {
+    background: none;
+    padding-left: 24px;
+    margin-bottom: 5px;
+}
+
+div.left div.leftSearch {
+    margin: 10px 0 0 6px;
+}
+
+div.left div.leftSearch input.area {
+    border: 1px solid #dfdfdf;
+    background: #cecece;
+    width: 120px;
+    font-size: 12px;
+    padding: 1px;
+    margin-right: 6px;
+}
+
+
+/* contents */
+div.contents {
+    background: url(/resources/legacy/common/images/blog/bg_con_middle.gif) repeat-y 0 0;
+    margin-top: 2px;
+}
+
+div.contents div.repeat {
+    background: url(/resources/legacy/common/images/blog/bg_con_bottom.gif) no-repeat 0 bottom;
+}
+
+div.contents div.inside {
+    background: url(/resources/legacy/common/images/blog/bg_con_top.gif) no-repeat 0 top;
+    padding: 7px 10px 5px 5px;
+}
+
+div.title {
+    background: url(/resources/legacy/common/images/blog/bg_title.gif) no-repeat 0 0;
+    padding: 10px 0 3px 13px;
+    overflow: hidden;
+    width: 581px;
+    height: 27px;
+}
+
+div.title h3 {
+    color: #fff;
+    font-size: 1.33em;
+    font-weight: bold;
+    float: left;
+}
+
+div.title ul {
+    float: right;
+}
+
+div.title ul li {
+    float: left;
+    margin-right: 4px;
+}
+
+div.modeGeneral {
+    margin-top: 29px;
+    padding: 0 5px 0 10px;
+}
+
+div.modeGeneral div.part {
+    margin-bottom: 25px;
+}
+
+div.part h4 {
+    color: #208574;
+    font-weight: bold;
+}
+
+div.part ul li {
+    margin-top: 7px;
+}
+
+div.part p {
+    line-height: 18px;
+    margin-top: 6px;
+}
+
+div.part p img {
+    text-align: center;
+    margin: 10px auto;
+    display: block;
+}
+
+div.part p.tag {
+    border-top: 1px solid #b3b0aa;
+    border-bottom: 1px solid #b3b0aa;
+    padding: 5px 0 1px 8px;
+    margin-bottom: 1px;
+}
+
+div.part div.answerArea {
+    background: #f8f8f8;
+    border-bottom: 2px solid #b3b0aa;
+    padding: 10px 0 8px 8px;
+}
+
+div.part div.answerArea dl {
+    margin: 9px 0 0 14px;
+    position: relative;
+    width: 553px;
+    border-bottom: 1px solid #ccc;
+}
+
+div.part div.answerArea dl dt {
+    background: url(/resources/legacy/common/images/blog/ico_man.gif) no-repeat 0 0;
+    padding-left: 25px;
+    padding-top: 4px;
+}
+
+div.part div.answerArea dl dd {
+    padding-left: 25px;
+    margin-top: 5px;
+    width: 510px;
+    padding-bottom: 5px;
+}
+
+div.part div.answerArea dl dd div {
+    position: absolute;
+    top: -5px;
+    left: 430px;
+    width: 120px;
+}
+
+div.part div.answerArea strong {
+    vertical-align: top;
+}
+
+div.part div.answerArea textarea {
+    font-size: 1em;
+    padding: 2px 1px;
+    margin: 5px 5px 0 40px;
+    border-top: 1px solid #aaa;
+    border-left: 1px solid #aaa;
+    border-bottom: 1px solid #dadada;
+    border-right: 1px solid #dadada;
+    width: 435px;
+    background: #fff;
+    height: 29px;
+}
+
+div.part div.answerArea input.enter {
+    vertical-align: top;
+    margin-top: 6px;
+}
+
+/* right */
+div.right {
+    font-size: 0.95em;
+}
+
+div.right div.gray {
+    margin-top: 5px;
+}
+
+div.right div.gray div.inside {
+    padding: 9px 10px 1px 12px;
+}
+
+div.right div.gray div.inside ul {
+    margin: 13px 0 0 3px;
+}
+
+div.right div.gray div.inside ul li {
+    background: url(/resources/legacy/common/images/blog/bg_inside_list.gif) no-repeat 0 3px;
+    padding-left: 7px;
+    margin-bottom: 6px;
+}
+
+div.right div.gray div.inside a.tit {
+    display: block;
+    position: relative;
+}
+
+div.right div.gray div.inside a.tit strong {
+}
+
+div.right div.gray div.inside a.tit img {
+    position: absolute;
+    top: 3px;
+    right: 15px;
+}
+
+div.rss img {
+    vertical-align: middle;
+}
+
+div.rss p {
+    text-align: center;
+}
+
+div.rss p span {
+    margin-right: 5px;
+}
+
+div.rss p strong.fontRed {
+    color: #d20c0c;
+}
+
+div.rss div.whiteBox {
+    background: url(/resources/legacy/common/images/blog/bg_rss.gif) no-repeat 0 0;
+    padding: 3px 0 6px 28px;
+    margin: 7px 0 10px 0;
+}
+
+div.rss div.whiteBox img {
+    margin-right: 9px;
+}
+
+div.calendar * {
+    vertical-align: middle;
+    font-weight: bold;
+    color: #444;
+}
+
+div.calendar {
+    background: url(/resources/legacy/common/images/blog/bg_calendar.gif) no-repeat 0 0;
+    padding: 9px 0 14px 0;
+}
+
+div.calendar p.month {
+    margin: 0 0 15px 49px;
+}
+
+div.calendar table {
+    margin-left: 12px;
+}
+
+div.calendar table td, div.calendar table th {
+    width: 21px;
+    text-align: center;
+    height: 16px;
+}
+
+div.calendar table .fontRed {
+    color: #e41515;
+}
+
+
+/* board */
+div.inside table {
+    width: 772px !important;
+}
+
+div.tbWrap05 {
+    background: url(/resources/legacy/common/images/blog/bg_tbWrap05.gif) no-repeat 0 0;
+    margin: 10px 0;
+}
+
+div.tbWrap05 table.tbList01 {
+    width: 594px;
+}
+
+div.contentsBig div.tbWrap05 {
+    background: url(/resources/legacy/common/images/blog/bg_tbWrap05_big.gif) no-repeat 0 0;
+    margin: 10px 0;
+}
+
+div.contentsBig div.tbWrap05 td.left {
+    text-align: left;
+    padding-left: 15px;
+}
+
+/* 페이징 */
+div.inside .listPaging {
+    text-align: center;
+    margin: 15px 0 20px 0;
+    color: #5c5c5c;
+    font-size: 0.916em;
+}
+
+div.inside .listPaging a {
+    padding: 0 2px 0 2px;
+    color: #5c5c5c;
+}
+
+div.inside .listPaging a.btn01 {
+    margin: 0 -5px 0 -4px;
+}
+
+div.inside .listPaging a.btn02 {
+    margin: 0 -4px 0 -5px;
+}
+
+div.inside .listPaging a.present {
+    color: #5c5c5c;
+    font-weight: bold;
+}
+
+div.inside .listPaging img {
+    position: relative;
+    top: 2px;
+}
+
+
+/* 컨텐츠 */
+div.writeArea {
+    margin-top: 10px;
+}
+
+div.writeArea input.basicWrite {
+    width: 430px;
+    border: 1px solid #cacaca;
+    font-size: 1em;
+    padding: 2px 2px;
+}
+
+div.mysearchArea {
+    background: url(/resources/legacy/common/images/blog/bg_mysearchArea.gif) no-repeat 0 0;
+    padding: 10px 0 11px 10px;
+    overflow: hidden;
+    width: 583px;
+    margin-top: 8px;
+}
+
+div.mysearchArea * {
+    vertical-align: top;
+}
+
+div.mysearchArea select {
+    width: 122px;
+    padding: 1px;
+    float: left;
+    margin: 3px 5px 0 0;
+}
+
+div.mysearchArea div img {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+div.mysearchArea input.writeBar {
+    border: 3px solid #eadfd9;
+    padding: 1px 0 0 2px;
+    width: 400px;
+    float: left;
+    font-size: 1.1em;
+    margin-top: 2px;
+}
+
+div.mysearchArea input.mg5 {
+    margin: 3px 4px 7px 1px;
+}
+
+/* tab */
+.tabArea01 {
+    width: 762px;
+    height: 36px;
+    background: url('/resources/legacy/common/images/mypage/tab_bg.gif') repeat-x 0 0;
+    margin-top: 6px;
+    overflow: hidden;
+}
+
+.tabArea01 li {
+    float: left;
+    line-height: 0;
+    font-size: 0;
+}
+
+.tabArea01 li.select01 {
+    float: right;
+    font-size: 1em;
+}
+
+.tabArea01 li.select01 select {
+    float: right;
+    font-size: 1em;
+}
+
+
+/* 2010-09-05 김은주 작업부분 */
+.photoList {
+    width: 594px;
+    margin-top: 12px;
+    overflow: hidden;
+}
+
+.photoList li {
+    float: left;
+    width: 237px;
+    margin-bottom: 15px;
+    padding: 8px 5px 3px 5px;
+    border: 1px solid #7e7c77;
+}
+
+.photoList li.last {
+    float: right;
+}
+
+.photoList h4 {
+    height: 17px;
+    padding-left: 3px;
+    border-bottom: 2px solid #d9d7d4;
+    color: #444;
+}
+
+.photoList h4 a:link, .photoList h4 a:visited {
+    color: #444;
+}
+
+.photoList .thumb {
+    padding: 5px 0 8px 0;
+}
+
+.photoList p {
+    position: relative;
+    padding-left: 12px;
+    padding-bottom: 5px;
+    background: url('/resources/legacy/common/images/blog/icon_arrow_01.gif') no-repeat 4px 3px;
+    font-size: 0.916em;
+    color: #444;
+}
+
+.photoList span.date {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.srchResult {
+    position: relative;
+    margin-top: 15px;
+    padding-bottom: 5px;
+    padding-left: 10px;;
+    border-bottom: 2px solid #d6d6d6;
+    font-weight: bold;
+}
+
+.srchResult span {
+    color: #e04712;
+}
+
+.srchResult .alignArea {
+    position: absolute;
+    right: 7px;
+    top: 0;
+}
+
+.srchhList {
+    width: 593px;
+    margin-top: 5px;
+    padding-bottom: 30px;
+}
+
+.srchhList dl {
+    margin-top: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #d6d6d6;
+}
+
+.srchhList dt {
+    padding-bottom: 15px;
+}
+
+.srchhList dt span.tit {
+    font-weight: bold;
+    color: #185089;
+}
+
+.srchhList dt span.tit a:link, .srchhList dt span.tit a:visited {
+    font-weight: bold;
+    color: #185089;
+    text-decoration: none;
+}
+
+.srchhList dd p {
+    padding-bottom: 3px;
+    line-height: 1.3em;
+}
+
+.srchhList dd p.conTxt {
+    padding-bottom: 10px;
+}
+
+.rssTxt {
+    padding: 15px 8px 10px 8px;
+}
+
+.rssTxt strong {
+    color: #189db1;
+}
+
+.rsssearchArea {
+    background: url(/resources/legacy/common/images/blog/bg_mysearchArea.gif) no-repeat 0 0;
+    padding: 10px 0 11px 10px;
+    overflow: hidden;
+    width: 583px;
+    margin-top: 8px;
+}
+
+dl.rssSrch {
+    width: 100%;
+    height: 31px;
+    overflow: hidden;
+}
+
+dl.rssSrch dt {
+    float: left;
+    width: 134px;
+    padding-top: 5px;
+    padding-left: 27px;
+}
+
+dl.rssSrch .rssBtn {
+    margin-left: 30px;
+    vertical-align: middle;
+}
+
+h4.blog01 {
+    padding: 10px 0 0 20px;
+    background: url(/resources/legacy/common/images/blog/bg_blog01.gif) no-repeat 0 8px;
+    margin: 2px 0 5px 2px;
+}
+
+.designList {
+    width: 720px;
+    margin: 0 auto;
+    padding-top: 12px;
+    overflow: hidden;
+}
+
+.designList li {
+    float: left;
+    width: 147px;
+    margin-right: 35px;
+    margin-bottom: 20px;
+}
+
+.designList li.last {
+    margin-right: 0;
+}
+
+.designList li img {
+    font-size: 0;
+    line-height: 0;
+}
+
+.blogTab01 {
+    width: 594px;
+    padding-bottom: 8px;
+    overflow: hidden;
+}
+
+.blogTab01 li {
+    float: left;
+    padding-right: 3px;
+    line-height: 0;
+    font-size: 0;
+}
+
+dl.makerList {
+    width: 720px;
+    overflow: hidden;
+    border-top: 1px solid #e2e2e2;
+}
+
+dl.makerList dt {
+    float: left;
+    clear: left;
+    width: 100px;
+    height: 23px;
+    padding: 7px 0 0 10px;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+dl.makerList dd {
+    float: left;
+    width: 610px;
+    height: 26px;
+    padding: 4px 0 0 0;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+dl.makerList dt.bg01 {
+    width: 710px;
+}
+
+dl.makerList dd.bg01 {
+    width: 720px;
+}
+
+div.myManager h3 {
+    font-weight: bold;
+    background: url(/resources/legacy/common/images/blog/bg_h3_manager.gif) no-repeat 0 bottom;
+    padding: 8px 0 5px 4px;
+    height: 9px;
+}
+
+div.myManager div.inside {
+    padding-bottom: 5px;
+}
+
+div.myManager ul {
+    margin: 12px 0 0 6px;
+}
+
+div.myManager ul li {
+    background: url(/resources/legacy/common/images/blog/bg_tit_manage01.gif) no-repeat 0 0;
+    padding-left: 35px;
+}
+
+div.myManager ul li ul {
+    background: #fff;
+    margin: 7px 0 11px -35px;
+    padding: 6px 0 0 13px;
+    width: 142px;
+}
+
+div.myManager ul li ul li {
+    background: url(/resources/legacy/common/images/blog/bg_tit_manage02.gif) no-repeat 0 0;
+    padding-left: 20px;
+    padding-bottom: 7px;
+}
+
+table.menuManager th {
+    text-align: left;
+    padding-left: 30px;
+}
+
+table.menuManager td {
+    padding-left: 0;
+}
+
+table.menuManager td input {
+    vertical-align: middle;
+    margin-left: 28px;
+}
+
+
+/* 관리자 블로그 부분 */
+div.contentWrap div.contentsBig {
+    width: 786px;
+    float: left;
+}
+
+div.contentsBig {
+    background: url(/resources/legacy/common/images/blog/bg_conBig_middle.gif) repeat-y 0 0;
+    margin-top: 2px;
+}
+
+div.contentsBig div.repeat {
+    background: url(/resources/legacy/common/images/blog/bg_conBig_bottom.gif) no-repeat 0 bottom;
+}
+
+div.contentsBig div.inside {
+    background: url(/resources/legacy/common/images/blog/bg_conBig_top.gif) no-repeat 0 top;
+    padding: 7px 10px 5px 5px;
+}
+
+div.contentsBig div.title {
+    background: url(/resources/legacy/common/images/blog/bg_title_big.gif) no-repeat 0 0;
+    padding: 10px 0 3px 13px;
+    overflow: hidden;
+    width: 760px;
+    height: 27px;
+}
+
+div.categorySet {
+    overflow: hidden;
+    width: 100%;
+}
+
+div.cateLeft {
+    float: left;
+    width: 278px;
+}
+
+div.cateLeft div.box {
+    background: url(/resources/legacy/common/images/blog/categoryBox_bottom.gif) no-repeat 0 bottom;
+    padding-bottom: 40px;
+}
+
+div.cateLeft div.box p {
+    background: url(/resources/legacy/common/images/blog/categoryBox_top.gif) no-repeat 0 0;
+    padding: 16px 0 7px 21px;
+}
+
+div.cateLeft div.box ul {
+    padding: 11px 0 0 18px;
+}
+
+div.cateLeft div.box ul li {
+    background: url(/resources/legacy/common/images/blog/ico_04.gif) no-repeat 0 -1px;
+    padding: 1px 0 0 21px;
+    height: 17px;
+    margin-bottom: 10px;
+}
+
+div.cateRight {
+    float: left;
+    position: relative;
+    width: 480px;
+    margin-bottom: 20px;
+}
+
+div.cateRight ul.upDown {
+    overflow: hidden;
+    position: absolute;
+    top: 220px;
+    left: 219px;
+}
+
+div.cateRight ul.upDown li {
+    float: left;
+    width: 24px;
+}
+
+div.cateRight ul.add {
+    overflow: hidden;
+    position: absolute;
+    top: 255px;
+    left: 219px;
+}
+
+div.cateRight ul.add li {
+    float: left;
+    width: 94px;
+}
+
+div.cateRight table.tbWrite01 {
+    width: 460px !important;
+    clear: both;
+    margin-top: 23px;
+}
+
+div.cateRight table.tbWrite01 select {
+    margin-top: 3px;
+}
+
+div.cateRight input {
+    vertical-align: middle;
+}
+
+div.cateRight input.txt {
+    border: 1px solid #cacaca;
+    font-size: 1em;
+    padding: 2px 2px;
+    width: 230px;
+}
+
+div.att {
+    width: 100%;
+}
+
+div.att table.tbWrite01 {
+    width: 100% !important;
+}
+
+div.access div.searchArea {
+    margin-top: 10px;
+    overflow: hidden;
+    height: 30px;
+}
+
+div.access div.searchArea * {
+    float: left;
+    margin-top: 8px;
+}
+
+div.access div.searchArea select {
+    margin-top: -5px;
+    margin: 5px 8px 0 8px;
+}
+
+div.access table#detailView02 {
+    margin: 15px 0;
+    width: 500px;
+}
+
+div.access div.tbWrap01 {
+    background: url(/resources/legacy/common/images/blog/bg_table_02.gif) no-repeat 0 0;
+}
+
+div.access div.tbWrap01 table th {
+    background: none;
+    border-right: 1px solid #ccc;
+}
+
+div.access div.tbWrap01 table td {
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+/* 방명록 */
+div.visitors {
+}
+
+div.visitors div.visi {
+    margin: 12px 0 15px 2px;
+    background: #efefef;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 5px 5px 5px;
+    width: 580px;
+}
+
+div.visitors div.visi textarea {
+    width: 576px;
+    height: 46px;
+    padding: 2px;
+}
+
+div.visiList {
+    padding-left: 7px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 7px;
+    margin: 8px 0 0 1px;
+    width: 581px;
+}
+
+div.visiList dl {
+    width: 576px;
+}
+
+div.visiList dl dt {
+    overflow: hidden;
+    width: 100%;
+}
+
+div.visiList dl dt strong {
+    display: block;
+    float: left;
+}
+
+div.visiList dl dt span {
+    display: block;
+    float: right
+}
+
+div.visiList dl dt span .x {
+    margin-left: 8px;
+}
+
+div.visiList dl dd {
+    margin: 11px 0 10px 0;
+}
+
+div.visiList span.num {
+    color: #f99506;
+}

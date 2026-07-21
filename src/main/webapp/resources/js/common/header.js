@@ -52,13 +52,13 @@ function checkIsMobile() {
         const hasMobileUrl = currentPath.includes("/mobile/m/");
         console.log("isMobile ::: " + isMobile);
 
-        // 모바일 환경인데 PC 주소로 들어온 경우 ➡> 모바일로 강제 이동
+        // 모바일 환경인데 PC 주소로 들어온 경우 -> 모바일로 강제 이동
         if (isMobile && !hasMobileUrl) {
             window.location.href = window._contextPath + "/mobile/m" + currentPath.replace(window._contextPath, "");
             return true;
         }
 
-        // PC 환경인데 모바일 주소로 들어와 있는 경우 ➡> PC로 원복
+        // PC 환경인데 모바일 주소로 들어와 있는 경우 -> PC로 원복
         if (!isMobile && hasMobileUrl) {
             window.location.href = currentPath.replace("/mobile/m", "");
             return true;

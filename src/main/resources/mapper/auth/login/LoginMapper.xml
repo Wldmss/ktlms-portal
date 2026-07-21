@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- Migrated from genius iBatis sqlMap. Keep original statement ids for traceability. -->
+<mapper namespace="com.kt.ktedu.auth.login.mapper.LoginMapper">
+
+    <select id="getIsMember" resultType="int">
+        SELECT COUNT(*) CNT
+        FROM TB_USER
+        WHERE USER_ID = #{userid}
+        <if test="s_service_type != null and s_service_type != ''">
+            <if test="s_service_type == 'dev'">
+                limit 100
+            </if>
+        </if>
+    </select>
+
+    <select id="getPossibleLoginStatus" resultType="int">
+        SELECT DECODE(A.USE_YN, 'N', 0, 1) ISPORTAL
+        FROM TB_ORG_CD A, TB_USER B
+        WHERE A.ORG_CD = B.ORG_CD
+        AND B.USER_ID = #{userid}
+        <if test="s_service_type != null and s_service_type != ''">
+            <if test="s_service_type == 'dev'">
+                limit 100
+            </if>
+        </if>
+    </select>
+
+    <select id="getMemberInfo" resultType="map">
+        SELECT A.USER_ID AS USERID
+        , A.OLD_USER_ID AS OLD_USERID
+        , A.RES_NO_PREFIX||'******' AS RESNO
+        , A.USER_NM AS NAME
+        , FN_MASKING_NAME(A.USER_NM) AS MASKING_NAME
+        , A.EMAIL_ID AS EMAIL
+        , C.PWD AS PWD
+        , B.COMP_CD AS COMP
+        , C.HOMETEL AS HOMETEL
+        , C.LGFAIL AS LGFAIL
+        , A.MPHONE_NO AS HANDPHONE
+        , C.LGIP AS LGIP
+        , (SELECT DECODE(NVL(MIN(ADM.GADMIN), 'N'), 'N', 'N', 'A201', 'O', 'M1', 'O', 'T1', 'O', 'A1', 'Y', 'A2', 'Y',
+        'P')
+        FROM TZ_MANAGER ADM
+        , TZ_GADMIN ROL
+        WHERE ADM.USERID = C.USERID
+        AND ADM.ISDELETED = 'N'
+        AND TO_CHAR(SYSDATE,'YYYYMMDD') BETWEEN ADM.FMON AND ADM.TMON
+        AND ROL.GADMIN = ADM.GADMIN
+        ) AS GUBUN
+        , CASE WHEN A.USER_STS_CD = 'D' THEN 'Y'
+        ELSE 'N' END AS ISRETIRE
+        , C.RETIRE_DATE AS RETIRE_DATE
+        , (SELECT CODENM
+        FROM TZ_CODE X
+        WHERE X.CODE = C.RETIRE_TYPE
+        AND X.GUBUN = '0069') AS RETIRE_TYPE
+        , C.RETIRE_REASON AS RETIRE_REASON
+        , A.JOB_CD AS JOB_CD
+        , (SELECT JOB_NM
+        FROM TB_JOB_CD X
+        WHERE X.JOB_CD = A.JOB_CD) AS JOB_NM
+        , NVL(C.BON_ADM,'N') AS BON_ADM
+        , C.HQ_ORG_CD AS HQ_ORG_CD
+        , C.EMP_GUBUN AS EMP_GUBUN
+        , C.AGENCY_CD AS AGENCY_CD
+        , CASE WHEN B.ORG_FULL_NM LIKE '%영업%' OR A.LVL_NM LIKE '%지사장%' THEN 'Y' ELSE '' END AS MADAN_CHK
+        , CASE WHEN A.LVL_NM LIKE '%팀장%' THEN 'Y'
+        WHEN A.LVL_NM LIKE '%지사장%' THEN 'J'
+        ELSE '' END AS MADAN_ADMIN
+        , NVL(C.GYUNGRYUK,'N') AS GYUNGRYUK
+        , NVL(C.HRDC,'N') AS HRDC
+        , (SELECT X.GRCD
+        FROM TZ_COMPCLASS X
+        WHERE X.COMP = C.COMP
+        ) AS GRCD
+        , (SELECT NVL(MAX('Y'),'N')
+        FROM TZ_COMPCLASS X
+        ,TZ_TEMPLET Y
+        WHERE X.COMP = C.COMP
+        AND Y.GRCODE = X.GRCD
+        AND ROWNUM = 1
+        ) AS GATEYN
+        , (SELECT Y.DOMAIN
+        FROM TZ_COMPCLASS X
+        ,TZ_GRCODE Y
+        WHERE X.COMP = C.COMP
+        AND Y.GRCODE = X.GRCD
+        AND ROWNUM = 1
+        ) AS DOMAIN
+        , (SELECT Y.TYPE
+        FROM TZ_COMPCLASS X
+        ,TZ_TEMPLET Y
+        WHERE X.COMP = C.COMP
+        AND Y.GRCODE = X.GRCD
+        AND ROWNUM = 1
+        ) AS TYPE
+        , DECODE(C.COMP, '1001', 'K', 'G') AS GRCODE_KIND
+        , SUBSTR(C.POSITION_CD,1,6) AS BONBU_CD
+        , B.ORG_FULL_NM AS POSITION_NM
+        , B.DEPT_CD AS DEPT_CD
+        , B.ORG_NM AS DEPT_NM
+        , C.POST_NM AS POST_NM
+        , C.LVL_NM AS LVL_NM
+        , DECODE(C.LVL_NM, NULL, 'N', DECODE(C.COMP, '1001', DECODE(TRIM(C.LVL_NM), '직원', 'N', '', 'N', 'Y'), 'N')) AS
+        MANAGER_FLAG
+        , A.TITLE_NM AS TITLE_NM
+        , (SELECT DECODE(C.COMP, '1001', 'kt', COMPNM) FROM TZ_COMPCLASS X WHERE X.COMP= C.COMP) AS COMP_NM
+        , (CASE WHEN (SELECT COUNT(*)
+        FROM TZ_MANAGER ADM
+        , TZ_GADMIN ROL
+        WHERE ADM.USERID = A.USER_ID
+        AND ADM.ISDELETED = 'N'
+        AND TO_CHAR(SYSDATE,'YYYYMMDD') BETWEEN ADM.FMON AND ADM.TMON
+        AND ROL.GADMIN = ADM.GADMIN
+        ) > 0 THEN 'Y' ELSE 'N' END) AS ISADMIN
+        , DECODE(C.SETUP_MPM, NULL, DECODE(C.COMP, '1001', '1', '5'), C.SETUP_MPM) AS SETUP_MPM
+        , (SELECT X.NEW_JOB_CD FROM TN_JOB_MAPPING X WHERE X.JOB_CD = C.JOB_CD ) AS NEW_JOB_CD /* 직무 코드 */
+        , (SELECT X.JOB_NM FROM TN_JOB_MAPPING X WHERE X.JOB_CD = A.JOB_CD) AS NEW_JOB_NM /* 직무 정보 */
+        , (SELECT Z.GRCODE
+        FROM TZ_GRCOMP Z
+        WHERE Z.COMP = C.COMP
+        AND Z.IS_NEW = 'Y'
+        AND Z.GRCODE IN (SELECT GRCODE X
+        FROM TZ_GRCODE X
+        WHERE X.GRCODE_GUBUN = 'C'
+        AND X.IS_NEW = 'Y'
+        )
+        ) AS OFF_GRCODE
+        , CASE WHEN C.ZORG_HEAD_YN = 'Y' THEN 'Y' ELSE 'N' END AS ZORGHEADYN
+        , 'N'::varchar AS has_tutor_out
+        , A.ORG_CD AS ORG_CD -- 조직코드
+        , NVL((SELECT 'Y'::VARCHAR
+        FROM TZ_MANAGER X
+        WHERE X.USERID = A.USER_ID
+        AND ISDELETED = 'N'
+        AND ROWNUM = 1
+        ),'N') AS ADMR_YN -- 어드민여부 , 강사관련 메뉴 콘트롤 용
+        , B.ORG_FULL_NM AS ORG_FULL_NM -- 부서풀명
+        , CASE WHEN A.EMP_CLAS_CD = 'T' THEN 'Y' ELSE 'N' END AS IS_TEST
+        , (SELECT NVL(MAX('Y'),'N')
+        FROM TB_EXPERT_USER EXP
+        WHERE EXP.USER_ID = A.USER_ID
+        AND EXP.EXPERT_USER_STS_CD = 'A'
+        ) AS IS_EXPERT
+        , FN_USER_CHK_MANAGER(A.USER_ID) AS MGR_YN -- 관리자 여부, 부서현황 메뉴 컨트롤 용
+        , (SELECT COALESCE(MAX('Y'), 'N')
+        FROM TB_USER A, TB_ORG_CD B
+        WHERE A.USER_ID = #{userid}
+        AND B.ORG_CD = A.ORG_CD
+        AND B.LEAF_YN = 'N'
+        AND B.MGR_EMP_ID = A.USER_ID
+        ) AS IS_EXECUTIVE
+        FROM TB_USER A
+        , TB_ORG_CD B
+        , TZ_MEMBER C
+        WHERE A.USER_ID = #{userid}
+        AND B.ORG_CD = A.ORG_CD
+        AND A.USER_ID = C.USERID
+        <if test="s_service_type != null and s_service_type != ''">
+            <if test="s_service_type == 'dev'">
+                limit 100
+            </if>
+        </if>
+    </select>
+
+    <select id="getSendSmsInfo" resultType="map">
+        SELECT A.USER_ID   AS USERID
+             , A.MPHONE_NO AS HANDPHONE
+             , A.USER_NM   AS NAME
+             , A.EMAIL_ID  AS EMAIL
+             , B.COMP_CD   AS COMP
+        FROM TB_USER A,
+             TB_ORG_CD B
+        WHERE A.USER_ID = #{userid}
+          AND B.ORG_CD = A.ORG_CD
+    </select>
+
+    <select id="getEmailInfo" resultType="map">
+        SELECT A.USER_ID  AS USERID
+             , A.EMAIL_ID AS EMAIL
+             , B.COMP_CD  AS COMP
+        FROM TB_USER A,
+             TB_ORG_CD B
+        WHERE A.USER_ID = #{userid}
+          AND B.ORG_CD = A.ORG_CD
+    </select>
+
+    <update id="updateLoginCnt">
+        UPDATE TZ_MEMBER
+        SET LGCNT = LGCNT + 1,
+        <if test="lgfirst == null or lgfirst == ''">
+            LGFIRST = TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS'),
+        </if>
+        LGIP = #{lgip},
+        LGFAIL = 0,
+        LGLAST= TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')
+        WHERE USERID = #{userid}
+    </update>
+
+    <insert id="insertLoginLog">
+        INSERT INTO TB_FRONT_LOGIN_LOG (LOG_SEQ,
+                                        CRE_TM,
+                                        USER_ID,
+                                        IP_ADDR,
+                                        MW_FLAG,
+                                        LOGIN_PATH)
+        VALUES (SQ_FRONT_MENU_LOG.NEXTVAL,
+                NOW(),
+                #{userid},
+                #{lgip},
+                #{con_device},
+                #{loginPath})
+    </insert>
+
+    <update id="updateLoginFailCnt">
+        UPDATE TZ_MEMBER
+        SET LGFAIL = LGFAIL + 1
+        WHERE LOWER(USERID) = LOWER(#{userid})
+    </update>
+
+    <!-- 로그인 계정잠금 초기화 -->
+    <update id="updateLoginFailInit">
+        UPDATE TZ_MEMBER
+        SET LGFAIL = 0
+        WHERE LOWER(USERID) = LOWER(#{s_userid})
+    </update>
+
+    <!-- 로그인시 인증여부 확인 -->
+    <select id="getLoginOptCnt" resultType="int">
+        SELECT COUNT(*) AS CNT
+        FROM TZ_SMSAUTH
+        WHERE USERID = #{userid}
+        AND OPT = 'Y'
+        <!-- AND TO_CHAR(SYSDATE,'YYYYMMDD') BETWEEN TO_CHAR(TO_DATE(STDT, 'YYYYMMDDHH24MISS'), 'YYYYMMDD') AND TO_CHAR(TO_DATE(ENDT, 'YYYYMMDDHH24MISS'), 'YYYYMMDD') -->
+        AND TO_CHAR(TO_DATE(LSTDT,'YYYYMMDDHH24MISS'), 'YYYYMMDD') = TO_CHAR(SYSDATE ,'YYYYMMDD')
+        <if test="s_service_type != null and s_service_type != ''">
+            <if test="s_service_type == 'dev'">
+                limit 100
+            </if>
+        </if>
+    </select>
+
+    <!-- 로그인실패 로그 -->
+    <insert id="insertLoginFailLog">
+        INSERT INTO TN_LOGIN_FAIL_LOG (
+        SEQ,
+        USERID,
+        NAME,
+        LGIP,
+        LDATE
+        ) VALUES (
+        TN_LOGIN_FAIL_LOG_SEQ.NEXTVAL,
+        <if test="userid == null or userid == ''">
+            #{p_userid},
+            (SELECT NAME FROM TZ_MEMBER WHERE USERID=#{p_userid}),
+        </if>
+        <if test="userid != null and userid != ''">
+            #{userid},
+            (SELECT NAME FROM TZ_MEMBER WHERE USERID=#{userid}),
+        </if>
+        #{lgip},
+        TO_CHAR(SYSDATE,'YYYYMMDDHH24MISS')
+        )
+    </insert>
+
+
+    <!-- KDT, 경기도교육청 교사양성 과정 사용자 여부 체크 -->
+    <select id="getIsEtcMember" resultType="int">
+        SELECT COUNT(*) CNT
+        FROM TN_TEST_MEMBER A
+           , TZ_MEMBER B
+        WHERE A.TESTID = #{userid}
+          AND A.TESTID = B.USERID
+          AND B.COMP = #{etcCompCd}
+    </select>
+
+    <!-- KDT, 경기도교육청 교사양성 과정 사용자 조회 -->
+    <select id="getEtcMemberInfo" resultType="map">
+        SELECT
+        A.TESTID AS USERID
+        ,A.DEL_YN AS DELYN
+        ,A.PW_YN AS PWYN
+        ,B.PWD AS PWD
+        ,B.NAME AS NAME
+        ,B.COMP AS COMP
+        FROM
+        TN_TEST_MEMBER A
+        ,TZ_MEMBER B
+        WHERE
+        A.TESTID = B.USERID
+        AND A.TESTID = #{userid}
+        <if test="pwd != null and pwd != ''">
+            AND B.PWD = #{pwd}
+        </if>
+    </select>
+
+    <!-- 초기 비번 업데이트 -->
+    <update id="updateConfirmPwd">
+        UPDATE
+            TZ_MEMBER
+        SET PWD = #{s_pwd}
+        WHERE USERID = #{s_userid}
+    </update>
+
+    <!-- 초기비번 구분 업데이트 -->
+    <update id="updateTnTestMeberPwyn">
+        UPDATE
+            TN_TEST_MEMBER
+        SET PW_YN = 'Y'
+        WHERE TESTID = #{s_userid}
+    </update>
+
+    <select id="getLdapOrgCd" resultType="string">
+        SELECT ARRAY_TO_STRING(ARRAY_AGG(ORG_CD), ',')
+        FROM TB_LDAP_CD
+    </select>
+
+    <select id="getCheckLoginIp" resultType="int">
+        SELECT COUNT(1)
+        FROM (SELECT USERID, LG_IP
+              FROM TZ_SMSAUTH
+              WHERE USERID = #{userid}
+                AND OPT = 'Y'
+                AND TO_CHAR(TO_DATE(LSTDT, 'YYYYMMDDHH24MISS'), 'YYYYMMDD') = TO_CHAR(SYSDATE, 'YYYYMMDD')
+              ORDER BY LSTDT DESC LIMIT 1)
+        WHERE SPLIT_PART(LG_IP, '.', 1) || SPLIT_PART(LG_IP, '.', 2) =
+              SPLIT_PART(#{lgip}, '.', 1) || SPLIT_PART(#{lgip}, '.', 2)
+    </select>
+
+    <select id="getOtpLockCheck" resultType="string">
+	<![CDATA[
+        SELECT CASE
+                   WHEN COUNT(*) > 4
+                       AND SYSDATE < TO_DATE((SELECT STDT
+                                              FROM TZ_SMSAUTH
+                                              WHERE USERID = #{userid}
+                                              ORDER BY STDT DESC
+                           LIMIT 1 ) , 'YYYY-MM-DD HH24:MI:SS') +
+            interval '5 minutes'
+            AND MOD(COUNT (*)
+             , 5) = 0 THEN 'F' ELSE 'S'
+        END
+        FROM TZ_SMSAUTH A
+		WHERE TO_DATE(STDT, 'YYYY-MM-DD HH24:MI:SS') > (
+					SELECT CASE WHEN SUCCESS_CNT > 0 THEN ( SELECT TO_DATE(STDT, 'YYYY-MM-DD HH24:MI:SS') AS SUCCESS_DT 
+															FROM TZ_SMSAUTH 
+															WHERE  USERID =
+        #{userid}
+        AND
+        OPT
+        =
+        'Y'
+        ORDER
+        BY
+        STDT
+        DESC
+        LIMIT
+        1
+        )
+        ELSE
+        (
+        SELECT
+        TO_DATE
+        (
+        STDT,
+        'YYYY-MM-DD HH24:MI:SS'
+        )
+        AS
+        SUCCESS_DT
+        FROM
+        TZ_SMSAUTH
+        WHERE
+        USERID
+        =
+        #{userid}
+        AND
+        OPT
+        =
+        'N'
+        ORDER
+        BY
+        STDT
+        LIMIT
+        1
+        )
+        END
+        FROM
+        (
+        SELECT
+        count
+        (
+        1
+        )
+        AS
+        SUCCESS_CNT
+        FROM
+        TZ_SMSAUTH
+        WHERE
+        USERID
+        =
+        #{userid}
+        AND
+        OPT
+        =
+        'Y'
+        )
+        )
+        AND
+        USERID
+        =
+        #{userid}
+        ]]>
+	</select>
+    <select id="getPopupInfo" resultType="map">
+        /* getPopupInfo */
+        SELECT A.*
+        FROM (SELECT SEC.FRONT_TITLE
+                   , TO_CHAR(SLT.STR_DT, 'D')
+                   , SEC.FRONT_SLOT_CNT
+                   , ROW_NUMBER() OVER(ORDER BY SLT.DISP_ORD) REAL_DISP_ORD
+        		   ,SLT.SLOT_ID
+                   , SLT.CRE_TM
+                   , SLT.BNNR_LINK_TYPE
+                   , SLT.SLOT_OBJ_ID
+                   , SLT.SLOT_IMG_LFILE_NM
+                   , SLT.SLOT_IMG_SFILE_NM
+                   , SLT.VIEW_CNT
+                   , TO_CHAR(SLT.STR_DT, 'YY.MM.DD') || '(' || SUBSTR('일월화수목금토', TO_CHAR(SLT.STR_DT, 'D'), 1) ||
+                     ')' AS       BNNR_STR_DT
+                   , TO_CHAR(SLT.END_DT, 'YY.MM.DD') || '(' || SUBSTR('일월화수목금토', TO_CHAR(SLT.END_DT, 'D'), 1) ||
+                     ')' AS       BNNR_END_DT
+                   , BNR.OVERLAY_TEXT
+                   , BNR.TEXT_COLOR
+                   , BNR.OVERLAY_TEXT_2
+                   , BNR.TEXT_COLOR_2
+                   , BNR.OVERLAY_TEXT_3
+                   , BNR.TEXT_COLOR_3
+              FROM TB_SECT SEC
+                 , TB_SECT_SLOT SLT
+                 , TB_SECT_SLOT_TEXT BNR
+              WHERE SEC.SECT_ID = 'POPUP.NOTI'
+                AND SLT.SECT_ID = SEC.SECT_ID
+                AND SLT.SLOT_STS_CD = 'A'
+                AND TRUNC(NOW()) BETWEEN SLT.STR_DT AND SLT.END_DT
+                AND BNR.SLOT_ID(+) = SLT.SLOT_ID) A
+        WHERE A.REAL_DISP_ORD <![CDATA[<=]]> A.FRONT_SLOT_CNT
+        ORDER BY A.REAL_DISP_ORD
+    </select>
+
+    <select id="menuUrlChk" resultType="int">
+        SELECT COUNT(*) CNT
+        FROM TB_FRONT_MENU
+        WHERE LINK_URL = #{chkUrl}
+    </select>
+
+    <select id="getRsaPublicKey" resultType="string">
+        SELECT PUBLIC_KEY
+        FROM TB_RSA_LOGIN
+        WHERE KEY_SEQ = #{encSeq}
+    </select>
+
+    <select id="getRsaPrivateKey" resultType="string">
+        SELECT PRIVATE_KEY
+        FROM TB_RSA_LOGIN
+        WHERE KEY_SEQ = #{s_encSeq}
+    </select>
+
+    <select id="getLdapCompanyYn" resultType="string">
+        SELECT COALESCE(MAX('Y'), 'N')
+        FROM TB_ORG_CD
+        WHERE P_ORG_CD = 'KTGRP'
+          AND USE_YN = 'Y'
+          AND ORG_CD NOT IN ('2001')
+          AND ORG_CD = #{comp}
+    </select>
+
+    <!-- 인증번호 우회 여부 -->
+    <select id="getSmsBypassYn" resultType="string">
+        SELECT ENV_VAL
+        FROM TB_SYS_ENV
+        WHERE ENV_ID = 'SMS_BYPASS'
+    </select>
+
+    <!-- 중복로그인 세션 TB_USER_SESSION -->
+    <insert id="upsertUserSession">
+        WITH UPSERT AS (
+        UPDATE TB_USER_SESSION
+        SET SESSION_ID = #{sessionId}
+          , UPD_TM     = NOW()
+        WHERE USER_ID = #{userid} RETURNING * )
+
+        INSERT
+        INTO TB_USER_SESSION (USER_ID, SESSION_ID)
+        SELECT #{userid},
+               #{sessionId} WHERE NOT EXISTS (SELECT * FROM UPSERT)
+    </insert>
+
+    <!-- 중복 세션 체크 -->
+    <select id="getSessionIdByUser" resultType="string">
+        SELECT SESSION_ID
+        FROM TB_USER_SESSION
+        WHERE USER_ID = #{userid}
+    </select>
+
+    <!-- 앱 로그아웃 시 기기 자동로그인 키 만료 -->
+    <update id="updateExpireLoginKey">
+        UPDATE TB_USER_DEV
+        SET LOGIN_KEY = #{loginKey}
+          , UPD_TM    = NOW()
+        WHERE DEV_ID = (SELECT LAST_DEV_ID
+                        FROM TB_USER_LOGIN
+                        WHERE USER_ID = #{userId})
+    </update>
+</mapper>
