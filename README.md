@@ -33,7 +33,10 @@
 2. Tomcat server : Apache Tomcat/10.1.57
 3. Deployment directory: ktlms-portal/src/main/webapp
 4. Context path : /
-5. VM Options : -Dspring.profiles.active=local -Dapp.env.directory=/Users/sqi/ktgenius/git/ktlms-portal/env 입력
+5. VM Options : -Dspring.profiles.active=local
+   -Dapp.env.directory=D:\git\ktlms-portal\env
+   -Duser.language=en 입력
+
    -Dapp.env.directory={local.env, common.env 파일 경로}
 
 ---

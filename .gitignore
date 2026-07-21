@@ -11,6 +11,8 @@
 .settings/
 .factorypath
 .apt_generated/
+.smarttomcat/
+.run/
 
 .DS_Store
 Thumbs.db
