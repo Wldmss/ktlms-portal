@@ -1,5 +1,6 @@
-1. intellij에 열려있는 ktlms 프로젝트는 'portal' 이라고 칭한다.
-2. intellij에 열려있는 genius_prd 프로젝트는 'genius' 라고 칭한다.
+1. 모든 답변은 한글로 한다.
+2. 현재 경로의 프로젝트 ktlms-portal 프로젝트는 'portal' 이라고 칭한다.
+2. C:\workspace\KTedu_jenkins  프로젝트는 'genius' 라고 칭한다.
 3. genius 프로젝트는 jdk1.7 레거시 프로젝토이다.
 4. portal 프로젝트는 Jdk21, spring 6, Jboss 38.0.1 버전의 신규 프로젝트이다.
 5. portal 프로젝트는 genius 프로젝트를 이관할 프로젝트이다.
